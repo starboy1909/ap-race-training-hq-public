@@ -31,8 +31,8 @@ const weeks: Week[] = [
     label: "W12",
     dates: "27 Jul – 2 Aug",
     phase: "RECOVER",
-    volume: "10–15 km optional",
-    focus: "Post-Delhi reset. Recovery is the training objective.",
+    volume: "27 km completed",
+    focus: "Post-Delhi recovery week completed with 27 km of easy jogging. This actual load now anchors the rebuild.",
     gate:
       "Pain above 2/10 during the first run means stop and swap the next run for easy cycling. No quality running this week.",
     days: [
@@ -125,34 +125,124 @@ const weeks: Week[] = [
     id: "S13",
     label: "W13",
     dates: "3–9 Aug",
-    phase: "REBUILD",
-    volume: "28–32 km",
-    focus: "Rebuild frequency. Strength returns at 70%. No hard compromised work.",
+    phase: "REBUILD + STRENGTH",
+    volume: "29–31 km",
+    focus: "Build from the completed 27 km recovery week. Three purposeful strength exposures, one controlled quality run and no junk volume.",
+    gate: "Proceed because walking, stairs and easy running are now pain-free. Regress only if pain exceeds 2/10, changes stride, produces swelling or remains elevated the next morning. The physio's exact right-hip drill overrides the generic mobility drill below.",
     days: [
-      { id: "S13-0", date: "3 AUG", dow: "MON", title: "Lower Strength Re-entry", type: "STRENGTH", duration: "60 min", rpe: "6", blocks: [{ label: "MAIN", items: ["Leg press 3×8 at ~70%", "Split squat 3×8/side", "Romanian deadlift 3×8", "Eccentric calves + tibialis"] }] },
-      { id: "S13-1", date: "4 AUG", dow: "TUE", title: "Easy Z2 + Strides", type: "RUN", duration: "40 min", rpe: "4", blocks: [{ label: "MAIN", items: ["35 min Z2", "4×15 sec relaxed strides", "Full walk-back recovery"] }] },
-      { id: "S13-2", date: "5 AUG", dow: "WED", title: "Pull + Row Technique", type: "STRENGTH", duration: "60 min", rpe: "6–7", blocks: [{ label: "MAIN", items: ["Chest-supported row", "Lat pulldown", "Seated cable row", "Row 5×500m smooth, 90 sec rest"] }] },
-      { id: "S13-3", date: "6 AUG", dow: "THU", title: "Easy Run", type: "RUN", duration: "35 min", rpe: "4" },
-      { id: "S13-4", date: "7 AUG", dow: "FRI", title: "Push + Trunk", type: "STRENGTH", duration: "55 min", rpe: "6–7", blocks: [{ label: "MAIN", items: ["Machine chest press", "Shoulder press", "Cable triceps", "Pallof press + planks"] }] },
-      { id: "S13-5", date: "8 AUG", dow: "SAT", title: "Long Easy Run", type: "RUN", duration: "60 min", rpe: "5", blocks: [{ label: "MAIN", items: ["Z2 throughout", "HR cap 142", "Flat route"] }] },
-      { id: "S13-6", date: "9 AUG", dow: "SUN", title: "Full Rest", type: "REST", duration: "All day", rpe: "0" },
+      {
+        id: "S13-0", date: "3 AUG", dow: "MON", title: "Full-Body Strength A · Rebuild", type: "STRENGTH", duration: "75 min", rpe: "6–7",
+        note: "This is a full session, not four token exercises. Finish every working set with 2–3 good reps still available. Record the load used on each machine.",
+        blocks: [
+          { label: "WARM-UP · 10 MIN", items: ["Bike 5 min easy at RPE 2–3", "90/90 controlled hip switches 2×6/side; pause 3 sec at each end, never force a pinch", "Bodyweight hip hinge 2×10 + glute bridge 2×10; 30 sec rest", "Two progressive warm-up sets before leg press and Romanian deadlift"] },
+          { label: "PRIMARY STRENGTH", items: ["Panatta leg press 4×8 @ RPE 7; 2 min rest; controlled 3-sec lowering, right knee tracks over second toe", "Romanian deadlift 4×8 @ RPE 7; 2 min rest; hips travel back, ribs stacked, stop before the lower back rounds", "Panatta chest-supported row 4×8–10 @ RPE 7; 90 sec rest; pause 1 sec with shoulder blades back", "Machine chest press 3×8–10 @ RPE 7; 90 sec rest; shoulders stay down, no grinding"] },
+          { label: "RIGHT HIP + HAMSTRING CAPACITY", items: ["Physio-prescribed right-hip rotation drill 3 sets exactly as prescribed; this takes priority over any generic drill", "Single-leg Romanian deadlift 3×8/side with light dumbbells; 75 sec rest; pelvis remains square", "Long-lever hamstring bridge isometric 3×25–30 sec; 45 sec rest; feel hamstring, not lower back"] },
+          { label: "PERMANENT PREHAB + TRUNK", items: ["Supported eccentric calf lower 3×12/side; 45 sec rest; 3-sec lowering", "Tibialis raise 3×15–20; 45 sec rest", "Pallof press 3×10/side with 2-sec hold; 45 sec rest"] },
+          { label: "COOLDOWN · 5 MIN", items: ["Easy walk 3 min", "Active hamstring floss 2×8/side, no aggressive static stretch", "Log right hip, hamstring and knee response immediately and next morning"] },
+        ],
+      },
+      {
+        id: "S13-1", date: "4 AUG", dow: "TUE", title: "Easy Z2 + Neuromuscular Strides", type: "RUN", duration: "7–8 km · 48–55 min", rpe: "3–5",
+        blocks: [
+          { label: "WARM-UP · 10 MIN", items: ["5 min brisk walk into easy jog", "Leg swings front/back 10/side + lateral 10/side", "Hip airplane supported 2×5/side; small range, pelvis controlled", "2×20 sec relaxed pickups with 60 sec walk"] },
+          { label: "MAIN RUN", items: ["6–7 km easy at roughly 6:05–6:35/km or HR ≤142; use whichever keeps breathing conversational", "Then 4×15 sec relaxed strides at about 85% speed", "Walk 60–75 sec after each stride; smooth acceleration, no sprinting"] },
+          { label: "COOLDOWN", items: ["5 min easy jog/walk", "Right-hip physio drill 2 prescribed sets", "Record pace, average HR, pain and next-morning stiffness"] },
+        ],
+      },
+      {
+        id: "S13-2", date: "5 AUG", dow: "WED", title: "HYROX Pull Strength + Erg Technique", type: "HYROX", duration: "70 min", rpe: "6–7",
+        blocks: [
+          { label: "WARM-UP · 10 MIN", items: ["SkiErg or row 5 min easy", "Band straight-arm pulldown 2×12", "Scapular pull 2×8 + light cable row 2×10", "One light practice round of every erg cue before work begins"] },
+          { label: "PULL STRENGTH", items: ["Panatta chest-supported row 4×8 @ RPE 7; 90 sec rest", "Neutral-grip lat pulldown 4×8–10 @ RPE 7; 90 sec rest", "Single-arm cable row 3×10/side; 60 sec between sides; no torso rotation", "Heavy rope or sled pull 6×12.5 m at 60–70% race load; 75 sec rest; short hand-over-hand cycles, hips low"] },
+          { label: "ERG TECHNIQUE", items: ["Row 6×250 m @ RPE 6; 60 sec easy rest", "Hold stroke rate 24–26 spm; push with legs, then swing, then pull", "Target repeatability within 2 sec, not maximum speed"] },
+          { label: "ACCESSORY + TRUNK", items: ["Reverse pec deck 3×12–15; 60 sec rest", "Farmer carry 4×30 m heavy but unbroken; 60 sec rest", "Side plank 3×30 sec/side; 30 sec rest"] },
+          { label: "COOLDOWN", items: ["5 min easy bike or walk", "90/90 controlled switches 1×6/side", "No additional pulling volume after the session"] },
+        ],
+      },
+      {
+        id: "S13-3", date: "6 AUG", dow: "THU", title: "Controlled Aerobic Intervals", type: "RUN", duration: "8–9 km · 55–60 min", rpe: "6",
+        blocks: [
+          { label: "WARM-UP · 15 MIN", items: ["12 min easy jog", "Ankle rocks 10/side + marching A-drill 2×20 m", "3×20 sec progressive pickups; 60 sec easy jog"] },
+          { label: "MAIN", items: ["4×5 min at controlled steady effort, approximately 5:15–5:30/km or RPE 6; use whichever is slower", "Jog 2 min very easy between repetitions", "Rep 4 should look like rep 1. Do not turn this into a time trial"] },
+          { label: "COOLDOWN", items: ["10 min easy jog", "Active hamstring floss 2×8/side", "Stop and downgrade the next run if hip, hamstring or knee response persists the next morning"] },
+        ],
+      },
+      {
+        id: "S13-4", date: "7 AUG", dow: "FRI", title: "Full-Body Strength B · Posterior Chain", type: "STRENGTH", duration: "75 min", rpe: "6–7",
+        blocks: [
+          { label: "WARM-UP · 10 MIN", items: ["Bike 5 min easy", "Quadruped hip CAR 2×4/side; pelvis stays still", "Mini-band lateral walk 2×10 steps each way; feet forward", "Two progressive warm-up sets for hip thrust"] },
+          { label: "PRIMARY STRENGTH", items: ["Hip thrust 4×8 @ RPE 7; 2 min rest; 2-sec squeeze at the top", "Rear-foot-supported split squat 3×8/side @ RPE 6; 90 sec rest; short range first, right knee tracks cleanly", "Seated or lying hamstring curl 4×10 @ RPE 7; 75 sec rest; 2-sec eccentric", "Incline machine chest press 4×8 @ RPE 7; 90 sec rest", "Neutral-grip pulldown 3×10 @ RPE 7; 75 sec rest"] },
+          { label: "RIGHT-SIDE CONTROL", items: ["Physio-prescribed right-hip drill 3 sets", "Low step-down 3×8/side; 60 sec rest; pelvis level and knee over mid-foot", "Single-leg balance with cable or band row 2×10/side; slow and controlled"] },
+          { label: "FINISHER + TRUNK", items: ["Farmer carry 4×30 m @ RPE 7; 60 sec rest", "Front plank 3×35–45 sec; 45 sec rest", "Tibialis raise 3×15 + eccentric calf lower 3×12/side"] },
+          { label: "COOLDOWN", items: ["5 min easy walk", "Gentle hamstring stretch 2×20 sec only after training; hinge from hip, neutral spine", "Log right-left strength difference"] },
+        ],
+      },
+      {
+        id: "S13-5", date: "8 AUG", dow: "SAT", title: "Long Easy Aerobic Run", type: "RUN", duration: "12–13 km · 75–85 min", rpe: "4–5",
+        blocks: [
+          { label: "PRE-RUN", items: ["5 min brisk walk + 5 min easy jog", "Right-hip physio drill 1–2 activation sets only", "Take water if conditions are hot or humid"] },
+          { label: "MAIN", items: ["First 3 km deliberately easy around 6:20–6:40/km", "Middle 7–8 km settle into Z2, HR cap 142", "Final 2 km remain easy; no progression finish this week", "Flat or gently rolling route, no sustained hills"] },
+          { label: "FUEL + FORM", items: ["For sessions over 75 min, take 25–35 g carbohydrate around 40–45 min", "Check posture every 2 km: tall hips, quiet feet, right knee tracks forward", "Stop if gait changes even without sharp pain"] },
+          { label: "COOLDOWN", items: ["5–8 min walk", "Rehydrate and eat 25–35 g protein within the next meal", "Record next-morning hamstring stiffness"] },
+        ],
+      },
+      {
+        id: "S13-6", date: "9 AUG", dow: "SUN", title: "Full Rest + Hip Reset", type: "REST", duration: "15–20 min optional", rpe: "0–2",
+        blocks: [
+          { label: "OPTIONAL MOBILITY", items: ["Easy walk 10–20 min only if it improves recovery", "Physio-prescribed hip drill 2 sets", "90/90 switches 1×6/side + active hamstring floss 2×8/side", "No strength training and no make-up kilometres"] },
+          { label: "WEEK REVIEW", items: ["Green: no pain, normal gait and normal next-morning stiffness", "Amber: pain 1–2/10 or stiffness greater than 24 h; hold next week's volume", "Red: pain above 2/10, swelling or altered gait; remove quality running and contact physio"] },
+        ],
+      },
     ],
   },
   {
     id: "S14",
     label: "W14",
     dates: "10–16 Aug",
-    phase: "RUN BASE",
-    volume: "34–38 km",
-    focus: "Threshold returns. First controlled HYROX partner-technique exposure.",
+    phase: "BUILD 1",
+    volume: "34–36 km",
+    focus: "Raise aerobic and threshold capacity while maintaining a large strength reserve. One true run-quality session plus controlled hills.",
+    gate: "Unlock only after Week 13 is completed without altered gait or next-day symptom escalation. If a Shenzhen entry becomes confirmed, replace this build with a race-week taper rather than adding the race on top.",
     days: [
-      { id: "S14-0", date: "10 AUG", dow: "MON", title: "Lower Strength", type: "STRENGTH", duration: "65 min", rpe: "7" },
-      { id: "S14-1", date: "11 AUG", dow: "TUE", title: "Easy + Strides", type: "RUN", duration: "45 min", rpe: "4" },
-      { id: "S14-2", date: "12 AUG", dow: "WED", title: "Partner Sled Skill", type: "HYROX", duration: "60 min", rpe: "6–7", blocks: [{ label: "TECHNIQUE", items: ["Push 6×12.5m, controlled heavy", "Pull 6×12.5m, short rope cycles", "Film handover and transition practice", "No fatigue chasing"] }] },
-      { id: "S14-3", date: "13 AUG", dow: "THU", title: "Threshold 3×8 min", type: "RUN", duration: "50 min", rpe: "7", blocks: [{ label: "MAIN", items: ["3×8 min at 4:35–4:50/km", "2:30 easy jog", "Start conservative"] }] },
-      { id: "S14-4", date: "14 AUG", dow: "FRI", title: "Upper Strength", type: "STRENGTH", duration: "60 min", rpe: "7" },
-      { id: "S14-5", date: "15 AUG", dow: "SAT", title: "Hill Strength Run", type: "RUN", duration: "55 min", rpe: "7", blocks: [{ label: "MAIN", items: ["8×60 sec uphill", "Jog down fully", "Keep mechanics clean"] }] },
-      { id: "S14-6", date: "16 AUG", dow: "SUN", title: "Easy Recovery", type: "RUN", duration: "30 min", rpe: "3–4" },
+      { id: "S14-0", date: "10 AUG", dow: "MON", title: "Lower Strength · Squat + Hinge", type: "STRENGTH", duration: "75 min", rpe: "7", blocks: [
+        { label: "WARM-UP", items: ["Bike 6 min easy", "90/90 switches 2×6/side + physio hip drill 2 sets", "Goblet squat 2×8 light + RDL 2×8 light"] },
+        { label: "PRIMARY", items: ["Panatta hack squat or leg press 4×6 @ RPE 7–8; 2:30 rest", "Romanian deadlift 4×6 @ RPE 7–8; 2 min rest", "Rear-foot-supported split squat 3×8/side @ RPE 7; 90 sec rest", "Seated hamstring curl 4×8–10 @ RPE 8; 75 sec rest"] },
+        { label: "CONTROL + PREHAB", items: ["Low step-down 3×8/side", "Long-lever hamstring bridge 3×30 sec", "Eccentric calf 3×12/side + tibialis raise 3×18", "Pallof press 3×10/side"] },
+        { label: "COOLDOWN", items: ["Walk 5 min", "Active hamstring floss 2×8/side", "Record working loads; next week increases require all reps with clean form"] },
+      ] },
+      { id: "S14-1", date: "11 AUG", dow: "TUE", title: "Easy Z2 + Strides", type: "RUN", duration: "8 km · 50–55 min", rpe: "4–5", blocks: [
+        { label: "WARM-UP", items: ["10 min easy", "Leg swings 10/side + supported hip airplane 2×5/side", "2×20 sec progressive pickups"] },
+        { label: "MAIN", items: ["7 km easy at 6:00–6:30/km or HR ≤142", "5×20 sec strides at 85–90%; 70 sec walk/jog recovery", "Fast and relaxed, never straining"] },
+        { label: "COOLDOWN", items: ["Easy jog/walk to 8 km total", "Physio hip drill 2 sets"] },
+      ] },
+      { id: "S14-2", date: "12 AUG", dow: "WED", title: "Partner Sled Technique + Upper Strength", type: "HYROX", duration: "75 min", rpe: "6–7", blocks: [
+        { label: "WARM-UP", items: ["SkiErg 5 min easy", "Sled march 2×12.5 m unloaded", "Band row 2×12 + push-up to bench 2×8"] },
+        { label: "SLED SKILL", items: ["Sled push 6×12.5 m at 65–75% Pro load; 75 sec rest; long arms, short steps", "Sled pull 8×12.5 m at 60–70% Pro load; 75 sec rest; short rope cycles", "Film one push and one pull from the side", "Partner handover rehearsal 6 times; call the switch before fatigue forces it"] },
+        { label: "UPPER STRENGTH", items: ["Chest-supported row 4×8; 90 sec rest", "Machine chest press 4×8; 90 sec rest", "Lat pulldown 3×10; 75 sec rest", "Shoulder press machine 3×8; 75 sec rest"] },
+        { label: "TRUNK", items: ["Farmer carry 4×40 m; 75 sec rest", "Side plank 3×35 sec/side"] },
+        { label: "COOLDOWN", items: ["Walk 5 min", "Physio hip drill 2 prescribed sets", "No conditioning finisher"] },
+      ] },
+      { id: "S14-3", date: "13 AUG", dow: "THU", title: "Threshold 3×8 Minutes", type: "RUN", duration: "9–10 km · 60 min", rpe: "7", blocks: [
+        { label: "WARM-UP", items: ["15 min easy jog", "A-march 2×20 m + 3×20 sec strides", "Start first repetition only when breathing is settled"] },
+        { label: "MAIN", items: ["3×8 min at approximately 5:00–5:15/km or RPE 7; use whichever is slower", "Jog 2:30 between repetitions", "Hold even effort; pace may slow on inclines", "Final rep may be 5–10 sec/km faster only if form remains quiet"] },
+        { label: "COOLDOWN", items: ["12 min easy jog", "Active hamstring floss 2×8/side", "Record average pace and HR for each repetition"] },
+      ] },
+      { id: "S14-4", date: "14 AUG", dow: "FRI", title: "Upper Strength + Hip Control", type: "STRENGTH", duration: "65 min", rpe: "7", blocks: [
+        { label: "WARM-UP", items: ["Easy bike 5 min", "Shoulder circles + band pull-apart 2×12", "90/90 switches 2×6/side"] },
+        { label: "MAIN", items: ["Neutral-grip lat pulldown 4×8 @ RPE 8; 90 sec rest", "Incline machine press 4×8 @ RPE 7–8; 90 sec rest", "Seated cable row 3×10; 75 sec rest", "Machine shoulder press 3×8; 75 sec rest", "Reverse pec deck 3×15; 60 sec rest", "Cable curl + rope pressdown 3×10 each; 60 sec after the pair"] },
+        { label: "HIP + TRUNK", items: ["Physio right-hip drill 3 sets", "Single-leg RDL 3×8/side light and controlled", "Pallof press 3×12/side + front plank 3×40 sec"] },
+        { label: "COOLDOWN", items: ["Walk 5 min", "No lower-body finisher before the weekend runs"] },
+      ] },
+      { id: "S14-5", date: "15 AUG", dow: "SAT", title: "Long Aerobic Run + Hill Surges", type: "RUN", duration: "13 km · 80–90 min", rpe: "4–7", blocks: [
+        { label: "WARM-UP", items: ["2 km very easy", "Hip activation: supported airplane 1×5/side + marching 2×20 m"] },
+        { label: "MAIN", items: ["Run 9 km steady Z2 after warm-up", "During km 5–10, complete 6×30 sec uphill at RPE 7", "Jog at least 2:30 easy between surges", "Finish remaining distance easy; no hard downhill running"] },
+        { label: "FUEL + FORM", items: ["Take 25–35 g carbohydrate around 40 min", "Hill cue: quick feet, slight ankle lean, right knee tracks straight", "Descend easily to protect eccentric load"] },
+        { label: "COOLDOWN", items: ["Walk 5–8 min", "Protein plus carbohydrate meal", "Log right hamstring response before Sunday's run"] },
+      ] },
+      { id: "S14-6", date: "16 AUG", dow: "SUN", title: "Recovery Run + Mobility", type: "RUN", duration: "4–5 km · 30–35 min", rpe: "3", blocks: [
+        { label: "MAIN", items: ["Entire run at recovery effort, approximately 6:25–6:55/km", "Flat route only", "If legs are heavy or right hamstring is restricted, replace with 30 min easy bike"] },
+        { label: "MOBILITY", items: ["Physio hip drill 2 sets", "90/90 switches 1×6/side", "Active hamstring floss 2×8/side", "Eccentric calf 2×12 + tibialis raise 2×15"] },
+      ] },
     ],
   },
   {
@@ -160,16 +250,49 @@ const weeks: Week[] = [
     label: "W15",
     dates: "17–23 Aug",
     phase: "10K BUILD",
-    volume: "38–42 km",
-    focus: "PEGASUS-specific hills and 10K pace. Stations stay technical.",
+    volume: "38–40 km",
+    focus: "Peak useful workload before PEGASUS. One interval session, one HYROX strength-skill session and a 15 km aerobic run.",
+    gate: "Increase only if Week 14 is green. If AVOHK 5K is raced, it replaces the 1 km interval session. Never perform both as hard efforts in the same week.",
     days: [
-      { id: "S15-0", date: "17 AUG", dow: "MON", title: "Lower Strength", type: "STRENGTH", duration: "65 min", rpe: "7" },
-      { id: "S15-1", date: "18 AUG", dow: "TUE", title: "5×1 km", type: "RUN", duration: "55 min", rpe: "8", blocks: [{ label: "MAIN", items: ["5×1 km at 4:10–4:20/km", "2 min jog", "Even execution, no hero first rep"] }] },
-      { id: "S15-2", date: "19 AUG", dow: "WED", title: "Pull + Erg", type: "STRENGTH", duration: "60 min", rpe: "7" },
-      { id: "S15-3", date: "20 AUG", dow: "THU", title: "Easy Run", type: "RUN", duration: "40 min", rpe: "4" },
-      { id: "S15-4", date: "21 AUG", dow: "FRI", title: "Partner Wall Ball Skill", type: "HYROX", duration: "50 min", rpe: "6–7", blocks: [{ label: "MAIN", items: ["5×15 wall balls at 9 kg", "Practice 15/15 switches", "3×20m sandbag lunges", "Short transition walk-through"] }] },
-      { id: "S15-5", date: "22 AUG", dow: "SAT", title: "Easy or AVOHK 5K", type: "RUN", duration: "40 min", rpe: "4–8" },
-      { id: "S15-6", date: "23 AUG", dow: "SUN", title: "Long Easy Run", type: "RUN", duration: "70 min", rpe: "5" },
+      { id: "S15-0", date: "17 AUG", dow: "MON", title: "Lower Strength · Heavy Controlled", type: "STRENGTH", duration: "75 min", rpe: "7–8", blocks: [
+        { label: "WARM-UP", items: ["Bike 6 min", "Physio hip drill 2 sets + 90/90 switches 1×6/side", "Two ramp sets for leg press and RDL"] },
+        { label: "PRIMARY", items: ["Leg press or hack squat 5×5 @ RPE 8; 2:30 rest", "Romanian deadlift 4×6 @ RPE 8; 2 min rest", "Walking lunge 3×10/side with controlled load; 90 sec rest", "Hamstring curl 4×8 @ RPE 8; 75 sec rest"] },
+        { label: "HYROX SUPPORT", items: ["Farmer carry 5×40 m heavy; 75 sec rest", "Wall-ball squat pattern 3×10 with light ball, no throw; 60 sec rest", "Eccentric calf 3×12 + tibialis 3×18"] },
+        { label: "TRUNK + COOLDOWN", items: ["Pallof press 3×10/side + side plank 3×35 sec/side", "Walk 5 min", "No extra leg work after completing the programmed sets"] },
+      ] },
+      { id: "S15-1", date: "18 AUG", dow: "TUE", title: "5×1 km · 10K Specific", type: "RUN", duration: "10 km total · 60–65 min", rpe: "8", blocks: [
+        { label: "WARM-UP", items: ["2.5 km easy", "A-march 2×20 m + 4×20 sec strides", "Easy jog 2 min before rep 1"] },
+        { label: "MAIN", items: ["5×1 km at 4:45–5:00/km or current 10K effort", "Jog 2 min between repetitions", "Reps 1–3 must match within 5 sec", "Rep 5 may be fastest, but never by more than 10 sec"] },
+        { label: "COOLDOWN", items: ["Jog easy until 10 km total", "Record pace, HR and RPE for every rep", "If form breaks before rep 4, stop at four quality repetitions"] },
+      ] },
+      { id: "S15-2", date: "19 AUG", dow: "WED", title: "Pull Strength + Erg Power", type: "HYROX", duration: "70 min", rpe: "7", blocks: [
+        { label: "WARM-UP", items: ["SkiErg 6 min easy", "Band pulldown 2×12 + cable row 2×10"] },
+        { label: "STRENGTH", items: ["Chest-supported row 5×6 @ RPE 8; 2 min rest", "Lat pulldown 4×8 @ RPE 8; 90 sec rest", "Single-arm cable row 3×10/side", "Heavy sled pull 6×12.5 m at 75–85% Pro load; 90 sec rest"] },
+        { label: "ERG POWER", items: ["SkiErg 6×250 m @ RPE 7–8; 75 sec rest", "Keep each split within 2 sec", "Long pull, strong finish, relaxed recovery"] },
+        { label: "ACCESSORY", items: ["Reverse pec deck 3×15", "Cable curl 3×10 + rope pressdown 3×10", "Front plank 3×45 sec"] },
+        { label: "COOLDOWN", items: ["Easy walk 5 min", "Physio right-hip drill 2 sets"] },
+      ] },
+      { id: "S15-3", date: "20 AUG", dow: "THU", title: "Easy Aerobic Run", type: "RUN", duration: "8 km · 48–55 min", rpe: "4", blocks: [
+        { label: "MAIN", items: ["8 km flat Z2 at 6:00–6:30/km or HR ≤142", "No strides and no fast finish", "Use this run to absorb Tuesday, not prove fitness"] },
+        { label: "POST-RUN", items: ["Walk 5 min", "Active hamstring floss 2×8/side", "Physio hip drill 2 sets"] },
+      ] },
+      { id: "S15-4", date: "21 AUG", dow: "FRI", title: "HYROX Late-Race Strength Skill", type: "HYROX", duration: "70 min", rpe: "6–7", blocks: [
+        { label: "WARM-UP", items: ["Bike or jog 8 min easy", "Goblet squat 2×8 + reverse lunge 2×6/side", "10 light wall balls + 10 m light sandbag carry"] },
+        { label: "WALL-BALL QUALITY", items: ["6×15 wall balls at 9 kg; 60 sec rest", "Sets 1–3: unbroken technical reps", "Sets 4–6: practise partner call at rep 12, clean handover at 15", "Cue: full depth, ball close, exhale on throw"] },
+        { label: "LUNGE CAPACITY", items: ["4×25 m sandbag lunges at controlled race load; 90 sec rest", "Alternate lead leg naturally", "Front knee tracks over mid-foot; torso tall", "Stop the set if right hip rotates or stride shortens"] },
+        { label: "TRANSITION CIRCUIT · 3 ROUNDS", items: ["500 m easy-moderate run", "20 m farmer carry", "10 wall balls", "Rest 2 min between rounds; cap total effort at RPE 7"] },
+        { label: "COOLDOWN", items: ["Walk 5–8 min", "Physio hip drill 2 sets", "This is technical strength endurance, not a simulation"] },
+      ] },
+      { id: "S15-5", date: "22 AUG", dow: "SAT", title: "Recovery Run or AVOHK Replacement", type: "RUN", duration: "5 km easy · 32–38 min", rpe: "3–4", note: "If racing AVOHK 5K, Tuesday's 5×1 km must be replaced by 6 km easy. Do not keep both quality sessions.", blocks: [
+        { label: "RECOVERY OPTION", items: ["5 km very easy at 6:20–6:50/km", "Flat route, relaxed cadence", "Finish feeling better than you started"] },
+        { label: "RACE OPTION", items: ["Warm up 2 km + drills + 4 strides", "Run 5K progressively: controlled first 2 km, commit through km 3–4, race final km", "Cool down 1–2 km", "Only use this option if Tuesday was changed to easy running"] },
+      ] },
+      { id: "S15-6", date: "23 AUG", dow: "SUN", title: "Long Aerobic Run", type: "RUN", duration: "15 km · 90–100 min", rpe: "4–5", blocks: [
+        { label: "PRE-RUN", items: ["5 min walk + 8 min easy jog", "Right-hip activation 1–2 sets", "Carry water and 35–45 g carbohydrate"] },
+        { label: "MAIN", items: ["First 4 km easy around 6:20–6:40/km", "Middle 8 km stable Z2, HR ≤142", "Final 3 km steady only if legs remain symmetrical; maximum RPE 5", "No hard hill surges"] },
+        { label: "FUEL", items: ["Take 25–30 g carbohydrate around 35–40 min", "Optional second 20–25 g around 70 min", "Drink to thirst, more in Hong Kong heat"] },
+        { label: "COOLDOWN", items: ["Walk 8 min", "Protein-rich meal plus carbohydrate", "Record fatigue and morning Body Battery before race week"] },
+      ] },
     ],
   },
   {
@@ -177,16 +300,40 @@ const weeks: Week[] = [
     label: "W16",
     dates: "24–30 Aug",
     phase: "RACE WEEK",
-    volume: "24–28 km + race",
-    focus: "Mini-taper for PEGASUS. This result resets the autumn pace model.",
+    volume: "25–27 km including race",
+    focus: "Reduce fatigue while retaining speed and strength. PEGASUS is the benchmark that resets the autumn pace model.",
+    gate: "Do not add kilometres during the taper. If hip, hamstring or knee symptoms return, remove the primer before removing easy running.",
     days: [
-      { id: "S16-0", date: "24 AUG", dow: "MON", title: "Light Strength", type: "STRENGTH", duration: "40 min", rpe: "5–6" },
-      { id: "S16-1", date: "25 AUG", dow: "TUE", title: "4×800 m Primer", type: "RUN", duration: "40 min", rpe: "7" },
-      { id: "S16-2", date: "26 AUG", dow: "WED", title: "Easy Run", type: "RUN", duration: "30 min", rpe: "4" },
-      { id: "S16-3", date: "27 AUG", dow: "THU", title: "Full Rest", type: "REST", duration: "All day", rpe: "0" },
-      { id: "S16-4", date: "28 AUG", dow: "FRI", title: "Shakeout + Strides", type: "RUN", duration: "25 min", rpe: "4" },
-      { id: "S16-5", date: "29 AUG", dow: "SAT", title: "Rest + Race Prep", type: "REST", duration: "All day", rpe: "0" },
-      { id: "S16-6", date: "30 AUG", dow: "SUN", title: "PEGASUS Tsuen Wan 10K", type: "RACE", duration: "10 km", rpe: "9", race: true, blocks: [{ label: "RACE PLAN", items: ["Run even effort, not even pace", "First 2 km controlled", "Use climbs to cap effort", "Result calibrates threshold and JPMCC"] }] },
+      { id: "S16-0", date: "24 AUG", dow: "MON", title: "Strength Primer · Full Body", type: "STRENGTH", duration: "50 min", rpe: "5–6", blocks: [
+        { label: "WARM-UP", items: ["Bike 5 min", "90/90 switches 1×6/side + physio hip drill 2 sets", "One light ramp set per main exercise"] },
+        { label: "MAIN", items: ["Leg press 3×5 @ RPE 6; 2 min rest", "Romanian deadlift 3×6 @ RPE 6; 2 min rest", "Chest-supported row 3×8 @ RPE 6; 75 sec rest", "Machine chest press 3×8 @ RPE 6; 75 sec rest", "Hamstring curl 2×8 @ RPE 6; 60 sec rest"] },
+        { label: "PREHAB", items: ["Eccentric calf 2×10/side + tibialis 2×15", "Pallof press 2×10/side", "Finish every set fresh; no finisher"] },
+      ] },
+      { id: "S16-1", date: "25 AUG", dow: "TUE", title: "4×600 m Race Primer", type: "RUN", duration: "7 km total · 42–48 min", rpe: "7", blocks: [
+        { label: "WARM-UP", items: ["2 km easy", "Dynamic drills + 4×15 sec strides", "Jog 2 min"] },
+        { label: "MAIN", items: ["4×600 m at approximately 4:40–4:55/km or 10K effort", "Jog 2 min between repetitions", "Finish controlled with fast, relaxed mechanics"] },
+        { label: "COOLDOWN", items: ["Jog easy to 7 km total", "No extra repetitions even if feeling strong"] },
+      ] },
+      { id: "S16-2", date: "26 AUG", dow: "WED", title: "Easy Run + Mobility", type: "RUN", duration: "5 km · 30–35 min", rpe: "3–4", blocks: [
+        { label: "MAIN", items: ["5 km easy at 6:15–6:45/km", "Flat route, conversational breathing", "No strides"] },
+        { label: "MOBILITY", items: ["Physio hip drill 2 sets", "Active hamstring floss 2×8/side", "90/90 switches 1×6/side"] },
+      ] },
+      { id: "S16-3", date: "27 AUG", dow: "THU", title: "Full Rest", type: "REST", duration: "All day", rpe: "0", blocks: [
+        { label: "RECOVERY", items: ["Normal walking only", "Prioritise sleep and hydration", "No make-up strength or cardio", "Check shoes, race kit and transport"] },
+      ] },
+      { id: "S16-4", date: "28 AUG", dow: "FRI", title: "Shakeout + Strides", type: "RUN", duration: "4 km · 25–30 min", rpe: "3–5", blocks: [
+        { label: "MAIN", items: ["3 km very easy", "4×15 sec relaxed strides; 60–75 sec walk recovery", "Jog/walk to 4 km total"] },
+        { label: "POST", items: ["Physio hip drill 1–2 activation sets", "Stop while feeling fresh"] },
+      ] },
+      { id: "S16-5", date: "29 AUG", dow: "SAT", title: "Rest + Race Preparation", type: "REST", duration: "All day", rpe: "0", blocks: [
+        { label: "PREP", items: ["Normal carbohydrate-rich meals; do not overeat", "Hydrate steadily and include normal electrolytes", "Lay out shoes, bib, watch and clothing", "Target full night's sleep; no gym session"] },
+      ] },
+      { id: "S16-6", date: "30 AUG", dow: "SUN", title: "PEGASUS Tsuen Wan 10K", type: "RACE", duration: "10 km + warm-up", rpe: "8–9", race: true, blocks: [
+        { label: "WARM-UP · 20–25 MIN", items: ["10–12 min easy jog", "Dynamic drills: leg swings, marching and ankle hops", "4×20 sec strides with 60 sec easy", "Finish warm-up 5–8 min before start"] },
+        { label: "RACE EXECUTION", items: ["Km 1–2: RPE 7, deliberately controlled", "Km 3–6: settle at sustainable 10K effort; run hills by effort, not pace", "Km 7–8: hold form and cadence before increasing effort", "Km 9–10: progress to RPE 9 if hip, hamstring and knee remain normal"] },
+        { label: "COURSE RULES", items: ["Shorten stride uphill and keep cadence", "Do not attack early downhill sections", "Take water only as needed; no new nutrition strategy"] },
+        { label: "POST-RACE", items: ["Walk 10 min", "Record finish time, splits, HR, RPE and symptoms", "The result recalibrates September threshold pace and JPMCC target"] },
+      ] },
     ],
   },
 ];
@@ -218,7 +365,8 @@ const splits = [
 ];
 
 const phaseRoadmap = [
-  ["27 Jul–16 Aug", "Recover + rebuild", "Pain-free consistency"],
+  ["27 Jul–9 Aug", "Recover + rebuild", "27 km baseline into structured strength"],
+  ["10–16 Aug", "Build 1", "Threshold, hills and HYROX technique"],
   ["17–30 Aug", "10K sharpening", "PEGASUS benchmark"],
   ["31 Aug–4 Oct", "Threshold + aerobic durability", "Raise sustainable run pace"],
   ["Autumn", "Travel-adjusted endurance", "Front-load key quality sessions"],
@@ -237,30 +385,30 @@ const augustCells = [
   ["31", "Upper + mobility", "strength"],
   ["1", "30m easy", "run"],
   ["2", "Rest + debrief", "rest"],
-  ["3", "Lower strength", "strength"],
-  ["4", "Easy + strides", "run"],
-  ["5", "Pull + row", "strength"],
-  ["6", "35m easy", "run"],
-  ["7", "Push + trunk", "strength"],
-  ["8", "60m long run", "run"],
-  ["9", "Rest", "rest"],
+  ["3", "Full-body strength A", "strength"],
+  ["4", "7–8K easy + strides", "run"],
+  ["5", "Pull + erg technique", "hyrox"],
+  ["6", "4×5m steady", "run"],
+  ["7", "Full-body strength B", "strength"],
+  ["8", "12–13K long easy", "run"],
+  ["9", "Rest + hip reset", "rest"],
   ["10", "Lower strength", "strength"],
-  ["11", "Easy + strides", "run"],
-  ["12", "Partner sleds", "hyrox"],
+  ["11", "8K easy + strides", "run"],
+  ["12", "Sled + upper strength", "hyrox"],
   ["13", "3×8m threshold", "run"],
-  ["14", "Upper strength", "strength"],
-  ["15", "Hill strength run", "run"],
-  ["16", "30m recovery", "run"],
-  ["17", "Lower strength", "strength"],
-  ["18", "5×1 km", "run"],
-  ["19", "Pull + erg", "strength"],
-  ["20", "40m easy", "run"],
-  ["21", "Partner wall balls", "hyrox"],
-  ["22", "Easy / AVOHK 5K", "run"],
-  ["23", "70m long run", "run"],
-  ["24", "Light strength", "strength"],
-  ["25", "4×800m primer", "run"],
-  ["26", "30m easy", "run"],
+  ["14", "Upper + hip control", "strength"],
+  ["15", "13K + hill surges", "run"],
+  ["16", "4–5K recovery", "run"],
+  ["17", "Heavy lower strength", "strength"],
+  ["18", "5×1K specific", "run"],
+  ["19", "Pull + erg power", "hyrox"],
+  ["20", "8K easy", "run"],
+  ["21", "HYROX late-race skill", "hyrox"],
+  ["22", "5K recovery / race", "run"],
+  ["23", "15K long aerobic", "run"],
+  ["24", "Full-body primer", "strength"],
+  ["25", "4×600m primer", "run"],
+  ["26", "5K easy", "run"],
   ["27", "Rest", "rest"],
   ["28", "Shakeout", "run"],
   ["29", "Race prep", "rest"],
@@ -269,8 +417,8 @@ const augustCells = [
 
 export default function App() {
   const [tab, setTab] = useState("plan");
-  const [weekId, setWeekId] = useState("S12");
-  const [openDay, setOpenDay] = useState("S12-1");
+  const [weekId, setWeekId] = useState("S13");
+  const [openDay, setOpenDay] = useState("S13-0");
   const [completed, setCompleted] = useState<Record<string, boolean>>({});
   const [saveState, setSaveState] = useState("");
   const [checkins, setCheckins] = useState<Array<Record<string, string | number>>>([]);
@@ -291,7 +439,8 @@ export default function App() {
 
   const week = weeks.find((item) => item.id === weekId) ?? weeks[0];
   const doneCount = week.days.filter((day) => completed[day.id]).length;
-  const nextRaceDays = 34;
+  const nextRaceDays = Math.max(0, Math.ceil((new Date("2026-08-30T00:00:00+08:00").getTime() - Date.now()) / 86400000));
+  const todayHk = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Hong_Kong" }).format(new Date());
 
   function toggleDay(id: string) {
     const value = !completed[id];
@@ -351,11 +500,11 @@ export default function App() {
     <main className="app-shell">
       <header className="hero">
         <div>
-          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V6.2</p>
+          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V7.0</p>
           <h1>SEASON <span>2026/27</span></h1>
           <div className="status-line">
-            <span className="phase-pill">RECOVER</span>
-            <span>W12–16 rolling prescription</span>
+            <span className="phase-pill">BUILD</span>
+            <span>W13–16 granular prescription</span>
             <span className={`readiness ${readiness.tone}`}>{readiness.label}</span>
           </div>
         </div>
@@ -380,6 +529,10 @@ export default function App() {
 
       {tab === "plan" && (
         <section className="view">
+          <div className="strategy-callout">
+            <b>WHAT'S NEW · VERSION 7.0</b>
+            <p>Rebuilt from the completed 27 km recovery week. Every session now includes warm-up, working sets, repetitions, rest, effort, technique cues, hip and hamstring work, cooldown and progression gates. Storage keys and completion ids remain unchanged.</p>
+          </div>
           <div className="week-strip">
             {weeks.map((item) => (
               <button key={item.id} className={weekId === item.id ? "selected" : ""} onClick={() => setWeekId(item.id)}>
@@ -454,7 +607,7 @@ export default function App() {
               <p>The next week should change from actual recovery and pain, not motivation. Entries stay only on this device and are not uploaded.</p>
             </div>
             <form onSubmit={saveCheckin}>
-              <label>Date<input name="checkinDate" type="date" defaultValue="2026-07-27" required /></label>
+              <label>Date<input name="checkinDate" type="date" defaultValue={todayHk} required /></label>
               <label>Sleep hours<input name="sleepHours" type="number" step="0.1" min="0" max="14" required /></label>
               <label>Body Battery<input name="bodyBattery" type="number" min="0" max="100" required /></label>
               <label>Pain 0–10<input name="painScore" type="number" min="0" max="10" required /></label>
