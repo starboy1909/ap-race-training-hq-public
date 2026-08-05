@@ -25,6 +25,21 @@ type Week = {
   days: Day[];
 };
 
+type Race = {
+  startIso: string;
+  date: string;
+  name: string;
+  type: string;
+  status: string;
+  priority: string;
+  location: string;
+  note: string;
+  category: "campaign" | "hyrox";
+  sourceLabel: string;
+  sourceUrl?: string;
+  checked: string;
+};
+
 const weeks: Week[] = [
   {
     id: "S12",
@@ -338,17 +353,28 @@ const weeks: Week[] = [
   },
 ];
 
-const races = [
-  { date: "25 Jul 2026", name: "HYROX Delhi", type: "Pro Doubles Men", status: "DONE", priority: "Baseline", location: "Delhi", note: "1:27:54 · AG 14 · Overall 91" },
-  { date: "30 Aug 2026", name: "PEGASUS Tsuen Wan 10K", type: "Road 10K", status: "REGISTERED", priority: "B", location: "Hong Kong", note: "Post-Delhi run benchmark" },
-  { date: "31 Oct 2026", name: "HYROX Shanghai", type: "Pro Doubles Men", status: "WATCH", priority: "A option", location: "Shanghai", note: "Qualification attempt if ticket + partner confirmed" },
-  { date: "4 Nov 2026", name: "JPM Corporate Challenge", type: "5.6K", status: "EXPECTED", priority: "B", location: "Hong Kong", note: "Date still provisional" },
-  { date: "21–22 Nov 2026", name: "HYROX Guangzhou", type: "Pro Doubles Men", status: "WATCH", priority: "A", location: "Guangzhou", note: "Best close-to-home qualifier option" },
-  { date: "Late 2026", name: "Extended Travel Block", type: "Maintenance block", status: "PLANNED", priority: "TRAVEL", location: "Private", note: "Reduced-volume training block" },
-  { date: "Jan 2027", name: "January Road Race", type: "Decision pending", status: "DECIDE", priority: "C", location: "HK / Xiamen / Mumbai", note: "Do not force a marathon into a HYROX season" },
-  { date: "Feb 2027", name: "HYROX Bangkok", type: "Pro Doubles Men", status: "WATCH", priority: "A", location: "Bangkok", note: "Primary second qualification window" },
-  { date: "Spring 2027", name: "HYROX Osaka", type: "Pro Doubles Men", status: "WATCH", priority: "A", location: "Osaka", note: "Final practical APAC attempt if scheduled before cutoff" },
-  { date: "10–13 Jun 2027", name: "HYROX World Championships", type: "Pro Doubles Men", status: "TARGET", priority: "A+", location: "Hong Kong", note: "Qualification cutoff 16 May 2027" },
+const races: Race[] = [
+  { startIso: "2026-07-25", date: "25 Jul 2026", name: "HYROX Delhi", type: "Pro Doubles Men", status: "DONE", priority: "Baseline", location: "Delhi", note: "1:27:54 · AG 14 · Overall 91. This result anchors the rebuild.", category: "campaign", sourceLabel: "RESULT", checked: "25 Jul 2026" },
+  { startIso: "2026-08-30", date: "30 Aug 2026", name: "PEGASUS Tsuen Wan 10K", type: "Road 10K", status: "REGISTERED", priority: "B", location: "Hong Kong", note: "Post-Delhi run benchmark; result resets September training paces.", category: "campaign", sourceLabel: "USER CONFIRMED", checked: "5 Aug 2026" },
+  { startIso: "2026-11-04", date: "4 Nov 2026", name: "JPM Corporate Challenge", type: "5.6K road", status: "DATE TBC", priority: "B", location: "Hong Kong", note: "Working date from the season plan; confirm when the JPM team publishes the final date.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
+  { startIso: "2026-11-15", date: "15 Nov 2026", name: "HZMB Half Marathon", type: "Road half marathon", status: "PLANNED", priority: "A run", location: "Hong Kong", note: "Run A-race. The 4 November speed event must support—not compromise—this peak.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
+  { startIso: "2026-12-20", date: "20 Dec 2026", name: "Shenzhen Marathon", type: "Road marathon option", status: "DECIDE", priority: "C", location: "Shenzhen", note: "Lottery-gated. Honest default is skip unless recovery and HYROX priorities stay green.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
+  { startIso: "2027-01-03", date: "3 Jan 2027", name: "Xiamen Marathon", type: "January road option", status: "DECIDE", priority: "C", location: "Xiamen", note: "One of three January options; do not stack it with another marathon or a January HYROX.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
+  { startIso: "2027-01-17", date: "17 Jan 2027", name: "Hong Kong / Mumbai Marathon option", type: "January road option", status: "DECIDE", priority: "C", location: "Hong Kong or Mumbai", note: "Choose no more than one January road race. Decision remains subordinate to qualification strategy.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
+
+  { startIso: "2026-10-31", date: "31 Oct–1 Nov 2026", name: "HYROX Shanghai", type: "Pro Doubles Men watch", status: "SALES SOON", priority: "A option", location: "Shanghai", note: "Close-to-home qualification attempt if Pro Doubles inventory and Andy are confirmed.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/hyrox-shanghai-1031/", checked: "5 Aug 2026" },
+  { startIso: "2026-11-13", date: "13–15 Nov 2026", name: "AirAsia HYROX Seoul", type: "Pro Doubles Men watch", status: "PRO SOLD OUT", priority: "Backup", location: "Seoul", note: "Official dates confirmed. Prior ticket check found Saturday Pro Doubles sold out; do not plan a qualifier around Open or Mixed.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/hyrox-seoul/", checked: "27 Jul 2026" },
+  { startIso: "2026-11-21", date: "21–22 Nov 2026", name: "HYROX Guangzhou", type: "Pro Doubles Men watch", status: "SALES SOON", priority: "A", location: "Guangzhou", note: "Primary close-to-home qualifier. Register immediately when Pro Doubles sales open.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/hyrox-guangzhou/", checked: "5 Aug 2026" },
+  { startIso: "2026-11-26", date: "26–28 Nov 2026", name: "HYROX Gujarat · Gandhinagar", type: "Pro Doubles Men watch", status: "TRAVEL CONFLICT", priority: "Low", location: "Gandhinagar", note: "Official event window; overlaps the extended travel block and exceeds the preferred flight filter.", category: "hyrox", sourceLabel: "OFFICIAL HYROX INDIA", sourceUrl: "https://hyrox.co.in/event/hyrox-gujarat/", checked: "5 Aug 2026" },
+  { startIso: "2027-01-07", date: "7–10 Jan 2027", name: "AIA HYROX Hong Kong", type: "Pro Doubles Men watch", status: "SALES SOON", priority: "A", location: "Hong Kong", note: "Home qualifier window. This takes priority over forcing a January marathon.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/hyrox-hong-kong/", checked: "5 Aug 2026" },
+  { startIso: "2027-01-15", date: "15–17 Jan 2027", name: "HYROX Greater Noida", type: "Pro Doubles Men watch", status: "SALES SOON", priority: "B option", location: "Greater Noida", note: "Official dates; travel-heavy alternative one week after HYROX Hong Kong.", category: "hyrox", sourceLabel: "OFFICIAL HYROX INDIA", sourceUrl: "https://hyrox.co.in/event/hyrox-noida/", checked: "5 Aug 2026" },
+  { startIso: "2027-01-21", date: "21–24 Jan 2027", name: "BYD HYROX Osaka", type: "Pro Doubles Men watch", status: "SALES SOON", priority: "A option", location: "Osaka", note: "Practical APAC qualifier, but never stack with Hong Kong or Noida without a recovery decision.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/byd-hyrox-osaka/", checked: "5 Aug 2026" },
+  { startIso: "2027-02-11", date: "11–14 Feb 2027", name: "BYD HYROX Bangkok", type: "Pro Doubles Men watch", status: "SALES SOON", priority: "A", location: "Bangkok", note: "Primary second qualification window if no January slot is secured.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/hyrox-bangkok/", checked: "5 Aug 2026" },
+  { startIso: "2027-03-12", date: "12–14 Mar 2027", name: "HYROX Taipei", type: "Pro Doubles Men watch", status: "SALES SOON", priority: "A option", location: "Taipei", note: "Short-haul qualifier option with enough time to recover and build again before May.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/hyrox-taipei/", checked: "5 Aug 2026" },
+  { startIso: "2027-04-16", date: "16–18 Apr 2027", name: "HYROX Nagoya", type: "Pro Doubles Men watch", status: "SALES SOON", priority: "A option", location: "Nagoya", note: "Late but workable qualifier window; five to eight weeks remain before Worlds.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/hyrox-nagoya/", checked: "5 Aug 2026" },
+  { startIso: "2027-05-12", date: "12–16 May 2027", name: "HYROX Bengaluru", type: "Pro Doubles Men watch", status: "LAST CHANCE", priority: "Risk", location: "Bengaluru", note: "Event ends on the stated qualification cutoff. Treat as contingency only; result timing is dangerously tight.", category: "hyrox", sourceLabel: "OFFICIAL HYROX INDIA", sourceUrl: "https://hyrox.co.in/event/hyrox-bengaluru/", checked: "5 Aug 2026" },
+  { startIso: "2027-05-13", date: "13–16 May 2027", name: "BYD HYROX Incheon", type: "Pro Doubles Men watch", status: "LAST CHANCE", priority: "Risk", location: "Incheon", note: "Also ends at the cutoff. Do not leave qualification to this race unless HYROX confirms result eligibility timing.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/hyrox-incheon/", checked: "5 Aug 2026" },
+  { startIso: "2027-06-10", date: "10–13 Jun 2027", name: "PUMA HYROX World Championships", type: "Pro Doubles Men", status: "TARGET", priority: "A+", location: "Hong Kong", note: "Target event. Qualification results must be posted by 16 May 2027.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/puma-hyrox-world-championships-hong-kong/", checked: "5 Aug 2026" },
 ];
 
 const splits = [
@@ -365,16 +391,24 @@ const splits = [
 ];
 
 const phaseRoadmap = [
-  ["27 Jul–9 Aug", "Recover + rebuild", "27 km baseline into structured strength"],
-  ["10–16 Aug", "Build 1", "Threshold, hills and HYROX technique"],
-  ["17–30 Aug", "10K sharpening", "PEGASUS benchmark"],
-  ["31 Aug–4 Oct", "Threshold + aerobic durability", "Raise sustainable run pace"],
-  ["Autumn", "Travel-adjusted endurance", "Front-load key quality sessions"],
-  ["19 Oct–22 Nov", "HYROX specific", "Two race-specific sessions/week"],
-  ["Late year", "Travel maintenance", "Protect fitness, no peak work"],
-  ["14 Dec–Feb", "Qualifier build 1", "Bangkok or confirmed APAC race"],
-  ["Mar–16 May", "Qualifier build 2", "Last high-quality attempts"],
-  ["17 May–9 Jun", "Worlds taper or next-cycle bridge", "Depends on qualification"],
+  ["27 Jul–9 Aug 2026", "Recover + rebuild", "27 km baseline into structured strength"],
+  ["10–16 Aug 2026", "Build 1", "Threshold, hills and HYROX technique"],
+  ["17–30 Aug 2026", "10K sharpening", "PEGASUS Tsuen Wan 10K · 30 Aug"],
+  ["31 Aug–4 Oct 2026", "Threshold + aerobic durability", "Raise sustainable run pace"],
+  ["5–18 Oct 2026", "Travel-adjusted endurance", "Front-load quality around the 9–12 Oct neutral travel window"],
+  ["19 Oct–1 Nov 2026", "Shanghai option", "HYROX-specific build into 31 Oct–1 Nov"],
+  ["2–15 Nov 2026", "Road dual peak", "JPMCC working date 4 Nov; HZMB Half 15 Nov"],
+  ["16–22 Nov 2026", "Guangzhou race week", "Taper into HYROX Guangzhou · 21–22 Nov"],
+  ["23 Nov–13 Dec 2026", "Recover + travel maintenance", "Extended neutral travel window · 28 Nov–13 Dec"],
+  ["14–20 Dec 2026", "Marathon decision week", "Shenzhen option · 20 Dec; default skip unless green"],
+  ["21 Dec 2026–10 Jan 2027", "Home qualifier build", "AIA HYROX Hong Kong · 7–10 Jan"],
+  ["11–24 Jan 2027", "January APAC options", "Greater Noida · 15–17 Jan; Osaka · 21–24 Jan"],
+  ["25 Jan–14 Feb 2027", "Bangkok qualifier build", "BYD HYROX Bangkok · 11–14 Feb"],
+  ["15 Feb–14 Mar 2027", "Taipei qualifier build", "HYROX Taipei · 12–14 Mar"],
+  ["15 Mar–18 Apr 2027", "Nagoya qualifier build", "HYROX Nagoya · 16–18 Apr"],
+  ["19 Apr–16 May 2027", "Final qualifier window", "Bengaluru · 12–16 May; Incheon · 13–16 May"],
+  ["17 May–9 Jun 2027", "Worlds taper or next-cycle bridge", "Qualification-dependent transition"],
+  ["10–13 Jun 2027", "World Championships", "Hong Kong target event"],
 ];
 
 const augustCells = [
@@ -442,6 +476,18 @@ export default function App() {
   const nextRaceDays = Math.max(0, Math.ceil((new Date("2026-08-30T00:00:00+08:00").getTime() - Date.now()) / 86400000));
   const todayHk = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Hong_Kong" }).format(new Date());
 
+  function raceCountdown(startIso: string, status: string) {
+    if (status === "DONE") return "COMPLETED";
+    const days = Math.ceil((new Date(startIso + "T00:00:00+08:00").getTime() - Date.now()) / 86400000);
+    if (days < 0) return "DATE PASSED";
+    if (days === 0) return "TODAY";
+    return days + " DAYS";
+  }
+
+  function statusClass(status: string) {
+    return status.toLowerCase().replace(/\s+/g, "-");
+  }
+
   function toggleDay(id: string) {
     const value = !completed[id];
     try {
@@ -500,7 +546,7 @@ export default function App() {
     <main className="app-shell">
       <header className="hero">
         <div>
-          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V7.0</p>
+          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V7.1</p>
           <h1>SEASON <span>2026/27</span></h1>
           <div className="status-line">
             <span className="phase-pill">BUILD</span>
@@ -530,8 +576,8 @@ export default function App() {
       {tab === "plan" && (
         <section className="view">
           <div className="strategy-callout">
-            <b>WHAT'S NEW · VERSION 7.0</b>
-            <p>Rebuilt from the completed 27 km recovery week. Every session now includes warm-up, working sets, repetitions, rest, effort, technique cues, hip and hamstring work, cooldown and progression gates. Storage keys and completion ids remain unchanged.</p>
+            <b>WHAT'S NEW · VERSION 7.1</b>
+            <p>Exact race and travel-window dates now run through the season roadmap and Race HQ. The full official APAC HYROX watchlist, live countdowns, source links and freshness stamps are included. Typography now uses Aptos when available with readable system fallbacks. Storage keys and completion ids remain unchanged.</p>
           </div>
           <div className="week-strip">
             {weeks.map((item) => (
@@ -648,9 +694,9 @@ export default function App() {
             ))}
           </section>
           <section className="travel-panel">
-            <div><span>RACE TRAVEL</span><b>Race travel block</b><p>Recovery and race execution take priority. No itinerary details shown.</p></div>
-            <div><span>SHORT TRAVEL</span><b>Short travel block</b><p>Front-load key quality sessions. Travel runs remain optional.</p></div>
-            <div><span>EXTENDED TRAVEL</span><b>Extended travel block</b><p>Use two runs and two short circuits weekly. Recovery takes priority.</p></div>
+            <div><span>22–27 JUL 2026</span><b>Race travel window · completed</b><p>Recovery and race execution took priority around Delhi. No itinerary or booking data is published.</p></div>
+            <div><span>9–12 OCT 2026</span><b>Short neutral travel window</b><p>Front-load the key quality session. Travel running is optional and never used to make up volume.</p></div>
+            <div><span>28 NOV–13 DEC 2026</span><b>Extended neutral travel window</b><p>Two runs and two short circuits weekly at most. Dates are public; destinations and booking details remain excluded.</p></div>
           </section>
         </section>
       )}
@@ -658,19 +704,55 @@ export default function App() {
       {tab === "races" && (
         <section className="view">
           <div className="view-heading">
-            <p className="section-kicker">QUALIFYING STRATEGY</p>
-            <h2>Race HQ</h2>
-            <p>Only A-races get a true taper. Everything else must support the qualification campaign.</p>
+            <div>
+              <p className="section-kicker">QUALIFYING STRATEGY · VERIFIED 5 AUG 2026</p>
+              <h2>Race HQ</h2>
+              <p>Exact dates, transparent sources and dynamic countdowns. Only A-races get a true taper; every other event supports the qualification campaign.</p>
+            </div>
+          </div>
+          <div className="watch-summary">
+            <div><b>{races.filter((race) => race.category === "hyrox" && race.status !== "DONE").length}</b><span>HYROX WINDOWS</span></div>
+            <div><b>16 MAY 2027</b><span>RESULT CUTOFF</span></div>
+            <div><b>10–13 JUN 2027</b><span>HONG KONG WORLDS</span></div>
+          </div>
+          <div className="race-section-heading">
+            <p className="section-kicker">CAMPAIGN CALENDAR</p>
+            <h3>Road races and decision points</h3>
           </div>
           <div className="race-list">
-            {races.map((race) => (
+            {races.filter((race) => race.category === "campaign").map((race) => (
               <article className="race-card" key={race.name}>
-                <div className="race-date">{race.date}</div>
-                <div><small>{race.location} · {race.type}</small><h3>{race.name}</h3><p>{race.note}</p></div>
-                <div className={`race-status ${race.status.toLowerCase()}`}>{race.status}</div>
+                <div className="race-date"><b>{race.date}</b><span>{raceCountdown(race.startIso, race.status)}</span></div>
+                <div><small>{race.location} · {race.type}</small><h3>{race.name}</h3><p>{race.note}</p><div className="race-source"><span>{race.sourceLabel}</span><span>Checked {race.checked}</span></div></div>
+                <div className={`race-status ${statusClass(race.status)}`}>{race.status}</div>
                 <div className="priority">{race.priority}</div>
               </article>
             ))}
+          </div>
+          <div className="race-section-heading watch-heading">
+            <p className="section-kicker">APAC HYROX WATCHLIST</p>
+            <h3>Official event windows and ticket actions</h3>
+            <p>Countdowns update automatically. Ticket availability is a verified snapshot, not a live inventory claim; use the official event link before booking.</p>
+          </div>
+          <div className="race-list">
+            {races.filter((race) => race.category === "hyrox").map((race) => (
+              <article className="race-card" key={race.name}>
+                <div className="race-date"><b>{race.date}</b><span>{raceCountdown(race.startIso, race.status)}</span></div>
+                <div>
+                  <small>{race.location} · {race.type}</small><h3>{race.name}</h3><p>{race.note}</p>
+                  <div className="race-source">
+                    {race.sourceUrl ? <a href={race.sourceUrl} target="_blank" rel="noreferrer">{race.sourceLabel} ↗</a> : <span>{race.sourceLabel}</span>}
+                    <span>Checked {race.checked}</span>
+                  </div>
+                </div>
+                <div className={`race-status ${statusClass(race.status)}`}>{race.status}</div>
+                <div className="priority">{race.priority}</div>
+              </article>
+            ))}
+          </div>
+          <div className="freshness-note">
+            <b>TRACKING MODEL</b>
+            <p>Event countdowns are live on every page load. Dates come from official HYROX event pages. Ticket statuses are refreshed when an official shop check is recorded; the site does not scrape checkout inventory or expose personal travel data.</p>
           </div>
           <div className="strategy-callout">
             <b>PARTNER ASSUMPTION · CONFIRMED TRAINING PARTNER</b>
