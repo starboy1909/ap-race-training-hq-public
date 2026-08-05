@@ -357,7 +357,6 @@ const races: Race[] = [
   { startIso: "2026-07-25", date: "25 Jul 2026", name: "HYROX Delhi", type: "Pro Doubles Men", status: "DONE", priority: "Baseline", location: "Delhi", note: "1:27:54 · AG 14 · Overall 91. This result anchors the rebuild.", category: "campaign", sourceLabel: "RESULT", checked: "25 Jul 2026" },
   { startIso: "2026-08-30", date: "30 Aug 2026", name: "PEGASUS Tsuen Wan 10K", type: "Road 10K", status: "REGISTERED", priority: "B", location: "Hong Kong", note: "Post-Delhi run benchmark; result resets September training paces.", category: "campaign", sourceLabel: "USER CONFIRMED", checked: "5 Aug 2026" },
   { startIso: "2026-11-04", date: "4 Nov 2026", name: "JPM Corporate Challenge", type: "5.6K road", status: "DATE TBC", priority: "B", location: "Hong Kong", note: "Working date from the season plan; confirm when the JPM team publishes the final date.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
-  { startIso: "2026-11-15", date: "15 Nov 2026", name: "HZMB Half Marathon", type: "Road half marathon", status: "PLANNED", priority: "A run", location: "Hong Kong", note: "Run A-race. The 4 November speed event must support—not compromise—this peak.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
   { startIso: "2026-12-20", date: "20 Dec 2026", name: "Shenzhen Marathon", type: "Road marathon option", status: "DECIDE", priority: "C", location: "Shenzhen", note: "Lottery-gated. Honest default is skip unless recovery and HYROX priorities stay green.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
   { startIso: "2027-01-03", date: "3 Jan 2027", name: "Xiamen Marathon", type: "January road option", status: "DECIDE", priority: "C", location: "Xiamen", note: "One of three January options; do not stack it with another marathon or a January HYROX.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
   { startIso: "2027-01-17", date: "17 Jan 2027", name: "Hong Kong / Mumbai Marathon option", type: "January road option", status: "DECIDE", priority: "C", location: "Hong Kong or Mumbai", note: "Choose no more than one January road race. Decision remains subordinate to qualification strategy.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
@@ -397,7 +396,7 @@ const phaseRoadmap = [
   ["31 Aug–4 Oct 2026", "Threshold + aerobic durability", "Raise sustainable run pace"],
   ["5–18 Oct 2026", "Travel-adjusted endurance", "Front-load quality around the 9–12 Oct neutral travel window"],
   ["19 Oct–1 Nov 2026", "Shanghai option", "HYROX-specific build into 31 Oct–1 Nov"],
-  ["2–15 Nov 2026", "Road dual peak", "JPMCC working date 4 Nov; HZMB Half 15 Nov"],
+  ["2–15 Nov 2026", "Speed + HYROX bridge", "JPMCC working date 4 Nov; maintain aerobic durability for Guangzhou"],
   ["16–22 Nov 2026", "Guangzhou race week", "Taper into HYROX Guangzhou · 21–22 Nov"],
   ["23 Nov–13 Dec 2026", "Recover + travel maintenance", "Extended neutral travel window · 28 Nov–13 Dec"],
   ["14–20 Dec 2026", "Marathon decision week", "Shenzhen option · 20 Dec; default skip unless green"],
@@ -546,7 +545,7 @@ export default function App() {
     <main className="app-shell">
       <header className="hero">
         <div>
-          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V7.1</p>
+          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V7.2</p>
           <h1>SEASON <span>2026/27</span></h1>
           <div className="status-line">
             <span className="phase-pill">BUILD</span>
@@ -576,8 +575,8 @@ export default function App() {
       {tab === "plan" && (
         <section className="view">
           <div className="strategy-callout">
-            <b>WHAT'S NEW · VERSION 7.1</b>
-            <p>Exact race and travel-window dates now run through the season roadmap and Race HQ. The full official APAC HYROX watchlist, live countdowns, source links and freshness stamps are included. Typography now uses Aptos when available with readable system fallbacks. Storage keys and completion ids remain unchanged.</p>
+            <b>WHAT'S NEW · VERSION 7.2</b>
+            <p>The active race campaign has been reconciled against the latest private registration status, and the November block now targets JPMCC speed and Guangzhou HYROX. Personal outcomes and identifiers remain private. Storage keys and completion ids remain unchanged.</p>
           </div>
           <div className="week-strip">
             {weeks.map((item) => (
@@ -752,7 +751,7 @@ export default function App() {
           </div>
           <div className="freshness-note">
             <b>TRACKING MODEL</b>
-            <p>Event countdowns are live on every page load. Dates come from official HYROX event pages. Ticket statuses are refreshed when an official shop check is recorded; the site does not scrape checkout inventory or expose personal travel data.</p>
+            <p>Personal registration records are reconciled privately and are not exposed here. Official organiser and ticket-shop pages are the source of truth for public dates and inventory. HYRESULT is used only as a secondary discovery signal. The public view contains only the current active campaign, public event information and checked dates.</p>
           </div>
           <div className="strategy-callout">
             <b>PARTNER ASSUMPTION · CONFIRMED TRAINING PARTNER</b>
