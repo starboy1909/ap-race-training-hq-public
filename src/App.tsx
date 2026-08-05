@@ -142,7 +142,7 @@ const weeks: Week[] = [
     dates: "3–9 Aug",
     phase: "REBUILD + STRENGTH",
     volume: "29–31 km",
-    focus: "Build from the completed 27 km recovery week. Three purposeful strength exposures, one controlled quality run and no junk volume.",
+    focus: "Build from the completed 27 km recovery week. Running is already a relative strength; this block restores full-body strength and begins targeted Pro-station work without rushing the return from pain.",
     gate: "Proceed because walking, stairs and easy running are now pain-free. Regress only if pain exceeds 2/10, changes stride, produces swelling or remains elevated the next morning. The physio's exact right-hip drill overrides the generic mobility drill below.",
     days: [
       {
@@ -216,7 +216,7 @@ const weeks: Week[] = [
     dates: "10–16 Aug",
     phase: "BUILD 1",
     volume: "34–36 km",
-    focus: "Raise aerobic and threshold capacity while maintaining a large strength reserve. One true run-quality session plus controlled hills.",
+    focus: "Maintain the proven run engine while building Pro-load sled strength, burpee economy and right-side control. One true run-quality session plus controlled hills.",
     gate: "Unlock only after Week 13 is completed without altered gait or next-day symptom escalation. If a Shenzhen entry becomes confirmed, replace this build with a race-week taper rather than adding the race on top.",
     days: [
       { id: "S14-0", date: "10 AUG", dow: "MON", title: "Lower Strength · Squat + Hinge", type: "STRENGTH", duration: "75 min", rpe: "7", blocks: [
@@ -232,8 +232,9 @@ const weeks: Week[] = [
       ] },
       { id: "S14-2", date: "12 AUG", dow: "WED", title: "Partner Sled Technique + Upper Strength", type: "HYROX", duration: "75 min", rpe: "6–7", blocks: [
         { label: "WARM-UP", items: ["SkiErg 5 min easy", "Sled march 2×12.5 m unloaded", "Band row 2×12 + push-up to bench 2×8"] },
-        { label: "SLED SKILL", items: ["Sled push 6×12.5 m at 65–75% Pro load; 75 sec rest; long arms, short steps", "Sled pull 8×12.5 m at 60–70% Pro load; 75 sec rest; short rope cycles", "Film one push and one pull from the side", "Partner handover rehearsal 6 times; call the switch before fatigue forces it"] },
-        { label: "UPPER STRENGTH", items: ["Chest-supported row 4×8; 90 sec rest", "Machine chest press 4×8; 90 sec rest", "Lat pulldown 3×10; 75 sec rest", "Shoulder press machine 3×8; 75 sec rest"] },
+        { label: "SLED SKILL", items: ["Sled push 4×12.5 m at 75–85% Pro load; 90 sec rest; long arms, short steps", "Sled pull 8×12.5 m at 70–80% Pro load; 90 sec rest; short hand-over-hand cycles, hips low", "Film one push and one pull from the side; repeat only if posture and rope recovery remain clean", "Partner handover rehearsal 6 times; call the switch before fatigue forces it"] },
+        { label: "BURPEE ECONOMY", items: ["5×4 burpee broad jumps; 45 sec walk-back recovery", "Land with feet outside the hands, use one smooth low step into the next rep", "Stop each set before breathing or jump length deteriorates"] },
+        { label: "UPPER STRENGTH", items: ["Chest-supported row 4×8; 90 sec rest", "Machine chest press 4×8; 90 sec rest", "Lat pulldown 3×10; 75 sec rest"] },
         { label: "TRUNK", items: ["Farmer carry 4×40 m; 75 sec rest", "Side plank 3×35 sec/side"] },
         { label: "COOLDOWN", items: ["Walk 5 min", "Physio hip drill 2 prescribed sets", "No conditioning finisher"] },
       ] },
@@ -266,7 +267,7 @@ const weeks: Week[] = [
     dates: "17–23 Aug",
     phase: "10K BUILD",
     volume: "38–40 km",
-    focus: "Peak useful workload before PEGASUS. One interval session, one HYROX strength-skill session and a 15 km aerobic run.",
+    focus: "Peak useful workload before PEGASUS while attacking the repeatable HYROX limiter: Pro-load pull strength and late-race lunge/wall-ball durability. Running quality stays precise, not excessive.",
     gate: "Increase only if Week 14 is green. If AVOHK 5K is raced, it replaces the 1 km interval session. Never perform both as hard efforts in the same week.",
     days: [
       { id: "S15-0", date: "17 AUG", dow: "MON", title: "Lower Strength · Heavy Controlled", type: "STRENGTH", duration: "75 min", rpe: "7–8", blocks: [
@@ -282,7 +283,7 @@ const weeks: Week[] = [
       ] },
       { id: "S15-2", date: "19 AUG", dow: "WED", title: "Pull Strength + Erg Power", type: "HYROX", duration: "70 min", rpe: "7", blocks: [
         { label: "WARM-UP", items: ["SkiErg 6 min easy", "Band pulldown 2×12 + cable row 2×10"] },
-        { label: "STRENGTH", items: ["Chest-supported row 5×6 @ RPE 8; 2 min rest", "Lat pulldown 4×8 @ RPE 8; 90 sec rest", "Single-arm cable row 3×10/side", "Heavy sled pull 6×12.5 m at 75–85% Pro load; 90 sec rest"] },
+        { label: "STRENGTH", items: ["Chest-supported row 5×6 @ RPE 8; 2 min rest", "Lat pulldown 4×8 @ RPE 8; 90 sec rest", "Single-arm cable row 3×10/side; 60 sec between sides", "Heavy sled pull 8×12.5 m at 80–90% Pro load; 90 sec rest", "If all eight lengths stay clean, complete one final 12.5 m at Pro load; otherwise stop at eight"] },
         { label: "ERG POWER", items: ["SkiErg 6×250 m @ RPE 7–8; 75 sec rest", "Keep each split within 2 sec", "Long pull, strong finish, relaxed recovery"] },
         { label: "ACCESSORY", items: ["Reverse pec deck 3×15", "Cable curl 3×10 + rope pressdown 3×10", "Front plank 3×45 sec"] },
         { label: "COOLDOWN", items: ["Easy walk 5 min", "Physio right-hip drill 2 sets"] },
@@ -354,7 +355,7 @@ const weeks: Week[] = [
 ];
 
 const races: Race[] = [
-  { startIso: "2026-07-25", date: "25 Jul 2026", name: "HYROX Delhi", type: "Pro Doubles Men", status: "DONE", priority: "Baseline", location: "Delhi", note: "1:27:54 · AG 14 · Overall 91. This result anchors the rebuild.", category: "campaign", sourceLabel: "RESULT", checked: "25 Jul 2026" },
+  { startIso: "2026-07-25", date: "25 Jul 2026", name: "HYROX Delhi", type: "Pro Doubles Men", status: "DONE", priority: "Context", location: "Delhi", note: "1:27:54 · AG 14 · Overall 91. Partner-paced running and a larger station share make this a team result, not Amar's individual fitness baseline.", category: "campaign", sourceLabel: "RESULT", checked: "25 Jul 2026" },
   { startIso: "2026-08-30", date: "30 Aug 2026", name: "PEGASUS Tsuen Wan 10K", type: "Road 10K", status: "REGISTERED", priority: "B", location: "Hong Kong", note: "Post-Delhi run benchmark; result resets September training paces.", category: "campaign", sourceLabel: "USER CONFIRMED", checked: "5 Aug 2026" },
   { startIso: "2026-11-04", date: "4 Nov 2026", name: "JPM Corporate Challenge", type: "5.6K road", status: "DATE TBC", priority: "B", location: "Hong Kong", note: "Working date from the season plan; confirm when the JPM team publishes the final date.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
   { startIso: "2026-12-20", date: "20 Dec 2026", name: "Shenzhen Marathon", type: "Road marathon option", status: "DECIDE", priority: "C", location: "Shenzhen", note: "Lottery-gated. Honest default is skip unless recovery and HYROX priorities stay green.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
@@ -362,7 +363,6 @@ const races: Race[] = [
   { startIso: "2027-01-17", date: "17 Jan 2027", name: "Hong Kong / Mumbai Marathon option", type: "January road option", status: "DECIDE", priority: "C", location: "Hong Kong or Mumbai", note: "Choose no more than one January road race. Decision remains subordinate to qualification strategy.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
 
   { startIso: "2026-10-31", date: "31 Oct–1 Nov 2026", name: "HYROX Shanghai", type: "Pro Doubles Men watch", status: "SALES SOON", priority: "A option", location: "Shanghai", note: "Close-to-home qualification attempt if Pro Doubles inventory and Andy are confirmed.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/hyrox-shanghai-1031/", checked: "5 Aug 2026" },
-  { startIso: "2026-11-13", date: "13–15 Nov 2026", name: "AirAsia HYROX Seoul", type: "Pro Doubles Men watch", status: "PRO SOLD OUT", priority: "Backup", location: "Seoul", note: "Official dates confirmed. Prior ticket check found Saturday Pro Doubles sold out; do not plan a qualifier around Open or Mixed.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/hyrox-seoul/", checked: "27 Jul 2026" },
   { startIso: "2026-11-21", date: "21–22 Nov 2026", name: "HYROX Guangzhou", type: "Pro Doubles Men watch", status: "SALES SOON", priority: "A", location: "Guangzhou", note: "Primary close-to-home qualifier. Register immediately when Pro Doubles sales open.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/hyrox-guangzhou/", checked: "5 Aug 2026" },
   { startIso: "2026-11-26", date: "26–28 Nov 2026", name: "HYROX Gujarat · Gandhinagar", type: "Pro Doubles Men watch", status: "TRAVEL CONFLICT", priority: "Low", location: "Gandhinagar", note: "Official event window; overlaps the extended travel block and exceeds the preferred flight filter.", category: "hyrox", sourceLabel: "OFFICIAL HYROX INDIA", sourceUrl: "https://hyrox.co.in/event/hyrox-gujarat/", checked: "5 Aug 2026" },
   { startIso: "2027-01-07", date: "7–10 Jan 2027", name: "AIA HYROX Hong Kong", type: "Pro Doubles Men watch", status: "SALES SOON", priority: "A", location: "Hong Kong", note: "Home qualifier window. This takes priority over forcing a January marathon.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/hyrox-hong-kong/", checked: "5 Aug 2026" },
@@ -376,17 +376,19 @@ const races: Race[] = [
   { startIso: "2027-06-10", date: "10–13 Jun 2027", name: "PUMA HYROX World Championships", type: "Pro Doubles Men", status: "TARGET", priority: "A+", location: "Hong Kong", note: "Target event. Qualification results must be posted by 16 May 2027.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/puma-hyrox-world-championships-hong-kong/", checked: "5 Aug 2026" },
 ];
 
-const splits = [
-  ["Run total", "47:33", "87", "Primary limiter"],
-  ["Ski", "4:22", "128", "Technique + division of work"],
-  ["Sled push", "2:25", "49", "Best station"],
-  ["Sled pull", "5:51", "99", "Large opportunity"],
-  ["Burpee broad jump", "3:24", "87", "Solid"],
-  ["Row", "4:57", "99", "Improve handover"],
-  ["Farmers carry", "1:50", "69", "Strength"],
-  ["Sandbag lunges", "4:54", "109", "Late-race weakness"],
-  ["Wall balls", "5:23", "116", "Late-race weakness"],
-  ["Roxzone", "7:23", "103", "Execution opportunity"],
+const raceHistory = [
+  ["Taipei · 1 Mar", "Open Singles", "1:37:22", "Run 5:31 · Functional 43:08 · Roxzone 10:10"],
+  ["Wuhan · 11 Apr", "Open Doubles · Andy", "1:16:35", "Run 5:12 · Functional 28:31 · Roxzone 6:32"],
+  ["Hong Kong · 9 May", "Pro Singles", "1:45:24", "Run 4:46 · Functional 55:13 · Roxzone 12:09"],
+  ["Delhi · 25 Jul", "Pro Doubles · constrained", "1:27:54", "Partner-paced; Amar carried more station work"],
+];
+
+const singlesStationTrend = [
+  ["Sled pull", "5:41", "8:19", "Pro-load strength + rope efficiency"],
+  ["Burpee broad jump", "7:55", "8:01", "Movement economy, not more random volume"],
+  ["Sandbag lunges", "6:40", "10:55", "Largest late-race strength-endurance gap"],
+  ["Wall balls", "7:41", "10:45", "Depth, breathing and fatigue-resistant sets"],
+  ["Roxzone", "10:10", "12:09", "Execution cost persists across both singles"],
 ];
 
 const phaseRoadmap = [
@@ -545,7 +547,7 @@ export default function App() {
     <main className="app-shell">
       <header className="hero">
         <div>
-          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V7.2</p>
+          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V7.3</p>
           <h1>SEASON <span>2026/27</span></h1>
           <div className="status-line">
             <span className="phase-pill">BUILD</span>
@@ -575,8 +577,8 @@ export default function App() {
       {tab === "plan" && (
         <section className="view">
           <div className="strategy-callout">
-            <b>WHAT'S NEW · VERSION 7.2</b>
-            <p>The active race campaign has been reconciled against the latest private registration status, and the November block now targets JPMCC speed and Guangzhou HYROX. Personal outcomes and identifiers remain private. Storage keys and completion ids remain unchanged.</p>
+            <b>WHAT'S NEW · VERSION 7.3</b>
+            <p>The performance model now uses four HYROX results across Open Singles, Open Doubles, Pro Singles and Pro Doubles. Delhi is correctly treated as a partner-constrained team result, while Hong Kong Pro Singles and Wuhan with Andy anchor the individual and partnership diagnoses. Upcoming sessions now prioritise Pro-load sled pull, burpee economy, lunges, wall balls and Roxzone execution. Sold-out target-category rows are removed. Storage keys and completion ids remain unchanged.</p>
           </div>
           <div className="week-strip">
             {weeks.map((item) => (
@@ -751,7 +753,7 @@ export default function App() {
           </div>
           <div className="freshness-note">
             <b>TRACKING MODEL</b>
-            <p>Personal registration records are reconciled privately and are not exposed here. Official organiser and ticket-shop pages are the source of truth for public dates and inventory. HYRESULT is used only as a secondary discovery signal. The public view contains only the current active campaign, public event information and checked dates.</p>
+            <p>Personal registration records are reconciled privately and are not exposed here. Official organiser and ticket-shop pages are the source of truth for public dates and inventory. HYRESULT is used only as a secondary discovery signal. When Men's Pro Doubles is confirmed sold out, the race is removed from this active watchlist and returns only if official inventory reopens.</p>
           </div>
           <div className="strategy-callout">
             <b>PARTNER ASSUMPTION · CONFIRMED TRAINING PARTNER</b>
@@ -763,39 +765,50 @@ export default function App() {
       {tab === "analysis" && (
         <section className="view">
           <div className="view-heading">
-            <p className="section-kicker">DELHI · 25 JUL 2026</p>
-            <h2>1:27:54 baseline</h2>
-            <p>AG 14 · Overall 91 · Top 47.4%</p>
+            <p className="section-kicker">LONGITUDINAL HYROX PROFILE · MAR–JUL 2026</p>
+            <h2>Running strength. Pro-station durability gap.</h2>
+            <p>Four races, two formats and two divisions now inform the prescription.</p>
           </div>
           <div className="metric-grid">
-            <div><span>RUNNING</span><b>47:33</b><small>Largest lever</small></div>
-            <div><span>FUNCTIONAL</span><b>33:06</b><small>Late stations faded</small></div>
-            <div><span>ROXZONE</span><b>7:23</b><small>Execution cost</small></div>
-            <div><span>AVG RUN</span><b>5:56</b><small>Run 3–7 deterioration</small></div>
+            <div><span>PRO SINGLES RUN</span><b>4:46</b><small>Hong Kong average run · relative strength</small></div>
+            <div><span>PRO FUNCTIONAL</span><b>55:13</b><small>Hong Kong · primary individual limiter</small></div>
+            <div><span>ANDY PAIR BASELINE</span><b>1:16:35</b><small>Wuhan Open Doubles</small></div>
+            <div><span>SINGLES ROXZONE</span><b>10–12m</b><small>Repeatable execution cost</small></div>
           </div>
           <div className="analysis-grid">
             <section className="split-table">
-              <div className="table-head"><b>SPLIT</b><b>TIME</b><b>RANK</b><b>READ</b></div>
-              {splits.map(([name, time, rank, read]) => (
-                <div className="table-row" key={name}><span>{name}</span><b>{time}</b><span>{rank}</span><span>{read}</span></div>
+              <div className="table-head"><b>RACE</b><b>FORMAT</b><b>FINISH</b><b>READ</b></div>
+              {raceHistory.map(([race, format, finish, read]) => (
+                <div className="table-row" key={race}><span>{race}</span><b>{format}</b><span>{finish}</span><span>{read}</span></div>
               ))}
             </section>
             <aside className="diagnostic">
-              <p className="section-kicker">WHAT THE RESULT SAYS</p>
-              <h3>Four priorities</h3>
+              <p className="section-kicker">WHAT THE SERIES SAYS</p>
+              <h3>Four programming priorities</h3>
               <ol>
-                <li><b>Run durability.</b><span>Run 3–7 averaged roughly 6:40/km. The goal is controlled sub-5:30 compromised running before chasing elite-style volume.</span></li>
-                <li><b>Roxzone discipline.</b><span>7:23 is a major non-fitness cost. Rehearse entry, exit and partner communication.</span></li>
-                <li><b>Sled pull.</b><span>Push ranked 49, pull ranked 99. Technique and ownership are unbalanced.</span></li>
-                <li><b>Late-race capacity.</b><span>Lunges and wall balls ranked 109 and 116. Train them after threshold work, but only after the leg is cleared.</span></li>
+                <li><b>Maintain, do not chase, the run engine.</b><span>Hong Kong Pro Singles produced a 4:46 average run. Threshold precision and compromised consistency matter more than indiscriminate mileage.</span></li>
+                <li><b>Build Pro-load station strength.</b><span>Hong Kong functional time was 55:13. Sled pull, burpees, lunges and wall balls account for the clearest individual gap.</span></li>
+                <li><b>Convert strength into late-race durability.</b><span>Run 8 reached 6:57 after 10:55 lunges in Hong Kong. The goal is retaining mechanics after the final two stations.</span></li>
+                <li><b>Train the Andy partnership.</b><span>Wuhan's 1:16:35 is the cleanest pair benchmark. Practise station ownership, handovers and a shared 4:55–5:10/km compromised rhythm.</span></li>
               </ol>
             </aside>
           </div>
+          <div className="race-section-heading watch-heading">
+            <p className="section-kicker">APPLE-TO-APPLE SINGLES READ</p>
+            <h3>Taipei Open → Hong Kong Pro</h3>
+            <p>The heavier Pro specification explains part of the station increase, but the same stations remain the durable opportunity.</p>
+          </div>
+          <section className="split-table">
+            <div className="table-head"><b>STATION</b><b>TAIPEI OPEN</b><b>HK PRO</b><b>TRAINING READ</b></div>
+            {singlesStationTrend.map(([station, taipei, hongKong, read]) => (
+              <div className="table-row" key={station}><span>{station}</span><b>{taipei}</b><span>{hongKong}</span><span>{read}</span></div>
+            ))}
+          </section>
           <section className="target-ladder">
-            <div><span>NOW</span><b>1:27:54</b><p>Delhi baseline</p></div>
-            <div><span>GATE 1</span><b>Sub-1:20</b><p>Run + Roxzone cleanup</p></div>
-            <div><span>GATE 2</span><b>Sub-1:15</b><p>Competitive APAC execution</p></div>
-            <div><span>QUALIFIER AIM</span><b>Placing-led</b><p>Time alone does not secure a slot</p></div>
+            <div><span>INDIVIDUAL EVIDENCE</span><b>1:45:24</b><p>Hong Kong Pro Singles</p></div>
+            <div><span>PAIR EVIDENCE</span><b>1:16:35</b><p>Wuhan Open with Andy</p></div>
+            <div><span>PRO DOUBLES GATE</span><b>Sub-1:15</b><p>First clean execution target</p></div>
+            <div><span>QUALIFIER AIM</span><b>Sub-1:10</b><p>Then pursue the required placing</p></div>
           </section>
           <div className="elite-principles">
             <div><small>HUNTER PRINCIPLE</small><b>Build a larger aerobic engine without surrendering strength.</b></div>
