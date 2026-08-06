@@ -216,7 +216,7 @@ const weeks: Week[] = [
     dates: "10–16 Aug",
     phase: "BUILD 1",
     volume: "34–36 km",
-    focus: "Maintain the proven run engine while building Pro-load sled strength, burpee economy and right-side control. One true run-quality session plus controlled hills.",
+    focus: "Maintain the proven run engine while building Pro-load sled strength, burpee economy, right-side control and the first wall-ball capacity exposures. One true run-quality session plus controlled hills.",
     gate: "Unlock only after Week 13 is completed without altered gait or next-day symptom escalation. If a Shenzhen entry becomes confirmed, replace this build with a race-week taper rather than adding the race on top.",
     days: [
       { id: "S14-0", date: "10 AUG", dow: "MON", title: "Lower Strength · Squat + Hinge", type: "STRENGTH", duration: "75 min", rpe: "7", blocks: [
@@ -236,7 +236,8 @@ const weeks: Week[] = [
         { label: "BURPEE ECONOMY", items: ["5×4 burpee broad jumps; 45 sec walk-back recovery", "Land with feet outside the hands, use one smooth low step into the next rep", "Stop each set before breathing or jump length deteriorates"] },
         { label: "UPPER STRENGTH", items: ["Chest-supported row 4×8; 90 sec rest", "Machine chest press 4×8; 90 sec rest", "Lat pulldown 3×10; 75 sec rest"] },
         { label: "TRUNK", items: ["Farmer carry 4×40 m; 75 sec rest", "Side plank 3×35 sec/side"] },
-        { label: "COOLDOWN", items: ["Walk 5 min", "Physio hip drill 2 prescribed sets", "No conditioning finisher"] },
+        { label: "WALL-BALL DENSITY · WEEK 1", items: ["Position prep: kettlebell hip shift 2×30 sec/side, bench upper-back stretch 2×5 breaths, dowel overhead squat 2×4 slow reps", "Use the official Pro ball: 9 kg", "5-minute EMOM: complete 12 wall balls at the start of every minute = 60 total", "Finish each set within 25–35 sec; rest for the remainder of the minute", "Cues: full depth, ball close under chin, legs drive first, exhale on the throw", "Stop after two consecutive depth, target or balance misses; do not make up missed reps"] },
+        { label: "COOLDOWN", items: ["Walk 5 min", "Physio hip drill 2 prescribed sets", "Log legal reps, no-reps, leg RPE, shoulder RPE and next-morning response"] },
       ] },
       { id: "S14-3", date: "13 AUG", dow: "THU", title: "Threshold 3×8 Minutes", type: "RUN", duration: "9–10 km · 60 min", rpe: "7", blocks: [
         { label: "WARM-UP", items: ["15 min easy jog", "A-march 2×20 m + 3×20 sec strides", "Start first repetition only when breathing is settled"] },
@@ -255,9 +256,10 @@ const weeks: Week[] = [
         { label: "FUEL + FORM", items: ["Take 25–35 g carbohydrate around 40 min", "Hill cue: quick feet, slight ankle lean, right knee tracks straight", "Descend easily to protect eccentric load"] },
         { label: "COOLDOWN", items: ["Walk 5–8 min", "Protein plus carbohydrate meal", "Log right hamstring response before Sunday's run"] },
       ] },
-      { id: "S14-6", date: "16 AUG", dow: "SUN", title: "Recovery Run + Mobility", type: "RUN", duration: "4–5 km · 30–35 min", rpe: "3", blocks: [
-        { label: "MAIN", items: ["Entire run at recovery effort, approximately 6:25–6:55/km", "Flat route only", "If legs are heavy or right hamstring is restricted, replace with 30 min easy bike"] },
-        { label: "MOBILITY", items: ["Physio hip drill 2 sets", "90/90 switches 1×6/side", "Active hamstring floss 2×8/side", "Eccentric calf 2×12 + tibialis raise 2×15"] },
+      { id: "S14-6", date: "16 AUG", dow: "SUN", title: "Recovery Run + Wall-Ball Skill", type: "RUN", duration: "45–50 min", rpe: "3–4", blocks: [
+        { label: "RUN", items: ["4–5 km at recovery effort, approximately 6:25–6:55/km", "Flat route only", "If legs are heavy or the right hamstring is restricted, replace the run with 30 min easy bike"] },
+        { label: "WALL-BALL SKILL · WEEK 1", items: ["After breathing settles for 3–5 min: 6-minute EMOM × 8 wall balls at 9 kg = 48 total", "Aim to finish each set in 15–20 sec; take the remaining 40–45 sec as complete rest", "Every repetition should look identical; this is speed and accuracy practice, not conditioning", "If the run was replaced because of symptoms, omit wall balls as well"] },
+        { label: "MOBILITY", items: ["Physio hip drill 2 sets", "Kettlebell hip shift 1×30 sec/side", "Bench upper-back stretch 1×5 breaths", "Eccentric calf 2×12 + tibialis raise 2×15"] },
       ] },
     ],
   },
@@ -267,11 +269,11 @@ const weeks: Week[] = [
     dates: "17–23 Aug",
     phase: "10K BUILD",
     volume: "38–40 km",
-    focus: "Peak useful workload before PEGASUS while attacking the repeatable HYROX limiter: Pro-load pull strength and late-race lunge/wall-ball durability. Running quality stays precise, not excessive.",
+    focus: "Peak useful workload before PEGASUS while progressing Pro-load pull strength, late-race lunges and controlled 9 kg wall-ball density. Running quality stays precise, not excessive.",
     gate: "Increase only if Week 14 is green. If AVOHK 5K is raced, it replaces the 1 km interval session. Never perform both as hard efforts in the same week.",
     days: [
-      { id: "S15-0", date: "17 AUG", dow: "MON", title: "Lower Strength · Heavy Controlled", type: "STRENGTH", duration: "75 min", rpe: "7–8", blocks: [
-        { label: "WARM-UP", items: ["Bike 6 min", "Physio hip drill 2 sets + 90/90 switches 1×6/side", "Two ramp sets for leg press and RDL"] },
+      { id: "S15-0", date: "17 AUG", dow: "MON", title: "Heavy Leg Strength", type: "STRENGTH", duration: "75 min", rpe: "7–8", blocks: [
+        { label: "WARM-UP", items: ["Bike 6 min", "Physio hip drill 2 sets + kettlebell hip shift 2×30 sec/side", "Bench upper-back stretch 2×5 breaths + dowel overhead squat 2×4 slow reps", "Two ramp sets for leg press and RDL"] },
         { label: "PRIMARY", items: ["Leg press or hack squat 5×5 @ RPE 8; 2:30 rest", "Romanian deadlift 4×6 @ RPE 8; 2 min rest", "Walking lunge 3×10/side with controlled load; 90 sec rest", "Hamstring curl 4×8 @ RPE 8; 75 sec rest"] },
         { label: "HYROX SUPPORT", items: ["Farmer carry 5×40 m heavy; 75 sec rest", "Wall-ball squat pattern 3×10 with light ball, no throw; 60 sec rest", "Eccentric calf 3×12 + tibialis 3×18"] },
         { label: "TRUNK + COOLDOWN", items: ["Pallof press 3×10/side + side plank 3×35 sec/side", "Walk 5 min", "No extra leg work after completing the programmed sets"] },
@@ -285,6 +287,7 @@ const weeks: Week[] = [
         { label: "WARM-UP", items: ["SkiErg 6 min easy", "Band pulldown 2×12 + cable row 2×10"] },
         { label: "STRENGTH", items: ["Chest-supported row 5×6 @ RPE 8; 2 min rest", "Lat pulldown 4×8 @ RPE 8; 90 sec rest", "Single-arm cable row 3×10/side; 60 sec between sides", "Heavy sled pull 8×12.5 m at 80–90% Pro load; 90 sec rest", "If all eight lengths stay clean, complete one final 12.5 m at Pro load; otherwise stop at eight"] },
         { label: "ERG POWER", items: ["SkiErg 6×250 m @ RPE 7–8; 75 sec rest", "Keep each split within 2 sec", "Long pull, strong finish, relaxed recovery"] },
+        { label: "WALL-BALL SKILL · WEEK 2", items: ["Let breathing settle 3 min, then use a 9 kg ball", "7-minute EMOM: 8 wall balls at the start of every minute = 56 total", "Complete the 8 reps in 15–20 sec and rest fully for the balance of the minute", "Film minute 1 or 7 from the side: check full depth, stable heels and no right-hip shift", "Stop if accuracy or squat position deteriorates"] },
         { label: "ACCESSORY", items: ["Reverse pec deck 3×15", "Cable curl 3×10 + rope pressdown 3×10", "Front plank 3×45 sec"] },
         { label: "COOLDOWN", items: ["Easy walk 5 min", "Physio right-hip drill 2 sets"] },
       ] },
@@ -292,12 +295,12 @@ const weeks: Week[] = [
         { label: "MAIN", items: ["8 km flat Z2 at 6:00–6:30/km or HR ≤142", "No strides and no fast finish", "Use this run to absorb Tuesday, not prove fitness"] },
         { label: "POST-RUN", items: ["Walk 5 min", "Active hamstring floss 2×8/side", "Physio hip drill 2 sets"] },
       ] },
-      { id: "S15-4", date: "21 AUG", dow: "FRI", title: "HYROX Late-Race Strength Skill", type: "HYROX", duration: "70 min", rpe: "6–7", blocks: [
-        { label: "WARM-UP", items: ["Bike or jog 8 min easy", "Goblet squat 2×8 + reverse lunge 2×6/side", "10 light wall balls + 10 m light sandbag carry"] },
-        { label: "WALL-BALL QUALITY", items: ["6×15 wall balls at 9 kg; 60 sec rest", "Sets 1–3: unbroken technical reps", "Sets 4–6: practise partner call at rep 12, clean handover at 15", "Cue: full depth, ball close, exhale on throw"] },
+      { id: "S15-4", date: "21 AUG", dow: "FRI", title: "Wall Balls + Sandbag Lunges", type: "HYROX", duration: "70 min", rpe: "6–7", blocks: [
+        { label: "WARM-UP", items: ["Bike or jog 8 min easy", "Kettlebell hip shift 2×30 sec/side + bench upper-back stretch 2×5 breaths", "Dowel overhead squat 2×4 slow reps with a 2-sec bottom pause", "2×8 light wall balls; 45 sec rest"] },
+        { label: "WALL-BALL DENSITY · WEEK 2", items: ["Use the official Pro ball: 9 kg", "5-minute EMOM: complete 14 wall balls at the start of every minute = 70 total", "Finish each set within 25–35 sec; rest for the remainder of the minute", "Cues: heels stable, knees over middle toes, ball close, legs drive, soft catch", "Stop after two consecutive no-reps or if the right hip shifts; do not chase the total"] },
         { label: "LUNGE CAPACITY", items: ["4×25 m sandbag lunges at controlled race load; 90 sec rest", "Alternate lead leg naturally", "Front knee tracks over mid-foot; torso tall", "Stop the set if right hip rotates or stride shortens"] },
-        { label: "TRANSITION CIRCUIT · 3 ROUNDS", items: ["500 m easy-moderate run", "20 m farmer carry", "10 wall balls", "Rest 2 min between rounds; cap total effort at RPE 7"] },
-        { label: "COOLDOWN", items: ["Walk 5–8 min", "Physio hip drill 2 sets", "This is technical strength endurance, not a simulation"] },
+        { label: "TRANSITION PRACTICE · 3 ROUNDS", items: ["400 m easy-moderate run", "20 m farmer carry", "Walk 60 sec, then rest until 2 min has elapsed", "Keep total effort at RPE 7; no extra wall balls"] },
+        { label: "COOLDOWN", items: ["Walk 5–8 min", "Physio hip drill 2 sets", "Log legal reps, no-reps, leg RPE, shoulder RPE and next-morning response"] },
       ] },
       { id: "S15-5", date: "22 AUG", dow: "SAT", title: "Recovery Run or AVOHK Replacement", type: "RUN", duration: "5 km easy · 32–38 min", rpe: "3–4", note: "If racing AVOHK 5K, Tuesday's 5×1 km must be replaced by 6 km easy. Do not keep both quality sessions.", blocks: [
         { label: "RECOVERY OPTION", items: ["5 km very easy at 6:20–6:50/km", "Flat route, relaxed cadence", "Finish feeling better than you started"] },
@@ -391,6 +394,17 @@ const singlesStationTrend = [
   ["Roxzone", "10:10", "12:09", "Execution cost persists across both singles"],
 ];
 
+const wallBallBuild = [
+  ["10–16 Aug", "5-min EMOM × 12", "6-min EMOM × 8", "60 + 48 legal reps at 9 kg"],
+  ["17–23 Aug", "5-min EMOM × 14", "7-min EMOM × 8", "70 + 56 legal reps at 9 kg"],
+  ["24–30 Aug", "Race-week deload", "Optional 2×8 technique", "No density work before PEGASUS"],
+  ["31 Aug–6 Sep", "5-min EMOM × 16", "8-min EMOM × 9", "80 + 72 legal reps at 9 kg"],
+  ["7–13 Sep", "5-min EMOM × 18", "8-min EMOM × 10", "90 + 80 legal reps at 9 kg"],
+  ["14–20 Sep", "4-min EMOM × 15", "35 + 20 after 20 sec", "First controlled fatigue week"],
+  ["21–27 Sep", "4-min EMOM × 18", "45 + 25 after 20 sec", "Progress only after a green morning"],
+  ["28 Sep–4 Oct", "4-min EMOM × 20", "55 + 30 or green test", "Test 70–100 only with legal form"],
+];
+
 const phaseRoadmap = [
   ["27 Jul–9 Aug 2026", "Recover + rebuild", "27 km baseline into structured strength"],
   ["10–16 Aug 2026", "Build 1", "Threshold, hills and HYROX technique"],
@@ -429,16 +443,16 @@ const augustCells = [
   ["9", "Rest + hip reset", "rest"],
   ["10", "Lower strength", "strength"],
   ["11", "8K easy + strides", "run"],
-  ["12", "Sled + upper strength", "hyrox"],
+  ["12", "Sled + wall-ball density", "hyrox"],
   ["13", "3×8m threshold", "run"],
   ["14", "Upper + hip control", "strength"],
   ["15", "13K + hill surges", "run"],
-  ["16", "4–5K recovery", "run"],
+  ["16", "Recovery + wall-ball skill", "run"],
   ["17", "Heavy lower strength", "strength"],
   ["18", "5×1K specific", "run"],
-  ["19", "Pull + erg power", "hyrox"],
+  ["19", "Pull + wall-ball skill", "hyrox"],
   ["20", "8K easy", "run"],
-  ["21", "HYROX late-race skill", "hyrox"],
+  ["21", "Wall balls + lunges", "hyrox"],
   ["22", "5K recovery / race", "run"],
   ["23", "15K long aerobic", "run"],
   ["24", "Full-body primer", "strength"],
@@ -547,7 +561,7 @@ export default function App() {
     <main className="app-shell">
       <header className="hero">
         <div>
-          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V7.3</p>
+          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V7.4</p>
           <h1>SEASON <span>2026/27</span></h1>
           <div className="status-line">
             <span className="phase-pill">BUILD</span>
@@ -577,8 +591,8 @@ export default function App() {
       {tab === "plan" && (
         <section className="view">
           <div className="strategy-callout">
-            <b>WHAT'S NEW · VERSION 7.3</b>
-            <p>The performance model now uses four HYROX results across Open Singles, Open Doubles, Pro Singles and Pro Doubles. Delhi is correctly treated as a partner-constrained team result, while Hong Kong Pro Singles and Wuhan with Andy anchor the individual and partnership diagnoses. Upcoming sessions now prioritise Pro-load sled pull, burpee economy, lunges, wall balls and Roxzone execution. Sold-out target-category rows are removed. Storage keys and completion ids remain unchanged.</p>
+            <b>WHAT'S NEW · VERSION 7.4</b>
+            <p>An Amar-specific eight-week wall-ball build now converts mobility, strength reserve and density into two controlled 9 kg exposures per week. Week 16 deloads for PEGASUS rather than forcing linear volume. Every session lists exact repetitions, rest, legal-rep cues and stop rules. The full coaching source remains private. Storage keys and completion ids remain unchanged.</p>
           </div>
           <div className="week-strip">
             {weeks.map((item) => (
@@ -804,6 +818,21 @@ export default function App() {
               <div className="table-row" key={station}><span>{station}</span><b>{taipei}</b><span>{hongKong}</span><span>{read}</span></div>
             ))}
           </section>
+          <div className="race-section-heading watch-heading">
+            <p className="section-kicker">8-WEEK WALL-BALL BUILD · STARTS 10 AUG</p>
+            <h3>Legal 9 kg repetitions before an unbroken number.</h3>
+            <p>Two exposures per week, with a PEGASUS race-week deload. Progress requires full depth, stable heels, target accuracy and no next-morning symptom increase.</p>
+          </div>
+          <section className="split-table">
+            <div className="table-head"><b>WEEK</b><b>DENSITY DOSE</b><b>SKILL / LONG SET</b><b>DECISION RULE</b></div>
+            {wallBallBuild.map(([dates, density, second, rule]) => (
+              <div className="table-row" key={dates}><span>{dates}</span><b>{density}</b><span>{second}</span><span>{rule}</span></div>
+            ))}
+          </section>
+          <div className="strategy-callout">
+            <b>WALL-BALL STRATEGY</b>
+            <p>100 unbroken is a capacity ceiling, not an automatic race command. Pro Singles begins with a rehearsed 40-30-30 or 50-25-25 unless a clean fatigued test supports unbroken. With Andy, practise 10-, 15- and 20-rep handovers and call the switch before form fails.</p>
+          </div>
           <section className="target-ladder">
             <div><span>INDIVIDUAL EVIDENCE</span><b>1:45:24</b><p>Hong Kong Pro Singles</p></div>
             <div><span>PAIR EVIDENCE</span><b>1:16:35</b><p>Wuhan Open with Andy</p></div>
