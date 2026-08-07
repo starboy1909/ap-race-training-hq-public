@@ -255,11 +255,13 @@ button { color: inherit; }
 .race-status.registered, .race-status.target { border-color: #587a20; color: var(--lime); }
 .race-status.watch { border-color: #7b662d; color: #e4bd55; }
 .race-status.booked { border-color: #55477b; color: #ad9be1; }
-.race-status.sales-soon, .race-status.date-tbc, .race-status.decide { border-color: #7b662d; color: #e4bd55; }
+.race-status.sales-soon, .race-status.date-tbc, .race-status.decide, .race-status.decision { border-color: #7b662d; color: #e4bd55; }
+.race-status.register-now { border-color: #3d7b4b; color: #77dd8b; }
+.race-status.urgent { border-color: #a6632d; color: #ffad5c; background: #24190f; }
 .race-status.last-chance, .race-status.travel-conflict, .race-status.pro-sold-out { border-color: #87392f; color: var(--red); }
 .race-status.planned { border-color: #315b78; color: var(--blue); }
 .priority { color: var(--lime); font-family: var(--font-label); font-size: 10px; text-align: center; }
-.watch-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0 0 22px; }
+.watch-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 0 0 22px; }
 .watch-summary div { padding: 16px; border: 1px solid #2b4a64; border-radius: 10px; background: #111820; }
 .watch-summary b, .watch-summary span { display: block; }
 .watch-summary b { color: var(--blue); font-size: 17px; }
@@ -271,9 +273,20 @@ button { color: inherit; }
 .race-source { display: flex; flex-wrap: wrap; gap: 8px 14px; margin-top: 9px; color: #768599; font-size: 9px; font-weight: 700; }
 .race-source a { color: #7ec5ee; text-decoration: none; }
 .race-source a:hover { text-decoration: underline; }
+.procam-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.procam-card { display: grid; grid-template-columns: 46px 1fr; gap: 13px; padding: 17px; border: 1px solid #3e355b; border-radius: 11px; background: #15131d; }
+.procam-order { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: 1px solid #675892; border-radius: 50%; color: #b8a5ed; font-family: var(--font-label); font-size: 9px; font-weight: 900; }
+.procam-card small { color: #9185ad; font-size: 9px; text-transform: uppercase; letter-spacing: .05em; }
+.procam-card h3 { margin: 5px 0 8px; font-size: 15px; }
+.procam-card b { color: #e4bd55; font-family: var(--font-label); font-size: 9px; line-height: 1.45; }
+.procam-card p { margin: 8px 0; color: #afa8bd; font-size: 11px; line-height: 1.5; }
+.procam-card a { color: #b8a5ed; font-size: 9px; font-weight: 800; text-decoration: none; }
+.procam-card a:hover { text-decoration: underline; }
 .freshness-note { margin-top: 16px; padding: 16px 18px; border: 1px solid #2b4a64; border-radius: 9px; background: #111820; }
 .freshness-note b { color: var(--blue); font-size: 10px; }
 .freshness-note p { margin: 6px 0 0; color: #aab4c2; font-size: 12px; line-height: 1.55; }
+.freshness-note.procam-note { border-color: #3e355b; background: #15131d; }
+.freshness-note.procam-note b { color: #b8a5ed; }
 .strategy-callout { margin-top: 16px; padding: 18px; border-left: 3px solid var(--lime); border-radius: 4px; background: #171b12; }
 .strategy-callout b { color: var(--lime); font-family: var(--font-label); font-size: 10px; }
 .strategy-callout p { margin: 7px 0 0; color: #bcc3b3; font-size: 12px; line-height: 1.5; }
@@ -324,7 +337,7 @@ button { color: inherit; }
   .calendar-grid { grid-template-columns: repeat(2, 1fr); }
   .calendar-cell { min-height: 78px; }
   .roadmap-row { grid-template-columns: 1fr; gap: 5px; }
-  .travel-panel, .analysis-grid, .elite-principles { grid-template-columns: 1fr; }
+  .travel-panel, .analysis-grid, .elite-principles, .procam-grid { grid-template-columns: 1fr; }
   .race-card { grid-template-columns: 88px minmax(0, 1fr); align-items: start; gap: 10px; }
   .race-card > div:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; min-width: 0; }
   .race-card .race-status { grid-column: 1; justify-self: start; }

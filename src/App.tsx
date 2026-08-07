@@ -34,10 +34,20 @@ type Race = {
   priority: string;
   location: string;
   note: string;
-  category: "campaign" | "hyrox";
+  category: "campaign" | "opportunity" | "hyrox";
   sourceLabel: string;
   sourceUrl?: string;
   checked: string;
+};
+
+type ProcamEvent = {
+  order: string;
+  date: string;
+  name: string;
+  feature: string;
+  registration: string;
+  fit: string;
+  sourceUrl: string;
 };
 
 const weeks: Week[] = [
@@ -363,7 +373,13 @@ const races: Race[] = [
   { startIso: "2026-11-04", date: "4 Nov 2026", name: "JPM Corporate Challenge", type: "5.6K road", status: "DATE TBC", priority: "B", location: "Hong Kong", note: "Working date from the season plan; confirm when the JPM team publishes the final date.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
   { startIso: "2026-12-20", date: "20 Dec 2026", name: "Shenzhen Marathon", type: "Road marathon option", status: "DECIDE", priority: "C", location: "Shenzhen", note: "Lottery-gated. Honest default is skip unless recovery and HYROX priorities stay green.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
   { startIso: "2027-01-03", date: "3 Jan 2027", name: "Xiamen Marathon", type: "January road option", status: "DECIDE", priority: "C", location: "Xiamen", note: "One of three January options; do not stack it with another marathon or a January HYROX.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
-  { startIso: "2027-01-17", date: "17 Jan 2027", name: "Hong Kong / Mumbai Marathon option", type: "January road option", status: "DECIDE", priority: "C", location: "Hong Kong or Mumbai", note: "Choose no more than one January road race. Decision remains subordinate to qualification strategy.", category: "campaign", sourceLabel: "PLAN OF RECORD", checked: "5 Aug 2026" },
+  { startIso: "2027-01-17", date: "17 Jan 2027", name: "Standard Chartered Hong Kong Marathon", type: "Marathon / Half / 10K option", status: "DECIDE", priority: "C", location: "Hong Kong", note: "Choose at most one January road race. This shares the date with Mumbai and follows HYROX Hong Kong by one week, so the marathon is not the default.", category: "campaign", sourceLabel: "OFFICIAL ORGANISER", sourceUrl: "https://www.hkmarathon.com/", checked: "7 Aug 2026" },
+
+  { startIso: "2026-08-15", date: "15 Aug–12 Sep 2026", name: "AVOHK 5K Series", type: "Four road 5K races", status: "URGENT", priority: "B option", location: "Hong Kong", note: "Race 1 is almost full and closes 8 Aug. Enter only if a short speed benchmark is useful; replace the planned Saturday session rather than stacking both.", category: "opportunity", sourceLabel: "OFFICIAL AVOHK", sourceUrl: "https://avohk.org/index.php/2026/07/28/2026-avohk-5k-series-entry-is-now-open-sign-up-now/", checked: "7 Aug 2026" },
+  { startIso: "2026-11-01", date: "1 Nov 2026", name: "Northern Metropolis Marathon", type: "10K / Half / Marathon", status: "DECISION", priority: "Conflict", location: "Hong Kong", note: "Entries are first-come, first-served; standard categories close by 21 Sep or when full. It directly conflicts with the Shanghai HYROX window, so resolve Shanghai before entering.", category: "opportunity", sourceLabel: "OFFICIAL ORGANISER", sourceUrl: "https://hknmm.com/en/important-notes", checked: "7 Aug 2026" },
+  { startIso: "2026-11-08", date: "8 Nov 2026", name: "RMAC Gold Coast 15K", type: "Road 15K", status: "REGISTER NOW", priority: "B option", location: "Hong Kong", note: "Open until 19 Oct or capacity. Strong aerobic benchmark after JPMCC, but race it controlled if Guangzhou remains the primary 21–22 Nov qualifier.", category: "opportunity", sourceLabel: "OFFICIAL ENTRY", sourceUrl: "https://www.jotform.com/262032160097449", checked: "7 Aug 2026" },
+  { startIso: "2026-11-15", date: "15 Nov 2026", name: "Pocari Sweat Run Fest 10K", type: "Road 10K", status: "REGISTER NOW", priority: "C option", location: "Hong Kong", note: "Official 10K entry is live. Use only as a controlled tune-up six days before Guangzhou; no all-out effort and no separate taper.", category: "opportunity", sourceLabel: "OFFICIAL ENTRY", sourceUrl: "https://psrun2026.sportsoho.com/en/form/enrolment-form", checked: "7 Aug 2026" },
+  { startIso: "2026-12-20", date: "20 Dec 2026", name: "Garmin Run Hong Kong", type: "21K / 10K road", status: "DECISION", priority: "Conflict", location: "Hong Kong", note: "Registration is open until 31 Oct or capacity. It clashes with Shenzhen Marathon and Kolkata 25K, so choose one 20 Dec race only; the 21K is the most sensible local option.", category: "opportunity", sourceLabel: "OFFICIAL GARMIN", sourceUrl: "https://www.garmin.com.hk/event/2026/garmin-run/", checked: "7 Aug 2026" },
 
   { startIso: "2026-10-31", date: "31 Oct–1 Nov 2026", name: "HYROX Shanghai", type: "Pro Doubles Men watch", status: "SALES SOON", priority: "A option", location: "Shanghai", note: "Close-to-home qualification attempt if Pro Doubles inventory and Andy are confirmed.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/hyrox-shanghai-1031/", checked: "5 Aug 2026" },
   { startIso: "2026-11-21", date: "21–22 Nov 2026", name: "HYROX Guangzhou", type: "Pro Doubles Men watch", status: "SALES SOON", priority: "A", location: "Guangzhou", note: "Primary close-to-home qualifier. Register immediately when Pro Doubles sales open.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/hyrox-guangzhou/", checked: "5 Aug 2026" },
@@ -377,6 +393,13 @@ const races: Race[] = [
   { startIso: "2027-05-12", date: "12–16 May 2027", name: "HYROX Bengaluru", type: "Pro Doubles Men watch", status: "LAST CHANCE", priority: "Risk", location: "Bengaluru", note: "Event ends on the stated qualification cutoff. Treat as contingency only; result timing is dangerously tight.", category: "hyrox", sourceLabel: "OFFICIAL HYROX INDIA", sourceUrl: "https://hyrox.co.in/event/hyrox-bengaluru/", checked: "5 Aug 2026" },
   { startIso: "2027-05-13", date: "13–16 May 2027", name: "BYD HYROX Incheon", type: "Pro Doubles Men watch", status: "LAST CHANCE", priority: "Risk", location: "Incheon", note: "Also ends at the cutoff. Do not leave qualification to this race unless HYROX confirms result eligibility timing.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/hyrox-incheon/", checked: "5 Aug 2026" },
   { startIso: "2027-06-10", date: "10–13 Jun 2027", name: "PUMA HYROX World Championships", type: "Pro Doubles Men", status: "TARGET", priority: "A+", location: "Hong Kong", note: "Target event. Qualification results must be posted by 16 May 2027.", category: "hyrox", sourceLabel: "OFFICIAL HYROX", sourceUrl: "https://hyrox.com/event/puma-hyrox-world-championships-hong-kong/", checked: "5 Aug 2026" },
+];
+
+const procamEvents: ProcamEvent[] = [
+  { order: "START", date: "20 Dec 2026", name: "Tata Steel World 25K Kolkata", feature: "25K · Slam cutoff 3:45", registration: "OPENS 13 AUG · 7:00 AM IST", fit: "Possible cycle start, but conflicts with Garmin HK and Shenzhen. Choose one 20 Dec race.", sourceUrl: "https://tatasteelkolkata25k.procam.in/" },
+  { order: "2", date: "17 Jan 2027", name: "Tata Mumbai Marathon", feature: "Marathon · Slam cutoff 6:30", registration: "OPEN · CLOSES 5 NOV OR WHEN FULL", fit: "Overseas marathon entry is open. Same date as Hong Kong Marathon and one week after HYROX Hong Kong.", sourceUrl: "https://tatamumbaimarathon.procam.in/race-categories/marathon/registration-date" },
+  { order: "3", date: "25 Apr 2027", name: "TCS World 10K Bengaluru", feature: "Open 10K · Slam cutoff 1:25", registration: "RACE DATE CONFIRMED · REGISTRATION TBC", fit: "Good distance for the running plan, but travel cost must justify it during the final HYROX qualifier block.", sourceUrl: "https://tcsworld10k.procam.in/" },
+  { order: "4", date: "2027 date TBC", name: "Vedanta Delhi Half Marathon", feature: "Half Marathon · Slam cutoff 3:30", registration: "2027 WINDOW TBC", fit: "Completes a Kolkata-start cycle. The sold-out 18 Oct 2026 edition is intentionally excluded from active opportunities.", sourceUrl: "https://vedantadelhihalfmarathon.procam.in/" },
 ];
 
 const raceHistory = [
@@ -561,7 +584,7 @@ export default function App() {
     <main className="app-shell">
       <header className="hero">
         <div>
-          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V7.4</p>
+          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V7.5</p>
           <h1>SEASON <span>2026/27</span></h1>
           <div className="status-line">
             <span className="phase-pill">BUILD</span>
@@ -591,8 +614,8 @@ export default function App() {
       {tab === "plan" && (
         <section className="view">
           <div className="strategy-callout">
-            <b>WHAT'S NEW · VERSION 7.4</b>
-            <p>An Amar-specific eight-week wall-ball build now converts mobility, strength reserve and density into two controlled 9 kg exposures per week. Week 16 deloads for PEGASUS rather than forcing linear volume. Every session lists exact repetitions, rest, legal-rep cues and stop rules. The full coaching source remains private. Storage keys and completion ids remain unchanged.</p>
+            <b>WHAT'S NEW · VERSION 7.5</b>
+            <p>Race HQ now separates confirmed targets from live road-race opportunities, maps a realistic Procam sequence and shows date conflicts before registration. Fitz is a discovery feed only; organiser pages decide whether a race stays visible. Trail, cross-country, closed and sold-out events are excluded. Storage keys and completion ids remain unchanged.</p>
           </div>
           <div className="week-strip">
             {weeks.map((item) => (
@@ -720,29 +743,75 @@ export default function App() {
         <section className="view">
           <div className="view-heading">
             <div>
-              <p className="section-kicker">QUALIFYING STRATEGY · VERIFIED 5 AUG 2026</p>
+              <p className="section-kicker">RACE DECISION SYSTEM · VERIFIED 7 AUG 2026</p>
               <h2>Race HQ</h2>
-              <p>Exact dates, transparent sources and dynamic countdowns. Only A-races get a true taper; every other event supports the qualification campaign.</p>
+              <p>Confirmed targets stay separate from registration opportunities. Road races must support the HYROX campaign, not compete with it. Trail, cross-country, closed and sold-out events are filtered out.</p>
             </div>
           </div>
           <div className="watch-summary">
+            <div><b>{races.filter((race) => race.status === "REGISTERED").length}</b><span>CONFIRMED ENTRY</span></div>
+            <div><b>{races.filter((race) => race.status === "REGISTER NOW" || race.status === "URGENT").length}</b><span>LIVE ROAD OPTIONS</span></div>
             <div><b>{races.filter((race) => race.category === "hyrox" && race.status !== "DONE").length}</b><span>HYROX WINDOWS</span></div>
-            <div><b>16 MAY 2027</b><span>RESULT CUTOFF</span></div>
-            <div><b>10–13 JUN 2027</b><span>HONG KONG WORLDS</span></div>
+            <div><b>16 MAY 2027</b><span>QUALIFICATION CUTOFF</span></div>
           </div>
           <div className="race-section-heading">
-            <p className="section-kicker">CAMPAIGN CALENDAR</p>
-            <h3>Road races and decision points</h3>
+            <p className="section-kicker">CONFIRMED + PLAN OF RECORD</p>
+            <h3>Already training toward</h3>
+            <p>Registered races and existing season decisions. A confirmed entry drives the plan; an optional race never earns an automatic taper.</p>
           </div>
           <div className="race-list">
             {races.filter((race) => race.category === "campaign").map((race) => (
               <article className="race-card" key={race.name}>
                 <div className="race-date"><b>{race.date}</b><span>{raceCountdown(race.startIso, race.status)}</span></div>
-                <div><small>{race.location} · {race.type}</small><h3>{race.name}</h3><p>{race.note}</p><div className="race-source"><span>{race.sourceLabel}</span><span>Checked {race.checked}</span></div></div>
+                <div>
+                  <small>{race.location} · {race.type}</small><h3>{race.name}</h3><p>{race.note}</p>
+                  <div className="race-source">
+                    {race.sourceUrl ? <a href={race.sourceUrl} target="_blank" rel="noreferrer">{race.sourceLabel} ↗</a> : <span>{race.sourceLabel}</span>}
+                    <span>Checked {race.checked}</span>
+                  </div>
+                </div>
                 <div className={`race-status ${statusClass(race.status)}`}>{race.status}</div>
                 <div className="priority">{race.priority}</div>
               </article>
             ))}
+          </div>
+          <div className="race-section-heading watch-heading">
+            <p className="section-kicker">CURATED ROAD OPPORTUNITIES</p>
+            <h3>Open now or awaiting one decision</h3>
+            <p>Fitz supplies discovery. Each visible row has a current organiser or entry source and a clear training fit. Closed entries, full races, trail, cross-country and novelty runs are not shown.</p>
+          </div>
+          <div className="race-list">
+            {races.filter((race) => race.category === "opportunity").map((race) => (
+              <article className="race-card" key={race.name}>
+                <div className="race-date"><b>{race.date}</b><span>{raceCountdown(race.startIso, race.status)}</span></div>
+                <div>
+                  <small>{race.location} · {race.type}</small><h3>{race.name}</h3><p>{race.note}</p>
+                  <div className="race-source">
+                    <a href={race.sourceUrl} target="_blank" rel="noreferrer">{race.sourceLabel} ↗</a>
+                    <span>Checked {race.checked}</span>
+                  </div>
+                </div>
+                <div className={`race-status ${statusClass(race.status)}`}>{race.status}</div>
+                <div className="priority">{race.priority}</div>
+              </article>
+            ))}
+          </div>
+          <div className="race-section-heading watch-heading">
+            <p className="section-kicker">PROCAM MAP · POTENTIAL KOLKATA-START CYCLE</p>
+            <h3>Four consecutive feature races</h3>
+            <p>No separate Slam registration is required. The cycle can begin at any event, but the next three feature races must then be completed consecutively.</p>
+          </div>
+          <div className="procam-grid">
+            {procamEvents.map((event) => (
+              <article className="procam-card" key={event.name}>
+                <div className="procam-order">{event.order}</div>
+                <div><small>{event.date} · {event.feature}</small><h3>{event.name}</h3><b>{event.registration}</b><p>{event.fit}</p><a href={event.sourceUrl} target="_blank" rel="noreferrer">Official Procam page ↗</a></div>
+              </article>
+            ))}
+          </div>
+          <div className="freshness-note procam-note">
+            <b>PROCAM DECISION RULE</b>
+            <p>The four races are individually valuable, but the formal rewards and services are limited to India residents. From Hong Kong, the Slam should be treated as an optional four-trip race project, not a reason to compromise HYROX qualification. The immediate decision is Kolkata versus Garmin versus Shenzhen on 20 Dec, followed by Mumbai versus Hong Kong Marathon on 17 Jan.</p>
           </div>
           <div className="race-section-heading watch-heading">
             <p className="section-kicker">APAC HYROX WATCHLIST</p>
@@ -767,7 +836,7 @@ export default function App() {
           </div>
           <div className="freshness-note">
             <b>TRACKING MODEL</b>
-            <p>Personal registration records are reconciled privately and are not exposed here. Official organiser and ticket-shop pages are the source of truth for public dates and inventory. HYRESULT is used only as a secondary discovery signal. When Men's Pro Doubles is confirmed sold out, the race is removed from this active watchlist and returns only if official inventory reopens.</p>
+            <p>Personal registration records are reconciled privately and are not exposed here. Official organiser and ticket-shop pages decide public dates and inventory. Fitz discovers Hong Kong road races; Procam's own pages govern its four-race map; HYRESULT remains a secondary HYROX signal only. Trail, cross-country, closed and sold-out races are removed and return only when an official source shows a genuine opening.</p>
           </div>
           <div className="strategy-callout">
             <b>PARTNER ASSUMPTION · CONFIRMED TRAINING PARTNER</b>
