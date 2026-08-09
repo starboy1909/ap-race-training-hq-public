@@ -1,5 +1,21 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { procamEvents, races } from "./raceData";
+import garminWeeklyData from "./data/garmin-weekly.json";
+
+type GarminWeekly = {
+  status: string;
+  generatedAt: string | null;
+  reviewWindow: string | null;
+  decision: { tone: string; label: string };
+  summary: string;
+  coverage: { healthDays: number; activities: number; activityHistoryStart: string | null };
+  metrics: { label: string; value: string; trend: string; flag: string }[];
+  trainingMix: { type: string; count: number }[];
+  proposedChanges: { scope: string; action: string; rationale: string; status: string }[];
+  safeguards: string[];
+};
+
+const garminWeekly = garminWeeklyData as GarminWeekly;
 
 type Day = {
   id: string;
@@ -531,6 +547,7 @@ export default function App() {
             <span className="phase-pill">BUILD</span>
             <span>W13–16 granular prescription</span>
             <span className={`readiness ${readiness.tone}`}>{readiness.label}</span>
+            <span className={`readiness ${garminWeekly.decision.tone}`}>{garminWeekly.decision.label}</span>
           </div>
         </div>
         <div className="countdown">
@@ -558,6 +575,52 @@ export default function App() {
             <b>WHAT'S NEW · VERSION 8.0</b>
             <p>Race-watch data now lives in a separate public-safe source, allowing future event updates without touching the detailed training plan. AVOHK Reservoir Series is added, the 5K Series reflects the latest official entry state, and Race HQ remains split between confirmed targets and actionable opportunities. PNRs, booking and registration references, flight and hotel details, payment data and credentials are never published. Storage keys and completion ids remain unchanged.</p>
           </div>
+          <section className={`garmin-review ${garminWeekly.decision.tone}`}>
+            <div className="garmin-review-head">
+              <div>
+                <p className="section-kicker">PRIVATE ANALYSIS · PUBLIC-SAFE WEEKLY OUTPUT</p>
+                <h2>Garmin weekly review</h2>
+                <p>{garminWeekly.summary}</p>
+              </div>
+              <div className="garmin-decision">
+                <b>{garminWeekly.decision.label}</b>
+                <span>{garminWeekly.generatedAt ? `Updated ${new Date(garminWeekly.generatedAt).toLocaleDateString("en-GB", { timeZone: "Asia/Hong_Kong" })}` : "First review pending"}</span>
+              </div>
+            </div>
+            <div className="garmin-coverage">
+              <span><b>{garminWeekly.coverage.healthDays}</b> health days reviewed</span>
+              <span><b>{garminWeekly.coverage.activities}</b> activities reviewed</span>
+              <span><b>{garminWeekly.coverage.activityHistoryStart || "—"}</b> activity history starts</span>
+            </div>
+            {garminWeekly.metrics.length > 0 && (
+              <div className="garmin-metrics">
+                {garminWeekly.metrics.map((item) => (
+                  <article className={item.flag} key={item.label}>
+                    <small>{item.label}</small><b>{item.value}</b><span>{item.trend}</span>
+                  </article>
+                ))}
+              </div>
+            )}
+            {garminWeekly.trainingMix.length > 0 && (
+              <div className="garmin-mix">
+                <b>LIFETIME ACTIVITY MIX</b>
+                <div>{garminWeekly.trainingMix.map((item) => <span key={item.type}>{item.type} · {item.count}</span>)}</div>
+              </div>
+            )}
+            <div className="garmin-change-list">
+              <h3>Proposed plan changes</h3>
+              {garminWeekly.proposedChanges.map((change, index) => (
+                <article key={`${change.scope}-${index}`}>
+                  <span className={`change-status ${change.status.toLowerCase()}`}>{change.status}</span>
+                  <div><b>{change.scope}</b><p>{change.action}</p><small>{change.rationale}</small></div>
+                </article>
+              ))}
+            </div>
+            <details className="garmin-safeguards">
+              <summary>Data and training safeguards</summary>
+              <ul>{garminWeekly.safeguards.map((item) => <li key={item}>{item}</li>)}</ul>
+            </details>
+          </section>
           <div className="week-strip">
             {weeks.map((item) => (
               <button key={item.id} className={weekId === item.id ? "selected" : ""} onClick={() => setWeekId(item.id)}>

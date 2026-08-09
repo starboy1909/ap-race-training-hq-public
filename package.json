@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "test": "node --test scripts/garmin-analysis-core.test.mjs",
+    "check": "npm run test && npm run build",
+    "garmin:weekly": "node scripts/garmin-weekly-analysis.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
