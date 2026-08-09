@@ -1,40 +1,40 @@
 {
   "status": "ready",
-  "generatedAt": "2026-08-09T09:44:57.916Z",
+  "generatedAt": "2026-08-09T10:07:40.519Z",
   "reviewWindow": "2026-06-15 to 2026-08-09",
   "decision": {
-    "tone": "amber",
-    "label": "GARMIN · MODIFY"
+    "tone": "green",
+    "label": "GARMIN · PROCEED"
   },
-  "summary": "MODIFY for the next training week. Key signals: moderate Garmin Training Readiness, seven-day sleep below 7 hours.",
+  "summary": "PROCEED for the next training week. Key signals: moderate Garmin Training Readiness.",
   "coverage": {
-    "healthDays": 55,
+    "healthDays": 52,
     "activities": 1392,
     "activityHistoryStart": "2024-06-11"
   },
   "metrics": [
     {
       "label": "7-day sleep",
-      "value": "6.7 h",
-      "trend": "+0.3% vs prior",
-      "flag": "watch"
+      "value": "7.3 h",
+      "trend": "+8.5% vs prior",
+      "flag": "good"
     },
     {
       "label": "Body Battery",
-      "value": "71.9",
-      "trend": "-0.8 vs prior",
+      "value": "71.3",
+      "trend": "-2.7 vs prior",
       "flag": "good"
     },
     {
       "label": "Resting HR",
-      "value": "53.9 bpm",
-      "trend": "+1.7 bpm vs prior",
+      "value": "54 bpm",
+      "trend": "+1.9 bpm vs prior",
       "flag": "good"
     },
     {
       "label": "Stress",
-      "value": "29.1",
-      "trend": "+1.2 vs prior",
+      "value": "28.4",
+      "trend": "+0.6 vs prior",
       "flag": "good"
     },
     {
@@ -109,15 +109,9 @@
   "proposedChanges": [
     {
       "scope": "Next 7 days",
-      "action": "Reduce planned volume by 10–15%, retain at most one quality exposure, and cap all other work at RPE 6.",
-      "rationale": "moderate Garmin Training Readiness; seven-day sleep below 7 hours",
-      "status": "AUTO-SAFE"
-    },
-    {
-      "scope": "Recovery support",
-      "action": "Create a 30-minute longer sleep opportunity before quality sessions; if morning readiness is below 50 or Body Battery is below 35, use the recovery swap instead.",
-      "rationale": "Seven-day sleep averages 6.7 hours despite otherwise positive recovery signals.",
-      "status": "SUPPORT"
+      "action": "Keep the current prescription. Do not add volume automatically; progress only through the existing injury and technique gates.",
+      "rationale": "The available recovery and load signals do not require a reduction.",
+      "status": "KEEP"
     }
   ],
   "safeguards": [
