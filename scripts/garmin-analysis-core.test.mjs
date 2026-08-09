@@ -47,3 +47,19 @@ test("public output excludes private analysis fields", () => {
   const result = analyzeGarminDataset({ dailyStats: stats(28), activities: [] }, "2026-08-09T00:00:00Z");
   assert.equal("privateAnalysis" in publicView(result), false);
 });
+
+test("publishes only aggregate running history and anonymized run comparisons", () => {
+  const result = publicView(analyzeGarminDataset({
+    dailyStats: stats(28),
+    activities: [
+      { id: 1, name: "Private outdoor route", type: "running", start_time: "2026-08-08T02:00:00Z", distance_meters: 10000, duration_seconds: 3600, avg_hr_bpm: 165, max_hr_bpm: 182, elevation_gain_meters: 48 },
+      { id: 2, name: "Private gym", type: "treadmill_running", start_time: "2026-08-06T02:00:00Z", distance_meters: 10500, duration_seconds: 3500, avg_hr_bpm: 155, max_hr_bpm: 177 },
+    ],
+    racePredictions: { predictions: { "5K": { time: "22:01" }, "10K": { time: "46:46" } } },
+    personalRecords: [{ record_type: "Fastest 5K", value: "20:55", activity_id: 99 }],
+  }, "2026-08-09T00:00:00Z"));
+  assert.equal(result.runningProfile.recent28Days.runs, 2);
+  assert.equal(result.runningProfile.latestOutdoorRun.distanceKm, 10);
+  assert.equal(result.runningProfile.racePredictions[0].time, "22:01");
+  assert.doesNotMatch(JSON.stringify(result), /Private outdoor route|Private gym|activity_id/);
+});
