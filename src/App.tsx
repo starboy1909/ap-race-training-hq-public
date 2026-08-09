@@ -691,7 +691,7 @@ export default function App() {
           </div>
           <div className="watch-summary">
             <div><b>{races.filter((race) => race.status === "REGISTERED").length}</b><span>CONFIRMED ENTRY</span></div>
-            <div><b>{races.filter((race) => race.status === "REGISTER NOW" || race.status === "URGENT").length}</b><span>LIVE ROAD OPTIONS</span></div>
+            <div><b>{races.filter((race) => race.category === "opportunity" && ["REGISTER NOW", "URGENT", "LAST CHANCE"].includes(race.status)).length}</b><span>LIVE ROAD OPTIONS</span></div>
             <div><b>{races.filter((race) => race.category === "hyrox" && race.status !== "DONE").length}</b><span>HYROX WINDOWS</span></div>
             <div><b>16 MAY 2027</b><span>QUALIFICATION CUTOFF</span></div>
           </div>
