@@ -74,7 +74,7 @@ button { color: inherit; }
 .countdown strong { color: var(--blue); font-family: var(--font-label); font-size: 38px; line-height: 1; font-variant-numeric: tabular-nums; }
 .countdown span { margin-top: 7px; color: #9fbfda; font-family: var(--font-label); font-size: 10px; }
 
-.main-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 24px 0 18px; }
+.main-tabs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin: 24px 0 18px; }
 .main-tabs button {
   min-height: 52px;
   border: 1px solid var(--line);
@@ -331,6 +331,90 @@ button { color: inherit; }
 .garmin-safeguards summary { cursor: pointer; color: #bbc4ce; font-weight: 700; }
 .garmin-safeguards ul { margin: 8px 0 0; padding-left: 18px; }
 
+.garmin-page-heading { align-items: stretch; }
+.garmin-page-decision { display: flex; min-width: 170px; flex-direction: column; justify-content: center; padding: 16px 18px; border: 1px solid #35404c; border-radius: 11px; background: #11161b; text-align: right; }
+.garmin-page-decision.green { border-color: #286b4b; }
+.garmin-page-decision.amber { border-color: #826e20; }
+.garmin-page-decision.red { border-color: #8b3531; }
+.garmin-page-decision span { color: var(--muted); font-family: var(--font-label); font-size: 9px; }
+.garmin-page-decision b { margin-top: 6px; color: var(--green); font-family: var(--font-label); font-size: 18px; }
+.garmin-page-decision.amber b { color: #f2c95e; }
+.garmin-page-decision.red b { color: var(--red); }
+.garmin-hero-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.garmin-hero-grid article { display: flex; min-height: 132px; flex-direction: column; padding: 18px; border: 1px solid #2b4a64; border-radius: 11px; background: linear-gradient(145deg, #121922, #101317); }
+.garmin-hero-grid small { color: #7fbbe4; font-family: var(--font-label); font-size: 9px; }
+.garmin-hero-grid b { margin: 10px 0 8px; color: var(--blue); font-family: var(--font-label); font-size: 25px; }
+.garmin-hero-grid span { margin-top: auto; color: var(--muted); font-size: 10px; line-height: 1.45; }
+.training-balance-panel { display: grid; grid-template-columns: 1.3fr .7fr; gap: 12px; margin-top: 14px; }
+.balance-summary, .outdoor-read, .weekly-load-panel, .next-week-panel { padding: 21px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+.balance-summary h3, .outdoor-read h3 { margin: 0; font-size: 20px; }
+.balance-summary p:not(.section-kicker), .outdoor-read p { margin: 8px 0 0; color: #aeb5c0; font-size: 12px; line-height: 1.55; }
+.surface-bar { display: flex; height: 11px; margin-top: 20px; overflow: hidden; border-radius: 8px; background: #20242a; }
+.surface-bar span { display: block; }
+.treadmill-segment { background: var(--blue); }
+.outdoor-segment { background: var(--lime); }
+.surface-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 10px; color: var(--muted); font-size: 10px; }
+.surface-legend span { display: flex; align-items: center; gap: 6px; }
+.surface-legend i { width: 7px; height: 7px; border-radius: 50%; }
+.treadmill-dot { background: var(--blue); }
+.outdoor-dot { background: var(--lime); }
+.outdoor-read { border-color: #536326; background: linear-gradient(145deg, #171d12, #111510); }
+.outdoor-read small { color: #9ab728; font-family: var(--font-label); font-size: 9px; }
+.outdoor-read > b { display: block; margin-top: 10px; color: var(--lime); font-family: var(--font-label); font-size: 20px; }
+.outdoor-read > span { display: block; margin-top: 6px; color: #b4bea6; font-size: 10px; }
+.weekly-load-panel { margin-top: 14px; }
+.load-chart { display: grid; gap: 9px; }
+.load-row { display: grid; grid-template-columns: 62px 1fr 66px; gap: 10px; align-items: center; }
+.load-row > span, .load-row > b { color: var(--muted); font-family: var(--font-label); font-size: 9px; font-variant-numeric: tabular-nums; }
+.load-row > b { color: #c7ced7; text-align: right; }
+.load-track { display: flex; height: 18px; overflow: hidden; border-radius: 4px; background: #1d2127; }
+.load-track i { display: block; height: 100%; }
+.load-outdoor { background: var(--lime); }
+.load-treadmill { background: var(--blue); }
+.race-readiness-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.race-readiness-grid article { padding: 21px; border: 1px solid var(--line); border-radius: 12px; background: #121418; }
+.race-readiness-grid article.ready { border-color: #286b4b; }
+.race-readiness-grid article.building { border-color: #826e20; }
+.race-readiness-grid article > div { display: flex; justify-content: space-between; gap: 12px; }
+.race-readiness-grid article > div span, .race-readiness-grid article > div b, .race-readiness-grid article > small { font-family: var(--font-label); font-size: 9px; }
+.race-readiness-grid article > div span { color: var(--muted); }
+.race-readiness-grid article.ready > div b { color: var(--green); }
+.race-readiness-grid article.building > div b { color: #f2c95e; }
+.race-readiness-grid h3 { margin: 15px 0 7px; font-size: 19px; }
+.race-readiness-grid p { margin: 0 0 13px; color: #b1b8c2; font-size: 12px; line-height: 1.55; }
+.race-readiness-grid article > small { color: #77818e; }
+.next-week-panel { display: grid; grid-template-columns: .8fr 1.2fr; gap: 28px; margin-top: 14px; border-color: #35404c; }
+.next-week-panel h2 { margin: 0; font-size: 24px; }
+.next-week-panel > div > p:last-child { color: #aeb5c0; font-size: 12px; line-height: 1.55; }
+.next-week-panel ol { display: grid; gap: 12px; margin: 0; padding-left: 22px; }
+.next-week-panel li { padding-left: 4px; color: var(--lime); }
+.next-week-panel li b, .next-week-panel li span { display: block; color: var(--text); }
+.next-week-panel li b { font-size: 12px; }
+.next-week-panel li span { margin-top: 3px; color: #9fa8b3; font-size: 10px; line-height: 1.45; }
+
+.timeline-shell { overflow-x: auto; padding-bottom: 8px; }
+.timeline-canvas { min-width: 980px; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #101216; }
+.timeline-months { display: grid; grid-template-columns: 130px repeat(6, 1fr); border-bottom: 1px solid var(--line); background: #181b20; }
+.timeline-months b { padding: 11px 0; border-left: 1px solid #2a2f37; color: #8d99aa; font-family: var(--font-label); font-size: 9px; text-align: center; }
+.swimlane { display: grid; grid-template-columns: 130px 1fr; border-bottom: 1px solid #23272e; }
+.swimlane:last-child { border-bottom: 0; }
+.swimlane > strong { padding: 15px 12px; color: #909cab; font-family: var(--font-label); font-size: 9px; letter-spacing: .04em; }
+.swimlane-track { position: relative; overflow: hidden; border-left: 1px solid var(--line); }
+.month-line { position: relative; display: inline-block; width: calc(100% / 6); height: 100%; border-right: 1px solid #252a31; }
+.timeline-event { position: absolute; z-index: 2; min-width: 86px; height: 25px; overflow: hidden; padding: 5px 7px; border: 1px solid #315b78; border-radius: 5px; background: #152330; color: #a8d8f3; font-family: var(--font-label); font-size: 8px; font-weight: 800; white-space: nowrap; text-overflow: ellipsis; }
+.timeline-event.target { border-color: #688329; background: #1b2513; color: var(--lime); }
+.timeline-event.hyrox { border-color: #6c7d21; background: #1c2312; color: #bedf42; }
+.timeline-event.option { border-color: #6f6133; background: #211d13; color: #e1c46b; }
+.timeline-event.travel { border-color: #55477b; background: #191524; color: #b9a8ea; }
+.timeline-event.conflict { border-color: #9a3f38; background: #2a1517; color: #ff8a81; }
+.priority-decisions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.priority-decisions article { padding: 18px; border: 1px solid #315b78; border-radius: 11px; background: #111820; }
+.priority-decisions article.warning { border-color: #87392f; background: #1c1314; }
+.priority-decisions span { color: var(--blue); font-family: var(--font-label); font-size: 9px; }
+.priority-decisions article.warning span { color: var(--red); }
+.priority-decisions b { display: block; margin-top: 7px; font-size: 13px; }
+.priority-decisions p { margin: 6px 0 0; color: #aeb5c0; font-size: 11px; line-height: 1.5; }
+
 .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 .metric-grid div { padding: 20px; border: 1px solid var(--line); border-radius: 11px; background: var(--panel); }
 .metric-grid span, .metric-grid small { display: block; color: var(--muted); font-family: var(--font-label); font-size: 10px; }
@@ -380,7 +464,9 @@ button { color: inherit; }
   .calendar-grid { grid-template-columns: repeat(2, 1fr); }
   .calendar-cell { min-height: 78px; }
   .roadmap-row { grid-template-columns: 1fr; gap: 5px; }
-  .travel-panel, .analysis-grid, .elite-principles, .procam-grid { grid-template-columns: 1fr; }
+  .travel-panel, .analysis-grid, .elite-principles, .procam-grid, .garmin-hero-grid, .training-balance-panel, .race-readiness-grid, .next-week-panel, .priority-decisions { grid-template-columns: 1fr; }
+  .garmin-page-heading { align-items: stretch; flex-direction: column; }
+  .garmin-page-decision { min-width: 0; text-align: left; }
   .race-card { grid-template-columns: 88px minmax(0, 1fr); align-items: start; gap: 10px; }
   .race-card > div:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; min-width: 0; }
   .race-card .race-status { grid-column: 1; justify-self: start; }

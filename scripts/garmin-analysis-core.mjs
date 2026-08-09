@@ -59,6 +59,126 @@ function summarizeActivities(activities) {
   };
 }
 
+function formatPace(secondsPerKm) {
+  if (secondsPerKm === null || !Number.isFinite(secondsPerKm)) return "Not available";
+  const totalSeconds = Math.round(secondsPerKm);
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${minutes}:${String(seconds).padStart(2, "0")}/km`;
+}
+
+function isRun(activity) {
+  return ["running", "treadmill_running"].includes(String(activity?.type || "").toLowerCase());
+}
+
+function isTreadmillRun(activity) {
+  return String(activity?.type || "").toLowerCase() === "treadmill_running";
+}
+
+function safeRun(activity) {
+  if (!activity) return null;
+  const distanceKm = (number(activity.distance_meters) || 0) / 1000;
+  const durationSeconds = number(activity.duration_seconds) || 0;
+  return {
+    distanceKm: round(distanceKm, 1),
+    durationMinutes: round(durationSeconds / 60, 0),
+    pace: distanceKm > 0 ? formatPace(durationSeconds / distanceKm) : "Not available",
+    averageHeartRate: number(activity.avg_hr_bpm),
+    maxHeartRate: number(activity.max_hr_bpm),
+    elevationGainMeters: round(number(activity.elevation_gain_meters) || 0, 0),
+  };
+}
+
+function summarizeRunning(activities, generatedAt, raw) {
+  const generatedMs = new Date(generatedAt).getTime();
+  const recentStart = generatedMs - 28 * 86400000;
+  const runs = activities.filter(isRun).filter((item) => !Number.isNaN(new Date(item.start_time).getTime()));
+  const recent = runs.filter((item) => new Date(item.start_time).getTime() >= recentStart);
+  const outdoor = recent.filter((item) => !isTreadmillRun(item));
+  const treadmill = recent.filter(isTreadmillRun);
+  const distance = (items) => items.reduce((sum, item) => sum + (number(item.distance_meters) || 0), 0) / 1000;
+  const totalRecentKm = distance(recent);
+  const outdoorKm = distance(outdoor);
+  const treadmillKm = distance(treadmill);
+
+  const latestOutdoor = [...outdoor].sort((a, b) => String(b.start_time).localeCompare(String(a.start_time)))[0] || null;
+  const latestOutdoorDistance = (number(latestOutdoor?.distance_meters) || 0) / 1000;
+  const comparableTreadmill = [...treadmill]
+    .filter((item) => {
+      const km = (number(item.distance_meters) || 0) / 1000;
+      return latestOutdoorDistance > 0 && km >= latestOutdoorDistance * 0.7 && km <= latestOutdoorDistance * 1.3;
+    })
+    .sort((a, b) => String(b.start_time).localeCompare(String(a.start_time)))[0] || null;
+
+  const weekly = new Map();
+  for (const item of runs) {
+    const week = activityWeekKey(item);
+    if (!week) continue;
+    const current = weekly.get(week) || { week, distanceKm: 0, durationHours: 0, outdoorKm: 0, treadmillKm: 0, runs: 0 };
+    const km = (number(item.distance_meters) || 0) / 1000;
+    current.distanceKm += km;
+    current.durationHours += (number(item.duration_seconds) || 0) / 3600;
+    current.runs += 1;
+    if (isTreadmillRun(item)) current.treadmillKm += km;
+    else current.outdoorKm += km;
+    weekly.set(week, current);
+  }
+  const weeklyRunLoad = [...weekly.values()]
+    .sort((a, b) => a.week.localeCompare(b.week))
+    .slice(-8)
+    .map((item) => ({
+      ...item,
+      distanceKm: round(item.distanceKm, 1),
+      durationHours: round(item.durationHours, 1),
+      outdoorKm: round(item.outdoorKm, 1),
+      treadmillKm: round(item.treadmillKm, 1),
+    }));
+
+  const predictions = raw.racePredictions?.predictions && typeof raw.racePredictions.predictions === "object"
+    ? Object.entries(raw.racePredictions.predictions).map(([distanceName, value]) => ({
+      distance: distanceName.replaceAll("_", " "),
+      time: value?.time || "Not available",
+    }))
+    : [];
+  const personalBestTypes = new Set(["Fastest 5K", "Fastest 10K"]);
+  const personalBests = Array.isArray(raw.personalRecords)
+    ? raw.personalRecords
+      .filter((item) => personalBestTypes.has(item?.record_type))
+      .map((item) => ({ distance: item.record_type.replace("Fastest ", ""), time: item.value || "Not available" }))
+    : [];
+
+  const latestOutdoorSafe = safeRun(latestOutdoor);
+  const treadmillSafe = safeRun(comparableTreadmill);
+  let outdoorComparison = "A comparable treadmill run is not available.";
+  if (latestOutdoorSafe && treadmillSafe && latestOutdoorSafe.averageHeartRate !== null && treadmillSafe.averageHeartRate !== null) {
+    const outdoorSeconds = (number(latestOutdoor?.duration_seconds) || 0) / latestOutdoorDistance;
+    const treadmillKmValue = (number(comparableTreadmill?.distance_meters) || 0) / 1000;
+    const treadmillSeconds = treadmillKmValue > 0 ? (number(comparableTreadmill?.duration_seconds) || 0) / treadmillKmValue : null;
+    const paceGap = treadmillSeconds === null ? null : Math.round(outdoorSeconds - treadmillSeconds);
+    const hrGap = latestOutdoorSafe.averageHeartRate - treadmillSafe.averageHeartRate;
+    outdoorComparison = `The latest comparable outdoor run was ${Math.abs(paceGap || 0)} sec/km ${paceGap !== null && paceGap >= 0 ? "slower" : "faster"} with average heart rate ${Math.abs(hrGap)} bpm ${hrGap >= 0 ? "higher" : "lower"} than the treadmill comparison.`;
+  }
+
+  return {
+    recent28Days: {
+      runs: recent.length,
+      distanceKm: round(totalRecentKm, 1),
+      outdoorRuns: outdoor.length,
+      treadmillRuns: treadmill.length,
+      outdoorKm: round(outdoorKm, 1),
+      treadmillKm: round(treadmillKm, 1),
+      outdoorSharePercent: totalRecentKm > 0 ? round((outdoorKm / totalRecentKm) * 100, 0) : 0,
+      treadmillSharePercent: totalRecentKm > 0 ? round((treadmillKm / totalRecentKm) * 100, 0) : 0,
+    },
+    weeklyRunLoad,
+    latestOutdoorRun: latestOutdoorSafe,
+    comparableTreadmillRun: treadmillSafe,
+    outdoorComparison,
+    racePredictions: predictions,
+    personalBests,
+  };
+}
+
 function latestTrendEntry(value) {
   return value?.trend?.length ? value.trend.at(-1) : null;
 }
@@ -86,6 +206,7 @@ export function analyzeGarminDataset(raw, generatedAt = new Date().toISOString()
     ? (raw.trainingReadiness.find((item) => item?.context === "AFTER_WAKEUP_RESET") || raw.trainingReadiness[0] || {})
     : (raw.trainingReadiness && typeof raw.trainingReadiness === "object" ? raw.trainingReadiness : {});
   const activity = summarizeActivities(activities);
+  const runningProfile = summarizeRunning(activities, generatedAt, raw);
 
   const sleepDelta = pctChange(sleep7, sleepPrior);
   const rhrDelta = rhr7 === null || rhrPrior === null ? null : rhr7 - rhrPrior;
@@ -196,6 +317,7 @@ export function analyzeGarminDataset(raw, generatedAt = new Date().toISOString()
     },
     metrics,
     trainingMix,
+    runningProfile,
     proposedChanges,
     safeguards: [
       "Pain at or above 4/10 always overrides Garmin and stops quality training.",

@@ -11,6 +11,15 @@ type GarminWeekly = {
   coverage: { healthDays: number; activities: number; activityHistoryStart: string | null };
   metrics: { label: string; value: string; trend: string; flag: string }[];
   trainingMix: { type: string; count: number }[];
+  runningProfile?: {
+    recent28Days: { runs: number; distanceKm: number; outdoorRuns: number; treadmillRuns: number; outdoorKm: number; treadmillKm: number; outdoorSharePercent: number; treadmillSharePercent: number };
+    weeklyRunLoad: { week: string; distanceKm: number; durationHours: number; outdoorKm: number; treadmillKm: number; runs: number }[];
+    latestOutdoorRun: { distanceKm: number; durationMinutes: number; pace: string; averageHeartRate: number | null; maxHeartRate: number | null; elevationGainMeters: number } | null;
+    comparableTreadmillRun: { distanceKm: number; durationMinutes: number; pace: string; averageHeartRate: number | null; maxHeartRate: number | null; elevationGainMeters: number } | null;
+    outdoorComparison: string;
+    racePredictions: { distance: string; time: string }[];
+    personalBests: { distance: string; time: string }[];
+  };
   proposedChanges: { scope: string; action: string; rationale: string; status: string }[];
   safeguards: string[];
 };
@@ -217,9 +226,9 @@ const weeks: Week[] = [
     label: "W14",
     dates: "10–16 Aug",
     phase: "BUILD 1",
-    volume: "34–36 km",
-    focus: "Maintain the proven run engine while building Pro-load sled strength, burpee economy, right-side control and the first wall-ball capacity exposures. One true run-quality session plus controlled hills.",
-    gate: "Unlock only after Week 13 is completed without altered gait or next-day symptom escalation. If a Shenzhen entry becomes confirmed, replace this build with a race-week taper rather than adding the race on top.",
+    volume: "32–34 km",
+    focus: "Keep one precise treadmill threshold session while rebuilding outdoor economy safely. The latest outdoor 10K carried a much higher cardiovascular cost than comparable treadmill work, so this week removes hill surges and adds one controlled, cool-hours road exposure.",
+    gate: "Unlock only after Week 13 is completed without altered gait or next-day symptom escalation. Outdoor running is capped by effort: use early morning or evening, slow down or use short walk breaks before HR drifts, and stop for dizziness, confusion, chest pain or unusual breathlessness.",
     days: [
       { id: "S14-0", date: "10 AUG", dow: "MON", title: "Lower Strength · Squat + Hinge", type: "STRENGTH", duration: "75 min", rpe: "7", blocks: [
         { label: "WARM-UP", items: ["Bike 6 min easy", "90/90 switches 2×6/side + physio hip drill 2 sets", "Goblet squat 2×8 light + RDL 2×8 light"] },
@@ -227,9 +236,9 @@ const weeks: Week[] = [
         { label: "CONTROL + PREHAB", items: ["Low step-down 3×8/side", "Long-lever hamstring bridge 3×30 sec", "Eccentric calf 3×12/side + tibialis raise 3×18", "Pallof press 3×10/side"] },
         { label: "COOLDOWN", items: ["Walk 5 min", "Active hamstring floss 2×8/side", "Record working loads; next week increases require all reps with clean form"] },
       ] },
-      { id: "S14-1", date: "11 AUG", dow: "TUE", title: "Easy Z2 + Strides", type: "RUN", duration: "8 km · 50–55 min", rpe: "4–5", blocks: [
+      { id: "S14-1", date: "11 AUG", dow: "TUE", title: "Easy Z2 + Outdoor Strides", type: "RUN", duration: "8 km · 50–55 min", rpe: "4–5", blocks: [
         { label: "WARM-UP", items: ["10 min easy", "Leg swings 10/side + supported hip airplane 2×5/side", "2×20 sec progressive pickups"] },
-        { label: "MAIN", items: ["7 km easy at 6:00–6:30/km or HR ≤142", "5×20 sec strides at 85–90%; 70 sec walk/jog recovery", "Fast and relaxed, never straining"] },
+        { label: "MAIN", items: ["Run 6–7 km easy on the treadmill at 1% incline, using HR ≤142 and conversational breathing rather than chasing pace", "If conditions are tolerable, complete the final easy kilometre outdoors before 5×20 sec outdoor strides", "Walk/jog 70 sec after each stride; fast and relaxed, never straining"] },
         { label: "COOLDOWN", items: ["Easy jog/walk to 8 km total", "Physio hip drill 2 sets"] },
       ] },
       { id: "S14-2", date: "12 AUG", dow: "WED", title: "Partner Sled Technique + Upper Strength", type: "HYROX", duration: "75 min", rpe: "6–7", blocks: [
@@ -241,9 +250,9 @@ const weeks: Week[] = [
         { label: "WALL-BALL DENSITY · WEEK 1", items: ["Position prep: kettlebell hip shift 2×30 sec/side, bench upper-back stretch 2×5 breaths, dowel overhead squat 2×4 slow reps", "Use the official Pro ball: 9 kg", "5-minute EMOM: complete 12 wall balls at the start of every minute = 60 total", "Finish each set within 25–35 sec; rest for the remainder of the minute", "Cues: full depth, ball close under chin, legs drive first, exhale on the throw", "Stop after two consecutive depth, target or balance misses; do not make up missed reps"] },
         { label: "COOLDOWN", items: ["Walk 5 min", "Physio hip drill 2 prescribed sets", "Log legal reps, no-reps, leg RPE, shoulder RPE and next-morning response"] },
       ] },
-      { id: "S14-3", date: "13 AUG", dow: "THU", title: "Threshold 3×8 Minutes", type: "RUN", duration: "9–10 km · 60 min", rpe: "7", blocks: [
+      { id: "S14-3", date: "13 AUG", dow: "THU", title: "Treadmill Threshold 3×8 Minutes", type: "RUN", duration: "9–10 km · 60 min", rpe: "7", blocks: [
         { label: "WARM-UP", items: ["15 min easy jog", "A-march 2×20 m + 3×20 sec strides", "Start first repetition only when breathing is settled"] },
-        { label: "MAIN", items: ["3×8 min at approximately 5:00–5:15/km or RPE 7; use whichever is slower", "Jog 2:30 between repetitions", "Hold even effort; pace may slow on inclines", "Final rep may be 5–10 sec/km faster only if form remains quiet"] },
+        { label: "MAIN", items: ["Use the treadmill at 1% incline: 3×8 min at approximately 5:00–5:15/km or RPE 7; use whichever is slower", "Jog 2:30 between repetitions", "Hold even effort and keep the first two repetitions matched", "Final rep may be 5–10 sec/km faster only if form remains quiet and HR response is controlled"] },
         { label: "COOLDOWN", items: ["12 min easy jog", "Active hamstring floss 2×8/side", "Record average pace and HR for each repetition"] },
       ] },
       { id: "S14-4", date: "14 AUG", dow: "FRI", title: "Upper Strength + Hip Control", type: "STRENGTH", duration: "65 min", rpe: "7", blocks: [
@@ -252,14 +261,14 @@ const weeks: Week[] = [
         { label: "HIP + TRUNK", items: ["Physio right-hip drill 3 sets", "Single-leg RDL 3×8/side light and controlled", "Pallof press 3×12/side + front plank 3×40 sec"] },
         { label: "COOLDOWN", items: ["Walk 5 min", "No lower-body finisher before the weekend runs"] },
       ] },
-      { id: "S14-5", date: "15 AUG", dow: "SAT", title: "Long Aerobic Run + Hill Surges", type: "RUN", duration: "13 km · 80–90 min", rpe: "4–7", blocks: [
+      { id: "S14-5", date: "15 AUG", dow: "SAT", title: "Outdoor Aerobic Re-entry", type: "RUN", duration: "11–12 km · 75–85 min", rpe: "4–5", blocks: [
         { label: "WARM-UP", items: ["2 km very easy", "Hip activation: supported airplane 1×5/side + marching 2×20 m"] },
-        { label: "MAIN", items: ["Run 9 km steady Z2 after warm-up", "During km 5–10, complete 6×30 sec uphill at RPE 7", "Jog at least 2:30 easy between surges", "Finish remaining distance easy; no hard downhill running"] },
-        { label: "FUEL + FORM", items: ["Take 25–35 g carbohydrate around 40 min", "Hill cue: quick feet, slight ankle lean, right knee tracks straight", "Descend easily to protect eccentric load"] },
+        { label: "MAIN", items: ["Run in the coolest practical conditions on a flat, shaded route", "Keep the entire run at RPE 4–5; use HR ≤150 as a ceiling rather than a target", "Insert 30–60 sec walk breaks when HR keeps rising at unchanged effort", "No hill surges this week; outdoor economy is the stimulus"] },
+        { label: "FUEL + FORM", items: ["Take 25–35 g carbohydrate around 40 min", "Carry fluid and use normal electrolytes", "Use short, quiet steps and relaxed shoulders; pace is expected to be slower outdoors in heat"] },
         { label: "COOLDOWN", items: ["Walk 5–8 min", "Protein plus carbohydrate meal", "Log right hamstring response before Sunday's run"] },
       ] },
-      { id: "S14-6", date: "16 AUG", dow: "SUN", title: "Recovery Run + Wall-Ball Skill", type: "RUN", duration: "45–50 min", rpe: "3–4", blocks: [
-        { label: "RUN", items: ["4–5 km at recovery effort, approximately 6:25–6:55/km", "Flat route only", "If legs are heavy or the right hamstring is restricted, replace the run with 30 min easy bike"] },
+      { id: "S14-6", date: "16 AUG", dow: "SUN", title: "Treadmill Recovery + Wall-Ball Skill", type: "RUN", duration: "40–45 min", rpe: "3–4", blocks: [
+        { label: "RUN", items: ["4 km treadmill recovery at 0–1% incline and fully conversational effort", "Do not use pace to compensate for Saturday", "If legs are heavy, morning readiness is below 50 or the right hamstring is restricted, replace the run with 30 min easy bike or full rest"] },
         { label: "WALL-BALL SKILL · WEEK 1", items: ["After breathing settles for 3–5 min: 6-minute EMOM × 8 wall balls at 9 kg = 48 total", "Aim to finish each set in 15–20 sec; take the remaining 40–45 sec as complete rest", "Every repetition should look identical; this is speed and accuracy practice, not conditioning", "If the run was replaced because of symptoms, omit wall balls as well"] },
         { label: "MOBILITY", items: ["Physio hip drill 2 sets", "Kettlebell hip shift 1×30 sec/side", "Bench upper-back stretch 1×5 breaths", "Eccentric calf 2×12 + tibialis raise 2×15"] },
       ] },
@@ -392,7 +401,7 @@ const phaseRoadmap = [
   ["31 Aug–4 Oct 2026", "Threshold + aerobic durability", "Raise sustainable run pace"],
   ["5–18 Oct 2026", "Travel-adjusted endurance", "Front-load quality around the 9–12 Oct neutral travel window"],
   ["19 Oct–1 Nov 2026", "Shanghai option", "HYROX-specific build into 31 Oct–1 Nov"],
-  ["2–15 Nov 2026", "Speed + HYROX bridge", "JPMCC working date 4 Nov; maintain aerobic durability for Guangzhou"],
+  ["2–15 Nov 2026", "Speed + HYROX bridge", "JPMorganChase Corporate Challenge · 5 Nov; recover before the Guangzhou taper"],
   ["16–22 Nov 2026", "Guangzhou race week", "Taper into HYROX Guangzhou · 21–22 Nov"],
   ["23 Nov–13 Dec 2026", "Recover + travel maintenance", "Extended neutral travel window · 28 Nov–13 Dec"],
   ["14–20 Dec 2026", "Marathon decision week", "Shenzhen option · 20 Dec; default skip unless green"],
@@ -444,6 +453,64 @@ const augustCells = [
   ["30", "PEGASUS 10K", "race"],
 ];
 
+const timelineStart = new Date("2026-08-01T00:00:00+08:00").getTime();
+const timelineEnd = new Date("2027-02-01T00:00:00+08:00").getTime();
+const timelineMonths = ["AUG", "SEP", "OCT", "NOV", "DEC", "JAN"];
+const timelineLanes = [
+  {
+    name: "ROAD SPEED",
+    items: [
+      { label: "PEGASUS 10K · benchmark", start: "2026-08-28", end: "2026-08-31", tone: "run", row: 0 },
+      { label: "AVOHK 12K · optional", start: "2026-09-25", end: "2026-09-28", tone: "run", row: 0 },
+      { label: "JPM 5.6K · A target", start: "2026-11-04", end: "2026-11-07", tone: "target", row: 0 },
+      { label: "Garmin HK · choose", start: "2026-12-19", end: "2026-12-22", tone: "run", row: 0 },
+    ],
+  },
+  {
+    name: "HYROX",
+    items: [
+      { label: "Shanghai", start: "2026-10-29", end: "2026-11-03", tone: "hyrox", row: 0 },
+      { label: "Guangzhou · primary", start: "2026-11-19", end: "2026-11-24", tone: "hyrox", row: 0 },
+      { label: "Hong Kong", start: "2027-01-06", end: "2027-01-12", tone: "hyrox", row: 0 },
+    ],
+  },
+  {
+    name: "ROAD OPTIONS",
+    items: [
+      { label: "Northern Metropolis", start: "2026-10-31", end: "2026-11-03", tone: "option", row: 0 },
+      { label: "Gold Coast 15K", start: "2026-11-07", end: "2026-11-10", tone: "option", row: 1 },
+      { label: "Pocari 10K", start: "2026-11-14", end: "2026-11-17", tone: "option", row: 2 },
+      { label: "Shenzhen / Kolkata", start: "2026-12-19", end: "2026-12-22", tone: "option", row: 0 },
+      { label: "Xiamen", start: "2027-01-02", end: "2027-01-05", tone: "option", row: 0 },
+      { label: "HK / Mumbai", start: "2027-01-16", end: "2027-01-19", tone: "option", row: 1 },
+    ],
+  },
+  {
+    name: "TRAVEL / RECOVERY",
+    items: [
+      { label: "Neutral travel", start: "2026-10-09", end: "2026-10-13", tone: "travel", row: 0 },
+      { label: "Extended travel maintenance", start: "2026-11-28", end: "2026-12-14", tone: "travel", row: 0 },
+    ],
+  },
+  {
+    name: "CONFLICT WINDOWS",
+    items: [
+      { label: "Shanghai → JPM → 15K", start: "2026-10-31", end: "2026-11-10", tone: "conflict", row: 0 },
+      { label: "Pocari → Guangzhou", start: "2026-11-14", end: "2026-11-24", tone: "conflict", row: 1 },
+      { label: "20 Dec triple clash", start: "2026-12-19", end: "2026-12-22", tone: "conflict", row: 0 },
+      { label: "HK HYROX → 17 Jan roads", start: "2027-01-07", end: "2027-01-19", tone: "conflict", row: 1 },
+    ],
+  },
+];
+
+function timelinePosition(start: string, end: string, row: number) {
+  const startMs = new Date(`${start}T00:00:00+08:00`).getTime();
+  const endMs = new Date(`${end}T00:00:00+08:00`).getTime();
+  const left = Math.max(0, ((startMs - timelineStart) / (timelineEnd - timelineStart)) * 100);
+  const width = Math.max(1.8, ((endMs - startMs) / (timelineEnd - timelineStart)) * 100);
+  return { left: `${left}%`, width: `${width}%`, top: `${8 + row * 34}px` };
+}
+
 export default function App() {
   const [tab, setTab] = useState("plan");
   const [weekId, setWeekId] = useState("S13");
@@ -467,6 +534,11 @@ export default function App() {
   }, []);
 
   const week = weeks.find((item) => item.id === weekId) ?? weeks[0];
+  const running = garminWeekly.runningProfile;
+  const vo2Metric = garminWeekly.metrics.find((item) => item.label === "VO₂ max");
+  const maxWeeklyKm = Math.max(1, ...(running?.weeklyRunLoad.map((item) => item.distanceKm) || [1]));
+  const racePrediction = (distance: string) => running?.racePredictions.find((item) => item.distance.toUpperCase() === distance)?.time || "Not available";
+  const personalBest = (distance: string) => running?.personalBests.find((item) => item.distance.toUpperCase() === distance)?.time || "Not available";
   const doneCount = week.days.filter((day) => completed[day.id]).length;
   const nextRaceDays = Math.max(0, Math.ceil((new Date("2026-08-30T00:00:00+08:00").getTime() - Date.now()) / 86400000));
   const todayHk = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Hong_Kong" }).format(new Date());
@@ -541,7 +613,7 @@ export default function App() {
     <main className="app-shell">
       <header className="hero">
         <div>
-          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V8.0</p>
+          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V9.0</p>
           <h1>SEASON <span>2026/27</span></h1>
           <div className="status-line">
             <span className="phase-pill">BUILD</span>
@@ -559,7 +631,9 @@ export default function App() {
       <nav className="main-tabs" aria-label="Main views">
         {[
           ["plan", "PLAN"],
+          ["garmin", "GARMIN"],
           ["calendar", "CALENDAR"],
+          ["timeline", "TIMELINE"],
           ["races", "RACE HQ"],
           ["analysis", "ANALYSIS"],
         ].map(([id, label]) => (
@@ -572,8 +646,8 @@ export default function App() {
       {tab === "plan" && (
         <section className="view">
           <div className="strategy-callout">
-            <b>WHAT'S NEW · VERSION 8.0</b>
-            <p>Race-watch data now lives in a separate public-safe source, allowing future event updates without touching the detailed training plan. AVOHK Reservoir Series is added, the 5K Series reflects the latest official entry state, and Race HQ remains split between confirmed targets and actionable opportunities. PNRs, booking and registration references, flight and hotel details, payment data and credentials are never published. Storage keys and completion ids remain unchanged.</p>
+            <b>WHAT'S NEW · VERSION 9.0</b>
+            <p>A dedicated Garmin performance centre now summarizes recovery, running volume, treadmill versus outdoor exposure, predictions and race readiness. The new swim-lane timeline exposes overlapping race, HYROX and travel windows. JPMorganChase Hong Kong is confirmed for 5 November, and the next running week has been adjusted for outdoor heat and surface specificity without increasing load. Private routes, activity names, raw daily health records and credentials remain excluded.</p>
           </div>
           <section className={`garmin-review ${garminWeekly.decision.tone}`}>
             <div className="garmin-review-head">
@@ -708,6 +782,97 @@ export default function App() {
         </section>
       )}
 
+      {tab === "garmin" && (
+        <section className="view">
+          <div className="view-heading garmin-page-heading">
+            <div>
+              <p className="section-kicker">TRAINING HISTORY · RECOVERY · RUNNING DIRECTION</p>
+              <h2>Garmin performance centre</h2>
+              <p>This public-safe view turns the private Garmin archive into useful trends. Activity names, locations, routes and raw daily health records never leave this computer.</p>
+            </div>
+            <div className={`garmin-page-decision ${garminWeekly.decision.tone}`}><span>THIS WEEK</span><b>{garminWeekly.decision.label.replace("GARMIN · ", "")}</b></div>
+          </div>
+
+          <section className="garmin-hero-grid">
+            <article><small>RUNNING VO₂ MAX</small><b>{vo2Metric?.value || "—"}</b><span>{vo2Metric?.trend || "Trend unavailable"}</span></article>
+            <article><small>GARMIN 5K PREDICTION</small><b>{racePrediction("5K")}</b><span>JPM 22:00 over 5.6K requires about 3:56/km</span></article>
+            <article><small>GARMIN 10K PREDICTION</small><b>{racePrediction("10K")}</b><span>Use PEGASUS as the real-world reset</span></article>
+            <article><small>ENDURANCE SCORE</small><b>{garminWeekly.metrics.find((item) => item.label === "Endurance score")?.value || "—"}</b><span>Trained; latest weekly trend needs watching</span></article>
+          </section>
+
+          {running && (
+            <>
+              <section className="training-balance-panel">
+                <div className="balance-summary">
+                  <p className="section-kicker">LAST 28 DAYS</p>
+                  <h3>{running.recent28Days.distanceKm} km across {running.recent28Days.runs} runs</h3>
+                  <p>Treadmill work has protected consistency, but only {running.recent28Days.outdoorSharePercent}% of recent running distance was outdoors. Keep the treadmill for controlled quality and rebuild road economy with one to two low-stress outdoor touches each week.</p>
+                  <div className="surface-bar" aria-label={`${running.recent28Days.treadmillSharePercent}% treadmill and ${running.recent28Days.outdoorSharePercent}% outdoor`}>
+                    <span className="treadmill-segment" style={{ width: `${running.recent28Days.treadmillSharePercent}%` }} />
+                    <span className="outdoor-segment" style={{ width: `${running.recent28Days.outdoorSharePercent}%` }} />
+                  </div>
+                  <div className="surface-legend"><span><i className="treadmill-dot" />Treadmill · {running.recent28Days.treadmillKm} km</span><span><i className="outdoor-dot" />Outdoor · {running.recent28Days.outdoorKm} km</span></div>
+                </div>
+                <article className="outdoor-read">
+                  <small>LATEST OUTDOOR BENCHMARK</small>
+                  <b>{running.latestOutdoorRun ? `${running.latestOutdoorRun.distanceKm} km · ${running.latestOutdoorRun.pace}` : "Not available"}</b>
+                  <span>{running.latestOutdoorRun ? `Average HR ${running.latestOutdoorRun.averageHeartRate ?? "—"} · max ${running.latestOutdoorRun.maxHeartRate ?? "—"} · ${running.latestOutdoorRun.elevationGainMeters} m gain` : "Awaiting an outdoor run"}</span>
+                  <p>{running.outdoorComparison} Treat this as a heat and road-specificity signal, not as loss of fitness.</p>
+                </article>
+              </section>
+
+              <section className="weekly-load-panel">
+                <div className="view-heading compact">
+                  <div><p className="section-kicker">RUN VOLUME TREND</p><h2>Eight-week surface split</h2></div>
+                </div>
+                <div className="load-chart">
+                  {running.weeklyRunLoad.map((item) => (
+                    <div className="load-row" key={item.week}>
+                      <span>{new Date(`${item.week}T00:00:00Z`).toLocaleDateString("en-GB", { day: "2-digit", month: "short" })}</span>
+                      <div className="load-track" title={`${item.distanceKm} km · ${item.runs} runs`}>
+                        <i className="load-outdoor" style={{ width: `${(item.outdoorKm / maxWeeklyKm) * 100}%` }} />
+                        <i className="load-treadmill" style={{ width: `${(item.treadmillKm / maxWeeklyKm) * 100}%` }} />
+                      </div>
+                      <b>{item.distanceKm} km</b>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </>
+          )}
+
+          <section className="race-readiness-grid">
+            <article className="ready">
+              <div><span>30 AUG · 10K</span><b>READY TO BENCHMARK</b></div>
+              <h3>PEGASUS Tsuen Wan</h3>
+              <p>Garmin predicts {racePrediction("10K")} versus a Garmin personal best of {personalBest("10K")}. Race it honestly, then reset September paces from the result. A 15:00 10K is not used as a target; the men's track world record is 26:11.</p>
+              <small>Priority A running checkpoint · no automatic time promise</small>
+            </article>
+            <article className="building">
+              <div><span>5 NOV · 5.6K</span><b>BUILDING · STRETCH GOAL</b></div>
+              <h3>JPMorganChase Corporate Challenge</h3>
+              <p>Last year 25:27. The 22:00 goal needs a 3:27 improvement and about 3:56/km. Garmin predicts {racePrediction("5K")} for 5K versus a personal best of {personalBest("5K")}; current evidence supports improvement, but not yet 22:00 readiness.</p>
+              <small>Prioritize over Shanghai if road speed is the goal</small>
+            </article>
+          </section>
+
+          <section className="next-week-panel">
+            <div>
+              <p className="section-kicker">BEST NEXT STEP · 10–16 AUG</p>
+              <h2>Quality indoors. Economy outdoors.</h2>
+              <p>Recovery and load are green overall, while readiness is only moderate and the latest outdoor effort was disproportionately hard. Keep total load controlled and change the surface mix.</p>
+            </div>
+            <ol>
+              <li><b>One treadmill threshold session.</b><span>Thursday 3×8 minutes at 1% incline, RPE 7. Do not add a second hard run.</span></li>
+              <li><b>One deliberate outdoor aerobic re-entry.</b><span>Saturday 11–12 km in cool hours, flat and easy, with HR ≤150 and walk breaks before drift becomes a grind.</span></li>
+              <li><b>Use strides for road mechanics.</b><span>Finish Tuesday with five relaxed outdoor 20-second strides only if conditions and symptoms are green.</span></li>
+              <li><b>Keep strength, protect the run quality.</b><span>Two strength/HYROX exposures remain, but no lower-body finisher on Friday and no hill surges this week.</span></li>
+              <li><b>Recovery gate wins.</b><span>Pain ≥4/10 stops quality. Readiness below 50 or Body Battery below 35 converts Sunday to easy bike or full rest.</span></li>
+            </ol>
+          </section>
+        </section>
+      )}
+
       {tab === "calendar" && (
         <section className="view">
           <div className="view-heading">
@@ -739,6 +904,43 @@ export default function App() {
             <div><span>22–27 JUL 2026</span><b>Race travel window · completed</b><p>Recovery and race execution took priority around Delhi. No itinerary or booking data is published.</p></div>
             <div><span>9–12 OCT 2026</span><b>Short neutral travel window</b><p>Front-load the key quality session. Travel running is optional and never used to make up volume.</p></div>
             <div><span>28 NOV–13 DEC 2026</span><b>Extended neutral travel window</b><p>Two runs and two short circuits weekly at most. Dates are public; destinations and booking details remain excluded.</p></div>
+          </section>
+        </section>
+      )}
+
+      {tab === "timeline" && (
+        <section className="view">
+          <div className="view-heading">
+            <div>
+              <p className="section-kicker">AUG 2026–JAN 2027 · CONFLICT SWIM-LANES</p>
+              <h2>One season. Four competing demands.</h2>
+              <p>The red lane shows periods where two races cannot both receive a full taper and all-out effort. Priorities below are performance decisions, not registration claims.</p>
+            </div>
+          </div>
+          <div className="timeline-shell">
+            <div className="timeline-canvas">
+              <div className="timeline-months"><span />{timelineMonths.map((month) => <b key={month}>{month}</b>)}</div>
+              {timelineLanes.map((lane) => {
+                const rows = Math.max(...lane.items.map((item) => item.row)) + 1;
+                return (
+                  <div className="swimlane" key={lane.name}>
+                    <strong>{lane.name}</strong>
+                    <div className="swimlane-track" style={{ height: `${rows * 34 + 16}px` }}>
+                      {timelineMonths.map((month) => <i className="month-line" key={month} />)}
+                      {lane.items.map((item) => (
+                        <span className={`timeline-event ${item.tone}`} style={timelinePosition(item.start, item.end, item.row)} title={item.label} key={item.label}>{item.label}</span>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <section className="priority-decisions">
+            <article><span>DECISION 01</span><b>PEGASUS → JPM is the road-speed spine.</b><p>Race PEGASUS on 30 August, spend September rebuilding threshold and outdoor economy, then peak for JPM on 5 November.</p></article>
+            <article className="warning"><span>DECISION 02</span><b>Do not A-race Shanghai and JPM.</b><p>Shanghai ends four days before JPM. If 22:00 matters, skip Shanghai or treat it as controlled participation; Guangzhou remains the better HYROX target.</p></article>
+            <article><span>DECISION 03</span><b>Choose one 20 December race.</b><p>Garmin Run Hong Kong, Shenzhen Marathon and Kolkata 25K occupy the same date. The local Garmin 10K/21K best preserves January flexibility.</p></article>
+            <article className="warning"><span>DECISION 04</span><b>Protect the January qualifier.</b><p>HYROX Hong Kong on 7–10 January conflicts with forcing a marathon on 17 January. The marathon is not the default.</p></article>
           </section>
         </section>
       )}

@@ -21,6 +21,12 @@ decision, training implications, and a proposed-change summary. Activity names,
 GPS/location details, credentials, OAuth tokens, and raw daily health records are
 never published.
 
+The Garmin tab adds public-safe running aggregates: recent treadmill/outdoor
+distance, an eight-week surface split, an anonymized outdoor-versus-treadmill
+comparison, race predictions, and personal-best context. The Timeline tab maps
+road races, HYROX windows, travel, and collision periods from August 2026 to
+January 2027. Exact activity names, routes, and locations remain excluded.
+
 ## Garmin weekly review
 
 The baseline review collects all available activity summaries, 56 days of daily

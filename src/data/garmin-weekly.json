@@ -106,6 +106,129 @@
       "count": 49
     }
   ],
+  "runningProfile": {
+    "recent28Days": {
+      "runs": 25,
+      "distanceKm": 171.3,
+      "outdoorRuns": 4,
+      "treadmillRuns": 21,
+      "outdoorKm": 30.4,
+      "treadmillKm": 140.9,
+      "outdoorSharePercent": 18,
+      "treadmillSharePercent": 82
+    },
+    "weeklyRunLoad": [
+      {
+        "week": "2026-06-15",
+        "distanceKm": 60.2,
+        "durationHours": 6.4,
+        "outdoorKm": 23.6,
+        "treadmillKm": 36.6,
+        "runs": 6
+      },
+      {
+        "week": "2026-06-22",
+        "distanceKm": 25.4,
+        "durationHours": 3,
+        "outdoorKm": 22.4,
+        "treadmillKm": 3,
+        "runs": 4
+      },
+      {
+        "week": "2026-06-29",
+        "distanceKm": 66.1,
+        "durationHours": 7.6,
+        "outdoorKm": 0,
+        "treadmillKm": 66.1,
+        "runs": 9
+      },
+      {
+        "week": "2026-07-06",
+        "distanceKm": 52.6,
+        "durationHours": 5.7,
+        "outdoorKm": 1.1,
+        "treadmillKm": 51.4,
+        "runs": 7
+      },
+      {
+        "week": "2026-07-13",
+        "distanceKm": 52.3,
+        "durationHours": 6,
+        "outdoorKm": 6.7,
+        "treadmillKm": 45.7,
+        "runs": 7
+      },
+      {
+        "week": "2026-07-20",
+        "distanceKm": 38.7,
+        "durationHours": 4.7,
+        "outdoorKm": 13.8,
+        "treadmillKm": 24.9,
+        "runs": 6
+      },
+      {
+        "week": "2026-07-27",
+        "distanceKm": 33.1,
+        "durationHours": 4,
+        "outdoorKm": 0,
+        "treadmillKm": 33.1,
+        "runs": 6
+      },
+      {
+        "week": "2026-08-03",
+        "distanceKm": 39.6,
+        "durationHours": 4.1,
+        "outdoorKm": 10,
+        "treadmillKm": 29.6,
+        "runs": 5
+      }
+    ],
+    "latestOutdoorRun": {
+      "distanceKm": 10,
+      "durationMinutes": 61,
+      "pace": "6:08/km",
+      "averageHeartRate": 165,
+      "maxHeartRate": 182,
+      "elevationGainMeters": 48
+    },
+    "comparableTreadmillRun": {
+      "distanceKm": 10.7,
+      "durationMinutes": 62,
+      "pace": "5:50/km",
+      "averageHeartRate": 155,
+      "maxHeartRate": 177,
+      "elevationGainMeters": 0
+    },
+    "outdoorComparison": "The latest comparable outdoor run was 18 sec/km slower with average heart rate 10 bpm higher than the treadmill comparison.",
+    "racePredictions": [
+      {
+        "distance": "5K",
+        "time": "22:01"
+      },
+      {
+        "distance": "10K",
+        "time": "46:46"
+      },
+      {
+        "distance": "half marathon",
+        "time": "1:46:15"
+      },
+      {
+        "distance": "marathon",
+        "time": "3:58:17"
+      }
+    ],
+    "personalBests": [
+      {
+        "distance": "5K",
+        "time": "20:55"
+      },
+      {
+        "distance": "10K",
+        "time": "42:04"
+      }
+    ]
+  },
   "proposedChanges": [
     {
       "scope": "Next 7 days",
