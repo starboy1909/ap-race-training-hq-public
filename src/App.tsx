@@ -511,10 +511,24 @@ function timelinePosition(start: string, end: string, row: number) {
   return { left: `${left}%`, width: `${width}%`, top: `${8 + row * 34}px` };
 }
 
+const monthNumbers: Record<string, string> = {
+  JAN: "01", FEB: "02", MAR: "03", APR: "04", MAY: "05", JUN: "06",
+  JUL: "07", AUG: "08", SEP: "09", OCT: "10", NOV: "11", DEC: "12",
+};
+
+function workoutIsoDate(day: Day) {
+  const [dayNumber, month] = day.date.trim().split(/\s+/);
+  const monthNumber = monthNumbers[month];
+  return monthNumber ? `2026-${monthNumber}-${dayNumber.padStart(2, "0")}` : null;
+}
+
 export default function App() {
+  const todayHk = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Hong_Kong" }).format(new Date());
+  const todayWorkout = weeks.flatMap((item) => item.days).find((day) => workoutIsoDate(day) === todayHk);
+  const todayWeek = todayWorkout ? weeks.find((item) => item.days.some((day) => day.id === todayWorkout.id)) : null;
   const [tab, setTab] = useState("plan");
-  const [weekId, setWeekId] = useState("S13");
-  const [openDay, setOpenDay] = useState("S13-0");
+  const [weekId, setWeekId] = useState(todayWeek?.id || "S13");
+  const [openDay, setOpenDay] = useState(todayWorkout?.id || "");
   const [completed, setCompleted] = useState<Record<string, boolean>>({});
   const [saveState, setSaveState] = useState("");
   const [checkins, setCheckins] = useState<Array<Record<string, string | number>>>([]);
@@ -541,7 +555,6 @@ export default function App() {
   const personalBest = (distance: string) => running?.personalBests.find((item) => item.distance.toUpperCase() === distance)?.time || "Not available";
   const doneCount = week.days.filter((day) => completed[day.id]).length;
   const nextRaceDays = Math.max(0, Math.ceil((new Date("2026-08-30T00:00:00+08:00").getTime() - Date.now()) / 86400000));
-  const todayHk = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Hong_Kong" }).format(new Date());
 
   function raceCountdown(startIso: string, status: string) {
     if (status === "DONE") return "COMPLETED";
@@ -645,59 +658,9 @@ export default function App() {
 
       {tab === "plan" && (
         <section className="view">
-          <div className="strategy-callout">
-            <b>WHAT'S NEW · VERSION 9.0</b>
-            <p>A dedicated Garmin performance centre now summarizes recovery, running volume, treadmill versus outdoor exposure, predictions and race readiness. The new swim-lane timeline exposes overlapping race, HYROX and travel windows. JPMorganChase Hong Kong is confirmed for 5 November, and the next running week has been adjusted for outdoor heat and surface specificity without increasing load. Private routes, activity names, raw daily health records and credentials remain excluded.</p>
-          </div>
-          <section className={`garmin-review ${garminWeekly.decision.tone}`}>
-            <div className="garmin-review-head">
-              <div>
-                <p className="section-kicker">PRIVATE ANALYSIS · PUBLIC-SAFE WEEKLY OUTPUT</p>
-                <h2>Garmin weekly review</h2>
-                <p>{garminWeekly.summary}</p>
-              </div>
-              <div className="garmin-decision">
-                <b>{garminWeekly.decision.label}</b>
-                <span>{garminWeekly.generatedAt ? `Updated ${new Date(garminWeekly.generatedAt).toLocaleDateString("en-GB", { timeZone: "Asia/Hong_Kong" })}` : "First review pending"}</span>
-              </div>
-            </div>
-            <div className="garmin-coverage">
-              <span><b>{garminWeekly.coverage.healthDays}</b> health days reviewed</span>
-              <span><b>{garminWeekly.coverage.activities}</b> activities reviewed</span>
-              <span><b>{garminWeekly.coverage.activityHistoryStart || "—"}</b> activity history starts</span>
-            </div>
-            {garminWeekly.metrics.length > 0 && (
-              <div className="garmin-metrics">
-                {garminWeekly.metrics.map((item) => (
-                  <article className={item.flag} key={item.label}>
-                    <small>{item.label}</small><b>{item.value}</b><span>{item.trend}</span>
-                  </article>
-                ))}
-              </div>
-            )}
-            {garminWeekly.trainingMix.length > 0 && (
-              <div className="garmin-mix">
-                <b>LIFETIME ACTIVITY MIX</b>
-                <div>{garminWeekly.trainingMix.map((item) => <span key={item.type}>{item.type} · {item.count}</span>)}</div>
-              </div>
-            )}
-            <div className="garmin-change-list">
-              <h3>Proposed plan changes</h3>
-              {garminWeekly.proposedChanges.map((change, index) => (
-                <article key={`${change.scope}-${index}`}>
-                  <span className={`change-status ${change.status.toLowerCase()}`}>{change.status}</span>
-                  <div><b>{change.scope}</b><p>{change.action}</p><small>{change.rationale}</small></div>
-                </article>
-              ))}
-            </div>
-            <details className="garmin-safeguards">
-              <summary>Data and training safeguards</summary>
-              <ul>{garminWeekly.safeguards.map((item) => <li key={item}>{item}</li>)}</ul>
-            </details>
-          </section>
           <div className="week-strip">
             {weeks.map((item) => (
-              <button key={item.id} className={weekId === item.id ? "selected" : ""} onClick={() => setWeekId(item.id)}>
+              <button key={item.id} className={weekId === item.id ? "selected" : ""} onClick={() => { setWeekId(item.id); setOpenDay(""); }}>
                 <b>{item.label}</b>
                 <span>{item.phase}</span>
               </button>
@@ -869,6 +832,53 @@ export default function App() {
               <li><b>Keep strength, protect the run quality.</b><span>Two strength/HYROX exposures remain, but no lower-body finisher on Friday and no hill surges this week.</span></li>
               <li><b>Recovery gate wins.</b><span>Pain ≥4/10 stops quality. Readiness below 50 or Body Battery below 35 converts Sunday to easy bike or full rest.</span></li>
             </ol>
+          </section>
+
+          <section className={`garmin-review ${garminWeekly.decision.tone}`}>
+            <div className="garmin-review-head">
+              <div>
+                <p className="section-kicker">PRIVATE ANALYSIS · PUBLIC-SAFE WEEKLY OUTPUT</p>
+                <h2>Garmin weekly review</h2>
+                <p>{garminWeekly.summary}</p>
+              </div>
+              <div className="garmin-decision">
+                <b>{garminWeekly.decision.label}</b>
+                <span>{garminWeekly.generatedAt ? `Updated ${new Date(garminWeekly.generatedAt).toLocaleDateString("en-GB", { timeZone: "Asia/Hong_Kong" })}` : "First review pending"}</span>
+              </div>
+            </div>
+            <div className="garmin-coverage">
+              <span><b>{garminWeekly.coverage.healthDays}</b> health days reviewed</span>
+              <span><b>{garminWeekly.coverage.activities}</b> activities reviewed</span>
+              <span><b>{garminWeekly.coverage.activityHistoryStart || "—"}</b> activity history starts</span>
+            </div>
+            {garminWeekly.metrics.length > 0 && (
+              <div className="garmin-metrics">
+                {garminWeekly.metrics.map((item) => (
+                  <article className={item.flag} key={item.label}>
+                    <small>{item.label}</small><b>{item.value}</b><span>{item.trend}</span>
+                  </article>
+                ))}
+              </div>
+            )}
+            {garminWeekly.trainingMix.length > 0 && (
+              <div className="garmin-mix">
+                <b>LIFETIME ACTIVITY MIX</b>
+                <div>{garminWeekly.trainingMix.map((item) => <span key={item.type}>{item.type} · {item.count}</span>)}</div>
+              </div>
+            )}
+            <div className="garmin-change-list">
+              <h3>Proposed plan changes</h3>
+              {garminWeekly.proposedChanges.map((change, index) => (
+                <article key={`${change.scope}-${index}`}>
+                  <span className={`change-status ${change.status.toLowerCase()}`}>{change.status}</span>
+                  <div><b>{change.scope}</b><p>{change.action}</p><small>{change.rationale}</small></div>
+                </article>
+              ))}
+            </div>
+            <details className="garmin-safeguards">
+              <summary>Data and training safeguards</summary>
+              <ul>{garminWeekly.safeguards.map((item) => <li key={item}>{item}</li>)}</ul>
+            </details>
           </section>
         </section>
       )}

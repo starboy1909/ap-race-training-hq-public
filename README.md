@@ -27,6 +27,10 @@ comparison, race predictions, and personal-best context. The Timeline tab maps
 road races, HYROX windows, travel, and collision periods from August 2026 to
 January 2027. Exact activity names, routes, and locations remain excluded.
 
+The Plan tab opens today's workout when that date exists in the selected plan.
+Choosing any week collapses every workout so the user can scan the week first.
+The full weekly Garmin review is kept on the Garmin tab rather than the Plan tab.
+
 ## Garmin weekly review
 
 The baseline review collects all available activity summaries, 56 days of daily
