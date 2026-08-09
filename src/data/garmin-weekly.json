@@ -1,0 +1,128 @@
+{
+  "status": "ready",
+  "generatedAt": "2026-08-09T09:44:57.916Z",
+  "reviewWindow": "2026-06-15 to 2026-08-09",
+  "decision": {
+    "tone": "amber",
+    "label": "GARMIN · MODIFY"
+  },
+  "summary": "MODIFY for the next training week. Key signals: moderate Garmin Training Readiness, seven-day sleep below 7 hours.",
+  "coverage": {
+    "healthDays": 55,
+    "activities": 1392,
+    "activityHistoryStart": "2024-06-11"
+  },
+  "metrics": [
+    {
+      "label": "7-day sleep",
+      "value": "6.7 h",
+      "trend": "+0.3% vs prior",
+      "flag": "watch"
+    },
+    {
+      "label": "Body Battery",
+      "value": "71.9",
+      "trend": "-0.8 vs prior",
+      "flag": "good"
+    },
+    {
+      "label": "Resting HR",
+      "value": "53.9 bpm",
+      "trend": "+1.7 bpm vs prior",
+      "flag": "good"
+    },
+    {
+      "label": "Stress",
+      "value": "29.1",
+      "trend": "+1.2 vs prior",
+      "flag": "good"
+    },
+    {
+      "label": "HRV",
+      "value": "45 ms",
+      "trend": "BALANCED",
+      "flag": "good"
+    },
+    {
+      "label": "Load ratio",
+      "value": "0.9",
+      "trend": "OPTIMAL",
+      "flag": "good"
+    },
+    {
+      "label": "Readiness",
+      "value": "55",
+      "trend": "MODERATE",
+      "flag": "watch"
+    },
+    {
+      "label": "Training status",
+      "value": "MAINTAINING 3",
+      "trend": "Load focus balanced",
+      "flag": "good"
+    },
+    {
+      "label": "VO₂ max",
+      "value": "51",
+      "trend": "-1 over review range",
+      "flag": "good"
+    },
+    {
+      "label": "Endurance score",
+      "value": "6203",
+      "trend": "trained",
+      "flag": "good"
+    },
+    {
+      "label": "Last full week",
+      "value": "7 h",
+      "trend": "-6.8% duration vs prior weeks",
+      "flag": "good"
+    }
+  ],
+  "trainingMix": [
+    {
+      "type": "strength training",
+      "count": 431
+    },
+    {
+      "type": "running",
+      "count": 367
+    },
+    {
+      "type": "treadmill running",
+      "count": 230
+    },
+    {
+      "type": "walking",
+      "count": 114
+    },
+    {
+      "type": "cycling",
+      "count": 67
+    },
+    {
+      "type": "fitness equipment",
+      "count": 49
+    }
+  ],
+  "proposedChanges": [
+    {
+      "scope": "Next 7 days",
+      "action": "Reduce planned volume by 10–15%, retain at most one quality exposure, and cap all other work at RPE 6.",
+      "rationale": "moderate Garmin Training Readiness; seven-day sleep below 7 hours",
+      "status": "AUTO-SAFE"
+    },
+    {
+      "scope": "Recovery support",
+      "action": "Create a 30-minute longer sleep opportunity before quality sessions; if morning readiness is below 50 or Body Battery is below 35, use the recovery swap instead.",
+      "rationale": "Seven-day sleep averages 6.7 hours despite otherwise positive recovery signals.",
+      "status": "SUPPORT"
+    }
+  ],
+  "safeguards": [
+    "Pain at or above 4/10 always overrides Garmin and stops quality training.",
+    "Raw daily health records, activity names and locations remain private on this computer.",
+    "Garmin signals may reduce load automatically; increases and race-plan changes require review."
+  ]
+}
