@@ -404,7 +404,7 @@ const phaseRoadmap = [
   ["2–15 Nov 2026", "Speed + HYROX bridge", "JPMorganChase Corporate Challenge · 5 Nov; recover before the Guangzhou taper"],
   ["16–22 Nov 2026", "Guangzhou race week", "Taper into HYROX Guangzhou · 21–22 Nov"],
   ["23 Nov–13 Dec 2026", "Recover + travel maintenance", "Extended neutral travel window · 28 Nov–13 Dec"],
-  ["14–20 Dec 2026", "Marathon decision week", "Shenzhen option · 20 Dec; default skip unless green"],
+  ["14–20 Dec 2026", "Recovery + Procam decision", "ASICS benchmark · 13 Dec; Kolkata option · 20 Dec only if recovery is green"],
   ["21 Dec 2026–10 Jan 2027", "Home qualifier build", "AIA HYROX Hong Kong · 7–10 Jan"],
   ["11–24 Jan 2027", "January APAC options", "Greater Noida · 15–17 Jan; Osaka · 21–24 Jan"],
   ["25 Jan–14 Feb 2027", "Bangkok qualifier build", "BYD HYROX Bangkok · 11–14 Feb"],
@@ -461,9 +461,9 @@ const timelineLanes = [
     name: "ROAD SPEED",
     items: [
       { label: "PEGASUS 10K · benchmark", start: "2026-08-28", end: "2026-08-31", tone: "run", row: 0 },
-      { label: "AVOHK 12K · optional", start: "2026-09-25", end: "2026-09-28", tone: "run", row: 0 },
+      { label: "September build · no race", start: "2026-09-01", end: "2026-09-30", tone: "run", row: 0 },
       { label: "JPM 5.6K · A target", start: "2026-11-04", end: "2026-11-07", tone: "target", row: 0 },
-      { label: "Garmin HK · choose", start: "2026-12-19", end: "2026-12-22", tone: "run", row: 0 },
+      { label: "ASICS Half · controlled", start: "2026-12-12", end: "2026-12-15", tone: "run", row: 0 },
     ],
   },
   {
@@ -477,11 +477,10 @@ const timelineLanes = [
   {
     name: "ROAD OPTIONS",
     items: [
-      { label: "Northern Metropolis", start: "2026-10-31", end: "2026-11-03", tone: "option", row: 0 },
       { label: "Gold Coast 15K", start: "2026-11-07", end: "2026-11-10", tone: "option", row: 1 },
       { label: "Pocari 10K", start: "2026-11-14", end: "2026-11-17", tone: "option", row: 2 },
-      { label: "Shenzhen / Kolkata", start: "2026-12-19", end: "2026-12-22", tone: "option", row: 0 },
-      { label: "Xiamen", start: "2027-01-02", end: "2027-01-05", tone: "option", row: 0 },
+      { label: "Singapore marathon · strategy fork", start: "2026-12-05", end: "2026-12-08", tone: "option", row: 0 },
+      { label: "Kolkata 25K", start: "2026-12-19", end: "2026-12-22", tone: "option", row: 1 },
       { label: "HK / Mumbai", start: "2027-01-16", end: "2027-01-19", tone: "option", row: 1 },
     ],
   },
@@ -497,7 +496,7 @@ const timelineLanes = [
     items: [
       { label: "Shanghai → JPM → 15K", start: "2026-10-31", end: "2026-11-10", tone: "conflict", row: 0 },
       { label: "Pocari → Guangzhou", start: "2026-11-14", end: "2026-11-24", tone: "conflict", row: 1 },
-      { label: "20 Dec triple clash", start: "2026-12-19", end: "2026-12-22", tone: "conflict", row: 0 },
+      { label: "Guangzhou → Singapore marathon", start: "2026-11-21", end: "2026-12-08", tone: "conflict", row: 0 },
       { label: "HK HYROX → 17 Jan roads", start: "2027-01-07", end: "2027-01-19", tone: "conflict", row: 1 },
     ],
   },
@@ -949,7 +948,7 @@ export default function App() {
           <section className="priority-decisions">
             <article><span>DECISION 01</span><b>PEGASUS → JPM is the road-speed spine.</b><p>Race PEGASUS on 30 August, spend September rebuilding threshold and outdoor economy, then peak for JPM on 5 November.</p></article>
             <article className="warning"><span>DECISION 02</span><b>Do not A-race Shanghai and JPM.</b><p>Shanghai ends four days before JPM. If 22:00 matters, skip Shanghai or treat it as controlled participation; Guangzhou remains the better HYROX target.</p></article>
-            <article><span>DECISION 03</span><b>Do not force a December marathon.</b><p>Shenzhen Marathon is only 14 days after HYROX Guangzhou. Kolkata 25K follows four weeks after Guangzhou. Pick at most one and only if recovery is green; neither should override the HYROX build.</p></article>
+            <article><span>DECISION 03</span><b>A Q4 marathon requires a campaign change.</b><p>Singapore on 6 December is still open, but it is only 14 days after HYROX Guangzhou and 32 days before HYROX Hong Kong. Enter only if Guangzhou is removed, ASICS Half is dropped and the next eight weeks become marathon-specific.</p></article>
             <article className="warning"><span>DECISION 04</span><b>Protect the January qualifier.</b><p>HYROX Hong Kong on 7–10 January conflicts with forcing a marathon on 17 January. The marathon is not the default.</p></article>
           </section>
         </section>
@@ -973,8 +972,9 @@ export default function App() {
           <section className="priority-decisions">
             <article><span>MUST DO</span><b>PEGASUS, JPMCC, Guangzhou, Hong Kong.</b><p>PEGASUS and JPMCC are the running spine. Guangzhou and Hong Kong are the two intended HYROX qualification attempts, subject to securing Pro Doubles Men tickets and a committed partner.</p></article>
             <article><span>SUPPORT RACE</span><b>ASICS Half on 13 December.</b><p>Recommended as a controlled benchmark, not a third peak. It sits three weeks after Guangzhou and four weeks before HYROX Hong Kong. Register from 27 August if the Guangzhou entry is secured.</p></article>
+            <article><span>SEP + OCT</span><b>Keep both months race-free by design.</b><p>AVOHK entries closed on 8 August, the 4 October Hong Kong 10K is full, the 11 October waterfront 10K closed on 5 August, and the remaining September reservoir option is trail-like. Use September for threshold development and October for JPM plus HYROX specificity.</p></article>
             <article className="warning"><span>BACKUP ORDER</span><b>Bangkok, then Taipei, then Nagoya.</b><p>Activate only one backup after the preceding result. Osaka is used only if Hong Kong is missed. Bengaluru and Incheon are emergency-only last chances.</p></article>
-            <article className="warning"><span>DO NOT STACK</span><b>No Shenzhen, Xiamen, January marathon, Gujarat or Noida.</b><p>These races collide with qualification attempts or recovery. They would reduce performance rather than improve it.</p></article>
+            <article className="warning"><span>DO NOT STACK</span><b>No Q4 marathon inside the current HYROX campaign.</b><p>Singapore is an alternative campaign, not an add-on. Gujarat, Noida and a January marathon also remain incompatible with the primary qualification sequence.</p></article>
           </section>
           <section className="race-section-heading watch-heading">
             <p className="section-kicker">HISTORICAL ROAD BENCHMARKS</p>
@@ -1052,7 +1052,7 @@ export default function App() {
           </div>
           <div className="freshness-note procam-note">
             <b>PROCAM DECISION RULE</b>
-            <p>The four races are individually valuable, but the formal rewards and services are limited to India residents. From Hong Kong, the Slam should be treated as an optional four-trip race project, not a reason to compromise HYROX qualification. The immediate decision is whether Kolkata on 20 Dec adds value after the Guangzhou block. Shenzhen is a separate 6 Dec marathon watch and should be skipped unless Guangzhou is deprioritized. Mumbai versus Hong Kong Marathon remains the 17 Jan choice.</p>
+            <p>Procam is applicable and remains an optional four-race project. The immediate decision is whether Kolkata on 20 December adds value after the Guangzhou block. Mumbai conflicts with the January HYROX recovery window, while Bengaluru and Delhi can be reconsidered after the qualification outcome.</p>
           </div>
           <div className="race-section-heading watch-heading">
             <p className="section-kicker">APAC HYROX WATCHLIST</p>
