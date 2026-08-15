@@ -89,6 +89,89 @@ function safeRun(activity) {
   };
 }
 
+
+function formatDuration(seconds) {
+  const total = Math.max(0, Math.round(number(seconds) || 0));
+  const hours = Math.floor(total / 3600);
+  const minutes = Math.floor((total % 3600) / 60);
+  const secs = total % 60;
+  return hours > 0
+    ? `${hours}:${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`
+    : `${minutes}:${String(secs).padStart(2, "0")}`;
+}
+
+const historicalRoadRaceWindows = [
+  { name: "JPMorganChase Corporate Challenge 2024", date: "2024-11-21", distanceKm: 5.6, toleranceKm: 0.7 },
+  { name: "JPMorganChase Corporate Challenge 2025", date: "2025-10-30", distanceKm: 5.6, toleranceKm: 0.7 },
+  { name: "ASICS Hong Kong Half-Marathon Championships 2025", date: "2025-12-21", distanceKm: 21.0975, toleranceKm: 1.0 },
+];
+
+function calendarDayGap(a, b) {
+  const left = new Date(`${a}T00:00:00Z`).getTime();
+  const right = new Date(`${b}T00:00:00Z`).getTime();
+  return Math.abs(Math.round((left - right) / 86400000));
+}
+
+function summarizeHistoricalRoadRaces(activities) {
+  const outdoorRuns = activities.filter(isRun).filter((item) => !isTreadmillRun(item));
+  return historicalRoadRaceWindows.map((race) => {
+    const candidates = outdoorRuns
+      .map((activity) => {
+        const activityDate = String(activity.start_time || "").slice(0, 10);
+        const distanceKm = (number(activity.distance_meters) || 0) / 1000;
+        const dateGap = activityDate ? calendarDayGap(activityDate, race.date) : 99;
+        const distanceGap = Math.abs(distanceKm - race.distanceKm);
+        return { activity, activityDate, distanceKm, dateGap, distanceGap };
+      })
+      .filter((item) => item.dateGap <= 1 && item.distanceGap <= race.toleranceKm)
+      .sort((a, b) => (a.dateGap * 10 + a.distanceGap) - (b.dateGap * 10 + b.distanceGap));
+    const match = candidates[0];
+    if (!match) {
+      return {
+        name: race.name,
+        eventDate: race.date,
+        finishTime: null,
+        distanceKm: race.distanceKm,
+        pace: null,
+        confidence: "Pending local Garmin match",
+        matchBasis: "Exact event date plus distance; activity title ignored",
+      };
+    }
+    const durationSeconds = number(match.activity.duration_seconds) || 0;
+    return {
+      name: race.name,
+      eventDate: race.date,
+      finishTime: formatDuration(durationSeconds),
+      distanceKm: round(match.distanceKm, 2),
+      pace: match.distanceKm > 0 ? formatPace(durationSeconds / match.distanceKm) : null,
+      confidence: match.dateGap === 0 ? "High" : "Review",
+      matchBasis: "Event date plus outdoor distance; Garmin activity title ignored",
+    };
+  });
+}
+
+function summarizeRecentSessions(activities, generatedAt) {
+  const end = new Date(generatedAt).getTime();
+  const start = end - 7 * 86400000;
+  return activities
+    .filter((activity) => {
+      const time = new Date(activity.start_time).getTime();
+      return Number.isFinite(time) && time >= start && time <= end;
+    })
+    .sort((a, b) => String(a.start_time).localeCompare(String(b.start_time)))
+    .map((activity) => {
+      const type = String(activity.type || "other").replaceAll("_", " ");
+      const distanceKm = (number(activity.distance_meters) || 0) / 1000;
+      return {
+        date: String(activity.start_time || "").slice(0, 10),
+        modality: isRun(activity) ? (isTreadmillRun(activity) ? "Treadmill run" : "Outdoor run") : type,
+        distanceKm: distanceKm > 0 ? round(distanceKm, 2) : null,
+        durationMinutes: round((number(activity.duration_seconds) || 0) / 60, 0),
+        averageHeartRate: number(activity.avg_hr_bpm),
+      };
+    });
+}
+
 function summarizeRunning(activities, generatedAt, raw) {
   const generatedMs = new Date(generatedAt).getTime();
   const recentStart = generatedMs - 28 * 86400000;
@@ -176,6 +259,8 @@ function summarizeRunning(activities, generatedAt, raw) {
     outdoorComparison,
     racePredictions: predictions,
     personalBests,
+    historicalRaces: summarizeHistoricalRoadRaces(activities),
+    recentSessions: summarizeRecentSessions(activities, generatedAt),
   };
 }
 
@@ -322,6 +407,7 @@ export function analyzeGarminDataset(raw, generatedAt = new Date().toISOString()
     safeguards: [
       "Pain at or above 4/10 always overrides Garmin and stops quality training.",
       "Raw daily health records, activity names and locations remain private on this computer.",
+      "Workout and historical-race matching uses dates, distance, duration and activity type; Garmin activity titles are ignored.",
       "Garmin signals may reduce load automatically; increases and race-plan changes require review.",
     ],
     privateAnalysis: {
