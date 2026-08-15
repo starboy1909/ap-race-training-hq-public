@@ -279,13 +279,13 @@ const weeks: Week[] = [
     label: "W15",
     dates: "17–23 Aug",
     phase: "10K BUILD",
-    volume: "38–40 km",
-    focus: "Peak useful workload before PEGASUS while progressing Pro-load pull strength, late-race lunges and controlled 9 kg wall-ball density. Running quality stays precise, not excessive.",
-    gate: "Increase only if Week 14 is green. If AVOHK 5K is raced, it replaces the 1 km interval session. Never perform both as hard efforts in the same week.",
+    volume: "34–36 km",
+    focus: "Sharpen for PEGASUS without accumulating fatigue. One run-quality session, one long aerobic run and two controlled HYROX strength exposures are enough.",
+    gate: "The available weekly review currently ends on 9 August. Use this conservative version unless the private Sunday refresh is green. If AVOHK 5K is raced, it replaces the 1 km interval session. Never perform both as hard efforts in the same week.",
     days: [
       { id: "S15-0", date: "17 AUG", dow: "MON", title: "Heavy Leg Strength", type: "STRENGTH", duration: "75 min", rpe: "7–8", blocks: [
         { label: "WARM-UP", items: ["Bike 6 min", "Physio hip drill 2 sets + kettlebell hip shift 2×30 sec/side", "Bench upper-back stretch 2×5 breaths + dowel overhead squat 2×4 slow reps", "Two ramp sets for leg press and RDL"] },
-        { label: "PRIMARY", items: ["Leg press or hack squat 5×5 @ RPE 8; 2:30 rest", "Romanian deadlift 4×6 @ RPE 8; 2 min rest", "Walking lunge 3×10/side with controlled load; 90 sec rest", "Hamstring curl 4×8 @ RPE 8; 75 sec rest"] },
+        { label: "PRIMARY", items: ["Leg press or hack squat 4×5 @ RPE 7–8; 2:30 rest", "Romanian deadlift 3×6 @ RPE 7–8; 2 min rest", "Walking lunge 2×10/side with controlled load; 90 sec rest", "Hamstring curl 3×8 @ RPE 8; 75 sec rest"] },
         { label: "HYROX SUPPORT", items: ["Farmer carry 5×40 m heavy; 75 sec rest", "Wall-ball squat pattern 3×10 with light ball, no throw; 60 sec rest", "Eccentric calf 3×12 + tibialis 3×18"] },
         { label: "TRUNK + COOLDOWN", items: ["Pallof press 3×10/side + side plank 3×35 sec/side", "Walk 5 min", "No extra leg work after completing the programmed sets"] },
       ] },
@@ -296,14 +296,14 @@ const weeks: Week[] = [
       ] },
       { id: "S15-2", date: "19 AUG", dow: "WED", title: "Pull Strength + Erg Power", type: "HYROX", duration: "70 min", rpe: "7", blocks: [
         { label: "WARM-UP", items: ["SkiErg 6 min easy", "Band pulldown 2×12 + cable row 2×10"] },
-        { label: "STRENGTH", items: ["Chest-supported row 5×6 @ RPE 8; 2 min rest", "Lat pulldown 4×8 @ RPE 8; 90 sec rest", "Single-arm cable row 3×10/side; 60 sec between sides", "Heavy sled pull 8×12.5 m at 80–90% Pro load; 90 sec rest", "If all eight lengths stay clean, complete one final 12.5 m at Pro load; otherwise stop at eight"] },
+        { label: "STRENGTH", items: ["Chest-supported row 5×6 @ RPE 8; 2 min rest", "Lat pulldown 4×8 @ RPE 8; 90 sec rest", "Single-arm cable row 3×10/side; 60 sec between sides", "Heavy sled pull 6×12.5 m at 80–90% Pro load; 90 sec rest", "No bonus length this week; finish with clean mechanics and reserve"] },
         { label: "ERG POWER", items: ["SkiErg 6×250 m @ RPE 7–8; 75 sec rest", "Keep each split within 2 sec", "Long pull, strong finish, relaxed recovery"] },
         { label: "WALL-BALL SKILL · WEEK 2", items: ["Let breathing settle 3 min, then use a 9 kg ball", "7-minute EMOM: 8 wall balls at the start of every minute = 56 total", "Complete the 8 reps in 15–20 sec and rest fully for the balance of the minute", "Film minute 1 or 7 from the side: check full depth, stable heels and no right-hip shift", "Stop if accuracy or squat position deteriorates"] },
         { label: "ACCESSORY", items: ["Reverse pec deck 3×15", "Cable curl 3×10 + rope pressdown 3×10", "Front plank 3×45 sec"] },
         { label: "COOLDOWN", items: ["Easy walk 5 min", "Physio right-hip drill 2 sets"] },
       ] },
-      { id: "S15-3", date: "20 AUG", dow: "THU", title: "Easy Aerobic Run", type: "RUN", duration: "8 km · 48–55 min", rpe: "4", blocks: [
-        { label: "MAIN", items: ["8 km flat Z2 at 6:00–6:30/km or HR ≤142", "No strides and no fast finish", "Use this run to absorb Tuesday, not prove fitness"] },
+      { id: "S15-3", date: "20 AUG", dow: "THU", title: "Easy Aerobic Run", type: "RUN", duration: "7 km · 42–50 min", rpe: "4", blocks: [
+        { label: "MAIN", items: ["7 km flat Z2 at 6:00–6:30/km or HR ≤142", "No strides and no fast finish", "Use this run to absorb Tuesday, not prove fitness"] },
         { label: "POST-RUN", items: ["Walk 5 min", "Active hamstring floss 2×8/side", "Physio hip drill 2 sets"] },
       ] },
       { id: "S15-4", date: "21 AUG", dow: "FRI", title: "Wall Balls + Sandbag Lunges", type: "HYROX", duration: "70 min", rpe: "6–7", blocks: [
@@ -317,9 +317,9 @@ const weeks: Week[] = [
         { label: "RECOVERY OPTION", items: ["5 km very easy at 6:20–6:50/km", "Flat route, relaxed cadence", "Finish feeling better than you started"] },
         { label: "RACE OPTION", items: ["Warm up 2 km + drills + 4 strides", "Run 5K progressively: controlled first 2 km, commit through km 3–4, race final km", "Cool down 1–2 km", "Only use this option if Tuesday was changed to easy running"] },
       ] },
-      { id: "S15-6", date: "23 AUG", dow: "SUN", title: "Long Aerobic Run", type: "RUN", duration: "15 km · 90–100 min", rpe: "4–5", blocks: [
+      { id: "S15-6", date: "23 AUG", dow: "SUN", title: "Long Aerobic Run", type: "RUN", duration: "14 km · 85–95 min", rpe: "4–5", blocks: [
         { label: "PRE-RUN", items: ["5 min walk + 8 min easy jog", "Right-hip activation 1–2 sets", "Carry water and 35–45 g carbohydrate"] },
-        { label: "MAIN", items: ["First 4 km easy around 6:20–6:40/km", "Middle 8 km stable Z2, HR ≤142", "Final 3 km steady only if legs remain symmetrical; maximum RPE 5", "No hard hill surges"] },
+        { label: "MAIN", items: ["First 4 km easy around 6:20–6:40/km", "Middle 7 km stable Z2, HR ≤142", "Final 3 km steady only if legs remain symmetrical; maximum RPE 5", "No hard hill surges"] },
         { label: "FUEL", items: ["Take 25–30 g carbohydrate around 35–40 min", "Optional second 20–25 g around 70 min", "Drink to thirst, more in Hong Kong heat"] },
         { label: "COOLDOWN", items: ["Walk 8 min", "Protein-rich meal plus carbohydrate", "Record fatigue and morning Body Battery before race week"] },
       ] },
@@ -966,9 +966,34 @@ export default function App() {
           </div>
           <div className="watch-summary">
             <div><b>{races.filter((race) => race.status === "REGISTERED").length}</b><span>CONFIRMED ENTRY</span></div>
-            <div><b>{races.filter((race) => race.category === "opportunity" && ["REGISTER NOW", "URGENT", "LAST CHANCE"].includes(race.status)).length}</b><span>LIVE ROAD OPTIONS</span></div>
-            <div><b>{races.filter((race) => race.category === "hyrox" && race.status !== "DONE").length}</b><span>HYROX WINDOWS</span></div>
+            <div><b>2</b><span>PRIMARY HYROX ATTEMPTS</span></div>
+            <div><b>1</b><span>ACTIVE BACKUP AT A TIME</span></div>
             <div><b>16 MAY 2027</b><span>QUALIFICATION CUTOFF</span></div>
+          </div>
+          <section className="priority-decisions">
+            <article><span>MUST DO</span><b>PEGASUS, JPMCC, Guangzhou, Hong Kong.</b><p>PEGASUS and JPMCC are the running spine. Guangzhou and Hong Kong are the two intended HYROX qualification attempts, subject to securing Pro Doubles Men tickets and a committed partner.</p></article>
+            <article><span>SUPPORT RACE</span><b>ASICS Half on 13 December.</b><p>Recommended as a controlled benchmark, not a third peak. It sits three weeks after Guangzhou and four weeks before HYROX Hong Kong. Register from 27 August if the Guangzhou entry is secured.</p></article>
+            <article className="warning"><span>BACKUP ORDER</span><b>Bangkok, then Taipei, then Nagoya.</b><p>Activate only one backup after the preceding result. Osaka is used only if Hong Kong is missed. Bengaluru and Incheon are emergency-only last chances.</p></article>
+            <article className="warning"><span>DO NOT STACK</span><b>No Shenzhen, Xiamen, January marathon, Gujarat or Noida.</b><p>These races collide with qualification attempts or recovery. They would reduce performance rather than improve it.</p></article>
+          </section>
+          <section className="race-section-heading watch-heading">
+            <p className="section-kicker">HISTORICAL ROAD BENCHMARKS</p>
+            <h3>Times to beat</h3>
+            <p>The private history matcher uses exact event date, outdoor distance and duration. Activity names are ignored because automatic labels are unreliable.</p>
+          </section>
+          <div className="race-list">
+            <article className="race-card">
+              <div className="race-date"><b>30 Oct 2025</b><span>HISTORY</span></div>
+              <div><small>5.6 km · 4:33/km</small><h3>JPMorganChase Corporate Challenge 2025</h3><p>Existing Race HQ result. The next private refresh will verify it against date and distance.</p></div>
+              <div className="race-status">25:27</div>
+              <div className="priority">Time to beat</div>
+            </article>
+            <article className="race-card">
+              <div className="race-date"><b>21 Dec 2025</b><span>HISTORY</span></div>
+              <div><small>21.1 km · result pending</small><h3>ASICS Hong Kong Half-Marathon Championships 2025</h3><p>Exact prior time is not present in the public aggregate. The new private matcher will retrieve it by event date and distance on the next local refresh.</p></div>
+              <div className="race-status">PENDING</div>
+              <div className="priority">Do not guess</div>
+            </article>
           </div>
           <div className="race-section-heading">
             <p className="section-kicker">CONFIRMED + PLAN OF RECORD</p>
