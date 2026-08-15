@@ -23,7 +23,11 @@ never published.
 
 The Garmin tab adds public-safe running aggregates: recent treadmill/outdoor
 distance, an eight-week surface split, an anonymized outdoor-versus-treadmill
-comparison, race predictions, and personal-best context. The Timeline tab maps
+comparison, race predictions, and personal-best context. Historical road-race
+matching ignores Garmin activity titles and instead requires an official event
+date plus a compatible outdoor distance; only the event, finish time, distance,
+pace, confidence and matching basis may enter the public ledger. Activity IDs,
+names and routes remain private. The Timeline tab maps
 road races, HYROX windows, travel, and collision periods from August 2026 to
 January 2027. Exact activity names, routes, and locations remain excluded.
 
