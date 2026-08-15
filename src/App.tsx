@@ -949,7 +949,7 @@ export default function App() {
           <section className="priority-decisions">
             <article><span>DECISION 01</span><b>PEGASUS → JPM is the road-speed spine.</b><p>Race PEGASUS on 30 August, spend September rebuilding threshold and outdoor economy, then peak for JPM on 5 November.</p></article>
             <article className="warning"><span>DECISION 02</span><b>Do not A-race Shanghai and JPM.</b><p>Shanghai ends four days before JPM. If 22:00 matters, skip Shanghai or treat it as controlled participation; Guangzhou remains the better HYROX target.</p></article>
-            <article><span>DECISION 03</span><b>Choose one 20 December race.</b><p>Garmin Run Hong Kong, Shenzhen Marathon and Kolkata 25K occupy the same date. The local Garmin 10K/21K best preserves January flexibility.</p></article>
+            <article><span>DECISION 03</span><b>Do not force a December marathon.</b><p>Shenzhen Marathon is only 14 days after HYROX Guangzhou. Kolkata 25K follows four weeks after Guangzhou. Pick at most one and only if recovery is green; neither should override the HYROX build.</p></article>
             <article className="warning"><span>DECISION 04</span><b>Protect the January qualifier.</b><p>HYROX Hong Kong on 7–10 January conflicts with forcing a marathon on 17 January. The marathon is not the default.</p></article>
           </section>
         </section>
@@ -959,7 +959,7 @@ export default function App() {
         <section className="view">
           <div className="view-heading">
             <div>
-              <p className="section-kicker">RACE DECISION SYSTEM · VERIFIED 9 AUG 2026</p>
+              <p className="section-kicker">RACE DECISION SYSTEM · VERIFIED 15 AUG 2026</p>
               <h2>Race HQ</h2>
               <p>Confirmed targets stay separate from registration opportunities. Road races must support the HYROX campaign, not compete with it. Trail, cross-country, closed and sold-out events are filtered out.</p>
             </div>
@@ -1027,7 +1027,7 @@ export default function App() {
           </div>
           <div className="freshness-note procam-note">
             <b>PROCAM DECISION RULE</b>
-            <p>The four races are individually valuable, but the formal rewards and services are limited to India residents. From Hong Kong, the Slam should be treated as an optional four-trip race project, not a reason to compromise HYROX qualification. The immediate decision is Kolkata versus Garmin versus Shenzhen on 20 Dec, followed by Mumbai versus Hong Kong Marathon on 17 Jan.</p>
+            <p>The four races are individually valuable, but the formal rewards and services are limited to India residents. From Hong Kong, the Slam should be treated as an optional four-trip race project, not a reason to compromise HYROX qualification. The immediate decision is whether Kolkata on 20 Dec adds value after the Guangzhou block. Shenzhen is a separate 6 Dec marathon watch and should be skipped unless Guangzhou is deprioritized. Mumbai versus Hong Kong Marathon remains the 17 Jan choice.</p>
           </div>
           <div className="race-section-heading watch-heading">
             <p className="section-kicker">APAC HYROX WATCHLIST</p>
