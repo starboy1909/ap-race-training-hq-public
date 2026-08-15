@@ -280,14 +280,14 @@ const weeks: Week[] = [
     dates: "17–23 Aug",
     phase: "10K BUILD",
     volume: "34–36 km",
-    focus: "Sharpen for PEGASUS without accumulating fatigue. One run-quality session, one long aerobic run and two controlled HYROX strength exposures are enough.",
-    gate: "The available weekly review currently ends on 9 August. Use this conservative version unless the private Sunday refresh is green. If AVOHK 5K is raced, it replaces the 1 km interval session. Never perform both as hard efforts in the same week.",
+    focus: "Absorb the 15 August long run first, then sharpen for PEGASUS. Keep one precise run-quality session, one long aerobic run and two strength exposures without sacrificing muscle.",
+    gate: "Injuries are currently resolved. Monday is upper-body dominant because the latest long run is not yet present in the Garmin aggregate. Reduce Sunday's long run to 11–12 km if fatigue from 15 August lasts more than 48 hours.",
     days: [
-      { id: "S15-0", date: "17 AUG", dow: "MON", title: "Heavy Leg Strength", type: "STRENGTH", duration: "75 min", rpe: "7–8", blocks: [
-        { label: "WARM-UP", items: ["Bike 6 min", "Physio hip drill 2 sets + kettlebell hip shift 2×30 sec/side", "Bench upper-back stretch 2×5 breaths + dowel overhead squat 2×4 slow reps", "Two ramp sets for leg press and RDL"] },
-        { label: "PRIMARY", items: ["Leg press or hack squat 4×5 @ RPE 7–8; 2:30 rest", "Romanian deadlift 3×6 @ RPE 7–8; 2 min rest", "Walking lunge 2×10/side with controlled load; 90 sec rest", "Hamstring curl 3×8 @ RPE 8; 75 sec rest"] },
-        { label: "HYROX SUPPORT", items: ["Farmer carry 5×40 m heavy; 75 sec rest", "Wall-ball squat pattern 3×10 with light ball, no throw; 60 sec rest", "Eccentric calf 3×12 + tibialis 3×18"] },
-        { label: "TRUNK + COOLDOWN", items: ["Pallof press 3×10/side + side plank 3×35 sec/side", "Walk 5 min", "No extra leg work after completing the programmed sets"] },
+      { id: "S15-0", date: "17 AUG", dow: "MON", title: "Upper Strength + Recovery Reset", type: "STRENGTH", duration: "65 min", rpe: "6–7", blocks: [
+        { label: "READINESS + WARM-UP", items: ["Check movement with 10 bodyweight squats and 10 walking lunges; normal training requires no altered gait", "Bike or walk 6 min easy", "Band pull-apart 2×15 + scapular pulldown 2×10", "Use two progressive warm-up sets before the first press and row"] },
+        { label: "UPPER STRENGTH", items: ["Incline machine chest press 4×6–8 @ RPE 7–8; 2 min rest", "Chest-supported row 4×6–8 @ RPE 7–8; 2 min rest", "Neutral-grip lat pulldown 3×8–10 @ RPE 7; 90 sec rest", "Machine shoulder press 3×8 @ RPE 7; 90 sec rest"] },
+        { label: "PHYSIQUE ACCESSORY", items: ["Reverse pec deck 3×12–15; 60 sec rest", "Cable lateral raise 3×12/side; 45 sec between sides", "Cable curl 3×10–12 paired with rope pressdown 3×10–12; 60 sec after each pair"] },
+        { label: "TRUNK + RECOVERY", items: ["Pallof press 3×10/side with 2-sec hold", "Side plank 3×35 sec/side", "Finish with 8–10 min easy walking; no loaded lower-body work today"] },
       ] },
       { id: "S15-1", date: "18 AUG", dow: "TUE", title: "5×1 km · 10K Specific", type: "RUN", duration: "10 km total · 60–65 min", rpe: "8", blocks: [
         { label: "WARM-UP", items: ["2.5 km easy", "A-march 2×20 m + 4×20 sec strides", "Easy jog 2 min before rep 1"] },
@@ -366,6 +366,935 @@ const weeks: Week[] = [
       ] },
     ],
   },
+{
+  "id": "S17",
+  "label": "W17",
+  "dates": "31 Aug – 6 Sep",
+  "phase": "ABSORB + REBUILD",
+  "volume": "31–34 km",
+  "focus": "Recover from PEGASUS, preserve muscle with two strength exposures and restore easy frequency before the September build.",
+  "gate": "Monday is full rest. Resume quality only when stairs and the first easy run feel normal. Race soreness above 3/10 removes Thursday's steady minutes.",
+  "days": [
+    {
+      "id": "S17-0",
+      "date": "31 AUG",
+      "dow": "MON",
+      "title": "Post-Race Full Rest",
+      "type": "REST",
+      "duration": "All day",
+      "rpe": "0",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "20–30 min gentle walking only if it improves stiffness",
+            "Normal hydration and 25–35 g protein across 3–4 meals",
+            "No gym, wall balls or make-up kilometres",
+            "Record PEGASUS splits, HR, RPE and course notes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S17-1",
+      "date": "1 SEP",
+      "dow": "TUE",
+      "title": "Recovery Run + Stride Check",
+      "type": "RUN",
+      "duration": "7 km · 42–50 min",
+      "rpe": "3–4",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Run 6 km fully conversational on flat terrain",
+            "If stride is symmetrical, add 4×15 sec relaxed strides with 75 sec walk/jog",
+            "Jog easily to 7 km total; omit strides if calves remain sore",
+            "Walk 5 min and log soreness"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S17-2",
+      "date": "2 SEP",
+      "dow": "WED",
+      "title": "Full-Body Strength · Re-entry",
+      "type": "STRENGTH",
+      "duration": "65 min",
+      "rpe": "6–7",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Leg press 3×6 @ RPE 6–7; 2 min rest",
+            "Romanian deadlift 3×6 @ RPE 6–7; 2 min rest",
+            "Machine chest press 4×8 + chest-supported row 4×8; 90 sec rest",
+            "Hamstring curl 3×10 + pulldown 3×10; 75 sec rest",
+            "Lateral raise, curl and pressdown 3×12 each"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S17-3",
+      "date": "3 SEP",
+      "dow": "THU",
+      "title": "Easy + Controlled Steady Minutes",
+      "type": "RUN",
+      "duration": "8 km · 48–55 min",
+      "rpe": "4–5",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Run 3 km easy",
+            "Complete 3×5 min at steady RPE 5 with 2 min easy jog",
+            "Cool down easily to 8 km total",
+            "This is aerobic rhythm, not threshold testing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S17-4",
+      "date": "4 SEP",
+      "dow": "FRI",
+      "title": "HYROX Skill + Upper Strength",
+      "type": "HYROX",
+      "duration": "65 min",
+      "rpe": "6",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Sled push 4×12.5 m and sled pull 4×12.5 m at 70–75% Pro load; 90 sec rest",
+            "Wall-ball 5-minute EMOM × 16 at 9 kg = 80 legal reps",
+            "Lat pulldown 4×8 + incline machine press 4×8; 90 sec rest",
+            "Reverse pec deck 3×15 + farmer carry 4×30 m"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S17-5",
+      "date": "5 SEP",
+      "dow": "SAT",
+      "title": "Long Easy Run",
+      "type": "RUN",
+      "duration": "12–13 km · 75–85 min",
+      "rpe": "4",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Keep the entire run conversational",
+            "Use flat or gently rolling terrain",
+            "Take 25–30 g carbohydrate at 40–45 min",
+            "No progression finish in the post-race week"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S17-6",
+      "date": "6 SEP",
+      "dow": "SUN",
+      "title": "Recovery Run + Mobility",
+      "type": "RUN",
+      "duration": "5 km · 30–35 min",
+      "rpe": "3",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Run 5 km very easy or use 30 min easy bike if impact fatigue remains",
+            "Finish with 10 min ankle, hip and upper-back mobility",
+            "No wall-ball volume today"
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "S18",
+  "label": "W18",
+  "dates": "7–13 Sep",
+  "phase": "AEROBIC BUILD",
+  "volume": "39–42 km",
+  "focus": "Re-establish a 40 km platform with one threshold session, a 16 km long run and two muscle-retention strength sessions.",
+  "gate": "Add the full volume only if Week 17 finishes with normal gait, sleep and appetite. If recovery is amber, remove Sunday's 5 km before reducing key sessions.",
+  "days": [
+    {
+      "id": "S18-0",
+      "date": "7 SEP",
+      "dow": "MON",
+      "title": "Lower Strength · Force Reserve",
+      "type": "STRENGTH",
+      "duration": "75 min",
+      "rpe": "7–8",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Front squat or hack squat 4×5 @ RPE 7–8; 2:30 rest",
+            "Romanian deadlift 4×6 @ RPE 7; 2 min rest",
+            "Split squat 3×8/side; 90 sec rest",
+            "Hamstring curl 3×10; 75 sec rest",
+            "Eccentric calf 3×12/side + Pallof press 3×10/side"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18-1",
+      "date": "8 SEP",
+      "dow": "TUE",
+      "title": "Easy Z2 + Strides",
+      "type": "RUN",
+      "duration": "9 km · 55–62 min",
+      "rpe": "4–5",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Run 8 km easy by breathing and HR",
+            "Complete 6×20 sec relaxed strides with 70 sec walk/jog",
+            "Cool down to 9 km total",
+            "Use outdoors in cool conditions when practical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18-2",
+      "date": "9 SEP",
+      "dow": "WED",
+      "title": "Upper Strength + Wall-Ball Skill",
+      "type": "STRENGTH",
+      "duration": "70 min",
+      "rpe": "7",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Incline machine press 4×6–8 + chest-supported row 4×6–8; 2 min rest",
+            "Lat pulldown 3×10 + lateral raise 3×12; 75 sec rest",
+            "Cable curl 3×10 + rope pressdown 3×10",
+            "Wall-ball 8-minute EMOM × 10 at 9 kg = 80 legal reps",
+            "Stop if depth or target accuracy deteriorates"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18-3",
+      "date": "10 SEP",
+      "dow": "THU",
+      "title": "Threshold · 4×8 Minutes",
+      "type": "RUN",
+      "duration": "10–11 km · 65–70 min",
+      "rpe": "7",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Warm up 2.5 km easy, drills and 4 strides",
+            "Run 4×8 min at PEGASUS-calibrated threshold pace",
+            "Jog 2:30 between repetitions",
+            "Hold even effort; final rep only slightly faster when controlled",
+            "Cool down to at least 10 km total"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18-4",
+      "date": "11 SEP",
+      "dow": "FRI",
+      "title": "Rest + Mobility",
+      "type": "REST",
+      "duration": "20 min optional",
+      "rpe": "0–2",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Easy walk only",
+            "Kettlebell hip shift 2×30 sec/side",
+            "Bench upper-back stretch 2×5 breaths",
+            "No make-up kilometres"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18-5",
+      "date": "12 SEP",
+      "dow": "SAT",
+      "title": "Long Aerobic Run",
+      "type": "RUN",
+      "duration": "15–16 km · 95–105 min",
+      "rpe": "4–5",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "First 5 km deliberately easy",
+            "Middle 7–8 km stable Z2",
+            "Final 3 km steady at RPE 5 only if recovery is green",
+            "Take 30–40 g carbohydrate per hour and carry fluid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18-6",
+      "date": "13 SEP",
+      "dow": "SUN",
+      "title": "Recovery Run + Mobility",
+      "type": "RUN",
+      "duration": "5 km · 30–35 min",
+      "rpe": "3",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Run 5 km very easy",
+            "Finish with dowel overhead squat 2×4, ankle rocks 2×10/side and upper-back stretch",
+            "No density wall balls after the long run"
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "S19",
+  "label": "W19",
+  "dates": "14–20 Sep",
+  "phase": "THRESHOLD + HYROX",
+  "volume": "43–46 km",
+  "focus": "Build race-ready aerobic durability while introducing one controlled compromised session. Heavy strength remains sufficient to preserve muscle.",
+  "gate": "Only one compromised session is allowed. If Thursday threshold exceeds RPE 8, Friday becomes upper strength without running.",
+  "days": [
+    {
+      "id": "S19-0",
+      "date": "14 SEP",
+      "dow": "MON",
+      "title": "Full-Body Heavy Strength",
+      "type": "STRENGTH",
+      "duration": "80 min",
+      "rpe": "7–8",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Leg press 4×5 + Romanian deadlift 4×5 @ RPE 8; 2:30 rest",
+            "Machine chest press 4×6 + chest-supported row 4×6 @ RPE 8; 2 min rest",
+            "Hamstring curl 3×8 + lat pulldown 3×8",
+            "Lateral raise 3×12 + calf raise 3×12",
+            "Pallof press 3×10/side"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S19-1",
+      "date": "15 SEP",
+      "dow": "TUE",
+      "title": "Easy Z2 + Strides",
+      "type": "RUN",
+      "duration": "9 km",
+      "rpe": "4",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Run 8 km easy and conversational",
+            "Complete 6×20 sec strides with 70 sec easy recovery",
+            "Jog to 9 km total",
+            "No pace target in heat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S19-2",
+      "date": "16 SEP",
+      "dow": "WED",
+      "title": "Upper Hypertrophy + Wall Balls",
+      "type": "STRENGTH",
+      "duration": "65 min",
+      "rpe": "7",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Incline press 4×8–10 + seated row 4×8–10",
+            "Pulldown 3×10 + reverse pec deck 3×15",
+            "Cable curl and rope pressdown 3×12 each",
+            "Wall-ball 4-minute EMOM × 15 at 9 kg",
+            "Rest 3 min, then 35 reps; rest 20 sec; complete 20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S19-3",
+      "date": "17 SEP",
+      "dow": "THU",
+      "title": "Threshold · 3×12 Minutes",
+      "type": "RUN",
+      "duration": "11 km",
+      "rpe": "7",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Warm up 2.5 km easy, drills and 4 strides",
+            "Run 3×12 min at threshold RPE 7",
+            "Jog 3 min between repetitions",
+            "Hold the same average pace across all reps",
+            "Cool down to 11 km total"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S19-4",
+      "date": "18 SEP",
+      "dow": "FRI",
+      "title": "Short HYROX Compromised Run",
+      "type": "HYROX",
+      "duration": "7 km running · 55–60 min",
+      "rpe": "7",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Complete 4 controlled rounds: 1 km at HYROX doubles rhythm, 12.5 m sled push, 12.5 m sled pull and 10 burpee broad jumps",
+            "Use 70% Pro sled load",
+            "Rest 2 min after each round",
+            "Jog easy until total running reaches 7 km",
+            "No extra station volume"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S19-5",
+      "date": "19 SEP",
+      "dow": "SAT",
+      "title": "Full Rest",
+      "type": "REST",
+      "duration": "All day",
+      "rpe": "0",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Normal walking only",
+            "Carbohydrate-rich dinner before the long run",
+            "Prioritise sleep",
+            "No make-up gym session"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S19-6",
+      "date": "20 SEP",
+      "dow": "SUN",
+      "title": "Long Aerobic Run",
+      "type": "RUN",
+      "duration": "17–18 km · 105–115 min",
+      "rpe": "4–5",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "First 6 km easy",
+            "Middle 8 km stable Z2",
+            "Last 3–4 km steady only if form remains quiet",
+            "Fuel 35–45 g carbohydrate per hour and drink to conditions"
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "S20",
+  "label": "W20",
+  "dates": "21–27 Sep",
+  "phase": "PEAK BASE",
+  "volume": "47–50 km",
+  "focus": "Reach the first sustainable 50 km ceiling without adding another hard day. Keep one threshold session, one long run and three strength-maintenance touches.",
+  "gate": "This is a ceiling, not a quota. If sleep, appetite or easy-run HR deteriorates for two days, cap the week at 44–46 km by shortening Sunday.",
+  "days": [
+    {
+      "id": "S20-0",
+      "date": "21 SEP",
+      "dow": "MON",
+      "title": "Lower Strength · Low Volume Heavy",
+      "type": "STRENGTH",
+      "duration": "65 min",
+      "rpe": "7–8",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Hack squat 4×4 @ RPE 8; 2:30 rest",
+            "Romanian deadlift 3×5 @ RPE 8; 2:30 rest",
+            "Split squat 3×6/side; 90 sec rest",
+            "Hamstring curl 3×8; 75 sec rest",
+            "Calf raise 3×10 + tibialis 3×15"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S20-1",
+      "date": "22 SEP",
+      "dow": "TUE",
+      "title": "Easy Z2 + Strides",
+      "type": "RUN",
+      "duration": "10 km",
+      "rpe": "4",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Run 9 km easy",
+            "Complete 6×20 sec relaxed strides with 70 sec recovery",
+            "Jog to 10 km total",
+            "Finish with normal breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S20-2",
+      "date": "23 SEP",
+      "dow": "WED",
+      "title": "Upper Strength + HYROX Pull",
+      "type": "HYROX",
+      "duration": "75 min",
+      "rpe": "7",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Machine press 4×6–8 + chest-supported row 4×6–8",
+            "Lat pulldown 3×8–10 + reverse pec deck 3×15",
+            "Sled pull 8×12.5 m at 80–90% Pro load; 90 sec rest",
+            "Farmer carry 5×40 m; 75 sec rest",
+            "Wall-ball 4-minute EMOM × 18 at 9 kg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S20-3",
+      "date": "24 SEP",
+      "dow": "THU",
+      "title": "Cruise Intervals · 4×2 km",
+      "type": "RUN",
+      "duration": "12 km",
+      "rpe": "7",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Warm up 2 km easy, drills and 4 strides",
+            "Run 4×2 km at controlled threshold/10-mile effort",
+            "Jog 2 min between repetitions",
+            "Keep all reps within 8 sec",
+            "Cool down to 12 km total"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S20-4",
+      "date": "25 SEP",
+      "dow": "FRI",
+      "title": "Physique Strength · Short",
+      "type": "STRENGTH",
+      "duration": "45–50 min",
+      "rpe": "6–7",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Incline press 3×10",
+            "Cable row 3×10",
+            "Lateral raise 3×15",
+            "Cable curl 3×12 + rope pressdown 3×12",
+            "No lower-body loading"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S20-5",
+      "date": "26 SEP",
+      "dow": "SAT",
+      "title": "Long Aerobic Run",
+      "type": "RUN",
+      "duration": "18 km · 110–120 min",
+      "rpe": "4–5",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "First 6 km easy",
+            "Middle 8 km stable Z2",
+            "Final 4 km steady only when recovery is green",
+            "Fuel 40–50 g carbohydrate per hour and carry fluid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S20-6",
+      "date": "27 SEP",
+      "dow": "SUN",
+      "title": "Easy Recovery Run",
+      "type": "RUN",
+      "duration": "7–8 km",
+      "rpe": "3",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Run 7 km very easy",
+            "Add the final kilometre only if legs improve while running",
+            "Keep terrain flat",
+            "Finish with 10 min mobility"
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "S21",
+  "label": "W21",
+  "dates": "28 Sep – 4 Oct",
+  "phase": "DELOAD + ABSORB",
+  "volume": "38–41 km",
+  "focus": "Drop volume about 20% while keeping threshold rhythm and two strength signals. This is where the previous three weeks become fitness.",
+  "gate": "Do not fill the reduced volume with extra stations or steps. Finish the week with better easy-run feel and stable strength loads.",
+  "days": [
+    {
+      "id": "S21-0",
+      "date": "28 SEP",
+      "dow": "MON",
+      "title": "Full Rest + Mobility",
+      "type": "REST",
+      "duration": "20 min optional",
+      "rpe": "0–2",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Easy walk",
+            "Ankle rocks 2×10/side",
+            "Hip shift 2×30 sec/side",
+            "Bench upper-back stretch 2×5 breaths"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S21-1",
+      "date": "29 SEP",
+      "dow": "TUE",
+      "title": "Easy Z2 + Strides",
+      "type": "RUN",
+      "duration": "8 km",
+      "rpe": "4",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Run 7 km easy",
+            "Complete 5×20 sec strides with 75 sec recovery",
+            "Cool down to 8 km total"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S21-2",
+      "date": "30 SEP",
+      "dow": "WED",
+      "title": "Full-Body Strength · Deload",
+      "type": "STRENGTH",
+      "duration": "60 min",
+      "rpe": "6–7",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Leg press 3×5 + Romanian deadlift 3×6 @ RPE 6–7",
+            "Machine press 3×8 + chest-supported row 3×8",
+            "Hamstring curl 2×10 + pulldown 2×10",
+            "Keep 3 reps in reserve",
+            "No finisher"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S21-3",
+      "date": "1 OCT",
+      "dow": "THU",
+      "title": "Threshold · 3×8 Minutes",
+      "type": "RUN",
+      "duration": "9–10 km",
+      "rpe": "7",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Warm up 2.5 km",
+            "Run 3×8 min at threshold with 2:30 jog",
+            "Cool down to at least 9 km",
+            "Finish fresher than previous threshold weeks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S21-4",
+      "date": "2 OCT",
+      "dow": "FRI",
+      "title": "Upper Hypertrophy + Wall-Ball Gate",
+      "type": "HYROX",
+      "duration": "60 min",
+      "rpe": "6–7",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Incline press 3×10 + seated row 3×10",
+            "Pulldown 3×10 + lateral raise 3×15",
+            "Curl and pressdown 3×12 each",
+            "Wall-ball 4-minute EMOM × 20 at 9 kg",
+            "Optional 55 + 30 after 20 sec only if all EMOM reps were legal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S21-5",
+      "date": "3 OCT",
+      "dow": "SAT",
+      "title": "Long Easy Run",
+      "type": "RUN",
+      "duration": "15–16 km",
+      "rpe": "4",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Keep the entire run easy and conversational",
+            "No progression finish",
+            "Fuel once at 40–45 min",
+            "Use this as an absorption run"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S21-6",
+      "date": "4 OCT",
+      "dow": "SUN",
+      "title": "Recovery Run",
+      "type": "RUN",
+      "duration": "6–7 km",
+      "rpe": "3",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Run 6 km very easy",
+            "Add 1 km only if legs feel better after 4 km",
+            "Finish with calf and upper-back mobility"
+          ]
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "S22",
+  "label": "W22",
+  "dates": "5–11 Oct",
+  "phase": "ENDURANCE + TRAVEL",
+  "volume": "45–48 km",
+  "focus": "Front-load the key work, preserve muscle and keep the long-run habit through a neutral travel window without chasing missed kilometres.",
+  "gate": "Complete the top number only when facilities and recovery are normal. If travel disrupts sleep, retain Tuesday quality and Thursday long run; weekend running becomes optional.",
+  "days": [
+    {
+      "id": "S22-0",
+      "date": "5 OCT",
+      "dow": "MON",
+      "title": "Upper Strength + Trunk",
+      "type": "STRENGTH",
+      "duration": "65 min",
+      "rpe": "7",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Machine chest press 4×6–8 + chest-supported row 4×6–8; 2 min rest",
+            "Lat pulldown 3×10 + shoulder press 3×8; 90 sec rest",
+            "Lateral raise 3×12 + reverse pec deck 3×15",
+            "Cable curl + rope pressdown 3×10",
+            "Pallof press 3×10/side"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S22-1",
+      "date": "6 OCT",
+      "dow": "TUE",
+      "title": "Threshold · 5×6 Minutes",
+      "type": "RUN",
+      "duration": "11 km",
+      "rpe": "7",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Warm up 2.5 km easy, drills and 4 strides",
+            "Run 5×6 min at threshold with 2 min easy jog",
+            "Hold identical effort through rep 4",
+            "Rep 5 may progress only if controlled",
+            "Cool down to 11 km total"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S22-2",
+      "date": "7 OCT",
+      "dow": "WED",
+      "title": "Lower Strength + HYROX Technique",
+      "type": "HYROX",
+      "duration": "70 min",
+      "rpe": "7",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Hack squat 4×5 @ RPE 7–8",
+            "Romanian deadlift 3×6 @ RPE 7",
+            "Hamstring curl 3×10 + calf raise 3×12",
+            "Sled push and pull 4×12.5 m each at 75–80% Pro load",
+            "Wall balls 6×10 at 9 kg with 60 sec rest"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S22-3",
+      "date": "8 OCT",
+      "dow": "THU",
+      "title": "Long Aerobic Run · Front-Loaded",
+      "type": "RUN",
+      "duration": "18 km · 110–120 min",
+      "rpe": "4–5",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "First 6 km easy",
+            "Middle 8 km stable Z2",
+            "Final 4 km steady only if recovery is green",
+            "Fuel 40–50 g carbohydrate per hour",
+            "No lower-body strength for 48 hours"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S22-4",
+      "date": "9 OCT",
+      "dow": "FRI",
+      "title": "Rest / Travel Recovery",
+      "type": "REST",
+      "duration": "All day",
+      "rpe": "0",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Normal walking only",
+            "Hydrate and protect sleep",
+            "No make-up kilometres",
+            "10 min mobility if useful"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S22-5",
+      "date": "10 OCT",
+      "dow": "SAT",
+      "title": "Easy Run + Strides",
+      "type": "RUN",
+      "duration": "8 km",
+      "rpe": "4",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Run 7 km easy",
+            "Add 4×15 sec strides only if route and footing are safe",
+            "Cool down to 8 km total",
+            "Skip if sleep or travel recovery is poor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S22-6",
+      "date": "11 OCT",
+      "dow": "SUN",
+      "title": "Easy Aerobic Run",
+      "type": "RUN",
+      "duration": "8–10 km",
+      "rpe": "3–4",
+      "blocks": [
+        {
+          "label": "PRESCRIPTION",
+          "items": [
+            "Run 8 km easy and conversational",
+            "Extend to 10 km only when recovery is green",
+            "Do not compensate for a skipped Saturday",
+            "Finish with 10 min mobility"
+          ]
+        }
+      ]
+    }
+  ]
+},
+];
+
+const sixWeekOutlook = [
+  ["31 Aug–6 Sep", "31–34 km", "Absorb PEGASUS", "2 strength · 1 HYROX skill"],
+  ["7–13 Sep", "39–42 km", "Rebuild 40 km platform", "2 strength · threshold · 16 km long"],
+  ["14–20 Sep", "43–46 km", "Threshold + compromised durability", "2 strength · 18 km long"],
+  ["21–27 Sep", "47–50 km", "First sustainable volume ceiling", "3 strength touches · 18 km long"],
+  ["28 Sep–4 Oct", "38–41 km", "Deload and absorb", "2 strength · reduced threshold"],
+  ["5–11 Oct", "45–48 km", "Front-loaded endurance", "2 strength · 18 km long"],
 ];
 
 const raceHistory = [
@@ -625,11 +1554,11 @@ export default function App() {
     <main className="app-shell">
       <header className="hero">
         <div>
-          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V9.0</p>
+          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V9.1</p>
           <h1>SEASON <span>2026/27</span></h1>
           <div className="status-line">
             <span className="phase-pill">BUILD</span>
-            <span>W13–16 granular prescription</span>
+            <span>W15–22 · six-week load horizon</span>
             <span className={`readiness ${readiness.tone}`}>{readiness.label}</span>
             <span className={`readiness ${garminWeekly.decision.tone}`}>{garminWeekly.decision.label}</span>
           </div>
@@ -677,10 +1606,10 @@ export default function App() {
 
           <div className="volume-card">
             <strong>{week.volume}</strong>
-            <div><b>WEEKLY TARGET</b><span>Volume is subordinate to the injury gate and recovery signals.</span></div>
+            <div><b>WEEKLY TARGET</b><span>Mileage builds in three-week waves, then deloads. Recovery signals still override the top number.</span></div>
           </div>
 
-          {week.gate && <div className="gate"><b>INJURY GATE</b>{week.gate}</div>}
+          {week.gate && <div className="gate"><b>READINESS GATE</b>{week.gate}</div>}
 
           <div className="day-list">
             {week.days.map((day) => {
@@ -724,6 +1653,15 @@ export default function App() {
             })}
           </div>
 
+          <section className="roadmap">
+            <div className="view-heading compact">
+              <div><p className="section-kicker">ROLLING SIX-WEEK LOAD HORIZON</p><h2>See where the mileage is going</h2><p>The high point is 47–50 km, followed by a deliberate deload. Two strength exposures remain non-negotiable so added mileage does not trade away muscle.</p></div>
+            </div>
+            {sixWeekOutlook.map(([dates, mileage, purpose, structure]) => (
+              <div className="roadmap-row" key={dates}><span>{dates}</span><b>{mileage}</b><p><strong>{purpose}</strong><br />{structure}</p></div>
+            ))}
+          </section>
+
           <section className="checkin-panel">
             <div>
               <p className="section-kicker">ADAPTATION INPUT</p>
@@ -754,6 +1692,8 @@ export default function App() {
             </div>
             <div className={`garmin-page-decision ${garminWeekly.decision.tone}`}><span>THIS WEEK</span><b>{garminWeekly.decision.label.replace("GARMIN · ", "")}</b></div>
           </div>
+
+          <div className="gate"><b>DATA FRESHNESS</b>The published Garmin aggregate was last generated on {garminWeekly.generatedAt ? new Date(garminWeekly.generatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "an unknown date"}. Runs completed after that refresh, including the 15 August long run, are not yet included below.</div>
 
           <section className="garmin-hero-grid">
             <article><small>RUNNING VO₂ MAX</small><b>{vo2Metric?.value || "—"}</b><span>{vo2Metric?.trend || "Trend unavailable"}</span></article>
