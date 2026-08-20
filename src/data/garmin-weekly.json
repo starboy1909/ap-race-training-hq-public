@@ -1,59 +1,59 @@
 {
   "status": "ready",
-  "generatedAt": "2026-08-09T10:07:40.519Z",
-  "reviewWindow": "2026-06-15 to 2026-08-09",
+  "generatedAt": "2026-08-20T05:00:30.719Z",
+  "reviewWindow": "2026-06-26 to 2026-08-20",
   "decision": {
-    "tone": "green",
-    "label": "GARMIN · PROCEED"
+    "tone": "amber",
+    "label": "GARMIN · MODIFY"
   },
-  "summary": "PROCEED for the next training week. Key signals: moderate Garmin Training Readiness.",
+  "summary": "MODIFY for the next training week. Key signals: seven-day sleep below 7 hours, completed weekly duration rose more than 20%.",
   "coverage": {
-    "healthDays": 52,
-    "activities": 1392,
+    "healthDays": 56,
+    "activities": 1413,
     "activityHistoryStart": "2024-06-11"
   },
   "metrics": [
     {
       "label": "7-day sleep",
-      "value": "7.3 h",
-      "trend": "+8.5% vs prior",
-      "flag": "good"
+      "value": "6.6 h",
+      "trend": "-9.3% vs prior",
+      "flag": "watch"
     },
     {
       "label": "Body Battery",
-      "value": "71.3",
-      "trend": "-2.7 vs prior",
+      "value": "74.6",
+      "trend": "+2.6 vs prior",
       "flag": "good"
     },
     {
       "label": "Resting HR",
-      "value": "54 bpm",
-      "trend": "+1.9 bpm vs prior",
+      "value": "52.7 bpm",
+      "trend": "-0.1 bpm vs prior",
       "flag": "good"
     },
     {
       "label": "Stress",
-      "value": "28.4",
-      "trend": "+0.6 vs prior",
+      "value": "26.7",
+      "trend": "-2.7 vs prior",
       "flag": "good"
     },
     {
       "label": "HRV",
-      "value": "45 ms",
+      "value": "51 ms",
       "trend": "BALANCED",
       "flag": "good"
     },
     {
       "label": "Load ratio",
-      "value": "0.9",
+      "value": "1.2",
       "trend": "OPTIMAL",
       "flag": "good"
     },
     {
       "label": "Readiness",
-      "value": "55",
-      "trend": "MODERATE",
-      "flag": "watch"
+      "value": "80",
+      "trend": "HIGH",
+      "flag": "good"
     },
     {
       "label": "Training status",
@@ -69,29 +69,29 @@
     },
     {
       "label": "Endurance score",
-      "value": "6203",
+      "value": "6109",
       "trend": "trained",
       "flag": "good"
     },
     {
       "label": "Last full week",
-      "value": "7 h",
-      "trend": "-6.8% duration vs prior weeks",
-      "flag": "good"
+      "value": "9.3 h",
+      "trend": "+33.1% duration vs prior weeks",
+      "flag": "watch"
     }
   ],
   "trainingMix": [
     {
       "type": "strength training",
-      "count": 431
+      "count": 437
     },
     {
       "type": "running",
-      "count": 367
+      "count": 371
     },
     {
       "type": "treadmill running",
-      "count": 230
+      "count": 234
     },
     {
       "type": "walking",
@@ -99,7 +99,7 @@
     },
     {
       "type": "cycling",
-      "count": 67
+      "count": 74
     },
     {
       "type": "fitness equipment",
@@ -108,32 +108,16 @@
   ],
   "runningProfile": {
     "recent28Days": {
-      "runs": 25,
-      "distanceKm": 171.3,
-      "outdoorRuns": 4,
-      "treadmillRuns": 21,
-      "outdoorKm": 30.4,
-      "treadmillKm": 140.9,
-      "outdoorSharePercent": 18,
-      "treadmillSharePercent": 82
+      "runs": 22,
+      "distanceKm": 161.7,
+      "outdoorRuns": 6,
+      "treadmillRuns": 16,
+      "outdoorKm": 59.8,
+      "treadmillKm": 101.9,
+      "outdoorSharePercent": 37,
+      "treadmillSharePercent": 63
     },
     "weeklyRunLoad": [
-      {
-        "week": "2026-06-15",
-        "distanceKm": 60.2,
-        "durationHours": 6.4,
-        "outdoorKm": 23.6,
-        "treadmillKm": 36.6,
-        "runs": 6
-      },
-      {
-        "week": "2026-06-22",
-        "distanceKm": 25.4,
-        "durationHours": 3,
-        "outdoorKm": 22.4,
-        "treadmillKm": 3,
-        "runs": 4
-      },
       {
         "week": "2026-06-29",
         "distanceKm": 66.1,
@@ -181,41 +165,57 @@
         "outdoorKm": 10,
         "treadmillKm": 29.6,
         "runs": 5
+      },
+      {
+        "week": "2026-08-10",
+        "distanceKm": 46.7,
+        "durationHours": 4.8,
+        "outdoorKm": 24,
+        "treadmillKm": 22.7,
+        "runs": 5
+      },
+      {
+        "week": "2026-08-17",
+        "distanceKm": 23.1,
+        "durationHours": 2.3,
+        "outdoorKm": 17.5,
+        "treadmillKm": 5.7,
+        "runs": 3
       }
     ],
     "latestOutdoorRun": {
-      "distanceKm": 10,
-      "durationMinutes": 61,
-      "pace": "6:08/km",
-      "averageHeartRate": 165,
+      "distanceKm": 8,
+      "durationMinutes": 50,
+      "pace": "6:13/km",
+      "averageHeartRate": 154,
       "maxHeartRate": 182,
-      "elevationGainMeters": 48
+      "elevationGainMeters": 62
     },
     "comparableTreadmillRun": {
-      "distanceKm": 10.7,
-      "durationMinutes": 62,
-      "pace": "5:50/km",
-      "averageHeartRate": 155,
-      "maxHeartRate": 177,
+      "distanceKm": 5.7,
+      "durationMinutes": 35,
+      "pace": "6:10/km",
+      "averageHeartRate": 127,
+      "maxHeartRate": 148,
       "elevationGainMeters": 0
     },
-    "outdoorComparison": "The latest comparable outdoor run was 18 sec/km slower with average heart rate 10 bpm higher than the treadmill comparison.",
+    "outdoorComparison": "The latest comparable outdoor run was 3 sec/km slower with average heart rate 27 bpm higher than the treadmill comparison.",
     "racePredictions": [
       {
         "distance": "5K",
-        "time": "22:01"
+        "time": "21:53"
       },
       {
         "distance": "10K",
-        "time": "46:46"
+        "time": "46:57"
       },
       {
         "distance": "half marathon",
-        "time": "1:46:15"
+        "time": "1:47:07"
       },
       {
         "distance": "marathon",
-        "time": "3:58:17"
+        "time": "4:01:37"
       }
     ],
     "personalBests": [
@@ -227,19 +227,155 @@
         "distance": "10K",
         "time": "42:04"
       }
+    ],
+    "historicalRaces": [
+      {
+        "name": "JPMorganChase Corporate Challenge 2024",
+        "eventDate": "2024-11-21",
+        "finishTime": "27:24",
+        "distanceKm": 5.73,
+        "pace": "4:47/km",
+        "confidence": "High",
+        "matchBasis": "Event date plus outdoor distance; Garmin activity title ignored"
+      },
+      {
+        "name": "JPMorganChase Corporate Challenge 2025",
+        "eventDate": "2025-10-30",
+        "finishTime": "25:29",
+        "distanceKm": 5.54,
+        "pace": "4:36/km",
+        "confidence": "High",
+        "matchBasis": "Event date plus outdoor distance; Garmin activity title ignored"
+      },
+      {
+        "name": "ASICS Hong Kong Half-Marathon Championships 2025",
+        "eventDate": "2025-12-21",
+        "finishTime": "1:57:25",
+        "distanceKm": 21.33,
+        "pace": "5:30/km",
+        "confidence": "High",
+        "matchBasis": "Event date plus outdoor distance; Garmin activity title ignored"
+      }
+    ],
+    "recentSessions": [
+      {
+        "date": "2026-08-14",
+        "modality": "cycling",
+        "distanceKm": 2.44,
+        "durationMinutes": 10,
+        "averageHeartRate": 92
+      },
+      {
+        "date": "2026-08-14",
+        "modality": "strength training",
+        "distanceKm": null,
+        "durationMinutes": 46,
+        "averageHeartRate": 100
+      },
+      {
+        "date": "2026-08-14",
+        "modality": "cycling",
+        "distanceKm": 2.26,
+        "durationMinutes": 9,
+        "averageHeartRate": 103
+      },
+      {
+        "date": "2026-08-15",
+        "modality": "Outdoor run",
+        "distanceKm": 14.56,
+        "durationMinutes": 90,
+        "averageHeartRate": 151
+      },
+      {
+        "date": "2026-08-16",
+        "modality": "Treadmill run",
+        "distanceKm": 9,
+        "durationMinutes": 54,
+        "averageHeartRate": 123
+      },
+      {
+        "date": "2026-08-16",
+        "modality": "strength training",
+        "distanceKm": null,
+        "durationMinutes": 24,
+        "averageHeartRate": 100
+      },
+      {
+        "date": "2026-08-17",
+        "modality": "cycling",
+        "distanceKm": 2.44,
+        "durationMinutes": 10,
+        "averageHeartRate": 90
+      },
+      {
+        "date": "2026-08-17",
+        "modality": "strength training",
+        "distanceKm": null,
+        "durationMinutes": 49,
+        "averageHeartRate": 90
+      },
+      {
+        "date": "2026-08-17",
+        "modality": "cycling",
+        "distanceKm": 2.83,
+        "durationMinutes": 13,
+        "averageHeartRate": 108
+      },
+      {
+        "date": "2026-08-18",
+        "modality": "Outdoor run",
+        "distanceKm": 9.45,
+        "durationMinutes": 56,
+        "averageHeartRate": 158
+      },
+      {
+        "date": "2026-08-19",
+        "modality": "cycling",
+        "distanceKm": 2.6,
+        "durationMinutes": 11,
+        "averageHeartRate": 87
+      },
+      {
+        "date": "2026-08-19",
+        "modality": "strength training",
+        "distanceKm": null,
+        "durationMinutes": 98,
+        "averageHeartRate": 110
+      },
+      {
+        "date": "2026-08-19",
+        "modality": "Treadmill run",
+        "distanceKm": 5.68,
+        "durationMinutes": 35,
+        "averageHeartRate": 127
+      },
+      {
+        "date": "2026-08-20",
+        "modality": "Outdoor run",
+        "distanceKm": 8.01,
+        "durationMinutes": 50,
+        "averageHeartRate": 154
+      }
     ]
   },
   "proposedChanges": [
     {
       "scope": "Next 7 days",
-      "action": "Keep the current prescription. Do not add volume automatically; progress only through the existing injury and technique gates.",
-      "rationale": "The available recovery and load signals do not require a reduction.",
-      "status": "KEEP"
+      "action": "Reduce planned volume by 10–15%, retain at most one quality exposure, and cap all other work at RPE 6.",
+      "rationale": "seven-day sleep below 7 hours; completed weekly duration rose more than 20%",
+      "status": "AUTO-SAFE"
+    },
+    {
+      "scope": "Recovery support",
+      "action": "Create a 30-minute longer sleep opportunity before quality sessions; if morning readiness is below 50 or Body Battery is below 35, use the recovery swap instead.",
+      "rationale": "Seven-day sleep averages 6.6 hours despite otherwise positive recovery signals.",
+      "status": "SUPPORT"
     }
   ],
   "safeguards": [
     "Pain at or above 4/10 always overrides Garmin and stops quality training.",
     "Raw daily health records, activity names and locations remain private on this computer.",
+    "Workout and historical-race matching uses dates, distance, duration and activity type; Garmin activity titles are ignored.",
     "Garmin signals may reduce load automatically; increases and race-plan changes require review."
   ]
 }
