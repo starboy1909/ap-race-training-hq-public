@@ -1,7 +1,7 @@
 {
   "status": "ready",
-  "generatedAt": "2026-08-20T05:00:30.719Z",
-  "reviewWindow": "2026-06-26 to 2026-08-20",
+  "generatedAt": "2026-08-23T10:03:17.089Z",
+  "reviewWindow": "2026-06-29 to 2026-08-23",
   "decision": {
     "tone": "amber",
     "label": "GARMIN · MODIFY"
@@ -9,37 +9,37 @@
   "summary": "MODIFY for the next training week. Key signals: seven-day sleep below 7 hours, completed weekly duration rose more than 20%.",
   "coverage": {
     "healthDays": 56,
-    "activities": 1413,
+    "activities": 1420,
     "activityHistoryStart": "2024-06-11"
   },
   "metrics": [
     {
       "label": "7-day sleep",
-      "value": "6.6 h",
-      "trend": "-9.3% vs prior",
+      "value": "6.7 h",
+      "trend": "-8.3% vs prior",
       "flag": "watch"
     },
     {
       "label": "Body Battery",
-      "value": "74.6",
-      "trend": "+2.6 vs prior",
+      "value": "68.5",
+      "trend": "-3.3 vs prior",
       "flag": "good"
     },
     {
       "label": "Resting HR",
-      "value": "52.7 bpm",
-      "trend": "-0.1 bpm vs prior",
+      "value": "52.8 bpm",
+      "trend": "-0.2 bpm vs prior",
       "flag": "good"
     },
     {
       "label": "Stress",
-      "value": "26.7",
-      "trend": "-2.7 vs prior",
+      "value": "30.2",
+      "trend": "+0.8 vs prior",
       "flag": "good"
     },
     {
       "label": "HRV",
-      "value": "51 ms",
+      "value": "48 ms",
       "trend": "BALANCED",
       "flag": "good"
     },
@@ -51,14 +51,14 @@
     },
     {
       "label": "Readiness",
-      "value": "80",
-      "trend": "HIGH",
+      "value": "Not available",
+      "trend": "Context unavailable",
       "flag": "good"
     },
     {
       "label": "Training status",
       "value": "MAINTAINING 3",
-      "trend": "Load focus balanced",
+      "trend": "Load focus unavailable",
       "flag": "good"
     },
     {
@@ -69,7 +69,7 @@
     },
     {
       "label": "Endurance score",
-      "value": "6109",
+      "value": "6101",
       "trend": "trained",
       "flag": "good"
     },
@@ -83,15 +83,15 @@
   "trainingMix": [
     {
       "type": "strength training",
-      "count": 437
+      "count": 438
     },
     {
       "type": "running",
-      "count": 371
+      "count": 372
     },
     {
       "type": "treadmill running",
-      "count": 234
+      "count": 236
     },
     {
       "type": "walking",
@@ -99,7 +99,7 @@
     },
     {
       "type": "cycling",
-      "count": 74
+      "count": 77
     },
     {
       "type": "fitness equipment",
@@ -109,13 +109,13 @@
   "runningProfile": {
     "recent28Days": {
       "runs": 22,
-      "distanceKm": 161.7,
+      "distanceKm": 164.6,
       "outdoorRuns": 6,
       "treadmillRuns": 16,
-      "outdoorKm": 59.8,
-      "treadmillKm": 101.9,
-      "outdoorSharePercent": 37,
-      "treadmillSharePercent": 63
+      "outdoorKm": 53.5,
+      "treadmillKm": 111.1,
+      "outdoorSharePercent": 32,
+      "treadmillSharePercent": 68
     },
     "weeklyRunLoad": [
       {
@@ -176,46 +176,46 @@
       },
       {
         "week": "2026-08-17",
-        "distanceKm": 23.1,
-        "durationHours": 2.3,
-        "outdoorKm": 17.5,
-        "treadmillKm": 5.7,
-        "runs": 3
+        "distanceKm": 45.1,
+        "durationHours": 4.7,
+        "outdoorKm": 19.4,
+        "treadmillKm": 25.7,
+        "runs": 6
       }
     ],
     "latestOutdoorRun": {
-      "distanceKm": 8,
-      "durationMinutes": 50,
-      "pace": "6:13/km",
-      "averageHeartRate": 154,
-      "maxHeartRate": 182,
-      "elevationGainMeters": 62
+      "distanceKm": 2,
+      "durationMinutes": 12,
+      "pace": "5:52/km",
+      "averageHeartRate": 130,
+      "maxHeartRate": 147,
+      "elevationGainMeters": 10
     },
     "comparableTreadmillRun": {
-      "distanceKm": 5.7,
-      "durationMinutes": 35,
-      "pace": "6:10/km",
-      "averageHeartRate": 127,
-      "maxHeartRate": 148,
+      "distanceKm": 2.1,
+      "durationMinutes": 20,
+      "pace": "9:43/km",
+      "averageHeartRate": 93,
+      "maxHeartRate": 126,
       "elevationGainMeters": 0
     },
-    "outdoorComparison": "The latest comparable outdoor run was 3 sec/km slower with average heart rate 27 bpm higher than the treadmill comparison.",
+    "outdoorComparison": "The latest comparable outdoor run was 231 sec/km faster with average heart rate 37 bpm higher than the treadmill comparison.",
     "racePredictions": [
       {
         "distance": "5K",
-        "time": "21:53"
+        "time": "22:02"
       },
       {
         "distance": "10K",
-        "time": "46:57"
+        "time": "47:08"
       },
       {
         "distance": "half marathon",
-        "time": "1:47:07"
+        "time": "1:47:27"
       },
       {
         "distance": "marathon",
-        "time": "4:01:37"
+        "time": "4:02:36"
       }
     ],
     "personalBests": [
@@ -258,48 +258,6 @@
       }
     ],
     "recentSessions": [
-      {
-        "date": "2026-08-14",
-        "modality": "cycling",
-        "distanceKm": 2.44,
-        "durationMinutes": 10,
-        "averageHeartRate": 92
-      },
-      {
-        "date": "2026-08-14",
-        "modality": "strength training",
-        "distanceKm": null,
-        "durationMinutes": 46,
-        "averageHeartRate": 100
-      },
-      {
-        "date": "2026-08-14",
-        "modality": "cycling",
-        "distanceKm": 2.26,
-        "durationMinutes": 9,
-        "averageHeartRate": 103
-      },
-      {
-        "date": "2026-08-15",
-        "modality": "Outdoor run",
-        "distanceKm": 14.56,
-        "durationMinutes": 90,
-        "averageHeartRate": 151
-      },
-      {
-        "date": "2026-08-16",
-        "modality": "Treadmill run",
-        "distanceKm": 9,
-        "durationMinutes": 54,
-        "averageHeartRate": 123
-      },
-      {
-        "date": "2026-08-16",
-        "modality": "strength training",
-        "distanceKm": null,
-        "durationMinutes": 24,
-        "averageHeartRate": 100
-      },
       {
         "date": "2026-08-17",
         "modality": "cycling",
@@ -355,6 +313,55 @@
         "distanceKm": 8.01,
         "durationMinutes": 50,
         "averageHeartRate": 154
+      },
+      {
+        "date": "2026-08-21",
+        "modality": "cycling",
+        "distanceKm": 2.22,
+        "durationMinutes": 10,
+        "averageHeartRate": 94
+      },
+      {
+        "date": "2026-08-21",
+        "modality": "strength training",
+        "distanceKm": null,
+        "durationMinutes": 68,
+        "averageHeartRate": 112
+      },
+      {
+        "date": "2026-08-21",
+        "modality": "Treadmill run",
+        "distanceKm": 7.01,
+        "durationMinutes": 53,
+        "averageHeartRate": 97
+      },
+      {
+        "date": "2026-08-22",
+        "modality": "Outdoor run",
+        "distanceKm": 1.98,
+        "durationMinutes": 12,
+        "averageHeartRate": 130
+      },
+      {
+        "date": "2026-08-22",
+        "modality": "Treadmill run",
+        "distanceKm": 13.01,
+        "durationMinutes": 75,
+        "averageHeartRate": 137
+      },
+      {
+        "date": "2026-08-22",
+        "modality": "cycling",
+        "distanceKm": 3.28,
+        "durationMinutes": 15,
+        "averageHeartRate": 95
+      },
+      {
+        "date": "2026-08-22",
+        "modality": "cycling",
+        "distanceKm": 5.51,
+        "durationMinutes": 29,
+        "averageHeartRate": 93
       }
     ]
   },
@@ -368,7 +375,7 @@
     {
       "scope": "Recovery support",
       "action": "Create a 30-minute longer sleep opportunity before quality sessions; if morning readiness is below 50 or Body Battery is below 35, use the recovery swap instead.",
-      "rationale": "Seven-day sleep averages 6.6 hours despite otherwise positive recovery signals.",
+      "rationale": "Seven-day sleep averages 6.7 hours despite otherwise positive recovery signals.",
       "status": "SUPPORT"
     }
   ],
