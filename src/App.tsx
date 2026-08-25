@@ -1334,8 +1334,8 @@ const phaseRoadmap = [
   ["16–22 Nov 2026", "Guangzhou race week", "Taper into HYROX Guangzhou · 21–22 Nov"],
   ["23 Nov–13 Dec 2026", "Recover + travel maintenance", "Extended neutral travel window · 28 Nov–13 Dec"],
   ["14–20 Dec 2026", "Recovery + Procam decision", "ASICS benchmark · 13 Dec; Kolkata option · 20 Dec only if recovery is green"],
-  ["21 Dec 2026–10 Jan 2027", "Two-race home peak", "Pro Doubles Men · 9 Jan; Doubles Men · 10 Jan"],
-  ["11–24 Jan 2027", "Post-Hong Kong recovery", "No Noida or Osaka HYROX stacking after the confirmed double-header"],
+  ["21 Dec 2026–9 Jan 2027", "Home qualifier peak", "AIA HYROX Hong Kong Pro Doubles Men · 9 Jan afternoon"],
+  ["10–24 Jan 2027", "Post-Hong Kong recovery", "No Noida or Osaka HYROX stacking after the confirmed Pro race"],
   ["25 Jan–14 Feb 2027", "Bangkok qualifier build", "BYD HYROX Bangkok · 11–14 Feb"],
   ["15 Feb–14 Mar 2027", "Taipei qualifier build", "HYROX Taipei · 12–14 Mar"],
   ["15 Mar–18 Apr 2027", "Nagoya qualifier build", "HYROX Nagoya · 16–18 Apr"],
@@ -1889,7 +1889,7 @@ export default function App() {
             <article><span>DECISION 01</span><b>PEGASUS → JPM is the road-speed spine.</b><p>Race PEGASUS on 30 August, spend September rebuilding threshold and outdoor economy, then peak for JPM on 5 November.</p></article>
             <article className="warning"><span>DECISION 02</span><b>Do not A-race Shanghai and JPM.</b><p>Shanghai ends four days before JPM. If 22:00 matters, skip Shanghai or treat it as controlled participation; Guangzhou remains the better HYROX target.</p></article>
             <article><span>DECISION 03</span><b>A Q4 marathon requires a campaign change.</b><p>Singapore on 6 December is still open, but it is only 14 days after HYROX Guangzhou and 32 days before HYROX Hong Kong. Enter only if Guangzhou is removed, ASICS Half is dropped and the next eight weeks become marathon-specific.</p></article>
-            <article className="warning"><span>DECISION 04</span><b>Protect the confirmed January double-header.</b><p>Pro Doubles Men on 9 January and Doubles Men on 10 January now drive the peak. No marathon on 17 January and no additional January HYROX.</p></article>
+            <article className="warning"><span>DECISION 04</span><b>Protect the confirmed January Pro race.</b><p>Pro Doubles Men on 9 January now drives the peak. No marathon on 17 January and no additional January HYROX.</p></article>
           </section>
         </section>
       )}
@@ -1905,12 +1905,12 @@ export default function App() {
           </div>
           <div className="watch-summary">
             <div><b>{races.filter((race) => race.status === "REGISTERED").length}</b><span>CONFIRMED ENTRY</span></div>
-            <div><b>2</b><span>CONFIRMED HK HYROX CATEGORIES</span></div>
+            <div><b>1</b><span>CONFIRMED HK HYROX CATEGORY</span></div>
             <div><b>1</b><span>ACTIVE BACKUP AT A TIME</span></div>
             <div><b>16 MAY 2027</b><span>QUALIFICATION CUTOFF</span></div>
           </div>
           <section className="priority-decisions">
-            <article><span>PLAN OF RECORD</span><b>PEGASUS, RMAC and both Hong Kong HYROX categories are secured.</b><p>JPMorganChase remains a performance target, not a confirmed entry. Guangzhou remains an opportunity; the confirmed Pro Doubles Men race on 9 January is now the primary HYROX peak, followed by Doubles Men on 10 January.</p></article>
+            <article><span>PLAN OF RECORD</span><b>PEGASUS, RMAC and Hong Kong Pro Doubles Men are secured.</b><p>JPMorganChase remains a performance target, not a confirmed entry. Guangzhou remains an opportunity; the confirmed Pro Doubles Men race on 9 January is now the primary HYROX peak.</p></article>
             <article><span>SUPPORT RACE</span><b>ASICS Half on 13 December.</b><p>Recommended as a controlled benchmark, not a third peak. It sits three weeks after Guangzhou and four weeks before HYROX Hong Kong. Register from 27 August if the Guangzhou entry is secured.</p></article>
             <article><span>SEP + OCT</span><b>Keep both months race-free by design.</b><p>AVOHK entries closed on 8 August, the 4 October Hong Kong 10K is full, the 11 October waterfront 10K closed on 5 August, and the remaining September reservoir option is trail-like. Use September for threshold development and October for JPM plus HYROX specificity.</p></article>
             <article className="warning"><span>BACKUP ORDER</span><b>Bangkok, then Taipei, then Nagoya.</b><p>Activate only one backup after the preceding result. Osaka is used only if Hong Kong is missed. Bengaluru and Incheon are emergency-only last chances.</p></article>
