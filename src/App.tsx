@@ -1408,7 +1408,6 @@ const timelineLanes = [
     items: [
       { label: "Gold Coast 15K", start: "2026-11-07", end: "2026-11-10", tone: "option", row: 1 },
       { label: "Pocari 10K", start: "2026-11-14", end: "2026-11-17", tone: "option", row: 2 },
-      { label: "Singapore marathon · strategy fork", start: "2026-12-05", end: "2026-12-08", tone: "option", row: 0 },
       { label: "Kolkata 25K", start: "2026-12-19", end: "2026-12-22", tone: "option", row: 1 },
       { label: "HK / Mumbai", start: "2027-01-16", end: "2027-01-19", tone: "option", row: 1 },
     ],
@@ -1425,7 +1424,6 @@ const timelineLanes = [
     items: [
       { label: "Shanghai → JPM → 15K", start: "2026-10-31", end: "2026-11-10", tone: "conflict", row: 0 },
       { label: "Pocari → Guangzhou", start: "2026-11-14", end: "2026-11-24", tone: "conflict", row: 1 },
-      { label: "Guangzhou → Singapore marathon", start: "2026-11-21", end: "2026-12-08", tone: "conflict", row: 0 },
       { label: "HK HYROX → 17 Jan roads", start: "2027-01-07", end: "2027-01-19", tone: "conflict", row: 1 },
     ],
   },
@@ -1888,7 +1886,7 @@ export default function App() {
           <section className="priority-decisions">
             <article><span>DECISION 01</span><b>PEGASUS → JPM is the road-speed spine.</b><p>Race PEGASUS on 30 August, spend September rebuilding threshold and outdoor economy, then peak for JPM on 5 November.</p></article>
             <article className="warning"><span>DECISION 02</span><b>Do not A-race Shanghai and JPM.</b><p>Shanghai ends four days before JPM. If 22:00 matters, skip Shanghai or treat it as controlled participation; Guangzhou remains the better HYROX target.</p></article>
-            <article><span>DECISION 03</span><b>A Q4 marathon requires a campaign change.</b><p>Singapore on 6 December is still open, but it is only 14 days after HYROX Guangzhou and 32 days before HYROX Hong Kong. Enter only if Guangzhou is removed, ASICS Half is dropped and the next eight weeks become marathon-specific.</p></article>
+            <article><span>DECISION 03</span><b>No Q4 marathon in the active campaign.</b><p>Singapore is dropped because of travel. December stays focused on recovery, the ASICS Half opportunity and the confirmed Hong Kong HYROX build.</p></article>
             <article className="warning"><span>DECISION 04</span><b>Protect the confirmed January Pro race.</b><p>Pro Doubles Men on 9 January now drives the peak. No marathon on 17 January and no additional January HYROX.</p></article>
           </section>
         </section>
@@ -1898,7 +1896,7 @@ export default function App() {
         <section className="view">
           <div className="view-heading">
             <div>
-              <p className="section-kicker">RACE DECISION SYSTEM · VERIFIED 25 AUG 2026</p>
+              <p className="section-kicker">RACE DECISION SYSTEM · VERIFIED 27 AUG 2026</p>
               <h2>Race HQ</h2>
               <p>Confirmed targets stay separate from registration opportunities. Road races must support the HYROX campaign, not compete with it. Trail, cross-country, closed and sold-out events are filtered out.</p>
             </div>
@@ -1914,7 +1912,7 @@ export default function App() {
             <article><span>SUPPORT RACE</span><b>ASICS Half on 13 December.</b><p>Recommended as a controlled benchmark, not a third peak. It sits three weeks after Guangzhou and four weeks before HYROX Hong Kong. Register from 27 August if the Guangzhou entry is secured.</p></article>
             <article><span>SEP + OCT</span><b>Keep both months race-free by design.</b><p>AVOHK entries closed on 8 August, the 4 October Hong Kong 10K is full, the 11 October waterfront 10K closed on 5 August, and the remaining September reservoir option is trail-like. Use September for threshold development and October for JPM plus HYROX specificity.</p></article>
             <article className="warning"><span>BACKUP ORDER</span><b>Bangkok, then Taipei, then Nagoya.</b><p>Activate only one backup after the preceding result. Osaka is used only if Hong Kong is missed. Bengaluru and Incheon are emergency-only last chances.</p></article>
-            <article className="warning"><span>DO NOT STACK</span><b>No Q4 marathon inside the current HYROX campaign.</b><p>Singapore is an alternative campaign, not an add-on. Gujarat, Noida and a January marathon also remain incompatible with the primary qualification sequence.</p></article>
+            <article className="warning"><span>DO NOT STACK</span><b>No Q4 marathon inside the current HYROX campaign.</b><p>Singapore remains dropped because of travel. Gujarat, Noida and a January marathon also remain incompatible with the primary qualification sequence.</p></article>
           </section>
           <section className="race-section-heading watch-heading">
             <p className="section-kicker">HISTORICAL ROAD BENCHMARKS</p>
