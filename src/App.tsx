@@ -370,149 +370,145 @@ const weeks: Week[] = [
   "id": "S17",
   "label": "W17",
   "dates": "31 Aug – 6 Sep",
-  "phase": "ABSORB + REBUILD",
-  "volume": "31–34 km",
-  "focus": "Recover from PEGASUS, preserve muscle with two strength exposures and restore easy frequency before the September build.",
-  "gate": "Monday is full rest. Resume quality only when stairs and the first easy run feel normal. Race soreness above 3/10 removes Thursday's steady minutes.",
+  "phase": "ABSORB + SHIN-CHECK REBUILD",
+  "volume": "30–34 km running · aerobic work preserved",
+  "focus": "Absorb PEGASUS without losing momentum: keep the aerobic engine active, preserve muscle with two substantial strength exposures, and use a structured right-shin check before faster running returns.",
+  "gate": "This is not a blanket downgrade. Continue the listed run volume when walking, stairs and the warm-up remain at 0–1/10 with normal gait. Pain reaching 2/10, rising during the run, focal bony tenderness, hopping pain or any stride change converts the remaining impact work to equal-duration bike or elliptical and triggers physio review.",
   "days": [
     {
-      "id": "S17-0",
-      "date": "31 AUG",
-      "dow": "MON",
-      "title": "Post-Race Full Rest",
-      "type": "REST",
-      "duration": "All day",
-      "rpe": "0",
+      "id": "S17-0", "date": "31 AUG", "dow": "MON", "title": "Post-Race Full Rest", "type": "REST", "duration": "All day", "rpe": "0",
       "blocks": [
-        {
-          "label": "PRESCRIPTION",
-          "items": [
-            "20–30 min gentle walking only if it improves stiffness",
-            "Normal hydration and 25–35 g protein across 3–4 meals",
-            "No gym, wall balls or make-up kilometres",
-            "Record PEGASUS splits, HR, RPE and course notes"
-          ]
-        }
+        { "label": "RECOVERY + DATA CAPTURE", "items": [
+          "20–30 min gentle walking only if it improves stiffness",
+          "Hydrate normally, include sodium with meals, and distribute 25–35 g protein across 3–4 meals",
+          "No gym, wall balls or make-up kilometres",
+          "Record PEGASUS finish time, kilometre splits, HR, RPE and the exact shin symptom pattern once Garmin refreshes",
+          "Check walking, stairs, ten calf raises and five small two-leg hops once; do not repeatedly press or provoke a painful spot"
+        ] }
       ]
     },
     {
-      "id": "S17-1",
-      "date": "1 SEP",
-      "dow": "TUE",
-      "title": "Recovery Run + Stride Check",
-      "type": "RUN",
-      "duration": "7 km · 42–50 min",
-      "rpe": "3–4",
+      "id": "S17-1", "date": "1 SEP", "dow": "TUE", "title": "Flat Recovery Run + Shin Response", "type": "RUN", "duration": "6–7 km · 40–48 min", "rpe": "3–4",
       "blocks": [
-        {
-          "label": "PRESCRIPTION",
-          "items": [
-            "Run 6 km fully conversational on flat terrain",
-            "If stride is symmetrical, add 4×15 sec relaxed strides with 75 sec walk/jog",
-            "Jog easily to 7 km total; omit strides if calves remain sore",
-            "Walk 5 min and log soreness"
-          ]
-        }
+        { "label": "WARM-UP · 10–12 MIN", "items": [
+          "5 min brisk walk, ankle rocks 2×10/side and tibialis raises 2×12",
+          "Jog 5–7 min very easily on a flat treadmill at 0–0.5% or a flat outdoor loop",
+          "Proceed only with symmetrical stride and shin discomfort no higher than 1/10"
+        ] },
+        { "label": "MAIN RUN", "items": [
+          "Run fully conversational at RPE 3–4; HR cap 142 and no pace target",
+          "Use a predictable flat surface; no hills, surges, strides or progression finish",
+          "At 10, 20 and 30 min, reassess pain and gait rather than waiting for symptoms to worsen",
+          "If pain reaches 2/10 or changes stride, stop running and complete the planned time on bike or elliptical at Z2"
+        ] },
+        { "label": "COOLDOWN + LOG", "items": [
+          "Walk 5 min, then complete the physio-prescribed hamstring work exactly as given",
+          "Log shin pain during, two hours after and the next morning; note whether hopping or stairs changed"
+        ] }
       ]
     },
     {
-      "id": "S17-2",
-      "date": "2 SEP",
-      "dow": "WED",
-      "title": "Full-Body Strength · Re-entry",
-      "type": "STRENGTH",
-      "duration": "65 min",
-      "rpe": "6–7",
+      "id": "S17-2", "date": "2 SEP", "dow": "WED", "title": "Long-Window Aerobic + Physio", "type": "RUN", "duration": "8–9 km · 55–65 min", "rpe": "3–4",
+      "note": "Wednesday uses the longer WFH window for controlled aerobic volume. No separate strength session today.",
       "blocks": [
-        {
-          "label": "PRESCRIPTION",
-          "items": [
-            "Leg press 3×6 @ RPE 6–7; 2 min rest",
-            "Romanian deadlift 3×6 @ RPE 6–7; 2 min rest",
-            "Machine chest press 4×8 + chest-supported row 4×8; 90 sec rest",
-            "Hamstring curl 3×10 + pulldown 3×10; 75 sec rest",
-            "Lateral raise, curl and pressdown 3×12 each"
-          ]
-        }
+        { "label": "WARM-UP + SHIN GATE", "items": [
+          "Bike 5 min easy, ankle rocks 2×10/side, bent-knee calf raise 2×12 and tibialis raise 2×15",
+          "Jog 8 min easy at 0–0.5% incline; normal gait and pain 0–1/10 are required to continue"
+        ] },
+        { "label": "AEROBIC MAIN", "items": [
+          "Run 45–52 min in Z2, HR ≤142 and RPE 3–4; treadmill is preferred while the shin response is being established",
+          "Keep cadence natural and foot strike quiet; do not artificially shorten the stride",
+          "If the shin fails the gate, preserve the full aerobic duration on bike or elliptical instead of forcing impact kilometres"
+        ] },
+        { "label": "PHYSIO + TRUNK", "items": [
+          "Complete the physio-prescribed right-hamstring sequence exactly as prescribed",
+          "Pallof press 3×10/side with 2-sec hold + side plank 3×30 sec/side",
+          "No loaded lower-body strength or wall balls today"
+        ] }
       ]
     },
     {
-      "id": "S17-3",
-      "date": "3 SEP",
-      "dow": "THU",
-      "title": "Easy + Controlled Steady Minutes",
-      "type": "RUN",
-      "duration": "8 km · 48–55 min",
-      "rpe": "4–5",
+      "id": "S17-3", "date": "3 SEP", "dow": "THU", "title": "AM Easy Run + PM Full-Body Strength", "type": "STRENGTH", "duration": "AM 40–48 min · PM 65–70 min", "rpe": "6–7",
+      "note": "Split day 1 of 2. The morning run remains easy; the evening gym session preserves muscle and force without grinding.",
       "blocks": [
-        {
-          "label": "PRESCRIPTION",
-          "items": [
-            "Run 3 km easy",
-            "Complete 3×5 min at steady RPE 5 with 2 min easy jog",
-            "Cool down easily to 8 km total",
-            "This is aerobic rhythm, not threshold testing"
-          ]
-        }
+        { "label": "AM RUN · 6–7 KM", "items": [
+          "Warm up with 5 min walk/jog, ankle rocks and 2×12 tibialis raises",
+          "Run 6–7 km flat and conversational at RPE 3–4; no steady minutes this week",
+          "The shin gate remains 0–1/10 stable with normal gait; 2/10, worsening pain or altered gait ends impact work"
+        ] },
+        { "label": "PM PRIMARY STRENGTH", "items": [
+          "Bike 6 min easy + two progressive warm-up sets for leg press and Romanian deadlift",
+          "Leg press 3×6 @ RPE 6–7; 2 min rest; controlled 3-sec lowering",
+          "Romanian deadlift 3×6 @ RPE 6–7; 2 min rest; stop the set if the hamstring becomes painful",
+          "Machine chest press 4×8 + chest-supported row 4×8; 90 sec rest",
+          "Hamstring curl 3×10 + neutral-grip pulldown 3×10; 75 sec rest"
+        ] },
+        { "label": "PHYSIQUE + PREHAB", "items": [
+          "Lateral raise, cable curl and rope pressdown 3×12 each; 60 sec rest",
+          "Bent-knee calf isometric 3×30 sec/side + tibialis raise 3×15 only if symptom-free",
+          "Pallof press 3×10/side; finish with 5 min easy walk and log next-morning response"
+        ] }
       ]
     },
     {
-      "id": "S17-4",
-      "date": "4 SEP",
-      "dow": "FRI",
-      "title": "HYROX Skill + Upper Strength",
-      "type": "HYROX",
-      "duration": "65 min",
-      "rpe": "6",
+      "id": "S17-4", "date": "4 SEP", "dow": "FRI", "title": "HYROX Skill + Upper Strength + Compromised Aerobic", "type": "HYROX", "duration": "85–95 min", "rpe": "6",
+      "note": "Friday uses the longer WFH window as one combined gym session. This is technique under controlled fatigue, not a race simulation.",
       "blocks": [
-        {
-          "label": "PRESCRIPTION",
-          "items": [
-            "Sled push 4×12.5 m and sled pull 4×12.5 m at 70–75% Pro load; 90 sec rest",
-            "Wall-ball 5-minute EMOM × 16 at 9 kg = 80 legal reps",
-            "Lat pulldown 4×8 + incline machine press 4×8; 90 sec rest",
-            "Reverse pec deck 3×15 + farmer carry 4×30 m"
-          ]
-        }
+        { "label": "WARM-UP · 12 MIN", "items": [
+          "Bike or SkiErg 5 min easy, ankle rocks 2×10/side and tibialis raise 2×15",
+          "Band row 2×12 + bodyweight squat to target 2×8",
+          "Two unloaded sled lengths; keep the shin quiet before adding load"
+        ] },
+        { "label": "SLED + WALL-BALL SKILL", "items": [
+          "Sled push 4×12.5 m and sled pull 4×12.5 m at 70–75% Pro load; 90 sec rest; film one clean length of each",
+          "Wall-ball 5-minute EMOM: 16 legal reps each minute at 9 kg = 80 total",
+          "Finish each wall-ball set within 30–35 sec; full depth, stable heels, ball close and legs drive first",
+          "Stop after two consecutive depth, target or balance misses; do not make up failed reps"
+        ] },
+        { "label": "UPPER STRENGTH + CARRY", "items": [
+          "Lat pulldown 4×8 + incline machine press 4×8; 90 sec rest",
+          "Reverse pec deck 3×15 + farmer carry 4×30 m; 60–75 sec rest",
+          "Keep 2 reps in reserve; preserve quality for the aerobic finish"
+        ] },
+        { "label": "COMPROMISED AEROBIC", "items": [
+          "If the shin has passed Tuesday through Thursday: run 3×1 km easy-to-steady at RPE 4–5 with 90 sec walk/jog",
+          "Use treadmill at 0.5–1%; form must remain symmetrical and relaxed",
+          "If impact is not green, perform 3×5 min SkiErg or row at the same RPE with 90 sec easy instead"
+        ] },
+        { "label": "COOLDOWN", "items": [
+          "Walk 5 min, complete the prescribed hamstring work and log shin response two hours later",
+          "No extra evening run, leg finisher or high-repetition crunches"
+        ] }
       ]
     },
     {
-      "id": "S17-5",
-      "date": "5 SEP",
-      "dow": "SAT",
-      "title": "Long Easy Run",
-      "type": "RUN",
-      "duration": "12–13 km · 75–85 min",
-      "rpe": "4",
+      "id": "S17-5", "date": "5 SEP", "dow": "SAT", "title": "Outdoor Long Easy Run", "type": "RUN", "duration": "9–11 km · 60–75 min", "rpe": "4",
       "blocks": [
-        {
-          "label": "PRESCRIPTION",
-          "items": [
-            "Keep the entire run conversational",
-            "Use flat or gently rolling terrain",
-            "Take 25–30 g carbohydrate at 40–45 min",
-            "No progression finish in the post-race week"
-          ]
-        }
+        { "label": "PRE-RUN + GATE", "items": [
+          "Choose a flat outdoor route in cool hours; carry water and electrolytes",
+          "Walk 5 min, jog 8 min easy, then reassess the shin before committing to the full route"
+        ] },
+        { "label": "MAIN RUN", "items": [
+          "Keep the run conversational at HR ≤142; heat may make pace 20–45 sec/km slower",
+          "Avoid cambered roads, hard downhill running and pace chasing",
+          "Take 25–30 g carbohydrate at 40–45 min if running beyond 65 min",
+          "No progression finish; stop impact if pain rises or gait changes"
+        ] },
+        { "label": "COOLDOWN", "items": [
+          "Walk 5–8 min, rehydrate and eat 25–35 g protein with the next meal",
+          "Record pain immediately, two hours later and on Sunday morning"
+        ] }
       ]
     },
     {
-      "id": "S17-6",
-      "date": "6 SEP",
-      "dow": "SUN",
-      "title": "Recovery Run + Mobility",
-      "type": "RUN",
-      "duration": "5 km · 30–35 min",
-      "rpe": "3",
+      "id": "S17-6", "date": "6 SEP", "dow": "SUN", "title": "Full Rest + Physio Review", "type": "REST", "duration": "20–30 min optional", "rpe": "0–2",
       "blocks": [
-        {
-          "label": "PRESCRIPTION",
-          "items": [
-            "Run 5 km very easy or use 30 min easy bike if impact fatigue remains",
-            "Finish with 10 min ankle, hip and upper-back mobility",
-            "No wall-ball volume today"
-          ]
-        }
+        { "label": "RECOVERY", "items": [
+          "No running and no make-up kilometres; easy walking only if it improves recovery",
+          "Complete the prescribed hamstring exercises and gentle ankle mobility",
+          "Green means 0–1/10 stable, normal gait and normal next morning; only green unlocks Week 18 quality",
+          "Focal tenderness, hopping pain, night pain, swelling or recurring symptoms require sports-physio or medical assessment before quality running"
+        ] }
       ]
     }
   ]
@@ -521,28 +517,45 @@ const weeks: Week[] = [
   "id": "S18",
   "label": "W18",
   "dates": "7–13 Sep",
-  "phase": "AEROBIC BUILD",
-  "volume": "39–42 km",
-  "focus": "Re-establish a 40 km platform with one threshold session, a 16 km long run and two muscle-retention strength sessions.",
-  "gate": "Add the full volume only if Week 17 finishes with normal gait, sleep and appetite. If recovery is amber, remove Sunday's 5 km before reducing key sessions.",
+  "phase": "HYBRID BUILD · RUN + MUSCLE",
+  "volume": "41–43 km · 3 strength/HYROX exposures",
+  "focus": "Re-establish the 40 km platform while preserving muscle: two planned split days, a Wednesday aerobic long-window, a Friday HYROX combined session and one true rest day.",
+  "gate": "Unlock threshold and impact-based HYROX running only if Week 17 ends with normal gait, no focal shin tenderness or hopping pain, and symptoms no higher than 1/10 during and the morning after easy runs. A failed impact gate preserves aerobic time through bike, row or SkiErg; it does not justify forcing painful kilometres.",
   "days": [
     {
       "id": "S18-0",
       "date": "7 SEP",
       "dow": "MON",
-      "title": "Lower Strength · Force Reserve",
+      "title": "AM Easy Run + PM Lower Strength",
       "type": "STRENGTH",
-      "duration": "75 min",
+      "duration": "AM 5 km · PM 70–75 min",
       "rpe": "7–8",
+      "note": "Split day 1 of 2. The easy run adds mileage without diluting the evening force session.",
       "blocks": [
         {
-          "label": "PRESCRIPTION",
+          "label": "AM RUN · 5 KM",
           "items": [
-            "Front squat or hack squat 4×5 @ RPE 7–8; 2:30 rest",
-            "Romanian deadlift 4×6 @ RPE 7; 2 min rest",
-            "Split squat 3×8/side; 90 sec rest",
-            "Hamstring curl 3×10; 75 sec rest",
-            "Eccentric calf 3×12/side + Pallof press 3×10/side"
+            "5 min walk/jog, ankle rocks 2×10/side and tibialis raises 2×15",
+            "Run 5 km conversational at RPE 3–4 and HR ≤142 on flat terrain",
+            "No strides; finish by 5:50 a.m. to be home before 6:00 a.m."
+          ]
+        },
+        {
+          "label": "PM PRIMARY LOWER STRENGTH",
+          "items": [
+            "Bike 5 min, 90/90 hip switches 2×6/side and two progressive warm-up sets",
+            "Front squat or Panatta hack squat 4×5 @ RPE 7–8; 2:30 rest; no grinding",
+            "Romanian deadlift 4×6 @ RPE 7; 2 min rest; stop if the hamstring becomes painful",
+            "Rear-foot-supported split squat 3×8/side @ RPE 7; 90 sec rest",
+            "Seated hamstring curl 3×10 @ RPE 7–8; 75 sec rest"
+          ]
+        },
+        {
+          "label": "LOWER-LEG + ABS",
+          "items": [
+            "Bent-knee calf isometric 3×35 sec/side + tibialis raise 3×15–20",
+            "Ab-wheel from knees 3×6–8 or stability-ball rollout 3×10; stop before abdominal cramp",
+            "Pallof press 3×10/side with 2-sec hold; walk 5 min and log next-morning response"
           ]
         }
       ]
@@ -551,18 +564,25 @@ const weeks: Week[] = [
       "id": "S18-1",
       "date": "8 SEP",
       "dow": "TUE",
-      "title": "Easy Z2 + Strides",
+      "title": "Outdoor Easy Z2 + Strides",
       "type": "RUN",
-      "duration": "9 km · 55–62 min",
+      "duration": "7 km · 45–52 min",
       "rpe": "4–5",
       "blocks": [
         {
-          "label": "PRESCRIPTION",
+          "label": "WARM-UP + MAIN",
           "items": [
-            "Run 8 km easy by breathing and HR",
-            "Complete 6×20 sec relaxed strides with 70 sec walk/jog",
-            "Cool down to 9 km total",
-            "Use outdoors in cool conditions when practical"
+            "Run 10 min very easy, then leg swings 10/side and A-march 2×20 m",
+            "Run 6 km outdoors on a flat route in cool hours at RPE 4 and HR ≤142",
+            "Complete 4×15 sec relaxed strides at about 85% speed with 75 sec walk/jog only when the shin is fully green",
+            "Jog to 7 km total; smooth mechanics, never sprinting or chasing pace"
+          ]
+        },
+        {
+          "label": "COOLDOWN + DECISION",
+          "items": [
+            "Walk 5 min, calf isometric 2×30 sec/side and prescribed hamstring work",
+            "If strides reproduce shin symptoms, remove Thursday's fast running and contact physio"
           ]
         }
       ]
@@ -571,19 +591,33 @@ const weeks: Week[] = [
       "id": "S18-2",
       "date": "9 SEP",
       "dow": "WED",
-      "title": "Upper Strength + Wall-Ball Skill",
-      "type": "STRENGTH",
-      "duration": "70 min",
-      "rpe": "7",
+      "title": "Long-Window Aerobic Run + Physio",
+      "type": "RUN",
+      "duration": "10 km · 62–70 min",
+      "rpe": "4",
+      "note": "Use the WFH window for uninterrupted aerobic volume at the gym; no strength session today.",
       "blocks": [
         {
-          "label": "PRESCRIPTION",
+          "label": "WARM-UP · 12 MIN",
           "items": [
-            "Incline machine press 4×6–8 + chest-supported row 4×6–8; 2 min rest",
-            "Lat pulldown 3×10 + lateral raise 3×12; 75 sec rest",
-            "Cable curl 3×10 + rope pressdown 3×10",
-            "Wall-ball 8-minute EMOM × 10 at 9 kg = 80 legal reps",
-            "Stop if depth or target accuracy deteriorates"
+            "Bike 4 min easy, then 8 min progressive treadmill jog at 0.5% incline",
+            "Ankle rocks 2×10/side, tibialis raise 2×15 and supported hip airplane 2×5/side"
+          ]
+        },
+        {
+          "label": "AEROBIC MAIN",
+          "items": [
+            "Run 8–9 km at stable Z2, HR ≤142 and RPE 4; add 0.5–1% incline only if the shin remains quiet",
+            "Take a 30-sec form check every 2 km: tall hips, relaxed shoulders, quiet landing and no right-left compensation",
+            "No fast finish; the purpose is marathon durability and impact tolerance"
+          ]
+        },
+        {
+          "label": "COOLDOWN + PHYSIO",
+          "items": [
+            "Jog/walk to 10 km total, then walk 5 min",
+            "Complete the prescribed hamstring sequence plus side plank 3×30 sec/side",
+            "Eat 25–35 g protein with the next meal and restore carbohydrate before Thursday"
           ]
         }
       ]
@@ -592,19 +626,42 @@ const weeks: Week[] = [
       "id": "S18-3",
       "date": "10 SEP",
       "dow": "THU",
-      "title": "Threshold · 4×8 Minutes",
+      "title": "AM Threshold + PM Upper Hypertrophy",
       "type": "RUN",
-      "duration": "10–11 km · 65–70 min",
+      "duration": "AM 9–10 km · PM 60–65 min",
       "rpe": "7",
+      "note": "Split day 2 of 2. Threshold is controlled by effort until the exact PEGASUS Garmin splits are available.",
       "blocks": [
         {
-          "label": "PRESCRIPTION",
+          "label": "AM WARM-UP · 15 MIN",
           "items": [
-            "Warm up 2.5 km easy, drills and 4 strides",
-            "Run 4×8 min at PEGASUS-calibrated threshold pace",
-            "Jog 2:30 between repetitions",
-            "Hold even effort; final rep only slightly faster when controlled",
-            "Cool down to at least 10 km total"
+            "12 min easy jog, ankle rocks 10/side, A-march 2×20 m and 3×20 sec progressive pickups",
+            "Start only with normal gait, no focal shin tenderness or hopping pain and discomfort 0–1/10"
+          ]
+        },
+        {
+          "label": "AM MAIN · 3×8 MIN",
+          "items": [
+            "Run 3×8 min at controlled threshold, RPE 7; use the slower of roughly 4:55–5:10/km or the effort cap",
+            "Jog 2:30 very easily between repetitions",
+            "Keep all reps even; do not turn the final rep into a test",
+            "Cool down easily to 9–10 km total"
+          ]
+        },
+        {
+          "label": "PM UPPER HYPERTROPHY",
+          "items": [
+            "Incline machine press 4×8–10 + chest-supported row 4×8–10; 90 sec rest",
+            "Neutral-grip pulldown 3×10 + lateral raise 3×12–15; 75 sec rest",
+            "Cable curl 3×10–12 + rope pressdown 3×10–12; 60 sec rest",
+            "Reverse pec deck 3×15 and farmer carry 3×40 m; 75 sec rest"
+          ]
+        },
+        {
+          "label": "ABS WITHOUT CRUNCH VOLUME",
+          "items": [
+            "Dead bug with full exhale 3×6/side + suitcase carry 3×30 m/side",
+            "Use slow bracing and normal breathing; stop at the first sign of abdominal cramp"
           ]
         }
       ]
@@ -613,18 +670,48 @@ const weeks: Week[] = [
       "id": "S18-4",
       "date": "11 SEP",
       "dow": "FRI",
-      "title": "Rest + Mobility",
-      "type": "REST",
-      "duration": "20 min optional",
-      "rpe": "0–2",
+      "title": "HYROX Pro Skill + Compromised Running",
+      "type": "HYROX",
+      "duration": "90–100 min",
+      "rpe": "7",
+      "note": "One combined WFH-window session. HYROX running counts as the week's second intensity exposure.",
       "blocks": [
         {
-          "label": "PRESCRIPTION",
+          "label": "WARM-UP · 12 MIN",
           "items": [
-            "Easy walk only",
-            "Kettlebell hip shift 2×30 sec/side",
-            "Bench upper-back stretch 2×5 breaths",
-            "No make-up kilometres"
+            "SkiErg 5 min easy, band row 2×12, squat-to-target 2×8 and two unloaded sled lengths",
+            "Complete the shin gate before treadmill running or loaded carries"
+          ]
+        },
+        {
+          "label": "PRO SLED STRENGTH",
+          "items": [
+            "Sled push 5×12.5 m at 80–90% Pro load; 90 sec rest; long arms and short powerful steps",
+            "Sled pull 6×12.5 m at 80–90% Pro load; 90 sec rest; hips low and short hand-over-hand cycles",
+            "Stop adding load when posture, traction or rope recovery deteriorates"
+          ]
+        },
+        {
+          "label": "COMPROMISED SET · 3 ROUNDS",
+          "items": [
+            "1 km treadmill run at projected Pro Doubles effort, RPE 6–7, then 12 burpee broad jumps and 20 wall balls at 9 kg",
+            "Rest 2 min between rounds; run pace stays repeatable and wall balls stay legal",
+            "If the shin is not fully green, replace each 1 km with 4 min SkiErg while keeping the station work"
+          ]
+        },
+        {
+          "label": "WALL-BALL QUALITY",
+          "items": [
+            "After 4 min rest, complete 30 legal reps; rest 20 sec; then 20 legal reps",
+            "Full depth, target accuracy and balanced drive matter more than claiming an unbroken number",
+            "Log legal reps, no-reps, shoulder RPE, leg RPE and partner handover observations"
+          ]
+        },
+        {
+          "label": "COOLDOWN",
+          "items": [
+            "Walk or bike 6 min easy and complete the prescribed hamstring sequence",
+            "No additional strength finisher or evening run"
           ]
         }
       ]
@@ -633,18 +720,24 @@ const weeks: Week[] = [
       "id": "S18-5",
       "date": "12 SEP",
       "dow": "SAT",
-      "title": "Long Aerobic Run",
+      "title": "Outdoor Easy Aerobic Run",
       "type": "RUN",
-      "duration": "15–16 km · 95–105 min",
-      "rpe": "4–5",
+      "duration": "7–8 km · 45–55 min",
+      "rpe": "3–4",
       "blocks": [
         {
-          "label": "PRESCRIPTION",
+          "label": "MAIN",
           "items": [
-            "First 5 km deliberately easy",
-            "Middle 7–8 km stable Z2",
-            "Final 3 km steady at RPE 5 only if recovery is green",
-            "Take 30–40 g carbohydrate per hour and carry fluid"
+            "Run outdoors in cool hours on a flat route, fully conversational at HR ≤142",
+            "Keep every kilometre easy after Friday's compromised work; no strides or progression",
+            "Carry water and electrolytes; heat controls pace, not ego"
+          ]
+        },
+        {
+          "label": "RECOVERY",
+          "items": [
+            "Walk 5 min and eat 25–35 g protein with carbohydrate at the next meal",
+            "Record shin response and overall leg heaviness for Sunday's review"
           ]
         }
       ]
@@ -653,17 +746,17 @@ const weeks: Week[] = [
       "id": "S18-6",
       "date": "13 SEP",
       "dow": "SUN",
-      "title": "Recovery Run + Mobility",
-      "type": "RUN",
-      "duration": "5 km · 30–35 min",
-      "rpe": "3",
+      "title": "Full Rest + Weekly Review",
+      "type": "REST",
+      "duration": "20 min optional",
+      "rpe": "0–2",
       "blocks": [
         {
-          "label": "PRESCRIPTION",
+          "label": "RECOVERY",
           "items": [
-            "Run 5 km very easy",
-            "Finish with dowel overhead squat 2×4, ankle rocks 2×10/side and upper-back stretch",
-            "No density wall balls after the long run"
+            "No training; easy walking and prescribed physio only if they improve recovery",
+            "Review sleep, appetite, easy-run HR, shin response and right-hamstring response",
+            "Progress Week 19 only when gait is normal and no symptom escalated across two consecutive days"
           ]
         }
       ]
@@ -1480,7 +1573,10 @@ export default function App() {
   const racePrediction = (distance: string) => running?.racePredictions.find((item) => item.distance.toUpperCase() === distance)?.time || "Not available";
   const personalBest = (distance: string) => running?.personalBests.find((item) => item.distance.toUpperCase() === distance)?.time || "Not available";
   const doneCount = week.days.filter((day) => completed[day.id]).length;
-  const nextRaceDays = Math.max(0, Math.ceil((new Date("2026-08-30T00:00:00+08:00").getTime() - Date.now()) / 86400000));
+  const nextRaceDays = Math.max(0, Math.ceil((new Date("2026-11-08T00:00:00+08:00").getTime() - Date.now()) / 86400000));
+  const garminReviewDate = garminWeekly.generatedAt
+    ? new Date(garminWeekly.generatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "Asia/Hong_Kong" }).toUpperCase()
+    : "PENDING";
 
   function raceCountdown(startIso: string, status: string) {
     if (status === "DONE") return "COMPLETED";
@@ -1552,18 +1648,18 @@ export default function App() {
     <main className="app-shell">
       <header className="hero">
         <div>
-          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V9.1</p>
+          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V9.2</p>
           <h1>SEASON <span>2026/27</span></h1>
           <div className="status-line">
             <span className="phase-pill">BUILD</span>
             <span>W15–22 · six-week load horizon</span>
             <span className={`readiness ${readiness.tone}`}>{readiness.label}</span>
-            <span className={`readiness ${garminWeekly.decision.tone}`}>{garminWeekly.decision.label}</span>
+            <span className="readiness amber">GARMIN · REVIEW {garminReviewDate}</span>
           </div>
         </div>
         <div className="countdown">
           <strong>{nextRaceDays}</strong>
-          <span>DAYS · PEGASUS</span>
+          <span>DAYS · RMAC 15K</span>
         </div>
       </header>
 
@@ -1688,10 +1784,10 @@ export default function App() {
               <h2>Garmin performance centre</h2>
               <p>This public-safe view turns the private Garmin archive into useful trends. Activity names, locations, routes and raw daily health records never leave this computer.</p>
             </div>
-            <div className={`garmin-page-decision ${garminWeekly.decision.tone}`}><span>THIS WEEK</span><b>{garminWeekly.decision.label.replace("GARMIN · ", "")}</b></div>
+            <div className={`garmin-page-decision ${garminWeekly.decision.tone}`}><span>LAST REVIEW · {garminReviewDate}</span><b>{garminWeekly.decision.label.replace("GARMIN · ", "")}</b></div>
           </div>
 
-          <div className="gate"><b>DATA FRESHNESS</b>The published Garmin aggregate was last generated on {garminWeekly.generatedAt ? new Date(garminWeekly.generatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "an unknown date"}. Runs completed after that refresh, including the 15 August long run, are not yet included below.</div>
+          <div className="gate"><b>DATA FRESHNESS</b>The published Garmin aggregate was last generated on {garminWeekly.generatedAt ? new Date(garminWeekly.generatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "an unknown date"} and covers data only through 23 August. Its MODIFY finding is a dated review of sleep and weekly-duration change—not a permanent instruction. PEGASUS on 30 August and the reported right-shin symptom are not yet included; the current Plan applies the newer symptom-aware prescription.</div>
 
           <section className="garmin-hero-grid">
             <article><small>RUNNING VO₂ MAX</small><b>{vo2Metric?.value || "—"}</b><span>{vo2Metric?.trend || "Trend unavailable"}</span></article>
