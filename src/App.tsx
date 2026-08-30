@@ -382,7 +382,7 @@ const weeks: Week[] = [
           "20–30 min gentle walking only if it improves stiffness",
           "Hydrate normally, include sodium with meals, and distribute 25–35 g protein across 3–4 meals",
           "No gym, wall balls or make-up kilometres",
-          "Record PEGASUS finish time, kilometre splits, HR, RPE and the exact shin symptom pattern once Garmin refreshes",
+          "PEGASUS recorded: 1:03:25 over 10.17 km, about 6:14/km; Garmin heart-rate data reviewed privately and Amar's symptom note retained for km 3–6",
           "Check walking, stairs, ten calf raises and five small two-leg hops once; do not repeatedly press or provoke a painful spot"
         ] }
       ]
@@ -630,7 +630,7 @@ const weeks: Week[] = [
       "type": "RUN",
       "duration": "AM 9–10 km · PM 60–65 min",
       "rpe": "7",
-      "note": "Split day 2 of 2. Threshold is controlled by effort until the exact PEGASUS Garmin splits are available.",
+      "note": "Split day 2 of 2. PEGASUS pace was symptom-managed, so threshold remains effort-led and is not reset downward from the overall race pace.",
       "blocks": [
         {
           "label": "AM WARM-UP · 15 MIN",
@@ -1648,7 +1648,7 @@ export default function App() {
     <main className="app-shell">
       <header className="hero">
         <div>
-          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V9.2</p>
+          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V9.3</p>
           <h1>SEASON <span>2026/27</span></h1>
           <div className="status-line">
             <span className="phase-pill">BUILD</span>
@@ -1787,7 +1787,7 @@ export default function App() {
             <div className={`garmin-page-decision ${garminWeekly.decision.tone}`}><span>LAST REVIEW · {garminReviewDate}</span><b>{garminWeekly.decision.label.replace("GARMIN · ", "")}</b></div>
           </div>
 
-          <div className="gate"><b>DATA FRESHNESS</b>The published Garmin aggregate was last generated on {garminWeekly.generatedAt ? new Date(garminWeekly.generatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "an unknown date"} and covers data only through 23 August. Its MODIFY finding is a dated review of sleep and weekly-duration change—not a permanent instruction. PEGASUS on 30 August and the reported right-shin symptom are not yet included; the current Plan applies the newer symptom-aware prescription.</div>
+          <div className="gate"><b>DATA FRESHNESS</b>The full published Garmin weekly aggregate was last generated on {garminWeekly.generatedAt ? new Date(garminWeekly.generatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "an unknown date"} and covers data only through 23 August. Its MODIFY finding is a dated review of sleep and weekly-duration change—not a permanent instruction. The PEGASUS result from 30 August is now recorded separately in Race HQ; the current Plan also applies Amar's newer symptom report and shin-response gates.</div>
 
           <section className="garmin-hero-grid">
             <article><small>RUNNING VO₂ MAX</small><b>{vo2Metric?.value || "—"}</b><span>{vo2Metric?.trend || "Trend unavailable"}</span></article>
