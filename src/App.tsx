@@ -1422,7 +1422,7 @@ const phaseRoadmap = [
   ["17–30 Aug 2026", "10K sharpening", "PEGASUS Tsuen Wan 10K · 30 Aug"],
   ["31 Aug–4 Oct 2026", "Threshold + aerobic durability", "Raise sustainable run pace"],
   ["5–18 Oct 2026", "Travel-adjusted endurance", "Front-load quality around the 9–12 Oct neutral travel window"],
-  ["19 Oct–1 Nov 2026", "Shanghai option", "HYROX-specific build into 31 Oct–1 Nov"],
+  ["19 Oct–1 Nov 2026", "Shanghai controlled race block", "Pici easy-to-steady on 25 Oct; no full taper; HYROX Shanghai Pro Doubles Men · 1 Nov"],
   ["2–15 Nov 2026", "Speed + HYROX bridge", "JPMorganChase Corporate Challenge · 5 Nov; recover before the Guangzhou taper"],
   ["16–22 Nov 2026", "Guangzhou race week", "Taper into HYROX Guangzhou · 21–22 Nov"],
   ["23 Nov–13 Dec 2026", "Recover + travel maintenance", "Extended neutral travel window · 28 Nov–13 Dec"],
@@ -1491,7 +1491,7 @@ const timelineLanes = [
   {
     name: "HYROX",
     items: [
-      { label: "Shanghai", start: "2026-10-29", end: "2026-11-03", tone: "hyrox", row: 0 },
+      { label: "Shanghai · confirmed controlled", start: "2026-10-29", end: "2026-11-03", tone: "hyrox", row: 0 },
       { label: "Guangzhou · primary", start: "2026-11-19", end: "2026-11-24", tone: "hyrox", row: 0 },
       { label: "Hong Kong", start: "2027-01-06", end: "2027-01-12", tone: "hyrox", row: 0 },
     ],
@@ -1981,7 +1981,7 @@ export default function App() {
           </div>
           <section className="priority-decisions">
             <article><span>DECISION 01</span><b>PEGASUS → JPM is the road-speed spine.</b><p>Race PEGASUS on 30 August, spend September rebuilding threshold and outdoor economy, then peak for JPM on 5 November.</p></article>
-            <article className="warning"><span>DECISION 02</span><b>Do not A-race Shanghai and JPM.</b><p>Shanghai ends four days before JPM. If 22:00 matters, skip Shanghai or treat it as controlled participation; Guangzhou remains the better HYROX target.</p></article>
+            <article className="warning"><span>DECISION 02</span><b>Shanghai is confirmed—keep it controlled.</b><p>Race Pro Doubles Men on Sunday, 1 November without a full taper. Protect the 5 November JPMorganChase speed target; Guangzhou remains the better qualification attempt.</p></article>
             <article><span>DECISION 03</span><b>No Q4 marathon in the active campaign.</b><p>Singapore is dropped because of travel. December stays focused on recovery, the confirmed ASICS Half and the Hong Kong HYROX build.</p></article>
             <article className="warning"><span>DECISION 04</span><b>Protect the confirmed January Pro race.</b><p>Pro Doubles Men on 9 January now drives the peak. No marathon on 17 January and no additional January HYROX.</p></article>
           </section>
@@ -1999,14 +1999,14 @@ export default function App() {
           </div>
           <div className="watch-summary">
             <div><b>{races.filter((race) => race.status === "REGISTERED").length}</b><span>CONFIRMED ENTRY</span></div>
-            <div><b>1</b><span>CONFIRMED HK HYROX CATEGORY</span></div>
+            <div><b>2</b><span>CONFIRMED HYROX ENTRIES</span></div>
             <div><b>1</b><span>ACTIVE BACKUP AT A TIME</span></div>
             <div><b>16 MAY 2027</b><span>QUALIFICATION CUTOFF</span></div>
           </div>
           <section className="priority-decisions">
-            <article><span>PLAN OF RECORD</span><b>PEGASUS, RMAC and Hong Kong Pro Doubles Men are secured.</b><p>JPMorganChase remains a performance target, not a confirmed entry. Guangzhou remains an opportunity; the confirmed Pro Doubles Men race on 9 January is now the primary HYROX peak.</p></article>
+            <article><span>PLAN OF RECORD</span><b>Shanghai and Hong Kong Pro Doubles Men are secured.</b><p>Shanghai on 1 November is a controlled rehearsal; Hong Kong on 9 January remains the primary HYROX peak. RMAC and ASICS are also confirmed. JPMorganChase remains a performance target, not a confirmed entry, and Guangzhou remains an opportunity.</p></article>
             <article><span>CONFIRMED SUPPORT RACE</span><b>ASICS Half on 13 December.</b><p>Entry and payment are confirmed. Run it as a controlled benchmark, not a third peak: it sits three weeks after Guangzhou and four weeks before HYROX Hong Kong.</p></article>
-            <article><span>SEP + OCT</span><b>Keep both months race-free by design.</b><p>AVOHK entries closed on 8 August, the 4 October Hong Kong 10K is full, the 11 October waterfront 10K closed on 5 August, and the remaining September reservoir option is trail-like. Use September for threshold development and October for JPM plus HYROX specificity.</p></article>
+            <article><span>SEP + OCT</span><b>Build through September; control the late-October load.</b><p>September stays race-free for threshold development. Pici on 25 October remains optional social mileage only, followed six days later by the confirmed Shanghai Pro Doubles race; neither receives a separate peak before JPMorganChase.</p></article>
             <article className="warning"><span>BACKUP ORDER</span><b>Bangkok, then Taipei, then Nagoya.</b><p>Activate only one backup after the preceding result. Osaka is used only if Hong Kong is missed. Bengaluru and Incheon are emergency-only last chances.</p></article>
             <article className="warning"><span>DO NOT STACK</span><b>No Q4 marathon inside the current HYROX campaign.</b><p>Singapore remains dropped because of travel. Gujarat, Noida and a January marathon also remain incompatible with the primary qualification sequence.</p></article>
           </section>
