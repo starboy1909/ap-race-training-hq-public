@@ -74,7 +74,7 @@ button { color: inherit; }
 .countdown strong { color: var(--blue); font-family: var(--font-label); font-size: 38px; line-height: 1; font-variant-numeric: tabular-nums; }
 .countdown span { margin-top: 7px; color: #9fbfda; font-family: var(--font-label); font-size: 10px; }
 
-.main-tabs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin: 24px 0 18px; }
+.main-tabs { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; margin: 24px 0 18px; }
 .main-tabs button {
   min-height: 52px;
   border: 1px solid var(--line);
@@ -103,6 +103,10 @@ button { color: inherit; }
 .week-strip button b { display: block; font-family: var(--font-label); }
 .week-strip button span { display: block; margin-top: 7px; color: var(--muted); font-size: 9px; }
 .week-strip button.selected { border-color: #4aa779; box-shadow: inset 0 -2px #4aa779; }
+.week-archive { margin: 2px 0 18px; border: 1px solid #252a31; border-radius: 9px; background: #0e1013; }
+.week-archive summary { padding: 11px 13px; color: #788290; font-family: var(--font-label); font-size: 9px; font-weight: 800; cursor: pointer; letter-spacing: .06em; }
+.archive-strip { padding: 0 12px 12px; }
+.archive-strip button { opacity: .78; }
 .week-heading, .view-heading {
   display: flex;
   justify-content: space-between;
@@ -188,6 +192,9 @@ button { color: inherit; }
 .workout-block ul { display: grid; gap: 8px; margin: 0 0 18px; padding: 0; list-style: none; }
 .workout-block li { color: #d5d9df; font-size: 13px; }
 .workout-block li::before { content: "▸"; margin-right: 10px; color: var(--lime); }
+.knee-insert { margin: 0 0 18px; padding: 14px 15px 1px; border: 1px solid #826e20; border-radius: 8px; background: #211d12; }
+.knee-insert h3 { color: #f2c95e; }
+.knee-insert li::before { color: #f2c95e; }
 .coach-note { margin: 0; padding: 12px 14px; border-left: 2px solid var(--lime); border-radius: 0 7px 7px 0; background: #20232a; color: #c3c9d2; font-size: 12px; line-height: 1.5; }
 
 .checkin-panel {
@@ -393,14 +400,14 @@ button { color: inherit; }
 .next-week-panel li span { margin-top: 3px; color: #9fa8b3; font-size: 10px; line-height: 1.45; }
 
 .timeline-shell { overflow-x: auto; padding-bottom: 8px; }
-.timeline-canvas { min-width: 980px; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #101216; }
-.timeline-months { display: grid; grid-template-columns: 130px repeat(6, 1fr); border-bottom: 1px solid var(--line); background: #181b20; }
+.timeline-canvas { min-width: 1540px; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #101216; }
+.timeline-months { display: grid; grid-template-columns: 130px repeat(11, 1fr); border-bottom: 1px solid var(--line); background: #181b20; }
 .timeline-months b { padding: 11px 0; border-left: 1px solid #2a2f37; color: #8d99aa; font-family: var(--font-label); font-size: 9px; text-align: center; }
 .swimlane { display: grid; grid-template-columns: 130px 1fr; border-bottom: 1px solid #23272e; }
 .swimlane:last-child { border-bottom: 0; }
 .swimlane > strong { padding: 15px 12px; color: #909cab; font-family: var(--font-label); font-size: 9px; letter-spacing: .04em; }
 .swimlane-track { position: relative; overflow: hidden; border-left: 1px solid var(--line); }
-.month-line { position: relative; display: inline-block; width: calc(100% / 6); height: 100%; border-right: 1px solid #252a31; }
+.month-line { position: relative; display: inline-block; width: calc(100% / 11); height: 100%; border-right: 1px solid #252a31; }
 .timeline-event { position: absolute; z-index: 2; min-width: 86px; height: 25px; overflow: hidden; padding: 5px 7px; border: 1px solid #315b78; border-radius: 5px; background: #152330; color: #a8d8f3; font-family: var(--font-label); font-size: 8px; font-weight: 800; white-space: nowrap; text-overflow: ellipsis; }
 .timeline-event.target { border-color: #688329; background: #1b2513; color: var(--lime); }
 .timeline-event.hyrox { border-color: #6c7d21; background: #1c2312; color: #bedf42; }
@@ -443,6 +450,43 @@ button { color: inherit; }
 .elite-principles b { font-size: 12px; line-height: 1.5; }
 .elite-principles > p { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: 10px; }
 
+.result-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.result-card { padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+.result-top { display: flex; justify-content: space-between; gap: 14px; color: #8fa0b5; font-family: var(--font-label); font-size: 9px; }
+.result-top b { color: var(--green); }
+.result-card > small { display: block; margin-top: 18px; color: var(--muted); font-size: 10px; text-transform: uppercase; }
+.result-card h3 { margin: 5px 0 14px; font-size: 17px; }
+.result-times { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.result-times div { padding: 12px; border: 1px solid #2b4a64; border-radius: 7px; background: #111820; }
+.result-times span, .result-times b { display: block; }
+.result-times span { color: #7f8b99; font-size: 8px; }
+.result-times b { margin-top: 4px; color: var(--blue); font-size: 19px; }
+.result-card > p { margin: 13px 0 0; color: #aeb5c0; font-size: 11px; line-height: 1.5; }
+
+.acute-alert { padding: 20px; border: 1px solid #9a3f38; border-left-width: 4px; border-radius: 10px; background: #251416; }
+.acute-alert b { color: var(--red); font-family: var(--font-label); font-size: 11px; }
+.acute-alert p { margin: 7px 0 0; color: #ddc2c0; font-size: 12px; line-height: 1.6; }
+.armour-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; }
+.armour-grid article { padding: 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
+.armour-grid span, .progression-grid span, .weekly-template span { color: var(--lime); font-family: var(--font-label); font-size: 9px; font-weight: 800; }
+.armour-grid h3, .progression-grid h3 { margin: 8px 0 7px; font-size: 15px; }
+.armour-grid p, .weekly-template p { margin: 0; color: #aeb5c0; font-size: 11px; line-height: 1.55; }
+.progression-panel { margin-top: 26px; }
+.progression-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.progression-grid article { padding: 18px; border: 1px solid #36424d; border-radius: 10px; background: #11161b; }
+.progression-grid ul { display: grid; gap: 9px; margin: 12px 0 0; padding-left: 18px; color: #cbd1d8; font-size: 11px; line-height: 1.5; }
+.weekly-template { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 14px; }
+.weekly-template div { padding: 17px; border: 1px solid #536326; border-radius: 10px; background: #151a11; }
+.weekly-template b { display: block; margin: 6px 0; font-size: 13px; }
+.load-rule { margin-top: 14px; padding: 18px; border-left: 3px solid var(--blue); background: #111820; }
+.load-rule b { color: var(--blue); font-family: var(--font-label); font-size: 10px; }
+.load-rule p { margin: 6px 0 0; color: #b6c0cc; font-size: 12px; line-height: 1.55; }
+.source-panel { margin-top: 28px; }
+.source-panel article { display: flex; justify-content: space-between; gap: 20px; align-items: center; padding: 14px 0; border-top: 1px solid var(--line); }
+.source-panel article b { font-size: 12px; }
+.source-panel article p { margin: 4px 0 0; color: var(--muted); font-size: 11px; }
+.source-panel article a { flex: 0 0 auto; color: var(--blue); font-size: 9px; font-weight: 800; text-decoration: none; }
+
 @media (max-width: 760px) {
   .app-shell { padding: 20px 13px 60px; }
   .hero { padding-top: 2px; }
@@ -464,7 +508,7 @@ button { color: inherit; }
   .calendar-grid { grid-template-columns: repeat(2, 1fr); }
   .calendar-cell { min-height: 78px; }
   .roadmap-row { grid-template-columns: 1fr; gap: 5px; }
-  .travel-panel, .analysis-grid, .elite-principles, .procam-grid, .garmin-hero-grid, .training-balance-panel, .race-readiness-grid, .next-week-panel, .priority-decisions { grid-template-columns: 1fr; }
+  .travel-panel, .analysis-grid, .elite-principles, .procam-grid, .garmin-hero-grid, .training-balance-panel, .race-readiness-grid, .next-week-panel, .priority-decisions, .result-grid, .armour-grid, .progression-grid, .weekly-template { grid-template-columns: 1fr; }
   .garmin-page-heading { align-items: stretch; flex-direction: column; }
   .garmin-page-decision { min-width: 0; text-align: left; }
   .race-card { grid-template-columns: 88px minmax(0, 1fr); align-items: start; gap: 10px; }

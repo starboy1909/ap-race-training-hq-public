@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { procamEvents, races } from "./raceData";
+import { roadResults } from "./performanceData";
 import garminWeeklyData from "./data/garmin-weekly.json";
 
 type GarminWeekly = {
@@ -1416,6 +1417,42 @@ const wallBallBuild = [
   ["28 Sep–4 Oct", "4-min EMOM × 20", "55 + 30 or green test", "Test 70–100 only with legal form"],
 ];
 
+const kneeArmour = {
+  reset: [
+    "Spanish-squat or wall-sit isometric 4×30–45 sec at a comfortable angle; 60 sec rest and no pain escalation",
+    "Low step-down 3×6/side from the lowest controllable height; 3-sec lower, pelvis level and knee tracks over mid-foot",
+    "Seated bent-knee calf raise 3×10–12 + tibialis raise 2×15–20; full control, no bouncing",
+    "Side-plank hip abduction 2×8–12/side or band lateral walk 2×10 steps each way",
+  ],
+  strength: [
+    "Knee preparation: 5 min easy bike, ankle knee-to-wall rocks 2×8/side and Spanish-squat isometric 3×30–45 sec",
+    "Keep squat depth inside the symptom-free range; use a box or heel elevation only when it improves control, and leave 2–3 reps in reserve",
+    "Low step-down 3×6–8/side with a 3-sec lowering phase; reduce step height before adding load",
+    "Finish with seated soleus raise 3×10–12, straight-knee calf raise 2×10–12 and tibialis raise 2×15–20",
+  ],
+  power: [
+    "Power is earned: begin only after two green weeks, pain-free stairs, 10 controlled single-leg squats to a box and 20 pain-free two-leg hops",
+    "Start with pogo hops 3×20 contacts and snap-down to stick 3×5; progress to low box jump 3×4 only if the next morning remains green",
+    "Never add jump volume in the same week as a run-volume increase or an all-out HYROX simulation",
+  ],
+};
+
+const athleteBuildPrinciples = [
+  ["KNEE CAPACITY", "Train quads and hips together", "Two focused exposures each week: a squat/split-squat pattern, step-down control, hamstrings, soleus/calf and tibialis. Strength is the base; balance drills alone are not enough."],
+  ["RUNNER FORCE", "Heavy, clean, low-noise reps", "Use controlled compound work at 2–3 reps in reserve, then progress load only when technique and the 24-hour response are stable. Keep easy running easy so strength can actually adapt."],
+  ["POWER", "Elasticity after control", "Pogos, landing mechanics and low jumps enter only after the strength gate. Power work stays low-volume, high-quality and never becomes conditioning."],
+  ["PHYSIQUE", "Build without burying performance", "Keep two upper-body exposures, 8–14 quality weekly sets per major muscle group, direct delts and arms, and 2–3 anti-extension/anti-rotation ab doses. Add reps before load; avoid failure on compounds."],
+  ["RECOVERY", "Adaptation is the work", "Distribute protein across 3–4 meals, fuel hard running with carbohydrate, protect sleep and do not chase leanness. More muscle and sharper abs require consistent training—not reckless restriction."],
+  ["LOAD CONTROL", "One major stress increase at a time", "Do not raise running volume, squat volume and plyometric contacts together. A knee that is worse during training or the next morning has exceeded current capacity."],
+];
+
+const evidenceSources = [
+  ["Squat University · Aaron Horschig, DPT", "Mobility → stability/control → integrated squat progression; screen side-to-side limitations and rebuild the exact task gradually.", "https://squatuniversity.com/2024/09/23/fix-knee-pain-fast-3-proven-steps/"],
+  ["JOSPT patellofemoral pain guideline", "Use combined hip- and knee-targeted exercise, with education and load management rather than a single magic drill.", "https://www.jospt.org/doi/10.2519/jospt.2019.0302"],
+  ["E3 Rehab · patellofemoral pain", "Progress step-ups/step-downs, hamstring work, hip thrusts and single-leg hinges through tolerable ranges and loads.", "https://e3rehab.com/pfp/"],
+  ["Running-injury state-of-the-art review", "Running injuries are multifactorial; strength, biomechanics, recovery and training-load decisions must be managed together.", "https://ijspt.scholasticahq.com/article/25754-the-prevention-and-treatment-of-running-injuries-a-state-of-the-art"],
+];
+
 const phaseRoadmap = [
   ["27 Jul–9 Aug 2026", "Recover + rebuild", "27 km baseline into structured strength"],
   ["10–16 Aug 2026", "Build 1", "Threshold, hills and HYROX technique"],
@@ -1476,8 +1513,8 @@ const augustCells = [
 ];
 
 const timelineStart = new Date("2026-08-01T00:00:00+08:00").getTime();
-const timelineEnd = new Date("2027-02-01T00:00:00+08:00").getTime();
-const timelineMonths = ["AUG", "SEP", "OCT", "NOV", "DEC", "JAN"];
+const timelineEnd = new Date("2027-07-01T00:00:00+08:00").getTime();
+const timelineMonths = ["AUG", "SEP", "OCT", "NOV", "DEC", "JAN", "FEB", "MAR", "APR", "MAY", "JUN"];
 const timelineLanes = [
   {
     name: "ROAD SPEED",
@@ -1494,6 +1531,11 @@ const timelineLanes = [
       { label: "Shanghai · confirmed controlled", start: "2026-10-29", end: "2026-11-03", tone: "hyrox", row: 0 },
       { label: "Guangzhou · primary", start: "2026-11-19", end: "2026-11-24", tone: "hyrox", row: 0 },
       { label: "Hong Kong", start: "2027-01-06", end: "2027-01-12", tone: "hyrox", row: 0 },
+      { label: "Bangkok backup", start: "2027-02-11", end: "2027-02-15", tone: "option", row: 0 },
+      { label: "Taipei backup", start: "2027-03-12", end: "2027-03-15", tone: "option", row: 0 },
+      { label: "Nagoya backup", start: "2027-04-16", end: "2027-04-19", tone: "option", row: 0 },
+      { label: "Bengaluru / Incheon last chance", start: "2027-05-12", end: "2027-05-17", tone: "option", row: 0 },
+      { label: "HK World Championships", start: "2027-06-10", end: "2027-06-14", tone: "target", row: 0 },
     ],
   },
   {
@@ -1503,6 +1545,7 @@ const timelineLanes = [
       { label: "Pocari 10K", start: "2026-11-14", end: "2026-11-17", tone: "option", row: 2 },
       { label: "Kolkata 25K", start: "2026-12-19", end: "2026-12-22", tone: "option", row: 1 },
       { label: "HK / Mumbai", start: "2027-01-16", end: "2027-01-19", tone: "option", row: 1 },
+      { label: "Tokyo / Osaka ballot fork", start: "2027-02-27", end: "2027-03-09", tone: "option", row: 1 },
     ],
   },
   {
@@ -1518,6 +1561,8 @@ const timelineLanes = [
       { label: "Shanghai → JPM → 15K", start: "2026-10-31", end: "2026-11-10", tone: "conflict", row: 0 },
       { label: "Pocari → Guangzhou", start: "2026-11-14", end: "2026-11-24", tone: "conflict", row: 1 },
       { label: "HK HYROX → 17 Jan roads", start: "2027-01-07", end: "2027-01-19", tone: "conflict", row: 1 },
+      { label: "One Japan marathon only", start: "2027-02-27", end: "2027-03-09", tone: "conflict", row: 0 },
+      { label: "Qualifier cutoff", start: "2027-05-12", end: "2027-05-17", tone: "conflict", row: 1 },
     ],
   },
 ];
@@ -1541,12 +1586,46 @@ function workoutIsoDate(day: Day) {
   return monthNumber ? `2026-${monthNumber}-${dayNumber.padStart(2, "0")}` : null;
 }
 
+function kneeAddonForDay(day: Day) {
+  const iso = workoutIsoDate(day);
+  if (!iso || iso < "2026-09-04") return null;
+  if (day.id === "S17-4") {
+    return {
+      label: "4 SEP KNEE RESPONSE · OVERRIDES LOWER-BODY WORK TODAY",
+      items: [
+        "Because deep back and front squats produced new pain yesterday, skip running, sleds, wall balls, lunges, jumps and loaded squats today—even if the warm-up feels better",
+        "Use 12–20 min easy bike only if pain-free, then complete the listed upper-body strength work with seated or supported positions",
+        ...kneeArmour.reset,
+        "Stop any drill that increases pain, changes movement or leaves the knee worse two hours later; reassess stairs and walking tomorrow morning",
+      ],
+    };
+  }
+  if (day.type === "STRENGTH" && /lower|full-body/i.test(day.title)) {
+    return { label: "KNEE ARMOUR · PERMANENT LOWER-DAY INSERT", items: kneeArmour.strength };
+  }
+  if (day.type === "HYROX") {
+    return {
+      label: "KNEE ARMOUR · HYROX ENTRY GATE",
+      items: [
+        "Before impact: 5 min easy bike, Spanish-squat isometric 2×30–45 sec and low step-down 2×5/side",
+        "Proceed only with pain 0–1/10, normal gait and no worse next-morning response; otherwise preserve aerobic time on SkiErg or bike and remove jumps, running, sleds and deep wall-ball volume",
+      ],
+    };
+  }
+  return null;
+}
+
 export default function App() {
   const todayHk = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Hong_Kong" }).format(new Date());
   const todayWorkout = weeks.flatMap((item) => item.days).find((day) => workoutIsoDate(day) === todayHk);
   const todayWeek = todayWorkout ? weeks.find((item) => item.days.some((day) => day.id === todayWorkout.id)) : null;
+  const currentWeekIndex = todayWeek
+    ? weeks.findIndex((item) => item.id === todayWeek.id)
+    : todayHk < (workoutIsoDate(weeks[0].days[0]) || todayHk) ? 0 : weeks.length - 1;
+  const currentAndFutureWeeks = weeks.slice(currentWeekIndex);
+  const archivedWeeks = weeks.slice(0, currentWeekIndex);
   const [tab, setTab] = useState("plan");
-  const [weekId, setWeekId] = useState(todayWeek?.id || "S13");
+  const [weekId, setWeekId] = useState(todayWeek?.id || weeks[currentWeekIndex].id);
   const [openDay, setOpenDay] = useState(todayWorkout?.id || "");
   const [completed, setCompleted] = useState<Record<string, boolean>>({});
   const [saveState, setSaveState] = useState("");
@@ -1566,7 +1645,7 @@ export default function App() {
     return () => window.clearTimeout(timer);
   }, []);
 
-  const week = weeks.find((item) => item.id === weekId) ?? weeks[0];
+  const week = weeks.find((item) => item.id === weekId) ?? weeks[currentWeekIndex];
   const running = garminWeekly.runningProfile;
   const vo2Metric = garminWeekly.metrics.find((item) => item.label === "VO₂ max");
   const maxWeeklyKm = Math.max(1, ...(running?.weeklyRunLoad.map((item) => item.distanceKm) || [1]));
@@ -1648,7 +1727,7 @@ export default function App() {
     <main className="app-shell">
       <header className="hero">
         <div>
-          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V9.3</p>
+          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V10.0</p>
           <h1>SEASON <span>2026/27</span></h1>
           <div className="status-line">
             <span className="phase-pill">BUILD</span>
@@ -1670,6 +1749,8 @@ export default function App() {
           ["calendar", "CALENDAR"],
           ["timeline", "TIMELINE"],
           ["races", "RACE HQ"],
+          ["results", "RESULTS"],
+          ["armour", "KNEE + BUILD"],
           ["analysis", "ANALYSIS"],
         ].map(([id, label]) => (
           <button key={id} className={tab === id ? "active" : ""} onClick={() => setTab(id)}>
@@ -1681,13 +1762,25 @@ export default function App() {
       {tab === "plan" && (
         <section className="view">
           <div className="week-strip">
-            {weeks.map((item) => (
+            {currentAndFutureWeeks.map((item) => (
               <button key={item.id} className={weekId === item.id ? "selected" : ""} onClick={() => { setWeekId(item.id); setOpenDay(""); }}>
                 <b>{item.label}</b>
                 <span>{item.phase}</span>
               </button>
             ))}
           </div>
+          {archivedWeeks.length > 0 && (
+            <details className="week-archive">
+              <summary>PAST WEEKS · {archivedWeeks.length} ARCHIVED</summary>
+              <div className="week-strip archive-strip">
+                {archivedWeeks.map((item) => (
+                  <button key={item.id} className={weekId === item.id ? "selected" : ""} onClick={() => { setWeekId(item.id); setOpenDay(""); }}>
+                    <b>{item.label}</b><span>{item.dates} · {item.phase}</span>
+                  </button>
+                ))}
+              </div>
+            </details>
+          )}
 
           <div className="week-heading">
             <div>
@@ -1708,6 +1801,7 @@ export default function App() {
           <div className="day-list">
             {week.days.map((day) => {
               const isOpen = openDay === day.id;
+              const kneeAddon = kneeAddonForDay(day);
               return (
                 <article className={`day-card ${isOpen ? "open" : ""}`} key={day.id}>
                   <button className="day-summary" onClick={() => setOpenDay(isOpen ? "" : day.id)}>
@@ -1733,6 +1827,12 @@ export default function App() {
                   {isOpen && (
                     <div className="day-detail">
                       <div className="prescription"><b>PRIMARY · {day.duration}</b><b>RPE {day.rpe}</b></div>
+                      {kneeAddon && (
+                        <div className="workout-block knee-insert">
+                          <h3>{kneeAddon.label}</h3>
+                          <ul>{kneeAddon.items.map((item) => <li key={item}>{item}</li>)}</ul>
+                        </div>
+                      )}
                       {day.blocks?.map((block) => (
                         <div className="workout-block" key={block.label}>
                           <h3>{block.label}</h3>
@@ -1955,7 +2055,7 @@ export default function App() {
         <section className="view">
           <div className="view-heading">
             <div>
-              <p className="section-kicker">AUG 2026–JAN 2027 · CONFLICT SWIM-LANES</p>
+              <p className="section-kicker">AUG 2026–JUN 2027 · CONFLICT SWIM-LANES</p>
               <h2>One season. Four competing demands.</h2>
               <p>The red lane shows periods where two races cannot both receive a full taper and all-out effort. Priorities below are performance decisions, not registration claims.</p>
             </div>
@@ -2010,24 +2110,9 @@ export default function App() {
             <article className="warning"><span>BACKUP ORDER</span><b>Bangkok, then Taipei, then Nagoya.</b><p>Activate only one backup after the preceding result. Osaka is used only if Hong Kong is missed. Bengaluru and Incheon are emergency-only last chances.</p></article>
             <article className="warning"><span>DO NOT STACK</span><b>No Q4 marathon inside the current HYROX campaign.</b><p>Singapore remains dropped because of travel. Gujarat, Noida and a January marathon also remain incompatible with the primary qualification sequence.</p></article>
           </section>
-          <section className="race-section-heading watch-heading">
-            <p className="section-kicker">HISTORICAL ROAD BENCHMARKS</p>
-            <h3>Times to beat</h3>
-            <p>The private history matcher uses exact event date, outdoor distance and duration. Activity names are ignored because automatic labels are unreliable.</p>
-          </section>
-          <div className="race-list">
-            <article className="race-card">
-              <div className="race-date"><b>30 Oct 2025</b><span>HISTORY</span></div>
-              <div><small>5.6 km · 4:33/km</small><h3>JPMorganChase Corporate Challenge 2025</h3><p>Existing Race HQ result. The next private refresh will verify it against date and distance.</p></div>
-              <div className="race-status">25:27</div>
-              <div className="priority">Time to beat</div>
-            </article>
-            <article className="race-card">
-              <div className="race-date"><b>21 Dec 2025</b><span>HISTORY</span></div>
-              <div><small>21.1 km · result pending</small><h3>ASICS Hong Kong Half-Marathon Championships 2025</h3><p>Exact prior time is not present in the public aggregate. The new private matcher will retrieve it by event date and distance on the next local refresh.</p></div>
-              <div className="race-status">PENDING</div>
-              <div className="priority">Do not guess</div>
-            </article>
+          <div className="freshness-note">
+            <b>RESULT HISTORY HAS ONE HOME</b>
+            <p>Exact ASICS, marathon, 10K and PEGASUS performances now live in the Verified Results tab. Race HQ stays focused on future decisions, registration state and actions.</p>
           </div>
           <div className="race-section-heading">
             <p className="section-kicker">CONFIRMED + PLAN OF RECORD</p>
@@ -2117,6 +2202,85 @@ export default function App() {
             <b>PARTNER ASSUMPTION · CONFIRMED TRAINING PARTNER</b>
             <p>Plan Pro Doubles station ownership and two shared technique sessions per month now. Increase to weekly shared race-specific work in the final six weeks before each A-race.</p>
           </div>
+        </section>
+      )}
+
+      {tab === "results" && (
+        <section className="view">
+          <div className="view-heading">
+            <div>
+              <p className="section-kicker">VERIFIED RESULTS · OFFICIAL AND DEVICE-SOURCED</p>
+              <h2>Performance ledger</h2>
+              <p>One canonical result history. Official gun and net times remain distinct; device-only evidence is labelled clearly and never presented as an official race result.</p>
+            </div>
+          </div>
+          <div className="result-grid">
+            {roadResults.map((result) => (
+              <article className="result-card" key={`${result.date}-${result.event}`}>
+                <div className="result-top"><span>{result.date}</span><b>{result.verification}</b></div>
+                <small>{result.distance} · {result.pace}</small>
+                <h3>{result.event}</h3>
+                <div className="result-times">
+                  <div><span>NET / DEVICE</span><b>{result.net}</b></div>
+                  <div><span>OFFICIAL</span><b>{result.official}</b></div>
+                </div>
+                <p>{result.result}</p>
+              </article>
+            ))}
+          </div>
+          <div className="strategy-callout">
+            <b>ASICS 2026 BENCHMARK</b>
+            <p>The verified 21 December 2025 baseline is 1:57:13 net and 1:59:17 official at 5:33/km. The confirmed 13 December 2026 race remains a controlled benchmark inside the HYROX build, not a separate peak.</p>
+          </div>
+        </section>
+      )}
+
+      {tab === "armour" && (
+        <section className="view">
+          <div className="view-heading">
+            <div>
+              <p className="section-kicker">KNEE RESILIENCE · HYBRID POWER · PHYSIQUE</p>
+              <h2>Build the monster. Earn every layer.</h2>
+              <p>This is a capacity system, not a promise of being “injury-proof.” Strong knees come from progressively loading quads, hips, hamstrings, calves and feet while the run plan, sleep and recovery remain coherent.</p>
+            </div>
+          </div>
+          <div className="acute-alert">
+            <b>RIGHT NOW · NEW PAIN AFTER DEEP BACK + FRONT SQUATS</b>
+            <p>Do not repeat deep squats, running, sleds, lunges or jumps today. Keep only pain-free easy cycling and supported upper-body work. Seek prompt clinical assessment if you cannot bear weight, the knee is badly swollen or misshapen, it locks or gives way, or it is hot/red with fever. Persistent focal outer-knee pain or symptoms that worsen over the next 24–48 hours also deserve sports-physio review.</p>
+          </div>
+          <section className="armour-grid">
+            {athleteBuildPrinciples.map(([label, title, detail]) => (
+              <article key={label}><span>{label}</span><h3>{title}</h3><p>{detail}</p></article>
+            ))}
+          </section>
+          <section className="progression-panel">
+            <div className="race-section-heading">
+              <p className="section-kicker">THREE-LAYER KNEE PROGRESSION</p>
+              <h3>Calm → strengthen → express power</h3>
+              <p>Use the layer that your symptoms and movement quality have earned. Do not jump ahead because a single warm-up feels good.</p>
+            </div>
+            <div className="progression-grid">
+              <article><span>LAYER 1 · RESET</span><h3>2–4× weekly</h3><ul>{kneeArmour.reset.map((item) => <li key={item}>{item}</li>)}</ul></article>
+              <article><span>LAYER 2 · STRENGTH</span><h3>2× weekly</h3><ul>{kneeArmour.strength.map((item) => <li key={item}>{item}</li>)}</ul></article>
+              <article><span>LAYER 3 · POWER</span><h3>1–2× weekly</h3><ul>{kneeArmour.power.map((item) => <li key={item}>{item}</li>)}</ul></article>
+            </div>
+          </section>
+          <section className="weekly-template">
+            <div><span>LOWER A</span><b>Squat + posterior chain</b><p>Comfortable-depth squat 3–4×5–8 · RDL 3–4×6–8 · split squat 3×8/side · hamstring curl 3×8–12 · soleus/calf/tibialis.</p></div>
+            <div><span>UPPER A</span><b>Chest + back + delts</b><p>Incline press and supported row 4 sets each · pulldown 3 sets · lateral/rear-delt 3 sets each · arms 2–3 sets · anti-extension abs.</p></div>
+            <div><span>LOWER B / HYROX</span><b>Single-leg + force endurance</b><p>Step-down or step-up · hip thrust · hamstring curl · carries. Add sleds, wall balls and power only through the green gate.</p></div>
+            <div><span>UPPER B + ABS</span><b>Width, shoulders and trunk</b><p>Vertical pull, machine press, row, lateral raise, rear delts and arms. Rotate ab wheel, Pallof press, dead bug and suitcase carry—never endless fatigue reps.</p></div>
+          </section>
+          <div className="load-rule">
+            <b>PROGRESSION RULE</b>
+            <p>Pain 0–1/10 and unchanged next morning: add 1–2 reps or 2.5–5% load. Pain 2–3/10, altered mechanics or next-day stiffness: hold or reduce range/load 20–30%. Pain above 3/10, swelling, instability, locking or worsening gait: stop lower-body loading and get assessed.</p>
+          </div>
+          <section className="source-panel">
+            <div className="race-section-heading"><p className="section-kicker">RESEARCH + COACHING LENS</p><h3>What informs the system</h3></div>
+            {evidenceSources.map(([name, use, url]) => (
+              <article key={name}><div><b>{name}</b><p>{use}</p></div><a href={url} target="_blank" rel="noreferrer">SOURCE ↗</a></article>
+            ))}
+          </section>
         </section>
       )}
 
