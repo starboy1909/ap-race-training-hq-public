@@ -506,6 +506,7 @@ const weeks: Week[] = [
       "blocks": [
         { "label": "RECOVERY", "items": [
           "No running and no make-up kilometres; easy walking only if it improves recovery",
+          "Actual deviation logged: 7.01 km of outdoor running replaced the planned rest day; carry that load forward rather than treating it as missing recovery mileage",
           "Complete the prescribed hamstring exercises and gentle ankle mobility",
           "Green means 0–1/10 stable, normal gait and normal next morning; only green unlocks Week 18 quality",
           "Focal tenderness, hopping pain, night pain, swelling or recurring symptoms require sports-physio or medical assessment before quality running"
@@ -521,17 +522,17 @@ const weeks: Week[] = [
   "phase": "HYBRID BUILD · RUN + MUSCLE",
   "volume": "41–43 km · 3 strength/HYROX exposures",
   "focus": "Re-establish the 40 km platform while preserving muscle: two planned split days, a Wednesday aerobic long-window, a Friday HYROX combined session and one true rest day.",
-  "gate": "Unlock threshold and impact-based HYROX running only if Week 17 ends with normal gait, no focal shin tenderness or hopping pain, and symptoms no higher than 1/10 during and the morning after easy runs. A failed impact gate preserves aerobic time through bike, row or SkiErg; it does not justify forcing painful kilometres.",
+  "gate": "Sunday's planned rest became a 7 km run, followed by running plus strength on Monday morning. Tuesday is therefore recovery-gated, and Thursday threshold waits until sleep, easy-run effort and lower-leg symptoms are normal. A failed recovery or impact gate preserves aerobic time through easy bike, row or SkiErg; it does not justify forcing kilometres.",
   "days": [
     {
       "id": "S18-0",
       "date": "7 SEP",
       "dow": "MON",
-      "title": "AM Easy Run + PM Lower Strength",
+      "title": "Completed Run + Strength · No PM Repeat",
       "type": "STRENGTH",
-      "duration": "AM 5 km · PM 70–75 min",
+      "duration": "6.33 km run · 53 min strength · completed",
       "rpe": "7–8",
-      "note": "Split day 1 of 2. The easy run adds mileage without diluting the evening force session.",
+      "note": "Completed before review. This replaces the full Monday prescription: do not repeat the planned PM session or add make-up work today.",
       "blocks": [
         {
           "label": "AM RUN · 5 KM",
@@ -565,25 +566,25 @@ const weeks: Week[] = [
       "id": "S18-1",
       "date": "8 SEP",
       "dow": "TUE",
-      "title": "Outdoor Easy Z2 + Strides",
+      "title": "Recovery Gate · Rest or Easy Z2",
       "type": "RUN",
-      "duration": "7 km · 45–52 min",
-      "rpe": "4–5",
+      "duration": "Rest or 5–6 km · 30–45 min",
+      "rpe": "0–4",
       "blocks": [
         {
           "label": "WARM-UP + MAIN",
           "items": [
-            "Run 10 min very easy, then leg swings 10/side and A-march 2×20 m",
-            "Run 6 km outdoors on a flat route in cool hours at RPE 4 and HR ≤142",
-            "Complete 4×15 sec relaxed strides at about 85% speed with 75 sec walk/jog only when the shin is fully green",
-            "Jog to 7 km total; smooth mechanics, never sprinting or chasing pace"
+            "Option A — full rest when sleep remains short, morning energy is low, easy effort is elevated or the shin is not fully green",
+            "Option B — only when recovery and the shin are green: run 5–6 km on a flat route at RPE 3–4 and HR ≤138",
+            "No strides, progression finish or second workout under either option",
+            "Do not make up Sunday's missed rest or Monday's excess distance later in the week"
           ]
         },
         {
           "label": "COOLDOWN + DECISION",
           "items": [
             "Walk 5 min, calf isometric 2×30 sec/side and prescribed hamstring work",
-            "If strides reproduce shin symptoms, remove Thursday's fast running and contact physio"
+            "If the easy option produces unusual effort or shin symptoms, remove Thursday's fast running and contact physio"
           ]
         }
       ]
