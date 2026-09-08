@@ -520,9 +520,9 @@ const weeks: Week[] = [
   "label": "W18",
   "dates": "7–13 Sep",
   "phase": "HYBRID BUILD · RUN + MUSCLE",
-  "volume": "34–37 km · 3 strength/HYROX exposures",
-  "focus": "Absorb an early-week load overshoot while preserving muscle: Tuesday's recovery run extended to 8 km, Wednesday now restores impact recovery, and Thursday threshold remains conditional. Do not chase the original 40 km target.",
-  "gate": "Sunday's planned rest became a 7 km run, Monday added running plus strength, and Tuesday reached 8.01 km despite a 5–6 km ceiling. Recovery markers improved before Tuesday, but the three-day impact total is now 21.35 km. Wednesday is therefore non-running recovery. Thursday threshold proceeds only if Wednesday remains symptom-free and Thursday morning sleep, gait, easy warm-up effort, shin and hamstring are all normal.",
+  "volume": "41–44 km · 3 strength/HYROX exposures",
+  "focus": "Protect the work that creates adaptation: Wednesday aerobic durability, Thursday threshold and Friday Pro-specific HYROX. Tuesday's extra volume is absorbed by trimming Saturday's filler—not by deleting the key sessions.",
+  "gate": "Proceed aggressively through the planned Wednesday–Friday block while mechanics stay normal. Mild general heaviness is not an automatic downgrade. Escalating focal pain, altered gait, hopping pain or loss of warm-up coordination is the stop signal; when that appears, preserve the engine with non-impact aerobic work and obtain physio input.",
   "days": [
     {
       "id": "S18-0",
@@ -594,34 +594,35 @@ const weeks: Week[] = [
       "id": "S18-2",
       "date": "9 SEP",
       "dow": "WED",
-      "title": "Impact Recovery + Physio",
-      "type": "REST",
-      "duration": "Rest · 20–40 min optional non-impact",
-      "rpe": "0–2",
-      "note": "The planned 10 km is removed after 21.35 km of running across Sunday–Tuesday. Do not use the WFH window to chase the weekly mileage target.",
+      "title": "Aerobic Durability + Physio",
+      "type": "RUN",
+      "duration": "10 km · 62–70 min",
+      "rpe": "3–4",
+      "note": "Keep the original WFH aerobic session. This is productive durability work, not a test: complete 10 km when mechanics remain normal and use the first 3 km as the live decision gate.",
       "blocks": [
         {
-          "label": "RECOVERY OPTION",
+          "label": "WARM-UP · 12 MIN",
           "items": [
-            "Default: full rest from running and lower-body loading",
-            "Optional only if movement improves recovery: 20–40 min easy bike, row or SkiErg at RPE 2–3",
-            "No treadmill running, strides, sled work or leg strength"
+            "Bike 4 min easy, then 8 min progressive treadmill jog at 0.5% incline",
+            "Ankle rocks 2×10/side, tibialis raise 2×15 and supported hip airplane 2×5/side",
+            "Continue when gait and coordination are normal; general heaviness alone does not cancel the session"
           ]
         },
         {
-          "label": "IMPACT CHECK",
+          "label": "AEROBIC MAIN",
           "items": [
-            "Check normal gait, focal shin tenderness, hopping response and right-hamstring comfort",
-            "Green means 0–1/10 stable symptoms with no worsening through the day",
-            "Anything above green converts Thursday to easy running or non-impact aerobic work"
+            "Run 8–9 km at stable Z2, HR ≤142 and RPE 3–4; add 0.5–1% incline only while mechanics stay quiet",
+            "At 3 km choose decisively: complete the full 10 km if symptoms are stable, or stop impact work if pain escalates or gait changes",
+            "Take a 30-sec form check every 2 km: tall hips, relaxed shoulders, quiet landing and no right-left compensation",
+            "No fast finish; save the speed stimulus for Thursday"
           ]
         },
         {
           "label": "COOLDOWN + PHYSIO",
           "items": [
-            "Complete the prescribed hamstring sequence, ankle mobility and calf isometrics without loading into pain",
-            "Eat 25–35 g protein with the next meal and restore carbohydrate before Thursday",
-            "Aim for a full night's sleep; Thursday quality is earned by the next-morning response"
+            "Jog/walk to 10 km total, then walk 5 min",
+            "Complete the prescribed hamstring sequence plus side plank 3×30 sec/side",
+            "Eat 25–35 g protein with carbohydrate and restore fluids before Thursday's split day"
           ]
         }
       ]
@@ -634,7 +635,7 @@ const weeks: Week[] = [
       "type": "RUN",
       "duration": "AM 9–10 km · PM 60–65 min",
       "rpe": "7",
-      "note": "Conditional split day. PEGASUS pace was symptom-managed, so threshold remains effort-led. Start only after a non-running Wednesday and a fully green Thursday-morning impact and recovery check; otherwise replace the run with 6–8 km easy or 30–45 min non-impact aerobic work.",
+      "note": "Key quality split day. Keep it scheduled after Wednesday's controlled aerobic work. Proceed when the warm-up is mechanically normal; downgrade only for an objective impact red flag, not ordinary training fatigue.",
       "blocks": [
         {
           "label": "AM WARM-UP · 15 MIN",
@@ -646,7 +647,7 @@ const weeks: Week[] = [
         {
           "label": "AM MAIN · 3×8 MIN",
           "items": [
-            "Run 3×8 min at controlled threshold, RPE 7; use the slower of roughly 4:55–5:10/km or the effort cap",
+            "Run 3×8 min at controlled threshold, RPE 7: open near 4:55/km and earn progression toward 4:45–4:50/km only with stable form and breathing",
             "Jog 2:30 very easily between repetitions",
             "Keep all reps even; do not turn the final rep into a test",
             "Cool down easily to 9–10 km total"
@@ -724,17 +725,18 @@ const weeks: Week[] = [
       "id": "S18-5",
       "date": "12 SEP",
       "dow": "SAT",
-      "title": "Outdoor Easy Aerobic Run",
+      "title": "Outdoor Recovery Run",
       "type": "RUN",
-      "duration": "7–8 km · 45–55 min",
-      "rpe": "3–4",
+      "duration": "5–6 km · 32–42 min",
+      "rpe": "3",
       "blocks": [
         {
           "label": "MAIN",
           "items": [
-            "Run outdoors in cool hours on a flat route, fully conversational at HR ≤142",
-            "Keep every kilometre easy after Friday's compromised work; no strides or progression",
-            "Carry water and electrolytes; heat controls pace, not ego"
+            "Run 5 km outdoors in cool hours on a flat route, fully conversational at HR ≤142",
+            "Add the sixth kilometre only if the legs improve during the run",
+            "This is the flexible mileage lever after Tuesday's extra volume; Wednesday–Friday remain protected",
+            "No strides or progression after Friday's compromised work"
           ]
         },
         {
@@ -1387,11 +1389,18 @@ const weeks: Week[] = [
 
 const sixWeekOutlook = [
   ["31 Aug–6 Sep", "31–34 km", "Absorb PEGASUS", "2 strength · 1 HYROX skill"],
-  ["7–13 Sep", "39–42 km", "Rebuild 40 km platform", "2 strength · threshold · 16 km long"],
+  ["7–13 Sep", "41–44 km", "Protect the adaptation block", "10 km aerobic · threshold · Pro-specific HYROX · 2 strength"],
   ["14–20 Sep", "43–46 km", "Threshold + compromised durability", "2 strength · 18 km long"],
   ["21–27 Sep", "47–50 km", "First sustainable volume ceiling", "3 strength touches · 18 km long"],
   ["28 Sep–4 Oct", "38–41 km", "Deload and absorb", "2 strength · reduced threshold"],
   ["5–11 Oct", "45–48 km", "Front-loaded endurance", "2 strength · 18 km long"],
+];
+
+const performanceGoals = [
+  ["SUB-20 5K", "4:00/km speed target", "Build the speed reserve through threshold progression first, then add dedicated 5K work: repeatable 1 km reps, 2 km cruise intervals and controlled race-pace exposure. Easy mileage supports the quality; it does not replace it."],
+  ["SUB-4 MARATHON", "5:41/km for 42.2 km", "Make 47–50 km sustainable now. Once one Japan ballot becomes a paid entry, shift after the January HYROX peak into one marathon-specific block with longer runs, marathon-pace work and no competing Bangkok or Taipei HYROX peak."],
+  ["SUB-70 HYROX PRO DOUBLES", "Team execution target", "Use Shanghai as the rehearsal and Hong Kong as the home peak. Progress Pro-load sleds, compromised kilometres, legal 9 kg wall balls and partner transitions until the team can budget roughly 35–37 minutes for running and 31–33 minutes for stations plus Roxzone."],
+  ["POWERHOUSE PHYSIQUE", "Performance muscle retained", "Keep two substantial strength exposures plus one HYROX force-endurance session most weeks. Progress load or reps, protect upper-body volume, fuel hard days and never trade useful muscle for indiscriminate mileage."],
 ];
 
 const raceHistory = [
@@ -1469,8 +1478,8 @@ const phaseRoadmap = [
   ["14–20 Dec 2026", "Recovery + Procam decision", "ASICS benchmark · 13 Dec; Kolkata option · 20 Dec only if recovery is green"],
   ["21 Dec 2026–9 Jan 2027", "Home qualifier peak", "AIA HYROX Hong Kong Pro Doubles Men · 9 Jan afternoon"],
   ["10–24 Jan 2027", "Post-Hong Kong recovery", "No Noida or Osaka HYROX stacking after the confirmed Pro race"],
-  ["25 Jan–14 Feb 2027", "Bangkok qualifier build", "BYD HYROX Bangkok · 11–14 Feb"],
-  ["15 Feb–14 Mar 2027", "Taipei qualifier build", "HYROX Taipei · 12–14 Mar"],
+  ["25 Jan–14 Feb 2027", "Japan marathon / Bangkok fork", "Paid Japan entry → marathon-specific build; otherwise Bangkok qualifier backup · 11–14 Feb"],
+  ["15 Feb–14 Mar 2027", "One Q1 peak only", "Osaka · 28 Feb or Tokyo · 7 Mar if selected and paid; Taipei · 12–14 Mar only when no Japan marathon is active"],
   ["15 Mar–18 Apr 2027", "Nagoya qualifier build", "HYROX Nagoya · 16–18 Apr"],
   ["19 Apr–16 May 2027", "Final qualifier window", "Bengaluru · 12–16 May; Incheon · 13–16 May"],
   ["17 May–9 Jun 2027", "Worlds taper or next-cycle bridge", "Qualification-dependent transition"],
@@ -1730,7 +1739,7 @@ export default function App() {
     <main className="app-shell">
       <header className="hero">
         <div>
-          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V10.0</p>
+          <p className="eyebrow">AMAR PANDEY · TRAINING SYSTEM V10.1</p>
           <h1>SEASON <span>2026/27</span></h1>
           <div className="status-line">
             <span className="phase-pill">BUILD</span>
@@ -1764,6 +1773,11 @@ export default function App() {
 
       {tab === "plan" && (
         <section className="view">
+          <section className="priority-decisions">
+            {performanceGoals.map(([goal, standard, method]) => (
+              <article key={goal}><span>PERFORMANCE MISSION</span><b>{goal} · {standard}</b><p>{method}</p></article>
+            ))}
+          </section>
           <div className="week-strip">
             {currentAndFutureWeeks.map((item) => (
               <button key={item.id} className={weekId === item.id ? "selected" : ""} onClick={() => { setWeekId(item.id); setOpenDay(""); }}>
@@ -1796,10 +1810,11 @@ export default function App() {
 
           <div className="volume-card">
             <strong>{week.volume}</strong>
-            <div><b>WEEKLY TARGET</b><span>Mileage builds in three-week waves, then deloads. Recovery signals still override the top number.</span></div>
+            <div><b>WEEKLY TARGET</b><span>Mileage builds in three-week waves, then deloads. Key quality and specific work are protected; easy filler moves first when load must be redistributed.</span></div>
           </div>
 
           {week.gate && <div className="gate"><b>READINESS GATE</b>{week.gate}</div>}
+          <div className="gate"><b>COACHING AGREEMENT</b>Verified completions are logged automatically. A proposed reduction, cancellation or replacement of future training must be shown to Amar with the evidence and trade-off before Race HQ is changed. Safety red flags trigger an immediate stop recommendation and alert—not a silent rewrite.</div>
 
           <div className="day-list">
             {week.days.map((day) => {
@@ -2110,7 +2125,7 @@ export default function App() {
             <article><span>PLAN OF RECORD</span><b>Shanghai and Hong Kong Pro Doubles Men are secured.</b><p>Shanghai on 1 November is a controlled rehearsal; Hong Kong on 9 January remains the primary HYROX peak. RMAC and ASICS are also confirmed. JPMorganChase remains a performance target, not a confirmed entry, and Guangzhou remains an opportunity.</p></article>
             <article><span>CONFIRMED SUPPORT RACE</span><b>ASICS Half on 13 December.</b><p>Entry and payment are confirmed. Run it as a controlled benchmark, not a third peak: it sits three weeks after Guangzhou and four weeks before HYROX Hong Kong.</p></article>
             <article><span>SEP + OCT</span><b>Build through September; control the late-October load.</b><p>September stays race-free for threshold development. Pici on 25 October remains optional social mileage only, followed six days later by the confirmed Shanghai Pro Doubles race; neither receives a separate peak before JPMorganChase.</p></article>
-            <article className="warning"><span>BACKUP ORDER</span><b>Bangkok, then Taipei, then Nagoya.</b><p>Activate only one backup after the preceding result. Osaka is used only if Hong Kong is missed. Bengaluru and Incheon are emergency-only last chances.</p></article>
+            <article className="warning"><span>BACKUP ORDER</span><b>Bangkok, then Taipei, then Nagoya.</b><p>Activate only one after the preceding result—and only when a paid Japan marathon does not control the Q1 peak. Osaka HYROX is used only if Hong Kong is missed. Bengaluru and Incheon are emergency-only last chances.</p></article>
             <article className="warning"><span>DO NOT STACK</span><b>No Q4 marathon inside the current HYROX campaign.</b><p>Singapore remains dropped because of travel. Gujarat, Noida and a January marathon also remain incompatible with the primary qualification sequence.</p></article>
           </section>
           <div className="freshness-note">
@@ -2311,10 +2326,10 @@ export default function App() {
               <p className="section-kicker">WHAT THE SERIES SAYS</p>
               <h3>Four programming priorities</h3>
               <ol>
-                <li><b>Maintain, do not chase, the run engine.</b><span>Hong Kong Pro Singles produced a 4:46 average run. Threshold precision and compromised consistency matter more than indiscriminate mileage.</span></li>
+                <li><b>Build a faster run engine without sacrificing stations.</b><span>Hong Kong Pro Singles produced a 4:46 average run. Threshold progression and 5K speed reserve now move that ceiling while easy volume preserves durability.</span></li>
                 <li><b>Build Pro-load station strength.</b><span>Hong Kong functional time was 55:13. Sled pull, burpees, lunges and wall balls account for the clearest individual gap.</span></li>
                 <li><b>Convert strength into late-race durability.</b><span>Run 8 reached 6:57 after 10:55 lunges in Hong Kong. The goal is retaining mechanics after the final two stations.</span></li>
-                <li><b>Train the Andy partnership.</b><span>Wuhan's 1:16:35 is the cleanest pair benchmark. Practise station ownership, handovers and a shared 4:55–5:10/km compromised rhythm.</span></li>
+                <li><b>Train the Andy partnership.</b><span>Wuhan's 1:16:35 is the cleanest pair benchmark. Own the stations and handovers first; progress the current 4:55–5:10/km control band toward 4:25–4:35/km only while execution stays clean.</span></li>
               </ol>
             </aside>
           </div>
