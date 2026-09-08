@@ -520,8 +520,8 @@ const weeks: Week[] = [
   "label": "W18",
   "dates": "7–13 Sep",
   "phase": "HYBRID BUILD · RUN + MUSCLE",
-  "volume": "41–44 km · 3 strength/HYROX exposures",
-  "focus": "Protect the work that creates adaptation: Wednesday aerobic durability, Thursday threshold and Friday Pro-specific HYROX. Tuesday's extra volume is absorbed by trimming Saturday's filler—not by deleting the key sessions.",
+  "volume": "42–45 km · 3 strength/HYROX exposures",
+  "focus": "Wednesday's aerobic durability session is complete. Protect Thursday threshold and Friday Pro-specific HYROX; absorb only genuine excess fatigue through Saturday's flexible recovery mileage, not by deleting the key sessions.",
   "gate": "Proceed aggressively through the planned Wednesday–Friday block while mechanics stay normal. Mild general heaviness is not an automatic downgrade. Escalating focal pain, altered gait, hopping pain or loss of warm-up coordination is the stop signal; when that appears, preserve the engine with non-impact aerobic work and obtain physio input.",
   "days": [
     {
@@ -594,11 +594,11 @@ const weeks: Week[] = [
       "id": "S18-2",
       "date": "9 SEP",
       "dow": "WED",
-      "title": "Aerobic Durability + Physio",
+      "title": "Completed Aerobic Durability + Physio",
       "type": "RUN",
-      "duration": "10 km · 62–70 min",
+      "duration": "11.01 km · 1:01:49 · completed",
       "rpe": "3–4",
-      "note": "Keep the original WFH aerobic session. This is productive durability work, not a test: complete 10 km when mechanics remain normal and use the first 3 km as the live decision gate.",
+      "note": "The protected aerobic durability session is complete: 11.01 km on the treadmill in 1:01:49 at about 5:37/km, average HR 137. The extra kilometre is modest and does not justify removing Thursday's threshold; proceed through the existing warm-up gate.",
       "blocks": [
         {
           "label": "WARM-UP · 12 MIN",
@@ -609,18 +609,18 @@ const weeks: Week[] = [
           ]
         },
         {
-          "label": "AEROBIC MAIN",
+          "label": "AEROBIC MAIN · COMPLETE",
           "items": [
-            "Run 8–9 km at stable Z2, HR ≤142 and RPE 3–4; add 0.5–1% incline only while mechanics stay quiet",
-            "At 3 km choose decisively: complete the full 10 km if symptoms are stable, or stop impact work if pain escalates or gait changes",
-            "Take a 30-sec form check every 2 km: tall hips, relaxed shoulders, quiet landing and no right-left compensation",
-            "No fast finish; save the speed stimulus for Thursday"
+            "Completed 11.01 km on the treadmill in 1:01:49 (about 5:37/km), average HR 137 and maximum HR 163",
+            "The average cardiovascular load remained controlled; count this as successful durability work",
+            "No additional run or conditioning today",
+            "Keep Thursday's speed stimulus protected unless pain or gait becomes an objective red flag"
           ]
         },
         {
           "label": "COOLDOWN + PHYSIO",
           "items": [
-            "Jog/walk to 10 km total, then walk 5 min",
+            "Walk 5 min after the completed run and recheck shin and gait later today",
             "Complete the prescribed hamstring sequence plus side plank 3×30 sec/side",
             "Eat 25–35 g protein with carbohydrate and restore fluids before Thursday's split day"
           ]
@@ -1389,7 +1389,7 @@ const weeks: Week[] = [
 
 const sixWeekOutlook = [
   ["31 Aug–6 Sep", "31–34 km", "Absorb PEGASUS", "2 strength · 1 HYROX skill"],
-  ["7–13 Sep", "41–44 km", "Protect the adaptation block", "10 km aerobic · threshold · Pro-specific HYROX · 2 strength"],
+  ["7–13 Sep", "42–45 km", "Protect the adaptation block", "11.01 km aerobic complete · threshold · Pro-specific HYROX · 2 strength"],
   ["14–20 Sep", "43–46 km", "Threshold + compromised durability", "2 strength · 18 km long"],
   ["21–27 Sep", "47–50 km", "First sustainable volume ceiling", "3 strength touches · 18 km long"],
   ["28 Sep–4 Oct", "38–41 km", "Deload and absorb", "2 strength · reduced threshold"],
