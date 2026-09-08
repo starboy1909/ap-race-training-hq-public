@@ -520,9 +520,9 @@ const weeks: Week[] = [
   "label": "W18",
   "dates": "7–13 Sep",
   "phase": "HYBRID BUILD · RUN + MUSCLE",
-  "volume": "41–43 km · 3 strength/HYROX exposures",
-  "focus": "Re-establish the 40 km platform while preserving muscle: two planned split days, a Wednesday aerobic long-window, a Friday HYROX combined session and one true rest day.",
-  "gate": "Sunday's planned rest became a 7 km run, followed by running plus strength on Monday morning. Tuesday is therefore recovery-gated, and Thursday threshold waits until sleep, easy-run effort and lower-leg symptoms are normal. A failed recovery or impact gate preserves aerobic time through easy bike, row or SkiErg; it does not justify forcing kilometres.",
+  "volume": "34–37 km · 3 strength/HYROX exposures",
+  "focus": "Absorb an early-week load overshoot while preserving muscle: Tuesday's recovery run extended to 8 km, Wednesday now restores impact recovery, and Thursday threshold remains conditional. Do not chase the original 40 km target.",
+  "gate": "Sunday's planned rest became a 7 km run, Monday added running plus strength, and Tuesday reached 8.01 km despite a 5–6 km ceiling. Recovery markers improved before Tuesday, but the three-day impact total is now 21.35 km. Wednesday is therefore non-running recovery. Thursday threshold proceeds only if Wednesday remains symptom-free and Thursday morning sleep, gait, easy warm-up effort, shin and hamstring are all normal.",
   "days": [
     {
       "id": "S18-0",
@@ -566,25 +566,26 @@ const weeks: Week[] = [
       "id": "S18-1",
       "date": "8 SEP",
       "dow": "TUE",
-      "title": "Recovery Gate · Rest or Easy Z2",
+      "title": "Completed Recovery Run · No More Training",
       "type": "RUN",
-      "duration": "Rest or 5–6 km · 30–45 min",
-      "rpe": "0–4",
+      "duration": "8.01 km · 46:32 · completed",
+      "rpe": "5–6",
+      "note": "Recovery had improved before the run, but the planned 5–6 km ceiling became 8.01 km. Close the day here: no strides, lifting, conditioning or make-up work.",
       "blocks": [
         {
           "label": "WARM-UP + MAIN",
           "items": [
-            "Option A — full rest when sleep remains short, morning energy is low, easy effort is elevated or the shin is not fully green",
-            "Option B — only when recovery and the shin are green: run 5–6 km on a flat route at RPE 3–4 and HR ≤138",
-            "No strides, progression finish or second workout under either option",
-            "Do not make up Sunday's missed rest or Monday's excess distance later in the week"
+            "Completed 8.01 km outdoors in 46:32 (about 5:49/km), average HR 155 and maximum HR 173",
+            "This exceeded the recovery-day distance and effort caps; count it as meaningful aerobic load, not easy filler",
+            "No strides, progression finish or second workout today",
+            "Prioritise carbohydrate, 25–35 g protein, fluids and the prescribed lower-leg/hamstring work"
           ]
         },
         {
           "label": "COOLDOWN + DECISION",
           "items": [
-            "Walk 5 min, calf isometric 2×30 sec/side and prescribed hamstring work",
-            "If the easy option produces unusual effort or shin symptoms, remove Thursday's fast running and contact physio"
+            "Log shin and hamstring response two hours after the run and again Wednesday morning",
+            "Any symptom increase, focal tenderness, hopping pain or altered gait removes Thursday's fast running and triggers physio review"
           ]
         }
       ]
@@ -593,33 +594,34 @@ const weeks: Week[] = [
       "id": "S18-2",
       "date": "9 SEP",
       "dow": "WED",
-      "title": "Long-Window Aerobic Run + Physio",
-      "type": "RUN",
-      "duration": "10 km · 62–70 min",
-      "rpe": "4",
-      "note": "Use the WFH window for uninterrupted aerobic volume at the gym; no strength session today.",
+      "title": "Impact Recovery + Physio",
+      "type": "REST",
+      "duration": "Rest · 20–40 min optional non-impact",
+      "rpe": "0–2",
+      "note": "The planned 10 km is removed after 21.35 km of running across Sunday–Tuesday. Do not use the WFH window to chase the weekly mileage target.",
       "blocks": [
         {
-          "label": "WARM-UP · 12 MIN",
+          "label": "RECOVERY OPTION",
           "items": [
-            "Bike 4 min easy, then 8 min progressive treadmill jog at 0.5% incline",
-            "Ankle rocks 2×10/side, tibialis raise 2×15 and supported hip airplane 2×5/side"
+            "Default: full rest from running and lower-body loading",
+            "Optional only if movement improves recovery: 20–40 min easy bike, row or SkiErg at RPE 2–3",
+            "No treadmill running, strides, sled work or leg strength"
           ]
         },
         {
-          "label": "AEROBIC MAIN",
+          "label": "IMPACT CHECK",
           "items": [
-            "Run 8–9 km at stable Z2, HR ≤142 and RPE 4; add 0.5–1% incline only if the shin remains quiet",
-            "Take a 30-sec form check every 2 km: tall hips, relaxed shoulders, quiet landing and no right-left compensation",
-            "No fast finish; the purpose is marathon durability and impact tolerance"
+            "Check normal gait, focal shin tenderness, hopping response and right-hamstring comfort",
+            "Green means 0–1/10 stable symptoms with no worsening through the day",
+            "Anything above green converts Thursday to easy running or non-impact aerobic work"
           ]
         },
         {
           "label": "COOLDOWN + PHYSIO",
           "items": [
-            "Jog/walk to 10 km total, then walk 5 min",
-            "Complete the prescribed hamstring sequence plus side plank 3×30 sec/side",
-            "Eat 25–35 g protein with the next meal and restore carbohydrate before Thursday"
+            "Complete the prescribed hamstring sequence, ankle mobility and calf isometrics without loading into pain",
+            "Eat 25–35 g protein with the next meal and restore carbohydrate before Thursday",
+            "Aim for a full night's sleep; Thursday quality is earned by the next-morning response"
           ]
         }
       ]
@@ -632,7 +634,7 @@ const weeks: Week[] = [
       "type": "RUN",
       "duration": "AM 9–10 km · PM 60–65 min",
       "rpe": "7",
-      "note": "Split day 2 of 2. PEGASUS pace was symptom-managed, so threshold remains effort-led and is not reset downward from the overall race pace.",
+      "note": "Conditional split day. PEGASUS pace was symptom-managed, so threshold remains effort-led. Start only after a non-running Wednesday and a fully green Thursday-morning impact and recovery check; otherwise replace the run with 6–8 km easy or 30–45 min non-impact aerobic work.",
       "blocks": [
         {
           "label": "AM WARM-UP · 15 MIN",
