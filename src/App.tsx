@@ -521,7 +521,7 @@ const weeks: Week[] = [
   "dates": "7–13 Sep",
   "phase": "HYBRID BUILD · RUN + MUSCLE",
   "volume": "42–45 km · 3 strength/HYROX exposures",
-  "focus": "Wednesday's aerobic durability session is complete. Protect Thursday threshold and Friday Pro-specific HYROX; absorb only genuine excess fatigue through Saturday's flexible recovery mileage, not by deleting the key sessions.",
+  "focus": "Thursday's threshold run and upper-strength work are complete. Friday's Pro-specific HYROX session remains the next protected priority; use Saturday's 5–6 km recovery run as the flexible mileage lever.",
   "gate": "Proceed aggressively through the planned Wednesday–Friday block while mechanics stay normal. Mild general heaviness is not an automatic downgrade. Escalating focal pain, altered gait, hopping pain or loss of warm-up coordination is the stop signal; when that appears, preserve the engine with non-impact aerobic work and obtain physio input.",
   "days": [
     {
@@ -631,42 +631,34 @@ const weeks: Week[] = [
       "id": "S18-3",
       "date": "10 SEP",
       "dow": "THU",
-      "title": "AM Threshold + PM Upper Hypertrophy",
+      "title": "Completed Threshold + Upper Strength",
       "type": "RUN",
-      "duration": "AM 9–10 km · PM 60–65 min",
+      "duration": "10.02 km · 58:16 + 40:21 strength · completed",
       "rpe": "7",
-      "note": "Key quality split day. Keep it scheduled after Wednesday's controlled aerobic work. Proceed when the warm-up is mechanically normal; downgrade only for an objective impact red flag, not ordinary training fatigue.",
+      "note": "The planned 3×8-minute threshold session and the upper-strength exposure are complete. The run reached 10.02 km overall; close the day after normal recovery work and keep Friday's Pro HYROX session protected.",
       "blocks": [
         {
-          "label": "AM WARM-UP · 15 MIN",
+          "label": "AM THRESHOLD · COMPLETE",
           "items": [
-            "12 min easy jog, ankle rocks 10/side, A-march 2×20 m and 3×20 sec progressive pickups",
-            "Start only with normal gait, no focal shin tenderness or hopping pain and discomfort 0–1/10"
+            "Garmin recorded the structured New Territories Threshold · 3×8 min session: 10.02 km in 58:16 overall (about 5:49/km including warm-up, recoveries and cool-down)",
+            "Average HR 161 and maximum HR 186; do not use the overall pace as the threshold-repetition pace",
+            "Count the key quality stimulus as completed and do not add make-up intervals today"
           ]
         },
         {
-          "label": "AM MAIN · 3×8 MIN",
+          "label": "UPPER STRENGTH · COMPLETE",
           "items": [
-            "Run 3×8 min at controlled threshold, RPE 7: open near 4:55/km and earn progression toward 4:45–4:50/km only with stable form and breathing",
-            "Jog 2:30 very easily between repetitions",
-            "Keep all reps even; do not turn the final rep into a test",
-            "Cool down easily to 9–10 km total"
+            "Completed 40:21 of strength work, average HR 124 and maximum HR 155",
+            "Garmin does not establish exercise-by-exercise loads here; retain Strong as the progression log for sets, reps and weights",
+            "The short easy cycle is incidental movement, not another training session"
           ]
         },
         {
-          "label": "PM UPPER HYPERTROPHY",
+          "label": "RECOVERY + FRIDAY GATE",
           "items": [
-            "Incline machine press 4×8–10 + chest-supported row 4×8–10; 90 sec rest",
-            "Neutral-grip pulldown 3×10 + lateral raise 3×12–15; 75 sec rest",
-            "Cable curl 3×10–12 + rope pressdown 3×10–12; 60 sec rest",
-            "Reverse pec deck 3×15 and farmer carry 3×40 m; 75 sec rest"
-          ]
-        },
-        {
-          "label": "ABS WITHOUT CRUNCH VOLUME",
-          "items": [
-            "Dead bug with full exhale 3×6/side + suitcase carry 3×30 m/side",
-            "Use slow bracing and normal breathing; stop at the first sign of abdominal cramp"
+            "No more running or conditioning today; restore carbohydrate, 25–35 g protein, fluids and sleep",
+            "Proceed with Friday's Pro HYROX session when gait is normal and shin/hamstring symptoms remain 0–1/10",
+            "Escalating focal pain, hopping pain or altered gait replaces Friday's run portions with SkiErg while preserving pain-free station technique"
           ]
         }
       ]
