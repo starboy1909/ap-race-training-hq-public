@@ -1477,7 +1477,7 @@ const phaseRoadmap = [
   ["23 Nov–13 Dec 2026", "Recover + travel maintenance", "Extended neutral travel window · 28 Nov–13 Dec"],
   ["14–20 Dec 2026", "Recovery + Procam decision", "ASICS benchmark · 13 Dec; Kolkata option · 20 Dec only if recovery is green"],
   ["21 Dec 2026–9 Jan 2027", "Home qualifier peak", "AIA HYROX Hong Kong Pro Doubles Men · 9 Jan afternoon"],
-  ["10–24 Jan 2027", "Post-Hong Kong recovery", "No Noida or Osaka HYROX stacking after the confirmed Pro race"],
+  ["10–23 Jan 2027", "Post-Hong Kong recovery", "No Noida or Osaka HYROX stacking after the confirmed Pro race"],
   ["25 Jan–14 Feb 2027", "Japan marathon / Bangkok fork", "Paid Japan entry → marathon-specific build; otherwise Bangkok qualifier backup · 11–14 Feb"],
   ["15 Feb–14 Mar 2027", "One Q1 peak only", "Osaka · 28 Feb or Tokyo · 7 Mar if selected and paid; Taipei · 12–14 Mar only when no Japan marathon is active"],
   ["15 Mar–18 Apr 2027", "Nagoya qualifier build", "HYROX Nagoya · 16–18 Apr"],
