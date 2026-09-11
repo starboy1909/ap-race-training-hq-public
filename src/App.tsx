@@ -671,8 +671,17 @@ const weeks: Week[] = [
       "type": "HYROX",
       "duration": "90–100 min",
       "rpe": "7",
-      "note": "One combined WFH-window session. HYROX running counts as the week's second intensity exposure.",
+      "note": "Completed exactly 3×1 km as prescribed—there was no fourth running interval. The attached Strong summary is authoritative for exercise counts and loads; Garmin is used only for compatible device metrics.",
       "blocks": [
+        {
+          "label": "COMPLETED · VERIFIED FROM WORKOUT LOG",
+          "items": [
+            "94 min total · 31,050 kg logged volume · 5 PRs",
+            "Running: exactly 3×1 km treadmill; best kilometre 5:15. Do not count warm-up, cooldown or incidental movement as a fourth interval",
+            "SkiErg 5:00; sled push 6 sets, best 235 kg × 12; sled pull 6 sets, best 170 kg × 12",
+            "Burpees 3×12; wall balls 3×20 plus 2×30 at 9 kg"
+          ]
+        },
         {
           "label": "WARM-UP · 12 MIN",
           "items": [
