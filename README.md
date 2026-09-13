@@ -1,75 +1,42 @@
-# AP Race & Training HQ
+# AP Training HQ
 
-Public-safe HYROX and road-racing season planner.
+Live: https://starboy1909.github.io/ap-race-training-hq-public/
 
-Live site: https://starboy1909.github.io/ap-race-training-hq-public/
+The application has one canonical daily plan, one records centre, coaching guidance,
+a race campaign and a season roadmap. Legacy results/master-plan URLs redirect here.
 
-## Privacy
+## Data ownership
 
-This public version excludes exact personal travel dates, arrival times, trip
-locations, booking information, private contact details, and the training
-partner's identity.
+- `src/trainingHistory.ts`: retained historical workout detail and stable completion IDs.
+- `src/trainingPlan.ts`: daily provisional prescriptions through 13 June 2027; one optional
+  selected-and-paid Japan marathon branch at a time. Availability constraints are neutral.
+- `src/performanceData.ts`, `src/hyroxHistory.ts`, `src/resultDetails.ts`: historical results.
+- `src/raceData.ts`: personal status separate from race opportunity status.
+- `src/data/garmin-weekly.json`: explicitly historical aggregate, not current readiness.
 
-Race results, training prescriptions, and readiness logic are intentionally
-public. Daily completion and readiness entries stay only in the visitor's local
-browser storage and are not uploaded.
+`rmr_completed_v4` and `ap_training_checkins_v1` are frozen browser keys. Optional
+sessions use `<existing-day-id>-secondary`. Session logs and private Garmin imports use
+new keys; old records are never reset. Export/import provides manual device transfer.
+Browser records are not encrypted or automatically synchronised.
 
-Garmin processing is local and read-only. The private `.garmin-private/` archive
-contains the raw activity and health responses and is excluded from Git. The
-website receives only weekly aggregates, the `PROCEED / MODIFY / RECOVER`
-decision, training implications, and a proposed-change summary. Activity names,
-GPS/location details, credentials, OAuth tokens, and raw daily health records are
-never published.
+Never commit email contents, booking details, exact routes, account identifiers,
+private health records or personal travel descriptions. Only neutral availability
+adjustments and public-safe training summaries enter the website. Raw device history
+and compact snapshots remain private. Purchased products are not assumed to be taken.
 
-The Garmin tab adds public-safe running aggregates: recent treadmill/outdoor
-distance, an eight-week surface split, an anonymized outdoor-versus-treadmill
-comparison, race predictions, and personal-best context. Historical road-race
-matching ignores Garmin activity titles and instead requires an official event
-date plus a compatible outdoor distance; only the event, finish time, distance,
-pace, confidence and matching basis may enter the public ledger. Activity IDs,
-names and routes remain private. The Timeline tab maps
-road races, HYROX windows, travel, and collision periods from August 2026 to
-January 2027. Exact activity names, routes, and locations remain excluded.
+## Garmin
 
-The Plan tab opens today's workout when that date exists in the selected plan.
-Choosing any week collapses every workout so the user can scan the week first.
-The full weekly Garmin review is kept on the Garmin tab rather than the Plan tab.
+The page does not connect directly to Garmin. Import a private compact snapshot
+with `lastSuccessfulSnapshotAt`, `healthByDate`, and optional `activities` into Records.
+The importer merges by local date and activity ID. Missing measurements remain blank.
+Daily retrieval must first inspect the last successful timestamp, skip if under 24 h,
+and retrieve at most the latest three Hong Kong calendar days. Archive silently unless
+new evidence materially changes coaching. Historical full-review scripts are manual
+legacy utilities; they are not the hourly/free-tier snapshot path and must not be
+used by the recurring watch.
 
-## Garmin weekly review
+## Validation and publication
 
-The baseline review collects all available activity summaries, 56 days of daily
-health history, 30-day HRV, 56-day training load, 90-day VO2 max, endurance and
-hill trends, current training status/readiness, load focus, race predictions,
-personal records, Body Battery, and body composition when Garmin provides them.
-
-One-time authentication, in a local PowerShell window:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts/setup-garmin.ps1
-```
-
-Run a private review and regenerate the public-safe summary:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts/run-weekly-garmin-review.ps1
-```
-
-The scheduled Codex review uses `scripts/publish-weekly-garmin-review.ps1`.
-That wrapper requires a clean worktree, fast-forwards `main`, runs the private
-review and all checks, stages only `src/data/garmin-weekly.json`, then commits
-and pushes the derived summary. It stops rather than touching unrelated changes.
-
-Safeguards:
-
-- Garmin is read-only and listens only on `127.0.0.1` while a review is running.
-- Pain at or above 4/10 overrides Garmin and stops quality training.
-- Garmin may reduce load automatically; increases and race-plan changes require review.
-- The public output is `src/data/garmin-weekly.json`; raw data stays in `.garmin-private/`.
-
-## Development
-
-```bash
-npm install
-npm run dev
-npm run check
-```
+`npm ci` then `npm run build`; `npm test` covers existing Garmin analysis safeguards.
+GitHub Pages publishes `dist` via the existing workflow when `main` changes.
+Preserve IDs, source labels, corrected repetition counts, and paid-versus-ballot states.
