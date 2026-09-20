@@ -1,5 +1,6 @@
+import { reviseFuture } from './buildRevision';
 import { legacyWeeks, type Day, type Week } from './trainingHistory';
-export type MarathonChoice = 'none' | 'osaka' | 'tokyo';
+export type MarathonChoice = 'none' | 'osaka';
 export const planReviewed = '2026-09-20';
 export const paceGuide = [
  ['Recovery', '6:20–7:10/km', 'RPE 2–3 · full sentences; walk breaks welcome'],
@@ -65,7 +66,7 @@ export function buildPlan(choice: MarathonChoice='none'): Week[] {
  const history=legacyWeeks.filter(w=>Number(w.id.slice(1))<=18).map(w=>({...w,days:w.days.map(d=>d.date==='13 SEP'?{...d,secondary:second(d)}:d)}));
  const output:Week[]=[...history];
  const base=Date.parse('2026-09-14T12:00:00Z');
- const marathon=choice==='osaka'?'2027-02-28':choice==='tokyo'?'2027-03-07':null;
+ const marathon=choice==='osaka'?'2027-02-28':null;
  for(let n=0;n<39;n++){
   const start=isoAt(base+n*7*86400000); const deload=n%4===3;
   const days:Day[]=[];
@@ -84,7 +85,7 @@ export function buildPlan(choice: MarathonChoice='none'): Week[] {
    if(iso==='2026-09-15')spec={title:'Completed 10.05 km · verified',type:'QUALITY',duration:'58:51',rpe:'Recorded load',note:'Verified 15 September: 10.05 km in 58:51 (approximately 5:51/km). This exceeded the planned 8 km easy dose and landed in the steady range; no added conditioning today.',blocks:[block('COMPLETED SESSION',['10.05 km recorded. Treat this as the week’s sustained running load, not an easy-day completion.','Recover with normal meals, fluids and sleep. No make-up kilometres or second leg session.'])]};
    if(iso==='2026-09-20')spec={title:'Completed long run · 15.16 km',type:'RUN',duration:'1:30:01 · completed',rpe:'Completed',blocks:[block('VERIFIED COMPLETION',['15.16 km in 1:30:01 (approximately 5:56/km).','This completes the planned Sunday long run. No additional running or conditioning today.'])],note:'The run exceeded the 14 km prescription by 1.16 km. Keep Monday lower-body strength only if walking, stairs, warm-up mechanics and symptoms are normal; otherwise use the existing upper-body-first option.'};
    if(iso>='2026-10-26'&&iso<'2026-10-31'){spec=dow===0?{...spec,blocks:[block('REDUCED STRENGTH',lower.map(x=>x.replaceAll('3×','2×')))],rpe:'6'}:dow===1?{...quality(n,true)}:dow===4?{...easy(3),title:'Short shakeout · 3 km'}:dow===3?rest():easy(5);}
-   if(iso==='2026-10-25')spec={...easy(10),title:'Easy 10 km / optional Pici social run',note:'Pici is an opportunity, not a confirmed entry. If entered, it replaces this run and stays conversational at 6:00–6:45/km, slower for social stops. No Yuen Tin on the same morning and no benchmark effort seven days before Shanghai.'};
+   if(iso==='2026-10-25')spec={...easy(10),title:'Easy 10 km · pre-Shanghai endurance',note:'Conversational 6:00–6:45/km. No benchmark effort seven days before Shanghai. No social race entry planned.'};
    if(iso==='2026-11-01')spec={title:'HYROX Shanghai · controlled Pro Doubles',type:'RACE',duration:'Race-day window; wave pending',rpe:'7–8',race:true,blocks:[block('REHEARSAL',['15 min warm-up, familiar movements only. Start running around 5:30–5:50/km and adjust to partner/conditions. Complete official race distances and Pro loads listed in Coaching.','Agree station shares beforehand. Avoid failure sets and a finishing sprint. Record official result and recovery response before deciding on Thursday’s running target.'])]};
    if(iso>='2026-11-02'&&iso<='2026-11-15')spec={...rest(),title:'Post-race recovery / easy return',type:'RECOVERY',duration:'0–30 min',blocks:[block('RETURN GATE',['First 48 hours: rest or easy walk. Then 20–30 min bike at RPE 2–3 if walking and stairs are normal.','Only resume 20–30 min easy running at 6:20–7:10/km once pain-free and energy is back. No hard work or doubles in this recovery block.'])]};
    if(iso==='2026-11-05')spec={title:'JPMorganChase · target, entry unconfirmed',type:'RECOVERY',duration:'Conditional 5.6 km',rpe:'3–7',blocks:[block('DECISION',['Run the event only with accepted/paid entry and full recovery from Shanghai. Otherwise rest or 25 min easy bike.','If fully recovered: 12 min easy warm-up; start 5.6 km around 5:10–5:25/km and reassess after 2 km, RPE ≤7 initially. No 3:56/km stretch-goal prescription. If soreness remains, skip the event.'])]};
@@ -106,7 +107,7 @@ export function buildPlan(choice: MarathonChoice='none'): Week[] {
     }
     if(until<0&&until>=-21)spec={...rest(),title:'Marathon recovery & gradual return',type:'RECOVERY',duration:'Rest / 20–30 min easy movement',note:'First week: walking and rest. Week 2: easy bike if comfortable. Week 3: short easy run only when walking, stairs and energy are normal. No Taipei race or doubles.'};
    }
-   const day:Day={id:`S${19+n}-${dow}`,iso,date:date.toLocaleDateString('en-GB',{day:'2-digit',month:'short',timeZone:'UTC'}).toUpperCase(),dow:['MON','TUE','WED','THU','FRI','SAT','SUN'][dow],title:'',type:'EASY',duration:'',rpe:'',...spec,travel};day.secondary=second(day);if((iso>='2027-01-04'&&iso<='2027-01-10')||(marathon&&Date.parse(marathon)-Date.parse(iso)>=0&&Date.parse(marathon)-Date.parse(iso)<=6*86400000))day.secondary={title:'No second workout today',items:['Taper week: keep the short primary session fresh. No added training volume.']};days.push(day);
+   const day:Day={id:`S${19+n}-${dow}`,iso,date:date.toLocaleDateString('en-GB',{day:'2-digit',month:'short',timeZone:'UTC'}).toUpperCase(),dow:['MON','TUE','WED','THU','FRI','SAT','SUN'][dow],title:'',type:'EASY',duration:'',rpe:'',...spec,travel};day.secondary=second(day);if((iso>='2027-01-04'&&iso<='2027-01-10')||(marathon&&Date.parse(marathon)-Date.parse(iso)>=0&&Date.parse(marathon)-Date.parse(iso)<=6*86400000))day.secondary={title:'No second workout today',items:['Taper week: keep the short primary session fresh. No added training volume.']};days.push(reviseFuture(day,deload));
   }
   output.push({id:`S${19+n}`,label:`W${19+n}`,dates:`${days[0].date} – ${days[6].date} ${start.slice(0,4) === days[6].iso?.slice(0,4) ? start.slice(0,4) : `${start.slice(0,4)}/${days[6].iso?.slice(2,4)}`}`,phase:days.some(d=>d.race)?'RACE':days.every(d=>['REST','RECOVERY'].includes(d.type))?'RECOVERY':days.some(d=>d.travel)?'ADAPT':deload?'DELOAD':'BUILD',volume:'Follow daily prescriptions · optional work adds load',focus:n<4?'Build repeatable sessions before raising volume. Two strength days, one running-quality day, one controlled HYROX day and one easy long run.':'Provisional continuation: review every week against actual completions and recovery. Future paces do not become faster automatically.',gate:'Proceed when walking/stairs are comfortable and energy is normal. If pain rises, alters gait, or is worse the next morning, stop impact and use easy non-impact work only if comfortable. Persistent focal shin pain, swelling or rest pain needs assessment.',days});
  }

@@ -9,7 +9,7 @@ a race campaign and a season roadmap. Legacy results/master-plan URLs redirect h
 
 - `src/trainingHistory.ts`: retained historical workout detail and stable completion IDs.
 - `src/trainingPlan.ts`: daily provisional prescriptions through 13 June 2027; one optional
-  selected-and-paid Japan marathon branch at a time. Availability constraints are neutral.
+  selected-and-paid Osaka marathon branch (Tokyo ballot unsuccessful). Availability constraints are neutral.
 - `src/performanceData.ts`, `src/hyroxHistory.ts`, `src/resultDetails.ts`: historical results.
 - `src/raceData.ts`: personal status separate from race opportunity status.
 - `src/data/garmin-weekly.json`: explicitly historical aggregate, not current readiness.
@@ -40,3 +40,11 @@ used by the recurring watch.
 `npm ci` then `npm run build`; `npm test` covers existing Garmin analysis safeguards.
 GitHub Pages publishes `dist` via the existing workflow when `main` changes.
 Preserve IDs, source labels, corrected repetition counts, and paid-versus-ballot states.
+
+## 21 September build revision
+
+`src/buildRevision.ts` applies structured strength progression and optional hotel-gym
+work only from 21 September 2026. Earlier generated days and training history remain
+unchanged. The old check-in storage key is retained solely for backup compatibility;
+there is no daily check-in interface or requirement. Race views use chronological
+ISO-date ordering. Tokyo and Pici are excluded from the active campaign.
