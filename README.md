@@ -8,8 +8,10 @@ a race campaign and a season roadmap. Legacy results/master-plan URLs redirect h
 ## Data ownership
 
 - `src/trainingHistory.ts`: retained historical workout detail and stable completion IDs.
-- `src/trainingPlan.ts`: daily provisional prescriptions through 13 June 2027; one optional
-  selected-and-paid Osaka marathon branch (Tokyo ballot unsuccessful). Availability constraints are neutral.
+- `src/seasonPlan.ts`: the performance season from 6 October 2026. Ranked goals, race dates,
+  one week table, session builders and the hotel template. Every future day comes from here.
+- `src/trainingPlan.ts`: assembles the calendar through 13 June 2027. Days before 6 October keep
+  their published prescriptions; later days are delegated to `seasonPlan.ts`. Osaka is part of the plan.
 - `src/performanceData.ts`, `src/hyroxHistory.ts`, `src/resultDetails.ts`: historical results.
 - `src/raceData.ts`: personal status separate from race opportunity status.
 - `src/data/garmin-weekly.json`: explicitly historical aggregate, not current readiness.
@@ -48,3 +50,10 @@ work only from 21 September 2026. Earlier generated days and training history re
 unchanged. The old check-in storage key is retained solely for backup compatibility;
 there is no daily check-in interface or requirement. Race views use chronological
 ISO-date ordering. Tokyo and Pici are excluded from the active campaign.
+
+## 6 October performance season
+
+Goals are ranked (Shanghai → Hong Kong → Bangkok → Osaka → JPM) and every paid race is in the
+daily plan with its own taper. `npm run verify` checks season logic: every paid race present,
+no run over 14 km in the 6 days before an A race, no hard HYROX session in the 5 days before,
+an easy day before and rest after each A race, no optional-only travel days, and a weekly km target.
