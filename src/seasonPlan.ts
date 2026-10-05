@@ -37,17 +37,28 @@ export const performanceMarkers = [
   ['Sandbag lunge, 30 kg', 'Slowest station (10:55 at HK Singles)', '50 m unbroken by December', 'Monday lower day + Friday HYROX'],
   ['Wall balls, 9 kg', 'Slowest station (10:45 at HK Singles)', '50 reps in 2 sets by December', '4×20 → 3×25 → 2×25 → 35 + 15'],
   ['Roxzone', '10:10–12:09 in singles', 'Under 7 min total in Doubles', 'Timed transitions in every HYROX session'],
-  ['Threshold pace', '5:15–5:30/km', '4:55–5:05/km by March', '5 sec/km faster every two weeks when all reps land at RPE 7 or less'],
+  ['Threshold pace', '4:54–5:07/km reps (Sep 2026)', '4:45–4:50/km by March', '5 sec/km faster every two weeks when all reps land at RPE 7 or less'],
   ['5K', '25:27 for 5.6K (2025 JPM)', 'Sub-21 by spring 2027, back toward the 20:55 PB', 'October 5K block, then a time trial after Osaka'],
 ];
 
 export const paceGuide = [
   ['Recovery', '6:30–7:10/km', 'RPE 2–3 · full sentences'],
-  ['Easy / long', '6:00–6:40/km', 'RPE 3–4 · conversational; slower in heat or on hills'],
-  ['Marathon (Osaka)', '6:00–6:15/km', 'RPE 5 · practise it inside January long runs'],
-  ['Threshold', '5:10–5:20/km to start', 'RPE 7 · even splits; 5 sec/km faster every two weeks when all reps land at RPE 7 or less'],
-  ['5K / JPM pace', '4:35–4:50/km', 'RPE 8 · 800 m–1 km reps with full recovery jog'],
-  ['Compromised HYROX km', '5:10–5:30/km', 'RPE 7 · first 200 m controlled after sleds, then settle'],
+  ['Easy / long', 'No faster than 5:50/km (9.0–10.0 kph)', 'RPE 3–4 · a limit, not a target. Slower in heat or on hills is fine'],
+  ['Marathon (Osaka)', '6:00–6:10/km (9.8–10.0 kph)', 'RPE 5 · set from your real marathons (6:15–6:28/km), not Runna’s 5:30'],
+  ['Threshold / tempo', '4:55–5:05/km (11.8–12.2 kph)', 'RPE 7 · from your Sep 2026 reps (4:54–5:07). 5 sec/km faster every two weeks when all reps land at RPE 7 or less'],
+  ['Intervals / 5K pace', '4:35–4:45/km (12.6–13.1 kph)', 'RPE 8 · 400 m–1.6 km reps, walking recoveries as in Runna'],
+  ['Compromised HYROX km', '5:05–5:25/km', 'RPE 7 · first 200 m controlled after sleds, then settle'],
+];
+
+export const runnaLessons = [
+  ['Kept', 'Runna session library', 'Tempo 3-2-1, Broken Miles, Drop Set, Over/Unders, On/Off Ks and Mile Repeats rotate on Wednesdays.'],
+  ['Kept', 'Pace ranges with a ceiling', 'Every rep has a target and a ±10 sec range; easy runs say “no faster than 5:50/km”.'],
+  ['Kept', 'Walking recoveries', '60–180 sec walking rest between reps, as Runna prescribed.'],
+  ['Kept', 'Taper 400s', 'Short 400 m reps just faster than goal pace before JPM, Shanghai, Hong Kong and Bangkok.'],
+  ['Kept', 'Race-practice long runs', 'Marathon-pace blocks inside Osaka long runs (22 Nov, 24 Jan).'],
+  ['Changed', 'Long-run peak', 'Runna planned 28–34 km runs that stopped at 9–22 km. The Osaka peak is 24 km, which you can complete.'],
+  ['Changed', 'Marathon pace', 'Runna set 5:05–5:30/km; Kerry was 6:28/km. Osaka pace is 6:00–6:10/km.'],
+  ['Changed', 'Rep pacing', 'You ran Runna reps 20–30 sec/km faster than prescribed and faded late. Rep 1 now starts at the slow end of the range.'],
 ];
 
 export const scheduleChangePolicy = [
@@ -86,7 +97,15 @@ function upper(level: Level): Spec {
 }
 
 function easy(km: number, extra?: string): Spec {
-  return { title: `Easy run · ${km} km`, type: 'EASY', duration: `${Math.round(km * 6)}–${Math.round(km * 6.7)} min`, rpe: '3–4', blocks: [block('RUN', [`${km} km at 6:00–6:40/km, conversational.`, extra ?? 'Finish with 4 × 20 sec relaxed strides, 60 sec walk between.'])] };
+  return { title: `Easy run · ${km} km`, type: 'EASY', duration: `${Math.round(km * 6)}–${Math.round(km * 6.7)} min`, rpe: '3–4', blocks: [block('RUN', [`${km} km at a conversational pace, no faster than 5:50/km. This is a limit, not a target.`, extra ?? 'Finish with 4 × 20 sec relaxed strides, 60 sec walk between.'])] };
+}
+
+// Runna-style finishes for the Tuesday easy run in build weeks.
+const easyRolling = (km: number) => easy(km, 'Finish with Rolling 400s: 4 × (400 m at 5:00/km + 400 m at 5:50/km), continuous.');
+const easyProgressive = (km: number) => ({ ...easy(km, 'Progressive finish: the last 3 km at 5:40, 5:25 and 5:10/km. Stop the build if breathing gets ragged.'), title: `Progressive run · ${km} km` });
+
+function racePractice(km: number, blocks: string): Spec {
+  return { ...long(km, 'Race-practice long run, Runna-style. Fuel 30–60 g carbohydrate an hour from 45 min, exactly as in Osaka.'), title: `Race-practice long run · ${km} km`, blocks: [block('LONG RUN', [blocks, 'Marathon pace 6:00–6:10/km (9.8–10.0 kph). Everything else at a conversational pace, no faster than 5:50/km.', 'Counts as done at 80% of the distance. If you stop short, repeat this run next week rather than moving up.'])] };
 }
 
 function long(km: number, note?: string): Spec {
@@ -96,19 +115,26 @@ function long(km: number, note?: string): Spec {
 const keyRuns = {
   jpm800: { title: '5K pace · 6 × 800 m', duration: '50 min', main: ['6 × 800 m at 4:40–4:50/km, 2 min easy jog between.', 'Aim for even reps. If the last two are faster than the first two, next week starts 5 sec/km faster.'] },
   jpm1k: { title: '5K pace · 5 × 1 km', duration: '55 min', main: ['5 × 1 km at 4:40–4:45/km, 2 min easy jog between.', 'Benchmark for JPM: if all five land at 4:45 or faster at RPE 8 or less, race at 4:35/km. If not, race at 4:40–4:45.'] },
-  thr3x10: { title: 'Threshold · 3 × 10 min', duration: '60 min', main: ['3 × 10 min at threshold (5:10–5:20/km to start), 2 min easy jog between.', 'Even splits. Progress 5 sec/km every two weeks when all reps land at RPE 7 or less.'] },
+  thr3x10: { title: 'Threshold · 3 × 10 min', duration: '60 min', main: ['3 × 10 min at 4:55–5:05/km (11.8–12.2 kph), 2 min walking rest between.', 'Even splits. Progress 5 sec/km every two weeks when all reps land at RPE 7 or less.'] },
   thr2x15: { title: 'Threshold · 2 × 15 min', duration: '60 min', main: ['2 × 15 min at threshold, 3 min easy jog between.', 'Same pace rule as 3 × 10. Second rep no slower than the first.'] },
   thr4x8: { title: 'Threshold · 4 × 8 min', duration: '60 min', main: ['4 × 8 min at threshold, 90 sec easy jog between.', 'Short recoveries are the progression; keep the pace from the last 3 × 10.'] },
   thr3x8: { title: 'Threshold · 3 × 8 min', duration: '50 min', main: ['3 × 8 min at threshold, 2 min easy jog between. Sharp, not heavy.'] },
   thrDeload: { title: 'Threshold · 2 × 8 min', duration: '45 min', main: ['2 × 8 min at threshold, 3 min easy jog between. Deload: hold pace, cut volume.'] },
   mp: { title: 'Marathon pace · 3 × 3 km', duration: '75 min', main: ['3 × 3 km at 6:00–6:10/km, 1 km easy between.', 'Practise race fuelling: one gel before the first block.'] },
   thrMp: { title: 'Threshold + marathon pace', duration: '70 min', main: ['2 × 10 min at threshold, then 4 km at 6:00–6:10/km.', 'Run the marathon-pace block on tired legs; that is the point.'] },
+  tempo321: { title: 'Tempo 3-2-1', duration: '55 min', main: ['3 km at 5:05/km (4:55–5:15), 3 min walking rest.', '2 km at 4:55/km (4:45–5:05), 2 min walking rest.', '1 km at 4:50/km (4:40–5:00).', 'Each block a little faster than the last; never faster than the bottom of its range.'] },
+  brokenMiles: { title: 'Broken Miles', duration: '55 min', main: ['3 × (1.2 km at 4:45/km (4:35–4:55), 2 min walking rest + 400 m at 4:30/km (4:20–4:40), 60 sec walking rest).', 'Rep 1 at the slow end of the range.'] },
+  dropSet: { title: 'Drop Set', duration: '55 min', main: ['2 × 1 km at 4:50/km · 2 × 800 m at 4:45 · 2 × 600 m at 4:35 · 2 × 400 m at 4:30. 90 sec walking rest after each.', 'Each step gets shorter and slightly faster. Do not run the 1 km reps faster than 4:45.'] },
+  overUnders: { title: 'Over and Unders · 1 km', duration: '50 min', main: ['3 × (1 km at 5:30/km + 1 km at 4:55/km), continuous, then 90 sec walking rest between sets.', 'The 5:30 km is still work. Do not jog it.'] },
+  onOffKs: { title: 'On/Off Ks', duration: '50 min', main: ['3 × (1 km at 5:25/km + 1 km at 4:50/km), continuous, 90 sec walking rest between sets.', 'Smooth and controlled; a gentle return to faster running.'] },
+  mileRepeats: { title: 'Mile Repeats · 3 × 1.6 km', duration: '55 min', main: ['3 × 1.6 km at 4:45/km (4:35–4:55), 2 min walking rest.', 'Your 2025 mile reps started at 4:14 against a 4:50 target and faded. Rep 1 at 4:50 this time.'] },
+  taper400s: { title: 'Taper 400s', duration: '35 min', main: ['6 × 400 m at 4:30/km, just faster than goal pace, 90 sec walking rest.', 'Snappy, relaxed, finish fresh. Nothing extra.'] },
   vo2: { title: 'Speed · 6 × 3 min', duration: '55 min', main: ['6 × 3 min at 5K pace (4:40–4:50/km to start), 2 min easy jog between.', 'Keeps 5K speed alive between HYROX blocks.'] },
 } as const;
 type KeyRun = keyof typeof keyRuns;
 function key(kind: KeyRun): Spec {
   const k = keyRuns[kind];
-  return { title: k.title, type: 'QUALITY', duration: k.duration, rpe: kind === 'thrDeload' ? '6–7' : '7–8', blocks: [block('WARM-UP', ['12 min easy, then 4 × 20 sec strides.']), block('MAIN SET', [...k.main]), block('COOL-DOWN', ['10 min easy. Log each rep split and RPE.'])] };
+  return { title: k.title, type: 'QUALITY', duration: k.duration, rpe: kind === 'thrDeload' || kind === 'taper400s' ? '6–7' : '7–8', blocks: [block('WARM-UP', ['2 km at a conversational pace (no faster than 5:50/km), then 4 × 20 sec strides and 90 sec walking rest.']), block('MAIN SET', [...k.main, 'Rep 1 starts at the slow end of its range. If your last rep is more than 10 sec/km slower than your first, repeat this pace next time.']), block('COOL-DOWN', ['1.5 km at a conversational pace (or slower). Log each rep split and RPE.'])] };
 }
 
 // HYROX Pro Doubles stations at your share (half the team volume) and full race loads.
@@ -145,10 +171,10 @@ const travelRest = (): Spec => ({ ...rest(), title: 'Travel day · rest', blocks
 const hotel = {
   strengthA: (): Spec => ({ title: 'Hotel strength A · legs + push', type: 'STRENGTH', duration: '45 min', rpe: '7', blocks: [block('DUMBBELLS + BENCH', ['Warm-up 5 min treadmill walk/jog.', 'Goblet squat 4 × 10 (heaviest dumbbell, 3-sec lowering) · rest 90 sec.', 'Dumbbell walking lunge 3 × 20 steps · rest 90 sec.', 'Dumbbell RDL 3 × 10 · dumbbell bench press 3 × 10.', 'Calf raise 3 × 15 on a step + heel walks 2 × 30 sec.']), block('WALL-BALL SUBSTITUTE', ['Dumbbell thrusters 4 × 15, rest 60 sec.'])] }),
   strengthB: (): Spec => ({ title: 'Hotel strength B · single leg + pull', type: 'STRENGTH', duration: '45 min', rpe: '7', blocks: [block('DUMBBELLS + BENCH', ['Warm-up 5 min treadmill walk/jog.', 'Rear-foot-elevated split squat 3 × 10/side · step-up 3 × 10/side.', 'One-arm dumbbell row 4 × 10/side · push-ups 3 × 12–20 · dumbbell shoulder press 3 × 10.']), block('GRIP + ENGINE', ['Farmers hold with the heaviest dumbbells 3 × 45 sec.', 'Burpees 3 × 10, rest 60 sec. Dead bug 2 × 8/side.'])] }),
-  easy: (min: number): Spec => ({ title: `Treadmill easy · ${min} min`, type: 'EASY', duration: `${min} min`, rpe: '3–4', blocks: [block('TREADMILL', [`${min} min at easy effort, 1% incline.`, 'Finish with 4 × 20 sec strides, 60 sec walk between.'])] }),
-  threshold: (): Spec => ({ title: 'Treadmill threshold · 3 × 10 min', type: 'QUALITY', duration: '60 min', rpe: '7–8', blocks: [block('TREADMILL · 1% INCLINE', ['12 min easy warm-up.', '3 × 10 min at threshold pace, 2 min walk/jog between.', '10 min easy cool-down. Log speed settings.'])] }),
-  hyrox: (): Spec => ({ title: 'Treadmill HYROX · 5 rounds', type: 'HYROX', duration: '55 min', rpe: '7–8', blocks: [block('5 ROUNDS', ['1 km treadmill at 5:10–5:30/km, then straight into:', 'Dumbbell thrusters 15 · dumbbell walking lunge 20 steps · burpees 10 · farmers hold 40 sec.', 'Rest 60 sec, then repeat. Time each round; keep the last within 10% of the first.'])] }),
-  long: (min: number): Spec => ({ title: `Treadmill long run · ${min} min`, type: 'LONG', duration: `${min} min`, rpe: '3–4', note: 'Osaka build continues on the treadmill. Fuel from 60 min.', blocks: [block('TREADMILL', [`${min} min at easy effort, 1% incline. Change the speed by 0.2 km/h every 15 min to keep your stride relaxed.`, 'Practise 30–60 g carbohydrate an hour.'])] }),
+  easy: (min: number): Spec => ({ title: `Treadmill easy · ${min} min`, type: 'EASY', duration: `${min} min`, rpe: '3–4', blocks: [block('TREADMILL', [`${min} min at 9.0–10.0 kph (6:00–6:40/km), 1% incline.`, 'Finish with 4 × 20 sec strides, 60 sec walk between.'])] }),
+  threshold: (): Spec => ({ title: 'Treadmill threshold · 3 × 10 min', type: 'QUALITY', duration: '60 min', rpe: '7–8', blocks: [block('TREADMILL · 1% INCLINE', ['12 min easy warm-up.', '3 × 10 min at 11.8–12.2 kph (4:55–5:05/km), 2 min walking rest between.', '10 min easy cool-down. Log speed settings.'])] }),
+  hyrox: (): Spec => ({ title: 'Treadmill HYROX · 5 rounds', type: 'HYROX', duration: '55 min', rpe: '7–8', blocks: [block('5 ROUNDS', ['1 km treadmill at 11.1–11.8 kph (5:05–5:25/km), then straight into:', 'Dumbbell thrusters 15 · dumbbell walking lunge 20 steps · burpees 10 · farmers hold 40 sec.', 'Rest 60 sec, then repeat. Time each round; keep the last within 10% of the first.'])] }),
+  long: (min: number): Spec => ({ title: `Treadmill long run · ${min} min`, type: 'LONG', duration: `${min} min`, rpe: '3–4', note: 'Osaka build continues on the treadmill. Fuel from 60 min.', blocks: [block('TREADMILL', [`${min} min at 9.0–10.0 kph, 1% incline. Change the speed by 0.2 km/h every 15 min to keep your stride relaxed.`, 'Practise 30–60 g carbohydrate an hour.'])] }),
 };
 
 function hotelDay(iso: string, dow: number): Spec {
@@ -164,33 +190,33 @@ const W: Record<string, WeekPlan> = {
   '2026-10-05': { phase: 'DELOAD · TRAVEL', km: '25–30 km', focus: 'Absorb September. Short treadmill and dumbbell work while away.', days: [null, easy(6), key('thrDeload'), upper('reduced'), null, hotel.strengthA(), hotel.long(70)] },
   '2026-10-12': { phase: 'BUILD · SHANGHAI', km: '38–42 km', focus: 'First 5K-pace session for JPM, race loads on the sleds. Monday is a travel day, so the key run moves to Tuesday and legs to Wednesday.', days: [null, key('jpm800'), lower('full'), upper('full'), hyrox('build', 4, '2 min'), easy(8), long(16)] },
   '2026-10-19': { phase: 'BUILD · SHANGHAI PEAK', km: '42–45 km', focus: 'Hardest week before Shanghai. The Friday simulation is the dress rehearsal; the JPM benchmark is Wednesday.', days: [lower('full'), easy(8), key('jpm1k'), upper('full'), hyrox('sim'), rest(), long(14, 'Easy. Shanghai is a week away; no fast finish.')] },
-  '2026-10-26': { phase: 'TAPER · SHANGHAI', km: '18–22 km', focus: 'Freshen up for an all-out Shanghai. Short and sharp only.', days: [lower('taper'), easy(6), hyrox('touch'), easy(5, 'Add 4 × 1 min at 4:35/km with 2 min easy. A JPM reminder, finish fresh.'), rest(), null, null] },
+  '2026-10-26': { phase: 'TAPER · SHANGHAI', km: '18–22 km', focus: 'Freshen up for an all-out Shanghai. Short and sharp only.', days: [lower('taper'), key('taper400s'), hyrox('touch'), easy(5), rest(), null, null] },
   '2026-11-02': { phase: 'RACE WEEK · JPM + RMAC', km: '25 km incl. races', focus: 'Recover from Shanghai fast, race JPM, then turn RMAC into an easy long run.', days: [null, null, null, null, rest(), null, null] },
-  '2026-11-09': { phase: 'BUILD · HONG KONG 1', km: '40–44 km', focus: 'Back to full training. Loads 10% under your pre-Shanghai numbers for Monday, then normal.', days: [lower('reduced', 'First lifting after the race block: 10% under your last working loads.'), easy(8), key('thr3x10'), upper('full'), hyrox('build', 4, '2 min'), rest(), long(18)] },
-  '2026-11-16': { phase: 'BUILD · HONG KONG 2', km: '44–48 km', focus: 'Volume up. One more HYROX round and shorter rests.', days: [lower('full'), easy(10), key('thr2x15'), upper('full'), hyrox('build', 5, '90 sec'), rest(), long(20)] },
-  '2026-11-23': { phase: 'BUILD · HONG KONG 3', km: '40–45 km', focus: 'Full Doubles simulation before travel. Ideal partner session.', days: [lower('full'), easy(10), key('vo2'), upper('full'), hyrox('sim'), null, hotel.long(80)] },
+  '2026-11-09': { phase: 'BUILD · HONG KONG 1', km: '40–44 km', focus: 'Back to full training. Loads 10% under your pre-Shanghai numbers for Monday, then normal.', days: [lower('reduced', 'First lifting after the race block: 10% under your last working loads.'), easyRolling(8), key('tempo321'), upper('full'), hyrox('build', 4, '2 min'), rest(), long(18)] },
+  '2026-11-16': { phase: 'BUILD · HONG KONG 2', km: '44–48 km', focus: 'Volume up. One more HYROX round and shorter rests.', days: [lower('full'), easyProgressive(10), key('brokenMiles'), upper('full'), hyrox('build', 5, '90 sec'), rest(), racePractice(20, '6 km easy · 8 km at marathon pace · 6 km easy.')] },
+  '2026-11-23': { phase: 'BUILD · HONG KONG 3', km: '40–45 km', focus: 'Full Doubles simulation before travel. Ideal partner session.', days: [lower('full'), easyRolling(10), key('dropSet'), upper('full'), hyrox('sim'), null, hotel.long(80)] },
   '2026-11-30': { phase: 'HOTEL BLOCK 1', km: '35–40 km (treadmill)', focus: 'Required minimum while away: 2 dumbbell sessions, 3 treadmill runs and a treadmill HYROX circuit.', days: [null, null, null, null, null, null, null] },
   '2026-12-07': { phase: 'HOTEL BLOCK 2', km: '35–40 km (treadmill)', focus: 'Same template, longer Sunday run. Monday 14 Dec is the travel home.', days: [null, null, null, null, null, null, hotel.long(100)] },
-  '2026-12-14': { phase: 'RE-ENTRY · HONG KONG 4', km: '38–42 km', focus: 'Back on the sleds at race load. Monday is the travel day, so legs move to Tuesday.', days: [null, lower('reduced', 'Back from travel: 10% under your last gym loads.'), easy(8), upper('full'), hyrox('build', 5, '90 sec'), rest(), long(18)] },
+  '2026-12-14': { phase: 'RE-ENTRY · HONG KONG 4', km: '38–42 km', focus: 'Back on the sleds at race load. Monday is the travel day, so legs move to Tuesday.', days: [null, lower('reduced', 'Back from travel: 10% under your last gym loads.'), key('onOffKs'), upper('full'), hyrox('build', 5, '90 sec'), rest(), long(18)] },
   '2026-12-21': { phase: 'BUILD · HONG KONG 5', km: '25–30 km', focus: 'The last big HYROX day before Hong Kong, 18 days out. Then the holiday trip.', days: [lower('full'), hyrox('sim'), easy(8), null, null, hotel.strengthA(), hotel.long(75)] },
   '2026-12-28': { phase: 'PRE-TAPER · HONG KONG', km: '30–34 km', focus: 'Sharp, moderate volume. Friday is the last race-pace rehearsal, 8 days out.', days: [null, lower('reduced'), key('thr3x8'), upper('reduced'), hyrox('rehearsal'), rest(), easy(12, 'Easy long-ish run. No strides.')] },
-  '2027-01-04': { phase: 'TAPER · HONG KONG', km: '15–18 km', focus: 'Fresh legs for the qualification attempt.', days: [lower('taper'), easy(6, 'Add 3 × 1 min at HYROX race pace, 2 min easy between.'), hyrox('touch'), easy(4), rest(), null, null] },
+  '2027-01-04': { phase: 'TAPER · HONG KONG', km: '15–18 km', focus: 'Fresh legs for the qualification attempt.', days: [lower('taper'), key('taper400s'), hyrox('touch'), easy(4), rest(), null, null] },
   '2027-01-11': { phase: 'RECOVER → OSAKA', km: '25–30 km', focus: 'Two easy days, then straight into the Osaka and Bangkok build.', days: [rest(), { title: 'Easy bike · 30 min', type: 'RECOVERY', duration: '30 min', rpe: '2–3', blocks: [block('FLUSH', ['30 min easy bike + 10 min mobility.'])] }, easy(6, 'Easy. No strides.'), upper('reduced'), easy(8), rest(), long(16, 'If you were picked for the SCHK Half Marathon this day, run it at this easy long-run pace instead.')] },
-  '2027-01-18': { phase: 'BUILD · OSAKA + BANGKOK 1', km: '45–48 km', focus: 'Marathon volume up, HYROX held at race loads for Bangkok.', days: [lower('reduced'), easy(12, 'Medium-long run. No strides.'), key('thrMp'), upper('full'), hyrox('build', 4, '90 sec'), rest(), long(20)] },
+  '2027-01-18': { phase: 'BUILD · OSAKA + BANGKOK 1', km: '45–48 km', focus: 'Marathon volume up, HYROX held at race loads for Bangkok.', days: [lower('reduced'), easy(12, 'Medium-long run. No strides.'), key('thrMp'), upper('full'), hyrox('build', 4, '90 sec'), rest(), racePractice(22, '6 km easy · 5 km at marathon pace · 2 km easy · 5 km at marathon pace · 4 km easy.')] },
   '2027-01-25': { phase: 'BUILD · OSAKA PEAK', km: '48–52 km', focus: 'Longest run of the season on Sunday, 4 weeks before Osaka and 13 days before Bangkok.', days: [lower('reduced'), easy(12, 'Medium-long run. No strides.'), key('mp'), upper('full'), hyrox('build', 5, '90 sec'), rest(), long(24)] },
-  '2027-02-01': { phase: 'BUILD · BANGKOK', km: '38–42 km', focus: 'Race-pace HYROX rehearsal 8 days before Bangkok; long run trimmed to keep the legs fresh.', days: [lower('reduced'), easy(10), key('thr3x8'), upper('reduced'), hyrox('rehearsal'), rest(), long(14, 'Easy. Bangkok is 6 days away.')] },
-  '2027-02-08': { phase: 'TAPER · BANGKOK', km: '15–18 km', focus: 'Second qualification attempt. Short taper; Osaka training resumes after.', days: [lower('taper'), easy(6, 'Add 3 × 1 min at HYROX race pace, 2 min easy between.'), hyrox('touch'), easy(4), rest(), null, rest('Day after Bangkok. Walk only.')] },
+  '2027-02-01': { phase: 'BUILD · BANGKOK', km: '38–42 km', focus: 'Race-pace HYROX rehearsal 8 days before Bangkok; long run trimmed to keep the legs fresh.', days: [lower('reduced'), easy(10), key('overUnders'), upper('reduced'), hyrox('rehearsal'), rest(), long(14, 'Easy. Bangkok is 6 days away.')] },
+  '2027-02-08': { phase: 'TAPER · BANGKOK', km: '15–18 km', focus: 'Second qualification attempt. Short taper; Osaka training resumes after.', days: [lower('taper'), key('taper400s'), hyrox('touch'), easy(4), rest(), null, rest('Day after Bangkok. Walk only.')] },
   '2027-02-15': { phase: 'BRIDGE · OSAKA', km: '30–35 km', focus: 'Recover from Bangkok, rehearse marathon pace, one last moderate long run.', days: [rest(), easy(6, 'Easy. No strides.'), easy(10, 'Include 2 × 2 km at 6:00–6:10/km.'), upper('reduced'), easy(6), rest(), long(14, 'Final long run. Practise race-morning breakfast and fuelling.')] },
   '2027-02-22': { phase: 'TAPER · OSAKA', km: '18 km + race', focus: 'Arrive fresh. Finish strong.', days: [rest(), easy(6, 'Include 3 × 1 km at 6:00–6:10/km.'), easy(5), easy(4), rest(), rest('Travel or rest. 10 min shakeout jog if you feel flat.'), null] },
 };
 
 const races: Record<string, Spec> = {
   '2026-10-31': { title: 'Shakeout · 20 min', type: 'EASY', duration: '20 min', rpe: '2–3', blocks: [block('PRE-RACE', ['20 min easy jog + 3 strides. Collect race kit, agree the station split and changeover cues with your partner.', 'Normal carbohydrate-rich dinner. No new foods.'])] },
-  [RACE_DATES.shanghai]: { title: 'HYROX Shanghai · Pro Doubles · RACE', type: 'RACE', race: true, duration: 'Race day', rpe: '9–10', blocks: [block('RACE PLAN · ALL OUT', ['Target: beat 1:27:54 (Delhi). Stretch: sub-1:22.', 'Runs: first 2 km at 5:15–5:20/km, then settle at 5:10–5:20. Run together; the slower runner sets the pace.', 'Stations: use the agreed split. You take the larger share of sleds and farmers carry if that is where you are stronger; split wall balls and lunges into short sets of 10–15.', 'Roxzone: walk in, move out. Every transition under 20 sec.']), block('FUEL', ['Carbohydrate meal 2–3 h before. 20–30 g carbohydrate 15 min before start.']), block('AFTER', ['Record official splits. They set the Hong Kong target.'])] },
+  [RACE_DATES.shanghai]: { title: 'HYROX Shanghai · Pro Doubles · RACE', type: 'RACE', race: true, duration: 'Race day', rpe: '9–10', blocks: [block('RACE PLAN · ALL OUT', ['Target: beat 1:27:54 (Delhi). Stretch: sub-1:22.', 'Runs: first 2 km no faster than 5:15/km, then settle at 5:10–5:20. Keep every km within 15 sec of the first. In Delhi the runs went 5:14 → 6:40; even pacing is free time.', 'Run together; the slower runner sets the pace.', 'Stations: use the agreed split. You take the larger share of sleds and farmers carry if that is where you are stronger; split wall balls and lunges into short sets of 10–15.', 'Roxzone: walk in, move out. Every transition under 20 sec.']), block('FUEL', ['Carbohydrate meal 2–3 h before. 20–30 g carbohydrate 15 min before start.']), block('AFTER', ['Record official splits. They set the Hong Kong target.'])] },
   '2026-11-02': travelRest(),
   '2026-11-03': { title: 'Flush · easy bike or walk', type: 'RECOVERY', duration: '30 min', rpe: '2', blocks: [block('RECOVER', ['30 min easy bike or brisk walk + 10 min mobility.', 'Eat plenty of carbohydrate and protein; sleep 8+ hours.'])] },
-  '2026-11-04': { title: 'Pre-race shakeout · 4 km', type: 'EASY', duration: '25 min', rpe: '3', blocks: [block('OPENERS', ['4 km easy, then 4 × 20 sec at 4:30–4:35/km with full walk-back recovery.'])] },
-  [RACE_DATES.jpm]: { title: 'JPMorganChase Corporate Challenge · 5.6K · RACE', type: 'RACE', race: true, duration: '~25 min', rpe: '9', note: 'Confirm your entry with the company team before race day.', blocks: [block('RACE PLAN · BEAT 25:27', ['Target pace 4:33/km or faster. Use the 21 Oct 5 × 1 km benchmark: all reps at 4:45 or faster means start at 4:35; otherwise start at 4:40–4:45 and close hard.', 'Km 1: 4:35–4:40, don’t get pulled by the crowd. Km 2–4: hold. Last 1.6 km: everything you have.', '15 min warm-up with 4 strides. The legs may feel Shanghai for the first km; it passes.'])] },
+  '2026-11-04': { title: 'Pre-race shakeout · 4 km', type: 'EASY', duration: '25 min', rpe: '3', blocks: [block('OPENERS', ['Taper 400s, short: 3 km easy, then 3 × 400 m at 4:30/km with 90 sec walking rest. Finish fresh.'])] },
+  [RACE_DATES.jpm]: { title: 'JPMorganChase Corporate Challenge · 5.6K · RACE', type: 'RACE', race: true, duration: '~25 min', rpe: '9', note: 'Confirm your entry with the company team before race day.', blocks: [block('RACE PLAN · BEAT 25:27', ['Target pace 4:33/km or faster. Use the 21 Oct 5 × 1 km benchmark: all reps at 4:45 or faster means start at 4:35; otherwise start at 4:40–4:45 and close hard.', 'Km 1: 4:35–4:40, no faster. Last year km 1 was 4:19 and km 5 was 4:52, which cost the time. Km 2–4: hold. Last 1.6 km: everything you have.', '15 min warm-up with 4 strides. The legs may feel Shanghai for the first km; it passes.'])] },
   '2026-11-06': rest(),
   '2026-11-07': { title: 'Easy bike or rest', type: 'RECOVERY', duration: '0–30 min', rpe: '2', blocks: [block('OPTIONAL', ['20–30 min easy bike, or full rest.'])] },
   [RACE_DATES.rmac]: { title: 'RMAC Gold Coast 15K · easy long run', type: 'RACE', race: true, duration: '90–100 min', rpe: '4', blocks: [block('RUN IT AS TRAINING', ['6:00–6:30/km, conversational. This is your Osaka long run this week, not a race.', 'Practise race fuelling: one gel at 45 min.'])] },
@@ -214,7 +240,7 @@ function postOsaka(iso: string, dow: number): Spec | null {
 // Generic hybrid template after Osaka recovery (from 22 March 2027). Deload every 4th week.
 function generic(dow: number, n: number): Spec {
   const deload = n % 4 === 3;
-  const keyCycle: KeyRun[] = ['thr3x10', 'vo2', 'thr2x15', 'thrDeload'];
+  const keyCycle: KeyRun[] = ['tempo321', 'brokenMiles', 'dropSet'];
   return [lower(deload ? 'reduced' : 'full'), easy(deload ? 6 : 10), key(deload ? 'thrDeload' : keyCycle[n % 3]), upper(deload ? 'reduced' : 'full'), deload ? hyrox('build', 3, '2 min') : hyrox(n % 2 ? 'build' : 'sim', 5, '90 sec'), rest(), long(deload ? 12 : 16, 'Aerobic support for HYROX; no marathon fuelling needed.')][dow];
 }
 
