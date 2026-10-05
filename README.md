@@ -2,6 +2,9 @@
 
 Live: https://starboy1909.github.io/ap-race-training-hq-public/
 
+**Agents and contributors: read [AGENTS.md](AGENTS.md) first.** No direct pushes to `main`;
+every change goes through a pull request that passes `npm run check`.
+
 The application has one canonical daily plan, one records centre, coaching guidance,
 a race campaign and a season roadmap. Legacy results/master-plan URLs redirect here.
 
@@ -15,6 +18,8 @@ a race campaign and a season roadmap. Legacy results/master-plan URLs redirect h
 - `src/performanceData.ts`, `src/hyroxHistory.ts`, `src/resultDetails.ts`: historical results.
 - `src/raceData.ts`: personal status separate from race opportunity status.
 - `src/data/garmin-weekly.json`: explicitly historical aggregate, not current readiness.
+- `src/data/completions.json`: runs recorded by the Sunday sync from the Runna calendar
+  (the Garmin mirror). Append only, through a pull request.
 
 `rmr_completed_v4` and `ap_training_checkins_v1` are frozen browser keys. Optional
 sessions use `<existing-day-id>-secondary`. Session logs and private Garmin imports use
@@ -36,6 +41,10 @@ and retrieve at most the latest three Hong Kong calendar days. Archive silently 
 new evidence materially changes coaching. Historical full-review scripts are manual
 legacy utilities; they are not the hourly/free-tier snapshot path and must not be
 used by the recurring watch.
+
+`scripts/publish-weekly-garmin-review.ps1` is retired (5 Oct 2026). It pushed straight to
+`main`; it now exits without doing anything. Weekly run data comes from the Sunday sync,
+which opens a pull request.
 
 ## Validation and publication
 
