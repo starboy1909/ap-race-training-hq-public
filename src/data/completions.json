@@ -1,1 +1,48 @@
-[]
+[
+  {
+    "date": "2026-09-29",
+    "planned": "Easy aerobic · 8 km",
+    "title": "New Territories Running",
+    "distanceKm": 10.01,
+    "time": "1:01:45",
+    "pace": "6:10/km",
+    "note": "2 km over plan. Easy pace held apart from one 5:17 km."
+  },
+  {
+    "date": "2026-09-30",
+    "planned": "Controlled speed · 6 × 2 min",
+    "title": "New Territories - Controlled speed · 6 × 2 min",
+    "distanceKm": 11.23,
+    "time": "1:11:00",
+    "pace": "6:19/km",
+    "reps": "0.44@4:34 0.42@4:48 0.40@5:03 0.45@4:26 0.43@4:37 0.42@4:42",
+    "note": "Target 4:55–5:10. Five of six reps faster than target; reps spread from 4:26 to 5:03."
+  },
+  {
+    "date": "2026-10-02",
+    "planned": "HYROX · 3 rounds / force & transitions",
+    "title": "Morning Run",
+    "distanceKm": 6.5,
+    "time": "45:00",
+    "pace": "6:55/km",
+    "note": "Synced from Strava without laps, so the HYROX run splits are not available."
+  },
+  {
+    "date": "2026-10-03",
+    "planned": "Rest & absorb",
+    "title": "Treadmill Running",
+    "distanceKm": 6.02,
+    "time": "46:05",
+    "pace": "7:39/km",
+    "note": "Unplanned very easy treadmill session on a rest day."
+  },
+  {
+    "date": "2026-10-04",
+    "planned": "Long easy · 16 km",
+    "title": "New Territories Running",
+    "distanceKm": 16.01,
+    "time": "1:33:45",
+    "pace": "5:51/km",
+    "note": "Full distance. Km 2–10 at 5:12–5:40, faster than the easy range, then 6:15–6:25 for the last 6 km."
+  }
+]
