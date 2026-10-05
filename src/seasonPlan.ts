@@ -32,8 +32,8 @@ export const seasonGoals = [
 ];
 
 export const performanceMarkers = [
-  ['Back squat', '50 kg × 4 (14 Sep)', '70 kg × 5 by Hong Kong', '+2.5 kg a week when every set is clean with 2 reps in reserve'],
-  ['Romanian deadlift', '30 kg × 8', '50 kg × 8 by Hong Kong', '+2.5 kg a week on the same rule'],
+  ['Back squat', '70 kg × 3 top set (5 Oct)', '80 kg × 5 by Hong Kong', 'Working sets 4 × 5 from 60 kg; +2.5 kg a week when every set is clean with 2 reps in reserve'],
+  ['Romanian deadlift', '40 kg × 5 (5 Oct)', '60 kg × 8 by Hong Kong', 'Build 40 kg to 3 × 8, then +2.5 kg a week'],
   ['Sandbag lunge, 30 kg', 'Slowest station (10:55 at HK Singles)', '50 m unbroken by December', 'Monday lower day + Friday HYROX'],
   ['Wall balls, 9 kg', 'Slowest station (10:45 at HK Singles)', '50 reps in 2 sets by December', '4×20 → 3×25 → 2×25 → 35 + 15'],
   ['Roxzone', '10:10–12:09 in singles', 'Under 7 min total in Doubles', 'Timed transitions in every HYROX session'],
@@ -69,10 +69,10 @@ function lower(level: Level, note?: string): Spec {
   const s = level === 'full' ? 4 : 3, a = level === 'full' ? 3 : 2;
   return { title: 'Lower strength · squat, lunge, hinge', type: 'STRENGTH', duration: level === 'full' ? '65–75 min' : '50–55 min', rpe: '7–8', note, blocks: [
     block('WARM-UP · 8 MIN', ['Easy bike 5 min, then ankle rocks, bodyweight squats and hinges × 8.', '2–3 ramp sets before the first squat set; they do not count as work sets.']),
-    block('A · BACK SQUAT', [`${s} × 5 at your working load, rest 2½–3 min, 2 reps in reserve.`, 'Start at 50 kg. Every week all sets are clean with 2 in reserve, add 2.5 kg. Target: 70 kg × 5 by Hong Kong.']),
-    block('B · SANDBAG WALKING LUNGE · RACE IMPLEMENT', [`${a} × 25 m with the 30 kg sandbag (or 2 × 15 kg dumbbells), rest 90 sec.`, 'Legal reps: back knee touches, full lockout. Progress to 2 × 50 m unbroken by December.']),
-    block('C · HINGE', [`Romanian deadlift ${a} × 8, rest 2 min. Start at 32.5 kg, +2.5 kg a week on the same rule. Target 50 kg × 8.`, `Hamstring curl ${a} × 10–12.`]),
-    block('D · CALF & SHIN', [`Bent-knee calf raise ${a} × 15 · straight-knee calf raise ${a} × 15 · tibialis raise 2 × 20.`, 'Dead bug 2 × 8/side.']),
+    block('A · BACK SQUAT', [`${s} × 5 at your working load, rest 2½–3 min, 2 reps in reserve.`, 'Working sets at 60 kg (your 5 Oct top set was 70 kg × 3). Ramp 40 × 5, 50 × 3 first. Every week all sets are clean with 2 in reserve, add 2.5 kg. Target: 80 kg × 5 by Hong Kong.', 'Straight sets at one load, not a ramp to a top set. No extra front-squat sets: the lunges cover that work.']),
+    block('B · SANDBAG WALKING LUNGE · RACE IMPLEMENT', [`${a} × 25 m with the 30 kg sandbag (or 2 × 15 kg dumbbells), rest 90 sec.`, 'Legal reps: back knee touches, full lockout. Progress to 2 × 50 m unbroken by December.', 'Your 5 Oct split squat used 2 × 15 kg = 30 kg total, the same as the race sandbag, so the load is right.']),
+    block('C · HINGE', [`Romanian deadlift ${a} × 8, rest 2 min. Start at 40 kg; once all sets reach 8 clean reps, +2.5 kg a week. Target 60 kg × 8.`, `Lying leg curl ${a} × 10–12 at about 46 kg. Same load every set; 53 kg dropped off by set 3 on 5 Oct.`]),
+    block('D · CALF & SHIN', [`Bent-knee calf raise ${a} × 15 at 25 kg · standing calf raise ${a} × 15 at 50 kg (20 reps at 20 kg and 40 kg was too light) · tibialis raise 2 × 25–30.`, 'Dead bug 2 × 8/side.']),
   ] };
 }
 

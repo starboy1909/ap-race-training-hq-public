@@ -22,7 +22,8 @@ try {
  // History before the cutover is unchanged
  assert.ok(byIso['2026-09-21'].blocks.some(b=>b.label.includes('STRAIGHT SETS')));
  assert.ok(byIso['2026-09-25'].title.includes('Optional hotel'));
- assert.equal(byIso['2026-10-05'].title,'Lower strength · squat, hinge & single-leg');
+ assert.equal(byIso['2026-10-05'].title,'Completed lower strength · verified');
+ assert.equal(byIso['2026-09-28'].title,'Lower strength · squat, hinge & single-leg');
 
  // Season logic
  for(const iso of Object.values(RACE_DATES))assert.equal(byIso[iso].race,true,`race missing on ${iso}`);
