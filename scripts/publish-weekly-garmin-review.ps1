@@ -1,5 +1,11 @@
 $ErrorActionPreference = "Stop"
 
+# Retired 5 Oct 2026: this script pushed straight to main. Weekly data now arrives through
+# the Sunday run sync, which opens a pull request. See AGENTS.md. Remove the Windows
+# scheduled task that runs this file.
+Write-Host "Retired: weekly publishing to main is disabled. See AGENTS.md." -ForegroundColor Yellow
+exit 0
+
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $publicSummary = "src/data/garmin-weekly.json"
 

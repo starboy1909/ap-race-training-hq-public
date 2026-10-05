@@ -1,5 +1,11 @@
 $ErrorActionPreference = "Stop"
 
+# An older copy of publish-weekly-garmin-review.ps1 may still be loaded by a scheduled task.
+# It pulls main and then calls this script, so stopping here prevents its push to main.
+if ($MyInvocation.PSCommandPath -like "*publish-weekly-garmin-review.ps1") {
+  throw "Retired: weekly Garmin publishing to main is disabled. See AGENTS.md."
+}
+
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $logRoot = Join-Path $repoRoot ".garmin-private"
 $logPath = Join-Path $logRoot "weekly-review.garmin.log"
