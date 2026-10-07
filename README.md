@@ -18,8 +18,9 @@ a race campaign and a season roadmap. Legacy results/master-plan URLs redirect h
 - `src/performanceData.ts`, `src/hyroxHistory.ts`, `src/resultDetails.ts`: historical results.
 - `src/raceData.ts`: personal status separate from race opportunity status.
 - `src/data/garmin-weekly.json`: explicitly historical aggregate, not current readiness.
-- `src/data/completions.json`: runs recorded by the Sunday sync from the Runna calendar
-  (the Garmin mirror). Append only, through a pull request.
+- `src/data/completions.json`: activities recorded by the Sunday sync from Strava (Runna calendar as fallback).
+  Append only, through a pull request.
+- `src/data/strength.json`: strength sessions from Strong screenshots. Append only.
 
 `rmr_completed_v4` and `ap_training_checkins_v1` are frozen browser keys. Optional
 sessions use `<existing-day-id>-secondary`. Session logs and private Garmin imports use
