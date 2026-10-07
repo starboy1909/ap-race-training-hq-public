@@ -17,7 +17,8 @@ Every push to `main` goes live. These rules apply to every agent (Codex, ChatGPT
 | Plan assembly and history | `src/trainingPlan.ts`, `src/trainingHistory.ts`, `src/buildRevision.ts` | Do not add date patches such as `if(iso==='2027-01-05')`. Past days stay exactly as published. |
 | Ranked goals, pace guide, markers | `src/seasonPlan.ts` (`seasonGoals`, `paceGuide`, `performanceMarkers`) | Change only with new race or test evidence. |
 | Race calendar and entry status | `src/raceData.ts` | Paid, registered, waitlisted and watch stay separate. Add a source and a checked date. |
-| Completed runs | `src/data/completions.json` | Append only. Written by the Sunday sync from the Runna calendar. |
+| Completed activities | `src/data/completions.json` | Append only. Written by the Sunday sync from Strava (Runna calendar as fallback). |
+| Strength sessions | `src/data/strength.json` | Append only. Added from Amar's Strong screenshots. |
 | Results | `src/performanceData.ts`, `src/hyroxHistory.ts`, `src/resultDetails.ts` | Official or device-verified results only. |
 
 ## 3. Training rules

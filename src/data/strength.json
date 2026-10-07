@@ -1,0 +1,18 @@
+[
+  {
+    "date": "2026-10-05",
+    "session": "Lower strength",
+    "exercises": [
+      { "name": "Back squat", "sets": [{ "kg": 40, "reps": 6 }, { "kg": 50, "reps": 5 }, { "kg": 60, "reps": 5 }, { "kg": 70, "reps": 3 }] },
+      { "name": "Front squat", "sets": [{ "kg": 40, "reps": 5 }, { "kg": 40, "reps": 5 }, { "kg": 40, "reps": 4 }] },
+      { "name": "Romanian deadlift", "sets": [{ "kg": 40, "reps": 5 }, { "kg": 40, "reps": 5 }, { "kg": 40, "reps": 5 }] },
+      { "name": "Rear-foot-supported split squat (2 × 15 kg)", "sets": [{ "kg": 30, "reps": 5 }, { "kg": 30, "reps": 7 }, { "kg": 30, "reps": 5 }] },
+      { "name": "Lying leg curl", "sets": [{ "kg": 53, "reps": 7 }, { "kg": 53, "reps": 5 }, { "kg": 39, "reps": 8 }] },
+      { "name": "Bent-knee calf raise", "sets": [{ "kg": 20, "reps": 20 }, { "kg": 20, "reps": 20 }, { "kg": 20, "reps": 20 }] },
+      { "name": "Standing calf raise", "sets": [{ "kg": 40, "reps": 20 }, { "kg": 40, "reps": 20 }, { "kg": 40, "reps": 20 }] },
+      { "name": "Tibialis raise", "sets": [{ "reps": 30 }, { "reps": 30 }, { "reps": 30 }] },
+      { "name": "Loaded back extension", "sets": [{ "kg": 9, "reps": 10 }, { "kg": 14, "reps": 5 }, { "kg": 14, "reps": 5 }] }
+    ],
+    "note": "Squat top set 70 × 3 reset the plan's working loads to 60 kg (4 × 5)."
+  }
+]
