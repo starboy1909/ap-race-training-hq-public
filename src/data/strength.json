@@ -3,16 +3,303 @@
     "date": "2026-10-05",
     "session": "Lower strength",
     "exercises": [
-      { "name": "Back squat", "sets": [{ "kg": 40, "reps": 6 }, { "kg": 50, "reps": 5 }, { "kg": 60, "reps": 5 }, { "kg": 70, "reps": 3 }] },
-      { "name": "Front squat", "sets": [{ "kg": 40, "reps": 5 }, { "kg": 40, "reps": 5 }, { "kg": 40, "reps": 4 }] },
-      { "name": "Romanian deadlift", "sets": [{ "kg": 40, "reps": 5 }, { "kg": 40, "reps": 5 }, { "kg": 40, "reps": 5 }] },
-      { "name": "Rear-foot-supported split squat (2 × 15 kg)", "sets": [{ "kg": 30, "reps": 5 }, { "kg": 30, "reps": 7 }, { "kg": 30, "reps": 5 }] },
-      { "name": "Lying leg curl", "sets": [{ "kg": 53, "reps": 7 }, { "kg": 53, "reps": 5 }, { "kg": 39, "reps": 8 }] },
-      { "name": "Bent-knee calf raise", "sets": [{ "kg": 20, "reps": 20 }, { "kg": 20, "reps": 20 }, { "kg": 20, "reps": 20 }] },
-      { "name": "Standing calf raise", "sets": [{ "kg": 40, "reps": 20 }, { "kg": 40, "reps": 20 }, { "kg": 40, "reps": 20 }] },
-      { "name": "Tibialis raise", "sets": [{ "reps": 30 }, { "reps": 30 }, { "reps": 30 }] },
-      { "name": "Loaded back extension", "sets": [{ "kg": 9, "reps": 10 }, { "kg": 14, "reps": 5 }, { "kg": 14, "reps": 5 }] }
+      {
+        "name": "Back squat",
+        "sets": [
+          {
+            "kg": 40,
+            "reps": 6
+          },
+          {
+            "kg": 50,
+            "reps": 5
+          },
+          {
+            "kg": 60,
+            "reps": 5
+          },
+          {
+            "kg": 70,
+            "reps": 3
+          }
+        ]
+      },
+      {
+        "name": "Front squat",
+        "sets": [
+          {
+            "kg": 40,
+            "reps": 5
+          },
+          {
+            "kg": 40,
+            "reps": 5
+          },
+          {
+            "kg": 40,
+            "reps": 4
+          }
+        ]
+      },
+      {
+        "name": "Romanian deadlift",
+        "sets": [
+          {
+            "kg": 40,
+            "reps": 5
+          },
+          {
+            "kg": 40,
+            "reps": 5
+          },
+          {
+            "kg": 40,
+            "reps": 5
+          }
+        ]
+      },
+      {
+        "name": "Rear-foot-supported split squat (2 × 15 kg)",
+        "sets": [
+          {
+            "kg": 30,
+            "reps": 5
+          },
+          {
+            "kg": 30,
+            "reps": 7
+          },
+          {
+            "kg": 30,
+            "reps": 5
+          }
+        ]
+      },
+      {
+        "name": "Lying leg curl",
+        "sets": [
+          {
+            "kg": 53,
+            "reps": 7
+          },
+          {
+            "kg": 53,
+            "reps": 5
+          },
+          {
+            "kg": 39,
+            "reps": 8
+          }
+        ]
+      },
+      {
+        "name": "Bent-knee calf raise",
+        "sets": [
+          {
+            "kg": 20,
+            "reps": 20
+          },
+          {
+            "kg": 20,
+            "reps": 20
+          },
+          {
+            "kg": 20,
+            "reps": 20
+          }
+        ]
+      },
+      {
+        "name": "Standing calf raise",
+        "sets": [
+          {
+            "kg": 40,
+            "reps": 20
+          },
+          {
+            "kg": 40,
+            "reps": 20
+          },
+          {
+            "kg": 40,
+            "reps": 20
+          }
+        ]
+      },
+      {
+        "name": "Tibialis raise",
+        "sets": [
+          {
+            "reps": 30
+          },
+          {
+            "reps": 30
+          },
+          {
+            "reps": 30
+          }
+        ]
+      },
+      {
+        "name": "Loaded back extension",
+        "sets": [
+          {
+            "kg": 9,
+            "reps": 10
+          },
+          {
+            "kg": 14,
+            "reps": 5
+          },
+          {
+            "kg": 14,
+            "reps": 5
+          }
+        ]
+      }
     ],
     "note": "Squat top set 70 × 3 reset the plan's working loads to 60 kg (4 × 5)."
+  },
+  {
+    "date": "2026-10-08",
+    "session": "Upper strength",
+    "exercises": [
+      {
+        "name": "Band pull-apart",
+        "sets": [
+          {
+            "reps": 15
+          },
+          {
+            "reps": 15
+          }
+        ]
+      },
+      {
+        "name": "Scapular pulldown",
+        "sets": [
+          {
+            "reps": 10
+          },
+          {
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "Panatta vertical chest press",
+        "sets": [
+          {
+            "kg": 55,
+            "reps": 10
+          },
+          {
+            "kg": 55,
+            "reps": 10
+          },
+          {
+            "kg": 55,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "Hammer Strength MTS",
+        "sets": [
+          {
+            "kg": 30,
+            "reps": 10
+          },
+          {
+            "kg": 30,
+            "reps": 10
+          },
+          {
+            "kg": 30,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "Panatta lat pulldown",
+        "sets": [
+          {
+            "kg": 45,
+            "reps": 10
+          },
+          {
+            "kg": 45,
+            "reps": 10
+          },
+          {
+            "kg": 45,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "Panatta deltoid",
+        "sets": [
+          {
+            "kg": 45,
+            "reps": 10
+          },
+          {
+            "kg": 45,
+            "reps": 10
+          },
+          {
+            "kg": 45,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "Pallof press",
+        "sets": [
+          {
+            "reps": 10
+          },
+          {
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "Wall balls (9 kg)",
+        "sets": [
+          {
+            "kg": 9,
+            "reps": 20
+          },
+          {
+            "kg": 9,
+            "reps": 20
+          },
+          {
+            "kg": 9,
+            "reps": 20
+          }
+        ]
+      },
+      {
+        "name": "Farmers carry (32 kg per hand, 50 m)",
+        "sets": [
+          {
+            "kg": 32,
+            "reps": 50
+          },
+          {
+            "kg": 32,
+            "reps": 50
+          },
+          {
+            "kg": 32,
+            "reps": 50
+          }
+        ]
+      }
+    ],
+    "note": "Best set per exercise from the Strong summary; other sets assumed equal. Side plank 2 x 30 sec. Deload day: plan was 2 sets, 3 done. Wall balls 3 x 20 meets the October race-format target. Farmers reps column is metres."
   }
 ]
