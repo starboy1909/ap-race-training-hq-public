@@ -44,5 +44,76 @@
     "time": "1:33:45",
     "pace": "5:51/km",
     "note": "Full distance. Km 2–10 at 5:12–5:40, faster than the easy range, then 6:15–6:25 for the last 6 km."
+  },
+  {
+    "date": "2026-10-05",
+    "type": "strength",
+    "source": "strava",
+    "planned": "Completed lower strength · verified",
+    "title": "Morning Weight Training",
+    "time": "1:08:00",
+    "note": "Details: manual upload (in the Strength log). 11 min bike warm-up."
+  },
+  {
+    "date": "2026-10-06",
+    "type": "run",
+    "source": "strava",
+    "planned": "Easy run · 6 km",
+    "title": "Morning Run",
+    "distanceKm": 10.51,
+    "time": "1:02:08",
+    "pace": "5:55/km",
+    "avgHr": 149,
+    "maxHr": 168,
+    "note": "4.5 km over a deload easy run. Laps 5:39 to 6:03, close to the 5:50 ceiling; heart rate rose from 133 to 165."
+  },
+  {
+    "date": "2026-10-07",
+    "type": "run",
+    "source": "strava",
+    "planned": "Threshold · 2 × 8 min",
+    "title": "Morning Treadmill Run",
+    "distanceKm": 10.2,
+    "time": "1:00:00",
+    "pace": "5:53/km",
+    "avgHr": 146,
+    "maxHr": 185,
+    "reps": "1.0@4:29 0.76@4:39 | 1.0@4:59 0.66@4:34 | 1.0@5:02 0.61@4:51",
+    "note": "Three reps of about 8 min instead of two, mostly faster than the 4:55 to 5:05 threshold range. 11 min bike warm-up."
+  },
+  {
+    "date": "2026-10-08",
+    "type": "strength",
+    "source": "strava",
+    "planned": "Upper strength + wall balls",
+    "title": "Morning Weight Training",
+    "time": "44:10",
+    "note": "Details: manual upload (in the Strength log). Bike: 9 min warm-up, 23 min indoor ride after, 31 min easy ride in the evening."
+  },
+  {
+    "date": "2026-10-10",
+    "type": "run",
+    "source": "strava",
+    "planned": "Hotel strength A · legs + push",
+    "title": "Morning Run",
+    "distanceKm": 9.11,
+    "time": "56:22",
+    "pace": "6:11/km",
+    "avgHr": 140,
+    "maxHr": 156,
+    "note": "Easy run instead of the planned hotel strength session. Easy pace and heart rate held well."
+  },
+  {
+    "date": "2026-10-11",
+    "type": "run",
+    "source": "strava",
+    "planned": "Treadmill long run · 70 min",
+    "title": "Morning Run",
+    "distanceKm": 10.43,
+    "time": "1:05:21",
+    "pace": "6:16/km",
+    "avgHr": 144,
+    "maxHr": 165,
+    "note": "Long run done outdoors, 65 min moving against 70 planned (93%). Easy pace throughout; one walk break."
   }
 ]
