@@ -20,6 +20,7 @@ Every push to `main` goes live. These rules apply to every agent (Codex, ChatGPT
 | Race calendar and entry status | `src/raceData.ts` | Paid, registered, waitlisted and watch stay separate. Add a source and a checked date. |
 | Completed activities | `src/data/completions.json` | Append only. Written by the Sunday sync from Strava (Runna calendar as fallback). |
 | Strength sessions | `src/data/strength.json` | Append only. Added from Amar's Strong screenshots. |
+| Local track timetable | `src/data/track.json` | One entry per month from the venue timetable Amar sends: open (A) and limited-lane (L) slots only, with source, issued and checked dates. Call it "local track" on the site; no venue name. Key runs show an optional evening track line; the morning session stays the default. |
 | Results | `src/performanceData.ts`, `src/hyroxHistory.ts`, `src/resultDetails.ts` | Official or device-verified results only. |
 
 ## 3. Training rules

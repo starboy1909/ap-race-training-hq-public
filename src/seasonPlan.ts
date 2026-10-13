@@ -1,4 +1,5 @@
 import type { Day } from './trainingHistory';
+import track from './data/track.json';
 
 // Performance season from 6 October 2026. Every future day is generated here from one
 // ranked race calendar and one week table, so season-level rules (tapers, long-run spacing,
@@ -244,7 +245,42 @@ function generic(dow: number, n: number): Spec {
   return [lower(deload ? 'reduced' : 'full'), easy(deload ? 6 : 10), key(deload ? 'thrDeload' : keyCycle[n % 3]), upper(deload ? 'reduced' : 'full'), deload ? hyrox('build', 3, '2 min') : hyrox(n % 2 ? 'build' : 'sim', 5, '90 sec'), rest(), long(deload ? 12 : 16, 'Aerobic support for HYROX; no marathon fuelling needed.')][dow];
 }
 
+
+// ---------- local track ----------
+// Monthly jogging timetable from src/data/track.json. Key runs get an optional evening track
+// line when the track is open from 19:00 (Amar's earliest arrival) for at least 90 minutes.
+// The morning session stays the default; nothing is moved or added. Only dates after the
+// timetable's checked date get the line, so published days stay as they were.
+export const TRACK_EARLIEST = '19:00';
+const trackMonths = track.months as Record<string, { checked: string; days: Record<string, string[]> }>;
+const mins = (t: string) => Number(t.slice(0, 2)) * 60 + Number(t.slice(3, 5));
+const hhmm = (m: number) => `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`;
+export function trackWindows(iso: string): string[] | null {
+  return trackMonths[iso.slice(0, 7)]?.days[iso] ?? null;
+}
+export function trackWindow(iso: string): string | null {
+  for (const w of trackWindows(iso) ?? []) {
+    const [a, b] = w.split('–').map(mins);
+    const from = Math.max(a, mins(TRACK_EARLIEST));
+    if (b - from >= 90) return `${hhmm(from)}–${hhmm(b)}`;
+  }
+  return null;
+}
+function withTrack(iso: string, spec: Spec): Spec {
+  const checked = trackMonths[iso.slice(0, 7)]?.checked ?? '9999';
+  const w = spec.type === 'QUALITY' && !isTravel(iso) && iso > checked ? trackWindow(iso) : null;
+  if (!w) return spec;
+  return { ...spec, blocks: [...(spec.blocks ?? []), block('TRACK OPTION', [
+    `Local track open ${w} tonight. Optional: run this session on the track this evening instead of this morning. One run today, not both.`,
+    'Lane 1, watch in Track Run mode. Splits per 400 m: 4:30/km = 1:48 · 4:40 = 1:52 · 4:45 = 1:54 · 4:50 = 1:56 · 5:00 = 2:00 · 5:05 = 2:02.',
+  ])] };
+}
+
 export function seasonDay(iso: string, dow: number, monday: string, n: number): Spec {
+  return withTrack(iso, baseDay(iso, dow, monday, n));
+}
+
+function baseDay(iso: string, dow: number, monday: string, n: number): Spec {
   if (races[iso]) return races[iso];
   const p = postOsaka(iso, dow); if (p) return p;
   const week = W[monday];
