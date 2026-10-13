@@ -4,11 +4,12 @@ This repo publishes Amar's training plan to https://starboy1909.github.io/ap-rac
 Every push to `main` goes live. These rules apply to every agent (Codex, ChatGPT, Claude or any other).
 
 ## 1. How changes reach `main`
-- Never push to `main`. Work on a branch and open a pull request. Amar merges.
+- Never push to `main`. Work on a branch and open a pull request.
+- **Do not merge your own pull request.** Leave it open. Claude reviews every pull request from Codex or any other agent against these rules, runs `npm run check` on it, and merges it only if it holds up. Otherwise Claude comments with the reason. Amar merges Claude's own pull requests.
 - Run `npm ci` and `npm run check` before every push. Do not push if it fails.
   `npm run check` runs the Garmin tests, `scripts/verify-training-plan.mjs` (season rules) and the build.
 - One pull request per change. Explain what changed and why in the PR description, with the evidence.
-- No scheduled jobs, automations or scripts that commit or push on their own.
+- No scheduled jobs, automations or scripts that commit or push on their own. The one exception is Claude's Sunday sync, which only opens a pull request.
 
 ## 2. Where things live
 | What | File | Rule |
