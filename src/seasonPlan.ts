@@ -7,7 +7,6 @@ import track from './data/track.json';
 export const CUTOVER = '2026-10-06';
 
 export const RACE_DATES = {
-  shanghai: '2026-11-01',
   jpm: '2026-11-05',
   rmac: '2026-11-08',
   hongKong: '2027-01-09',
@@ -16,20 +15,19 @@ export const RACE_DATES = {
 } as const;
 
 // A races get a taper and long-run spacing check in scripts/verify-training-plan.mjs.
-export const A_RACES: string[] = [RACE_DATES.shanghai, RACE_DATES.hongKong, RACE_DATES.bangkok, RACE_DATES.osaka];
+export const A_RACES: string[] = [RACE_DATES.jpm, RACE_DATES.hongKong, RACE_DATES.bangkok, RACE_DATES.osaka];
 
 export const travelWindows: [string, string][] = [
-  ['2026-09-25', '2026-09-27'], ['2026-10-09', '2026-10-12'], ['2026-10-31', '2026-11-02'],
+  ['2026-09-25', '2026-09-27'], ['2026-10-09', '2026-10-12'],
   ['2026-11-28', '2026-12-14'], ['2026-12-24', '2026-12-28'],
 ];
 export const isTravel = (iso: string) => travelWindows.some(([a, b]) => iso >= a && iso <= b);
 
 export const seasonGoals = [
-  ['1', '1 Nov · HYROX Shanghai Pro Doubles', 'Race it flat out. Beat the Delhi Pro Doubles time of 1:27:54; stretch target sub-1:22. Use it to set the Hong Kong target.'],
-  ['2', '9 Jan · AIA HYROX Hong Kong Pro Doubles', 'Worlds qualification attempt. You race at 36, so check the 2026/27 Doubles age-group rule and the slot count after Shanghai. Provisional bar: sub-1:20.'],
+  ['1', '5 Nov · JPMorganChase 5.6K', 'The focus until race day (Shanghai was cancelled). Beat last year’s 25:27 (4:33/km); stretch sub-25:00 (4:28/km). The 21 Oct 5 × 1 km benchmark sets the race pace.'],
+  ['2', '9 Jan · AIA HYROX Hong Kong Pro Doubles', 'Worlds qualification attempt and now the first HYROX race of the season. You race at 36, so check the 2026/27 Doubles age-group rule and the slot count in November. Provisional bar: sub-1:20.'],
   ['3', '13 Feb · BYD HYROX Bangkok Pro Doubles', 'Second qualification attempt with its own taper. If Hong Kong qualifies, race it for a Pro Doubles PB.'],
   ['4', '28 Feb · Osaka Marathon', 'Finish strong. Target 4:15–4:25 from 6:00–6:15/km; stretch is beating the 4:23:56 PB. Long runs build from October so January is not a rush.'],
-  ['5', '5 Nov · JPMorganChase 5.6K', 'Beat last year’s 25:27 (about 4:33/km). October has dedicated 5K-pace sessions for this.'],
 ];
 
 export const performanceMarkers = [
@@ -55,7 +53,7 @@ export const runnaLessons = [
   ['Kept', 'Runna session library', 'Tempo 3-2-1, Broken Miles, Drop Set, Over/Unders, On/Off Ks and Mile Repeats rotate on Wednesdays.'],
   ['Kept', 'Pace ranges with a ceiling', 'Every rep has a target and a ±10 sec range; easy runs say “no faster than 5:50/km”.'],
   ['Kept', 'Walking recoveries', '60–180 sec walking rest between reps, as Runna prescribed.'],
-  ['Kept', 'Taper 400s', 'Short 400 m reps just faster than goal pace before JPM, Shanghai, Hong Kong and Bangkok.'],
+  ['Kept', 'Taper 400s', 'Short 400 m reps just faster than goal pace before JPM, Hong Kong and Bangkok.'],
   ['Kept', 'Race-practice long runs', 'Marathon-pace blocks inside Osaka long runs (22 Nov, 24 Jan).'],
   ['Changed', 'Long-run peak', 'Runna planned 28–34 km runs that stopped at 9–22 km. The Osaka peak is 24 km, which you can complete.'],
   ['Changed', 'Marathon pace', 'Runna set 5:05–5:30/km; Kerry was 6:28/km. Osaka pace is 6:00–6:10/km.'],
@@ -115,7 +113,8 @@ function long(km: number, note?: string): Spec {
 
 const keyRuns = {
   jpm800: { title: '5K pace · 6 × 800 m', duration: '50 min', main: ['6 × 800 m at 4:40–4:50/km, 2 min easy jog between.', 'Aim for even reps. If the last two are faster than the first two, next week starts 5 sec/km faster.'] },
-  jpm1k: { title: '5K pace · 5 × 1 km', duration: '55 min', main: ['5 × 1 km at 4:40–4:45/km, 2 min easy jog between.', 'Benchmark for JPM: if all five land at 4:45 or faster at RPE 8 or less, race at 4:35/km. If not, race at 4:40–4:45.'] },
+  jpm1k: { title: '5K pace · 5 × 1 km · JPM benchmark', duration: '55 min', main: ['5 × 1 km at 4:35–4:45/km, 2 min easy jog between. Rep 1 at 4:45; bring the others down only if it felt controlled.', 'Benchmark for JPM. Record every rep and the average. Average 4:35 or faster at RPE 8 or less: race at 4:30/km. Average 4:36–4:42: race at 4:32/km. Slower: race at 4:35 and close hard.'] },
+  jpmRace: { title: 'JPM race pace · 4 × 1.2 km', duration: '55 min', main: ['4 × 1.2 km at your JPM race pace from the 21 Oct benchmark (4:30 or 4:32/km; 4:35 if the benchmark was slower), 2 min easy jog between.', 'Rehearse the start: the first 400 m of rep 1 no faster than race pace. 4.8 km at race pace in total. If rep 4 is more than 5 sec/km slower than rep 1, race at the slower pace.'] },
   thr3x10: { title: 'Threshold · 3 × 10 min', duration: '60 min', main: ['3 × 10 min at 4:55–5:05/km (11.8–12.2 kph), 2 min walking rest between.', 'Even splits. Progress 5 sec/km every two weeks when all reps land at RPE 7 or less.'] },
   thr2x15: { title: 'Threshold · 2 × 15 min', duration: '60 min', main: ['2 × 15 min at threshold, 3 min easy jog between.', 'Same pace rule as 3 × 10. Second rep no slower than the first.'] },
   thr4x8: { title: 'Threshold · 4 × 8 min', duration: '60 min', main: ['4 × 8 min at threshold, 90 sec easy jog between.', 'Short recoveries are the progression; keep the pace from the last 3 × 10.'] },
@@ -189,11 +188,11 @@ type WeekPlan = { phase: string; km: string; focus: string; days: (Spec | null)[
 // null = use the hotel template on travel days, otherwise rest.
 const W: Record<string, WeekPlan> = {
   '2026-10-05': { phase: 'DELOAD · TRAVEL', km: '25–30 km', focus: 'Absorb September. Short treadmill and dumbbell work while away.', days: [null, easy(6), key('thrDeload'), upper('reduced'), null, hotel.strengthA(), hotel.long(70)] },
-  '2026-10-12': { phase: 'BUILD · SHANGHAI', km: '38–42 km', focus: 'First 5K-pace session for JPM, race loads on the sleds. Monday is a travel day, so the key run moves to Tuesday and legs to Wednesday.', days: [null, key('jpm800'), lower('full'), upper('full'), hyrox('build', 4, '2 min'), easy(8), long(16)] },
-  '2026-10-19': { phase: 'BUILD · SHANGHAI PEAK', km: '42–45 km', focus: 'Hardest week before Shanghai. The Friday simulation is the dress rehearsal; the JPM benchmark is Wednesday.', days: [lower('full'), easy(8), key('jpm1k'), upper('full'), hyrox('sim'), rest(), long(14, 'Easy. Shanghai is a week away; no fast finish.')] },
-  '2026-10-26': { phase: 'TAPER · SHANGHAI', km: '18–22 km', focus: 'Freshen up for an all-out Shanghai. Short and sharp only.', days: [lower('taper'), key('taper400s'), hyrox('touch'), easy(5), rest(), null, null] },
-  '2026-11-02': { phase: 'RACE WEEK · JPM + RMAC', km: '25 km incl. races', focus: 'Recover from Shanghai fast, race JPM, then turn RMAC into an easy long run.', days: [null, null, null, null, rest(), null, null] },
-  '2026-11-09': { phase: 'BUILD · HONG KONG 1', km: '40–44 km', focus: 'Back to full training. Loads 10% under your pre-Shanghai numbers for Monday, then normal.', days: [lower('reduced', 'First lifting after the race block: 10% under your last working loads.'), easyRolling(8), key('tempo321'), upper('full'), hyrox('build', 4, '2 min'), rest(), long(18)] },
+  '2026-10-12': { phase: 'BUILD · JPM', km: '38–42 km', focus: 'Shanghai is cancelled, so JPM on 5 Nov is the next race. First 5K-pace session, race loads on the sleds. Monday is a travel day, so the key run moves to Tuesday and legs to Wednesday.', days: [null, key('jpm800'), lower('full'), upper('full'), hyrox('build', 4, '2 min'), easy(8), long(16)] },
+  '2026-10-19': { phase: 'BUILD · JPM PEAK', km: '38–42 km', focus: 'Wednesday is the JPM benchmark: run it on the track if you can. The HYROX simulation becomes a 4-round build to keep Hong Kong ticking without tiring the legs.', days: [lower('full'), easy(8), key('jpm1k'), upper('full'), hyrox('build', 4, '2 min'), rest(), long(14, 'Easy. Last long run before JPM; no fast finish.')] },
+  '2026-10-26': { phase: 'SHARPEN · JPM', km: '30–34 km', focus: 'One race-pace rehearsal on Tuesday, lighter lifting, last HYROX session a week out.', days: [lower('reduced'), key('jpmRace'), upper('reduced'), hyrox('build', 3, '2 min'), easy(6), rest(), long(12, 'Easy. JPM is Thursday; no fast finish.')] },
+  '2026-11-02': { phase: 'RACE WEEK · JPM + RMAC', km: '22–25 km incl. races', focus: 'Short and sharp to Thursday, race JPM all out, then run RMAC easy as the long run.', days: [lower('taper'), key('taper400s'), null, null, rest(), null, null] },
+  '2026-11-09': { phase: 'BUILD · HONG KONG 1', km: '40–44 km', focus: 'Back to full HYROX training after JPM and RMAC. Monday loads 10% under your last working loads, then normal.', days: [lower('reduced', 'First lifting after the race block: 10% under your last working loads.'), easyRolling(8), key('tempo321'), upper('full'), hyrox('build', 4, '2 min'), rest(), long(18)] },
   '2026-11-16': { phase: 'BUILD · HONG KONG 2', km: '44–48 km', focus: 'Volume up. One more HYROX round and shorter rests.', days: [lower('full'), easyProgressive(10), key('brokenMiles'), upper('full'), hyrox('build', 5, '90 sec'), rest(), racePractice(20, '6 km easy · 8 km at marathon pace · 6 km easy.')] },
   '2026-11-23': { phase: 'BUILD · HONG KONG 3', km: '40–45 km', focus: 'Full Doubles simulation before travel. Ideal partner session.', days: [lower('full'), easyRolling(10), key('dropSet'), upper('full'), hyrox('sim'), null, hotel.long(80)] },
   '2026-11-30': { phase: 'HOTEL BLOCK 1', km: '35–40 km (treadmill)', focus: 'Required minimum while away: 2 dumbbell sessions, 3 treadmill runs and a treadmill HYROX circuit.', days: [null, null, null, null, null, null, null] },
@@ -212,17 +211,13 @@ const W: Record<string, WeekPlan> = {
 };
 
 const races: Record<string, Spec> = {
-  '2026-10-31': { title: 'Shakeout · 20 min', type: 'EASY', duration: '20 min', rpe: '2–3', blocks: [block('PRE-RACE', ['20 min easy jog + 3 strides. Collect race kit, agree the station split and changeover cues with your partner.', 'Normal carbohydrate-rich dinner. No new foods.'])] },
-  [RACE_DATES.shanghai]: { title: 'HYROX Shanghai · Pro Doubles · RACE', type: 'RACE', race: true, duration: 'Race day', rpe: '9–10', blocks: [block('RACE PLAN · ALL OUT', ['Target: beat 1:27:54 (Delhi). Stretch: sub-1:22.', 'Runs: first 2 km no faster than 5:15/km, then settle at 5:10–5:20. Keep every km within 15 sec of the first. In Delhi the runs went 5:14 → 6:40; even pacing is free time.', 'Run together; the slower runner sets the pace.', 'Stations: use the agreed split. You take the larger share of sleds and farmers carry if that is where you are stronger; split wall balls and lunges into short sets of 10–15.', 'Roxzone: walk in, move out. Every transition under 20 sec.']), block('FUEL', ['Carbohydrate meal 2–3 h before. 20–30 g carbohydrate 15 min before start.']), block('AFTER', ['Record official splits. They set the Hong Kong target.'])] },
-  '2026-11-02': travelRest(),
-  '2026-11-03': { title: 'Flush · easy bike or walk', type: 'RECOVERY', duration: '30 min', rpe: '2', blocks: [block('RECOVER', ['30 min easy bike or brisk walk + 10 min mobility.', 'Eat plenty of carbohydrate and protein; sleep 8+ hours.'])] },
-  '2026-11-04': { title: 'Pre-race shakeout · 4 km', type: 'EASY', duration: '25 min', rpe: '3', blocks: [block('OPENERS', ['Taper 400s, short: 3 km easy, then 3 × 400 m at 4:30/km with 90 sec walking rest. Finish fresh.'])] },
-  [RACE_DATES.jpm]: { title: 'JPMorganChase Corporate Challenge · 5.6K · RACE', type: 'RACE', race: true, duration: '~25 min', rpe: '9', note: 'Confirm your entry with the company team before race day.', blocks: [block('RACE PLAN · BEAT 25:27', ['Target pace 4:33/km or faster. Use the 21 Oct 5 × 1 km benchmark: all reps at 4:45 or faster means start at 4:35; otherwise start at 4:40–4:45 and close hard.', 'Km 1: 4:35–4:40, no faster. Last year km 1 was 4:19 and km 5 was 4:52, which cost the time. Km 2–4: hold. Last 1.6 km: everything you have.', '15 min warm-up with 4 strides. The legs may feel Shanghai for the first km; it passes.'])] },
+  '2026-11-04': { title: 'Pre-race shakeout · 20 min', type: 'EASY', duration: '20 min', rpe: '2–3', blocks: [block('OPENERS', ['20 min easy jog + 4 × 20 sec strides at race pace, full walk back.', 'Carbohydrate-rich dinner, no new foods. Lay out kit and race bib.'])] },
+  [RACE_DATES.jpm]: { title: 'JPMorganChase Corporate Challenge · 5.6K · RACE', type: 'RACE', race: true, duration: '~25 min', rpe: '9', blocks: [block('RACE PLAN · BEAT 25:27', ['Race pace from the 21 Oct benchmark, confirmed on 27 Oct: 4:30/km = 25:12 · 4:32/km = 25:24 · 4:35/km and close hard. Stretch: sub-25:00 needs 4:28/km.', 'Km 1: race pace, no faster. Last year km 1 was 4:19 and km 5 was 4:52; that fade cost the time. Km 2–4: hold race pace, even effort. Last 1.6 km: everything you have.', 'Start near the front of your wave so you do not weave. Watch on km splits.']), block('EVENING RACE · 6:30 P.M.', ['Normal breakfast and lunch. Carbohydrate snack 2–3 h before; water to thirst.', 'Warm-up: 15 min easy jog, 4 strides, then 2 × 1 min at race pace with 1 min walk. Finish 10 min before the start.'])] },
   '2026-11-06': rest(),
   '2026-11-07': { title: 'Easy bike or rest', type: 'RECOVERY', duration: '0–30 min', rpe: '2', blocks: [block('OPTIONAL', ['20–30 min easy bike, or full rest.'])] },
   [RACE_DATES.rmac]: { title: 'RMAC Gold Coast 15K · easy long run', type: 'RACE', race: true, duration: '90–100 min', rpe: '4', blocks: [block('RUN IT AS TRAINING', ['6:00–6:30/km, conversational. This is your Osaka long run this week, not a race.', 'Practise race fuelling: one gel at 45 min.'])] },
   '2027-01-08': { title: 'Shakeout · 15 min', type: 'EASY', duration: '15 min', rpe: '2–3', blocks: [block('PRE-RACE', ['15 min easy jog + 3 strides. Final station split and changeover cues with your partner.'])] },
-  [RACE_DATES.hongKong]: { title: 'AIA HYROX Hong Kong · Pro Doubles · RACE', type: 'RACE', race: true, duration: 'Afternoon wave', rpe: '9–10', blocks: [block('RACE PLAN · QUALIFICATION ATTEMPT', ['Target: set from Shanghai splits; provisional sub-1:20.', 'Runs: start at the compromised pace you held in the December simulations, then settle. Run together.', 'Stations: agreed split, short wall-ball and lunge sets, Roxzone under 20 sec per transition.', 'Carbohydrate meal 2–3 h before; 20–30 g carbohydrate 15 min before start.']), block('AFTER', ['Record official splits and age-group place. Check the Worlds slot allocation the same evening; you have 48 hours to accept.'])] },
+  [RACE_DATES.hongKong]: { title: 'AIA HYROX Hong Kong · Pro Doubles · RACE', type: 'RACE', race: true, duration: 'Afternoon wave', rpe: '9–10', blocks: [block('RACE PLAN · QUALIFICATION ATTEMPT', ['Target: set from the November and December Doubles simulations; provisional sub-1:20.', 'Runs: start at the compromised pace you held in the December simulations, then settle. Run together.', 'Stations: agreed split, short wall-ball and lunge sets, Roxzone under 20 sec per transition.', 'Carbohydrate meal 2–3 h before; 20–30 g carbohydrate 15 min before start.']), block('AFTER', ['Record official splits and age-group place. Check the Worlds slot allocation the same evening; you have 48 hours to accept.'])] },
   '2027-01-10': rest('Day after Hong Kong. Walk only.'),
   '2027-02-11': { ...easy(4), note: 'Travel to Bangkok if needed; run on arrival or skip.' },
   '2027-02-12': { title: 'Shakeout · 15 min', type: 'EASY', duration: '15 min', rpe: '2–3', blocks: [block('PRE-RACE', ['15 min easy jog + 3 strides. Station split and changeover cues confirmed.'])] },

@@ -24,7 +24,7 @@ Every push to `main` goes live. These rules apply to every agent (Codex, ChatGPT
 | Results | `src/performanceData.ts`, `src/hyroxHistory.ts`, `src/resultDetails.ts` | Official or device-verified results only. |
 
 ## 3. Training rules
-- **Goal ranking:** Shanghai (1 Nov) → Hong Kong (9 Jan) → Bangkok (13 Feb) → Osaka (28 Feb) → JPM (5 Nov). When two goals compete, the higher one wins.
+- **Goal ranking:** JPM (5 Nov, the focus until race day; Shanghai was cancelled) → Hong Kong (9 Jan) → Bangkok (13 Feb) → Osaka (28 Feb). When two goals compete, the higher one wins.
 - **Changing a future workout** needs Amar's explicit approval in the conversation. One run, one Garmin metric, sleep, HRV or Body Battery is never enough on its own to change the plan.
 - **Season rules enforced by `verify-training-plan.mjs`:**
   - every paid race is in the plan;
