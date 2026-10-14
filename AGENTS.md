@@ -20,10 +20,11 @@ Every push to `main` goes live. These rules apply to every agent (Codex, ChatGPT
 | Race calendar and entry status | `src/raceData.ts` | Paid, registered, waitlisted and watch stay separate. Add a source and a checked date. |
 | Completed activities | `src/data/completions.json` | Append only. Written by the Sunday sync from Strava (Runna calendar as fallback). |
 | Strength sessions | `src/data/strength.json` | Append only. Added from Amar's Strong screenshots. |
+| Local track timetable | `src/data/track.json` | One entry per month from the venue timetable Amar sends: open (A) and limited-lane (L) slots only, with source, issued and checked dates. Call it "local track" on the site; no venue name. Key runs show an optional evening track line; the morning session stays the default. |
 | Results | `src/performanceData.ts`, `src/hyroxHistory.ts`, `src/resultDetails.ts` | Official or device-verified results only. |
 
 ## 3. Training rules
-- **Goal ranking:** Shanghai (1 Nov) → Hong Kong (9 Jan) → Bangkok (13 Feb) → Osaka (28 Feb) → JPM (5 Nov). When two goals compete, the higher one wins.
+- **Goal ranking:** JPM (5 Nov, the focus until race day; Shanghai was cancelled) → Hong Kong (9 Jan) → Bangkok (13 Feb) → Osaka (28 Feb). When two goals compete, the higher one wins.
 - **Changing a future workout** needs Amar's explicit approval in the conversation. One run, one Garmin metric, sleep, HRV or Body Battery is never enough on its own to change the plan.
 - **Season rules enforced by `verify-training-plan.mjs`:**
   - every paid race is in the plan;

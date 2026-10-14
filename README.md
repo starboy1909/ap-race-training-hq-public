@@ -21,6 +21,9 @@ a race campaign and a season roadmap. Legacy results/master-plan URLs redirect h
 - `src/data/completions.json`: activities recorded by the Sunday sync from Strava (Runna calendar as fallback).
   Append only, through a pull request.
 - `src/data/strength.json`: strength sessions from Strong screenshots. Append only.
+- `src/data/track.json`: monthly local track jogging hours (open and limited-lane slots only). Key runs on
+  dates after the timetable's checked date get an optional evening track line when the track is open from
+  19:00 for at least 90 minutes. The morning session stays the default.
 
 `rmr_completed_v4` and `ap_training_checkins_v1` are frozen browser keys. Optional
 sessions use `<existing-day-id>-secondary`. Session logs and private Garmin imports use
@@ -63,7 +66,7 @@ ISO-date ordering. Tokyo and Pici are excluded from the active campaign.
 
 ## 6 October performance season
 
-Goals are ranked (Shanghai → Hong Kong → Bangkok → Osaka → JPM) and every paid race is in the
+Goals are ranked (JPM → Hong Kong → Bangkok → Osaka; Shanghai was cancelled) and every paid race is in the
 daily plan with its own taper. `npm run verify` checks season logic: every paid race present,
 no run over 14 km in the 6 days before an A race, no hard HYROX session in the 5 days before,
 an easy day before and rest after each A race, no optional-only travel days, and a weekly km target.

@@ -301,5 +301,133 @@
       }
     ],
     "note": "Best set per exercise from the Strong summary; other sets assumed equal. Side plank 2 x 30 sec. Deload day: plan was 2 sets, 3 done. Wall balls 3 x 20 meets the October race-format target. Farmers reps column is metres."
+  },
+  {
+    "date": "2026-10-14",
+    "session": "Lower strength",
+    "exercises": [
+      {
+        "name": "Back squat",
+        "sets": [
+          {
+            "kg": 65,
+            "reps": 3
+          }
+        ]
+      },
+      {
+        "name": "Front squat",
+        "sets": [
+          {
+            "kg": 30,
+            "reps": 7
+          },
+          {
+            "kg": 30,
+            "reps": 7
+          }
+        ]
+      },
+      {
+        "name": "Sandbag walking lunge (30 kg)",
+        "sets": [
+          {
+            "kg": 30,
+            "reps": 30
+          },
+          {
+            "kg": 30,
+            "reps": 30
+          },
+          {
+            "kg": 30,
+            "reps": 30
+          }
+        ]
+      },
+      {
+        "name": "Romanian deadlift",
+        "sets": [
+          {
+            "kg": 40,
+            "reps": 8
+          },
+          {
+            "kg": 40,
+            "reps": 8
+          },
+          {
+            "kg": 40,
+            "reps": 8
+          }
+        ]
+      },
+      {
+        "name": "Lying leg curl",
+        "sets": [
+          {
+            "kg": 46,
+            "reps": 12
+          },
+          {
+            "kg": 46,
+            "reps": 12
+          },
+          {
+            "kg": 46,
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": "Bent-knee calf raise",
+        "sets": [
+          {
+            "kg": 25,
+            "reps": 15
+          },
+          {
+            "kg": 25,
+            "reps": 15
+          },
+          {
+            "kg": 25,
+            "reps": 15
+          }
+        ]
+      },
+      {
+        "name": "Standing calf raise",
+        "sets": [
+          {
+            "kg": 50,
+            "reps": 15
+          },
+          {
+            "kg": 50,
+            "reps": 15
+          },
+          {
+            "kg": 50,
+            "reps": 15
+          }
+        ]
+      },
+      {
+        "name": "Tibialis raise",
+        "sets": [
+          {
+            "reps": 30
+          },
+          {
+            "reps": 30
+          },
+          {
+            "reps": 30
+          }
+        ]
+      }
+    ],
+    "note": "Best set per exercise from the Strong summary (1 h 02 min, 16,932 kg). Squat: 3 sets logged, only the 65 × 3 top set shown, so the plan's 4 × 5 at 60 kg is not confirmed. Other exercises assume every set matched the best set. RDL reached 40 × 8 (5 reps on 5 Oct); leg curl and calf loads as prescribed. Plus 30 min indoor bike, 12.8 km at 71 rpm average."
   }
 ]
