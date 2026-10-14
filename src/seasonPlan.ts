@@ -24,7 +24,7 @@ export const travelWindows: [string, string][] = [
 export const isTravel = (iso: string) => travelWindows.some(([a, b]) => iso >= a && iso <= b);
 
 export const seasonGoals = [
-  ['1', '5 Nov · JPMorganChase 5.6K', 'The focus until race day (Shanghai was cancelled). Beat last year’s 25:27 (4:33/km); stretch sub-25:00 (4:28/km). The 21 Oct 5 × 1 km benchmark sets the race pace.'],
+  ['1', '5 Nov · JPMorganChase 5.6K', 'The focus until race day (Shanghai is postponed, new date TBC). Beat last year’s 25:27 (4:33/km); stretch sub-25:00 (4:28/km). The 21 Oct 5 × 1 km benchmark sets the race pace.'],
   ['2', '9 Jan · AIA HYROX Hong Kong Pro Doubles', 'Worlds qualification attempt and now the first HYROX race of the season. You race at 36, so check the 2026/27 Doubles age-group rule and the slot count in November. Provisional bar: sub-1:20.'],
   ['3', '13 Feb · BYD HYROX Bangkok Pro Doubles', 'Second qualification attempt with its own taper. If Hong Kong qualifies, race it for a Pro Doubles PB.'],
   ['4', '28 Feb · Osaka Marathon', 'Finish strong. Target 4:15–4:25 from 6:00–6:15/km; stretch is beating the 4:23:56 PB. Long runs build from October so January is not a rush.'],
@@ -188,7 +188,7 @@ type WeekPlan = { phase: string; km: string; focus: string; days: (Spec | null)[
 // null = use the hotel template on travel days, otherwise rest.
 const W: Record<string, WeekPlan> = {
   '2026-10-05': { phase: 'DELOAD · TRAVEL', km: '25–30 km', focus: 'Absorb September. Short treadmill and dumbbell work while away.', days: [null, easy(6), key('thrDeload'), upper('reduced'), null, hotel.strengthA(), hotel.long(70)] },
-  '2026-10-12': { phase: 'BUILD · JPM', km: '38–42 km', focus: 'Shanghai is cancelled, so JPM on 5 Nov is the next race. First 5K-pace session, race loads on the sleds. Monday is a travel day, so the key run moves to Tuesday and legs to Wednesday.', days: [null, key('jpm800'), lower('full'), upper('full'), hyrox('build', 4, '2 min'), easy(8), long(16)] },
+  '2026-10-12': { phase: 'BUILD · JPM', km: '38–42 km', focus: 'Shanghai is postponed, so JPM on 5 Nov is the next race. First 5K-pace session, race loads on the sleds. Monday is a travel day, so the key run moves to Tuesday and legs to Wednesday.', days: [null, key('jpm800'), lower('full'), upper('full'), hyrox('build', 4, '2 min'), easy(8), long(16)] },
   '2026-10-19': { phase: 'BUILD · JPM PEAK', km: '38–42 km', focus: 'Wednesday is the JPM benchmark: run it on the track if you can. The HYROX simulation becomes a 4-round build to keep Hong Kong ticking without tiring the legs.', days: [lower('full'), easy(8), key('jpm1k'), upper('full'), hyrox('build', 4, '2 min'), rest(), long(14, 'Easy. Last long run before JPM; no fast finish.')] },
   '2026-10-26': { phase: 'SHARPEN · JPM', km: '30–34 km', focus: 'One race-pace rehearsal on Tuesday, lighter lifting, last HYROX session a week out.', days: [lower('reduced'), key('jpmRace'), upper('reduced'), hyrox('build', 3, '2 min'), easy(6), rest(), long(12, 'Easy. JPM is Thursday; no fast finish.')] },
   '2026-11-02': { phase: 'RACE WEEK · JPM + RMAC', km: '22–25 km incl. races', focus: 'Short and sharp to Thursday, race JPM all out, then run RMAC easy as the long run.', days: [lower('taper'), key('taper400s'), null, null, rest(), null, null] },

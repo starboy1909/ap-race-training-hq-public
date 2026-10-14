@@ -33,7 +33,7 @@ function hyrox(n: number, deload: boolean): Partial<Day> {
  ]),block('FINISH',['5–10 min easy cooldown. Record round splits, total loads including sled mass, station breaks and legal repetitions. Progress one variable only: rounds, load or rest density.'])]};
 }
 export const season = [
- ['Oct 2026','Build for JPM','Shanghai cancelled. Weekly 5K-pace work for JPM, HYROX kept at race loads for Hong Kong, long runs building for Osaka.'],
+ ['Oct 2026','Build for JPM','Shanghai postponed (date TBC). Weekly 5K-pace work for JPM, HYROX kept at race loads for Hong Kong, long runs building for Osaka.'],
  ['1–8 Nov','Race block','JPM all out: beat 25:27 → RMAC 15K as an easy long run.'],
  ['9 Nov–8 Jan','Hong Kong build','Three gym weeks, two hotel weeks at a required minimum, two Doubles simulations, then a 10-day taper.'],
  ['9 Jan','AIA HYROX Hong Kong','Pro Doubles · Worlds qualification attempt.'],
