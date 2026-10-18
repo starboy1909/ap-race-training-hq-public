@@ -429,5 +429,143 @@
       }
     ],
     "note": "Best set per exercise from the Strong summary (1 h 02 min, 16,932 kg). Squat: 3 sets logged, only the 65 × 3 top set shown, so the plan's 4 × 5 at 60 kg is not confirmed. Other exercises assume every set matched the best set. RDL reached 40 × 8 (5 reps on 5 Oct); leg curl and calf loads as prescribed. Plus 30 min indoor bike, 12.8 km at 71 rpm average."
+  },
+  {
+    "date": "2026-10-15",
+    "session": "Upper strength",
+    "exercises": [
+      {
+        "name": "TG chest press",
+        "sets": [
+          {
+            "kg": 45,
+            "reps": 10
+          },
+          {
+            "kg": 45,
+            "reps": 10
+          },
+          {
+            "kg": 45,
+            "reps": 10
+          },
+          {
+            "kg": 45,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "New-tech chest press",
+        "sets": [
+          {
+            "kg": 35,
+            "reps": 10
+          },
+          {
+            "kg": 35,
+            "reps": 10
+          },
+          {
+            "kg": 35,
+            "reps": 10
+          },
+          {
+            "kg": 35,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "Lat pulldown",
+        "sets": [
+          {
+            "kg": 50,
+            "reps": 10
+          },
+          {
+            "kg": 50,
+            "reps": 10
+          },
+          {
+            "kg": 50,
+            "reps": 10
+          },
+          {
+            "kg": 50,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "Hammer Strength ISO row",
+        "sets": [
+          {
+            "kg": 30,
+            "reps": 12
+          },
+          {
+            "kg": 30,
+            "reps": 12
+          },
+          {
+            "kg": 30,
+            "reps": 12
+          },
+          {
+            "kg": 30,
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": "Panatta standing (row/press)",
+        "sets": [
+          {
+            "kg": 30,
+            "reps": 12
+          },
+          {
+            "kg": 30,
+            "reps": 12
+          },
+          {
+            "kg": 30,
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": "Wall balls (9 kg)",
+        "sets": [
+          {
+            "kg": 9,
+            "reps": 20
+          },
+          {
+            "kg": 9,
+            "reps": 20
+          },
+          {
+            "kg": 9,
+            "reps": 20
+          }
+        ]
+      },
+      {
+        "name": "Farmers carry (32 kg per hand)",
+        "sets": [
+          {
+            "kg": 32,
+            "reps": 65
+          },
+          {
+            "kg": 32,
+            "reps": 65
+          }
+        ]
+      }
+    ],
+    "note": "Best set per exercise from the Strong summary (47 min, 16,400 kg); other sets assumed equal. 3 min stretching first. Afternoon session. Wall balls 3 x 20 as advised the day before HYROX; farmers carry 2 x 65 m at 32 kg per hand. Farmers reps column is metres."
   }
 ]

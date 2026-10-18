@@ -115,5 +115,72 @@
     "avgHr": 144,
     "maxHr": 165,
     "note": "Long run done outdoors, 65 min moving against 70 planned (93%). Easy pace throughout; one walk break."
+  },
+  {
+    "date": "2026-10-13",
+    "type": "run",
+    "source": "strava",
+    "planned": "5K pace · 6 × 800 m",
+    "title": "Morning Run",
+    "distanceKm": 8.67,
+    "time": "53:13",
+    "pace": "6:08/km",
+    "avgHr": 142,
+    "maxHr": 167,
+    "reps": "0.8@4:52 0.8@4:51 0.8@4:50 0.8@5:07 0.8@4:55 0.8@5:16",
+    "note": "Target 4:40–4:50. Reps 1–3 at the slow end, then a fade: rep 6 was 24 sec/km slower than rep 1. Repeat this pace next time."
+  },
+  {
+    "date": "2026-10-14",
+    "type": "strength",
+    "source": "strava",
+    "planned": "Lower strength · squat, lunge, hinge",
+    "title": "Morning Weight Training",
+    "time": "1:03:06",
+    "note": "Details in the Strength log. Bike: 10 min warm-up, 30 min easy ride after."
+  },
+  {
+    "date": "2026-10-15",
+    "type": "strength",
+    "source": "strava",
+    "planned": "Upper strength + wall balls",
+    "title": "Afternoon Weight Training",
+    "time": "47:01",
+    "note": "Moved to the afternoon after the morning slot was missed. Exercise details not uploaded yet."
+  },
+  {
+    "date": "2026-10-16",
+    "type": "ride",
+    "source": "strava",
+    "planned": "HYROX · 4 rounds, race loads",
+    "title": "Evening and night rides",
+    "time": "17:45",
+    "note": "HYROX session not done. Two short easy rides (7 and 11 min)."
+  },
+  {
+    "date": "2026-10-17",
+    "type": "run",
+    "source": "strava",
+    "planned": "Easy run · 8 km",
+    "title": "Morning Run",
+    "distanceKm": 10.1,
+    "time": "1:01:10",
+    "pace": "6:03/km",
+    "avgHr": 152,
+    "maxHr": 167,
+    "note": "2 km over an 8 km easy run. Km 2 and 4 at 5:41–5:45, faster than the 5:50 ceiling; heart rate drifted from 138 to 159."
+  },
+  {
+    "date": "2026-10-18",
+    "type": "run",
+    "source": "strava",
+    "planned": "Long run · 16 km",
+    "title": "Morning Run",
+    "distanceKm": 16.25,
+    "time": "1:30:01",
+    "pace": "5:32/km",
+    "avgHr": 145,
+    "maxHr": 155,
+    "note": "Full distance, indoor (no GPS). Very even, 5:29–5:33 every km, but about 30 sec/km faster than the 6:00–6:40 long-run range. Heart rate 126 to 151."
   }
 ]
