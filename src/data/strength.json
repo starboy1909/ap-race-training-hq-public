@@ -567,5 +567,143 @@
       }
     ],
     "note": "Best set per exercise from the Strong summary (47 min, 16,400 kg); other sets assumed equal. 3 min stretching first. Afternoon session. Wall balls 3 x 20 as advised the day before HYROX; farmers carry 2 x 65 m at 32 kg per hand. Farmers reps column is metres."
+  },
+  {
+    "date": "2026-10-19",
+    "session": "Full body strength",
+    "exercises": [
+      {
+        "name": "Squat (Smith machine)",
+        "sets": [
+          {
+            "kg": 60,
+            "reps": 5
+          },
+          {
+            "kg": 60,
+            "reps": 5
+          },
+          {
+            "kg": 60,
+            "reps": 5
+          },
+          {
+            "kg": 60,
+            "reps": 5
+          }
+        ]
+      },
+      {
+        "name": "Front squat (Smith machine)",
+        "sets": [
+          {
+            "kg": 40,
+            "reps": 7
+          },
+          {
+            "kg": 40,
+            "reps": 7
+          },
+          {
+            "kg": 40,
+            "reps": 7
+          },
+          {
+            "kg": 40,
+            "reps": 7
+          }
+        ]
+      },
+      {
+        "name": "Romanian deadlift (Smith machine)",
+        "sets": [
+          {
+            "kg": 40,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": "Sandbag lunges (30 kg)",
+        "sets": [
+          {
+            "kg": 30,
+            "reps": 25
+          },
+          {
+            "kg": 30,
+            "reps": 25
+          }
+        ]
+      },
+      {
+        "name": "Standing calf raise",
+        "sets": [
+          {
+            "kg": 50,
+            "reps": 15
+          },
+          {
+            "kg": 50,
+            "reps": 15
+          },
+          {
+            "kg": 50,
+            "reps": 15
+          }
+        ]
+      },
+      {
+        "name": "Tibialis raise",
+        "sets": [
+          {
+            "kg": 0,
+            "reps": 30
+          },
+          {
+            "kg": 0,
+            "reps": 30
+          },
+          {
+            "kg": 0,
+            "reps": 30
+          }
+        ]
+      },
+      {
+        "name": "Seated leg curl",
+        "sets": [
+          {
+            "kg": 41,
+            "reps": 12
+          },
+          {
+            "kg": 41,
+            "reps": 12
+          },
+          {
+            "kg": 41,
+            "reps": 12
+          },
+          {
+            "kg": 41,
+            "reps": 12
+          }
+        ]
+      }
+    ],
+    "note": "Best set per exercise from the Strong summary (1h 10m, 13,718 kg, 4 PRs); other sets assumed equal. Holiday morning session. Tibialis raise reps are bodyweight."
   }
 ]
