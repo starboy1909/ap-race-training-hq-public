@@ -182,5 +182,42 @@
     "avgHr": 145,
     "maxHr": 155,
     "note": "Full distance, indoor (no GPS). Very even, 5:29–5:33 every km, but about 30 sec/km faster than the 6:00–6:40 long-run range. Heart rate 126 to 151."
+  },
+  {
+    "date": "2026-10-19",
+    "type": "strength",
+    "source": "strava",
+    "planned": "Lower strength",
+    "title": "Early Morning Workout",
+    "time": "1:10:00",
+    "note": "Details in the Strength log. Bike: 30 min easy ride, 10.0 km, after the session."
+  },
+  {
+    "date": "2026-10-20",
+    "type": "strength",
+    "source": "strava",
+    "planned": "Upper strength (planned Thu)",
+    "title": "Early Morning Workout",
+    "time": "50:00",
+    "note": "Details in the Strength log. Done on Tuesday."
+  },
+  {
+    "date": "2026-10-20",
+    "type": "run",
+    "source": "self-reported",
+    "planned": "JPM benchmark · 5 × 1 km (planned Wed 21 Oct)",
+    "title": "Treadmill 5 × 1 km",
+    "reps": "4:37 / 4:37 / 4:33 / 4:31 / 4:33",
+    "pace": "4:34/km avg",
+    "note": "Treadmill speeds reported by Amar: 13.0, 13.0, 13.2, 13.3, 13.2 km/h; incline 1% throughout; paces calculated from them. The watch and Strava did not record the reps. RPE 8. Rest not recorded. Rule: average 4:35 or faster at RPE 8 or less sets JPM race pace at 4:30/km."
+  },
+  {
+    "date": "2026-10-22",
+    "type": "strength",
+    "source": "strava",
+    "planned": "Upper strength",
+    "title": "Upper Strength",
+    "time": "1:05:00",
+    "note": "Details in the Strength log. Third strength session this week."
   }
 ]

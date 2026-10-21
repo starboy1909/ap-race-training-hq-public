@@ -442,25 +442,29 @@
             "reps": 10
           },
           {
-            "kg": 45,
+            "kg": 40,
             "reps": 10
           },
           {
-            "kg": 45,
+            "kg": 40,
             "reps": 10
           },
           {
-            "kg": 45,
+            "kg": 40,
             "reps": 10
           }
         ]
       },
       {
-        "name": "New-tech chest press",
+        "name": "New tech chest supported row",
         "sets": [
           {
             "kg": 35,
-            "reps": 10
+            "reps": 8
+          },
+          {
+            "kg": 35,
+            "reps": 8
           },
           {
             "kg": 35,
@@ -468,16 +472,12 @@
           },
           {
             "kg": 35,
-            "reps": 10
-          },
-          {
-            "kg": 35,
-            "reps": 10
+            "reps": 8
           }
         ]
       },
       {
-        "name": "Lat pulldown",
+        "name": "Lat pulldown (machine)",
         "sets": [
           {
             "kg": 50,
@@ -498,19 +498,19 @@
         ]
       },
       {
-        "name": "Hammer Strength ISO row",
+        "name": "Hammer Strength ISO-lateral shoulder press",
         "sets": [
           {
             "kg": 30,
-            "reps": 12
+            "reps": 8
           },
           {
             "kg": 30,
-            "reps": 12
+            "reps": 8
           },
           {
             "kg": 30,
-            "reps": 12
+            "reps": 8
           },
           {
             "kg": 30,
@@ -519,7 +519,7 @@
         ]
       },
       {
-        "name": "Panatta standing (row/press)",
+        "name": "Panatta standing multi flight lateral raise",
         "sets": [
           {
             "kg": 30,
@@ -566,6 +566,454 @@
         ]
       }
     ],
-    "note": "Best set per exercise from the Strong summary (47 min, 16,400 kg); other sets assumed equal. 3 min stretching first. Afternoon session. Wall balls 3 x 20 as advised the day before HYROX; farmers carry 2 x 65 m at 32 kg per hand. Farmers reps column is metres."
+    "note": "Every set from the Strong log (47 min, 16,400 kg, 9 PRs). 3 min stretching first. Afternoon session. Wall balls 3 x 20 as advised the day before HYROX; farmers carry 2 x 65 m at 32 kg per hand. Farmers reps column is metres."
+  },
+  {
+    "date": "2026-10-19",
+    "session": "Full body strength",
+    "exercises": [
+      {
+        "name": "Squat (Smith machine)",
+        "sets": [
+          {
+            "kg": 30,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 12
+          },
+          {
+            "kg": 50,
+            "reps": 11
+          },
+          {
+            "kg": 60,
+            "reps": 5
+          }
+        ]
+      },
+      {
+        "name": "Front squat (Smith machine)",
+        "sets": [
+          {
+            "kg": 40,
+            "reps": 3
+          },
+          {
+            "kg": 40,
+            "reps": 7
+          },
+          {
+            "kg": 40,
+            "reps": 7
+          },
+          {
+            "kg": 40,
+            "reps": 5
+          }
+        ]
+      },
+      {
+        "name": "Deadlift (Smith machine)",
+        "sets": [
+          {
+            "kg": 40,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 10
+          },
+          {
+            "kg": 40,
+            "reps": 7
+          },
+          {
+            "kg": 40,
+            "reps": 7
+          }
+        ]
+      },
+      {
+        "name": "Sandbag lunges (30 kg)",
+        "sets": [
+          {
+            "kg": 30,
+            "reps": 25
+          },
+          {
+            "kg": 30,
+            "reps": 25
+          }
+        ]
+      },
+      {
+        "name": "Standing calf raise (machine)",
+        "sets": [
+          {
+            "kg": 50,
+            "reps": 15
+          },
+          {
+            "kg": 50,
+            "reps": 15
+          },
+          {
+            "kg": 50,
+            "reps": 15
+          }
+        ]
+      },
+      {
+        "name": "Tibialis raise",
+        "sets": [
+          {
+            "kg": 0,
+            "reps": 30
+          },
+          {
+            "kg": 0,
+            "reps": 30
+          },
+          {
+            "kg": 0,
+            "reps": 30
+          }
+        ]
+      },
+      {
+        "name": "Seated leg curl (machine)",
+        "sets": [
+          {
+            "kg": 36,
+            "reps": 12
+          },
+          {
+            "kg": 41,
+            "reps": 12
+          },
+          {
+            "kg": 41,
+            "reps": 12
+          },
+          {
+            "kg": 41,
+            "reps": 12
+          }
+        ]
+      }
+    ],
+    "note": "Every set from the Strong log (1h 10m, 13,718 kg, 0 PRs). Holiday morning session. Squat ramped 30, 40, 50, 60 kg. Tibialis raise reps are bodyweight."
+  },
+  {
+    "date": "2026-10-20",
+    "session": "Upper strength",
+    "exercises": [
+      {
+        "name": "Incline bench press (dumbbell)",
+        "sets": [
+          {
+            "kg": 5,
+            "reps": 12
+          },
+          {
+            "kg": 10,
+            "reps": 12
+          },
+          {
+            "kg": 10,
+            "reps": 9
+          },
+          {
+            "kg": 10,
+            "reps": 9
+          }
+        ]
+      },
+      {
+        "name": "Seated cable row",
+        "sets": [
+          {
+            "kg": 61,
+            "reps": 8
+          },
+          {
+            "kg": 61,
+            "reps": 8
+          },
+          {
+            "kg": 54,
+            "reps": 10
+          },
+          {
+            "kg": 54,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "Barbell biceps curl",
+        "sets": [
+          {
+            "kg": 20,
+            "reps": 12
+          },
+          {
+            "kg": 30,
+            "reps": 8
+          },
+          {
+            "kg": 30,
+            "reps": 6
+          },
+          {
+            "kg": 30,
+            "reps": 6
+          }
+        ]
+      },
+      {
+        "name": "Triceps extension",
+        "sets": [
+          {
+            "kg": 20,
+            "reps": 12
+          },
+          {
+            "kg": 20,
+            "reps": 12
+          },
+          {
+            "kg": 20,
+            "reps": 12
+          },
+          {
+            "kg": 20,
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": "Panatta standing multi flight lateral raise",
+        "sets": [
+          {
+            "kg": 30,
+            "reps": 12
+          },
+          {
+            "kg": 30,
+            "reps": 12
+          },
+          {
+            "kg": 30,
+            "reps": 12
+          },
+          {
+            "kg": 30,
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": "Panatta French press machine",
+        "sets": [
+          {
+            "kg": 35,
+            "reps": 12
+          },
+          {
+            "kg": 35,
+            "reps": 12
+          },
+          {
+            "kg": 35,
+            "reps": 12
+          },
+          {
+            "kg": 35,
+            "reps": 12
+          }
+        ]
+      }
+    ],
+    "note": "Every set from the Strong log (50 min, 7,696 kg, 7 PRs). 5 min stretching first. Early morning, the day after the full body session."
+  },
+  {
+    "date": "2026-10-22",
+    "session": "Upper strength",
+    "exercises": [
+      {
+        "name": "Band pull-apart (reps)",
+        "sets": [
+          {
+            "kg": 0,
+            "reps": 15
+          },
+          {
+            "kg": 0,
+            "reps": 15
+          }
+        ]
+      },
+      {
+        "name": "Scapular pulldown (reps)",
+        "sets": [
+          {
+            "kg": 0,
+            "reps": 10
+          },
+          {
+            "kg": 0,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "Panatta multi press incline",
+        "sets": [
+          {
+            "kg": 40,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "New tech chest supported row",
+        "sets": [
+          {
+            "kg": 40,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 9
+          },
+          {
+            "kg": 40,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "Lat pulldown (cable)",
+        "sets": [
+          {
+            "kg": 45,
+            "reps": 12
+          },
+          {
+            "kg": 52.5,
+            "reps": 12
+          },
+          {
+            "kg": 60,
+            "reps": 8
+          },
+          {
+            "kg": 67.5,
+            "reps": 5
+          }
+        ]
+      },
+      {
+        "name": "Panatta multi press shoulders seated",
+        "sets": [
+          {
+            "kg": 35,
+            "reps": 12
+          },
+          {
+            "kg": 35,
+            "reps": 8
+          },
+          {
+            "kg": 30,
+            "reps": 10
+          },
+          {
+            "kg": 30,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "Wall balls (9 kg)",
+        "sets": [
+          {
+            "kg": 9,
+            "reps": 20
+          },
+          {
+            "kg": 9,
+            "reps": 20
+          },
+          {
+            "kg": 9,
+            "reps": 20
+          },
+          {
+            "kg": 9,
+            "reps": 20
+          }
+        ]
+      },
+      {
+        "name": "Farmers carry (32.5 kg per hand)",
+        "sets": [
+          {
+            "kg": 32.5,
+            "reps": 50
+          },
+          {
+            "kg": 32.5,
+            "reps": 50
+          }
+        ]
+      },
+      {
+        "name": "New tech multi lateral raise",
+        "sets": [
+          {
+            "kg": 20,
+            "reps": 10
+          },
+          {
+            "kg": 10,
+            "reps": 12
+          },
+          {
+            "kg": 10,
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": "Reverse fly (machine)",
+        "sets": [
+          {
+            "kg": 35,
+            "reps": 6
+          }
+        ]
+      }
+    ],
+    "note": "Every set from the Strong log (1h 5m, 19,488 kg, 13 PRs), early morning. Band pull-apart and scapular pulldown rows are bodyweight reps. Farmers reps column is metres. The screenshots end at the first reverse fly set, so any later sets of that exercise are not logged."
   }
 ]
