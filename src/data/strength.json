@@ -705,5 +705,138 @@
       }
     ],
     "note": "Best set per exercise from the Strong summary (1h 10m, 13,718 kg, 4 PRs); other sets assumed equal. Holiday morning session. Tibialis raise reps are bodyweight."
+  },
+  {
+    "date": "2026-10-20",
+    "session": "Upper strength",
+    "exercises": [
+      {
+        "name": "Incline bench press",
+        "sets": [
+          {
+            "kg": 10,
+            "reps": 12
+          },
+          {
+            "kg": 10,
+            "reps": 12
+          },
+          {
+            "kg": 10,
+            "reps": 12
+          },
+          {
+            "kg": 10,
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": "Seated cable row",
+        "sets": [
+          {
+            "kg": 61,
+            "reps": 8
+          },
+          {
+            "kg": 61,
+            "reps": 8
+          },
+          {
+            "kg": 61,
+            "reps": 8
+          },
+          {
+            "kg": 61,
+            "reps": 8
+          }
+        ]
+      },
+      {
+        "name": "Barbell biceps curl",
+        "sets": [
+          {
+            "kg": 30,
+            "reps": 8
+          },
+          {
+            "kg": 30,
+            "reps": 8
+          },
+          {
+            "kg": 30,
+            "reps": 8
+          },
+          {
+            "kg": 30,
+            "reps": 8
+          }
+        ]
+      },
+      {
+        "name": "Triceps extension",
+        "sets": [
+          {
+            "kg": 20,
+            "reps": 12
+          },
+          {
+            "kg": 20,
+            "reps": 12
+          },
+          {
+            "kg": 20,
+            "reps": 12
+          },
+          {
+            "kg": 20,
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": "Panatta standing (row/press)",
+        "sets": [
+          {
+            "kg": 30,
+            "reps": 12
+          },
+          {
+            "kg": 30,
+            "reps": 12
+          },
+          {
+            "kg": 30,
+            "reps": 12
+          },
+          {
+            "kg": 30,
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": "Panatta French press",
+        "sets": [
+          {
+            "kg": 35,
+            "reps": 12
+          },
+          {
+            "kg": 35,
+            "reps": 12
+          },
+          {
+            "kg": 35,
+            "reps": 12
+          },
+          {
+            "kg": 35,
+            "reps": 12
+          }
+        ]
+      }
+    ],
+    "note": "Best set per exercise from the Strong summary (50 min, 7,696 kg, 7 PRs); other sets assumed equal. 5 min stretching first. Early morning, the day after the full body session."
   }
 ]
