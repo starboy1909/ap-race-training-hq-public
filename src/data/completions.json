@@ -210,5 +210,14 @@
     "reps": "4:37 / 4:37 / 4:33 / 4:31 / 4:33",
     "pace": "4:34/km avg",
     "note": "Treadmill speeds reported by Amar: 13.0, 13.0, 13.2, 13.3, 13.2 km/h; incline 1% throughout; paces calculated from them. The watch and Strava did not record the reps. RPE 8. Rest not recorded. Rule: average 4:35 or faster at RPE 8 or less sets JPM race pace at 4:30/km."
+  },
+  {
+    "date": "2026-10-22",
+    "type": "strength",
+    "source": "strava",
+    "planned": "Upper strength",
+    "title": "Upper Strength",
+    "time": "1:05:00",
+    "note": "Details in the Strength log. Third strength session this week."
   }
 ]

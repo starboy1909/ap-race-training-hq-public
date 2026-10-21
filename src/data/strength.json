@@ -838,5 +838,182 @@
       }
     ],
     "note": "Every set from the Strong log (50 min, 7,696 kg, 7 PRs). 5 min stretching first. Early morning, the day after the full body session."
+  },
+  {
+    "date": "2026-10-22",
+    "session": "Upper strength",
+    "exercises": [
+      {
+        "name": "Band pull-apart (reps)",
+        "sets": [
+          {
+            "kg": 0,
+            "reps": 15
+          },
+          {
+            "kg": 0,
+            "reps": 15
+          }
+        ]
+      },
+      {
+        "name": "Scapular pulldown (reps)",
+        "sets": [
+          {
+            "kg": 0,
+            "reps": 10
+          },
+          {
+            "kg": 0,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "Panatta multi press incline",
+        "sets": [
+          {
+            "kg": 40,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "New tech chest supported row",
+        "sets": [
+          {
+            "kg": 40,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 9
+          },
+          {
+            "kg": 40,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "Lat pulldown (cable)",
+        "sets": [
+          {
+            "kg": 45,
+            "reps": 12
+          },
+          {
+            "kg": 52.5,
+            "reps": 12
+          },
+          {
+            "kg": 60,
+            "reps": 8
+          },
+          {
+            "kg": 67.5,
+            "reps": 5
+          }
+        ]
+      },
+      {
+        "name": "Panatta multi press shoulders seated",
+        "sets": [
+          {
+            "kg": 35,
+            "reps": 12
+          },
+          {
+            "kg": 35,
+            "reps": 8
+          },
+          {
+            "kg": 30,
+            "reps": 10
+          },
+          {
+            "kg": 30,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "Wall balls (9 kg)",
+        "sets": [
+          {
+            "kg": 9,
+            "reps": 20
+          },
+          {
+            "kg": 9,
+            "reps": 20
+          },
+          {
+            "kg": 9,
+            "reps": 20
+          },
+          {
+            "kg": 9,
+            "reps": 20
+          }
+        ]
+      },
+      {
+        "name": "Farmers carry (32.5 kg per hand)",
+        "sets": [
+          {
+            "kg": 32.5,
+            "reps": 50
+          },
+          {
+            "kg": 32.5,
+            "reps": 50
+          }
+        ]
+      },
+      {
+        "name": "New tech multi lateral raise",
+        "sets": [
+          {
+            "kg": 20,
+            "reps": 10
+          },
+          {
+            "kg": 10,
+            "reps": 12
+          },
+          {
+            "kg": 10,
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": "Reverse fly (machine)",
+        "sets": [
+          {
+            "kg": 35,
+            "reps": 6
+          }
+        ]
+      }
+    ],
+    "note": "Every set from the Strong log (1h 5m, 19,488 kg, 13 PRs), early morning. Band pull-apart and scapular pulldown rows are bodyweight reps. Farmers reps column is metres. The screenshots end at the first reverse fly set, so any later sets of that exercise are not logged."
   }
 ]
