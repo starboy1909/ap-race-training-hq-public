@@ -149,3 +149,27 @@ pre { font-size: 11px; overflow: auto; max-height: 400px; white-space: pre-wrap;
 .day-row.selected { border-color: var(--accent); }
 .day-row .day-name b { font-size: 15px; }
 .logged article b { font-size: var(--fs-s); }
+
+/* Charts */
+.chart { width: 100%; height: auto; display: block; margin: 8px 0; }
+.chart .grid { stroke: var(--border); stroke-width: 1; }
+.chart .tick { fill: var(--text-muted); font-size: 11px; }
+.chart .bar { fill: var(--type-easy); }
+.chart .bar.highlight { fill: var(--accent); }
+.chart .bar.faint { fill: var(--border-strong); }
+.chart .band { fill: var(--accent-soft); }
+.chart .line { stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.line.accent, .spark .line.accent { stroke: var(--accent); }
+.line.warn { stroke: var(--warn); }
+.line.ok { stroke: var(--ok); }
+.spark { width: 120px; height: 32px; display: block; margin-top: 6px; }
+.spark .line { stroke-width: 2; }
+.spark .dotfill { fill: var(--accent); }
+.score-list, .lift-grid { display: grid; gap: 10px; }
+@media (min-width: 760px) { .lift-grid { grid-template-columns: repeat(3, 1fr); } }
+.score, .lift { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-m); padding: 12px 14px; display: grid; gap: 4px; }
+.score b { font-size: var(--fs-s); }
+.score .meta, .lift .meta { font-size: var(--fs-s); color: var(--text-2); }
+.score.hit { border-left: 3px solid var(--ok); }
+.score.hold { border-left: 3px solid var(--warn); }
+.score.repeat { border-left: 3px solid var(--danger); }

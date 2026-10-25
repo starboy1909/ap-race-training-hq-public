@@ -74,7 +74,7 @@ export default function App() {
     <Toast message={message} onClose={() => setMessage('')} />
     {route.tab === 'today' && <Today today={today} day={todayDay} week={todayDay && findWeekForDate(weeks, today)} days={days} nextRace={nextRace} completed={completed} index={index} onToggle={toggle} />}
     {route.tab === 'calendar' && <Calendar weeks={weeks} today={today} routeDate={route.date} completed={completed} index={index} onToggle={toggle} navigate={navigate} />}
-    {route.tab === 'profile' && <Profile sub={route.sub} />}
+    {route.tab === 'profile' && <Profile sub={route.sub} today={today} weeks={weeks} days={days} index={index} strength={strengthLog as StrengthEntry[]} />}
     {route.tab === 'races' && <Races today={today} />}
     {route.tab === 'more' && !route.sub && <More />}
     {route.tab === 'more' && route.sub === 'records' && <Records today={today} completions={completions as Completion[]} strength={strengthLog as StrengthEntry[]} logs={logs} snapshot={snapshot} archiveRows={archiveRows} view={recordView} setView={setRecordView} onSession={session} onImport={importData} onExport={exportBackup} />}

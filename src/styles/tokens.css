@@ -13,3 +13,4 @@
   --font-body: 'DM Sans', system-ui, sans-serif; --font-head: 'Space Grotesk', system-ui, sans-serif;
   --nav-h: 56px; --safe-b: env(safe-area-inset-bottom, 0px); --content-max: 1280px; --tap: 44px;
 }
+:root { --v-hit: var(--ok); --v-hold: var(--warn); --v-repeat: var(--danger); --v-logged: var(--text-muted); }
