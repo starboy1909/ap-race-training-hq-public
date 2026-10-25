@@ -1,0 +1,12 @@
+.today-head { padding: var(--s-3) 0 0; }
+.today-head .dateline { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--text-muted); font-size: var(--fs-s); }
+.today-head h2 { font-size: var(--fs-2xl); margin: 6px 0 0; letter-spacing: -1px; }
+.logged { margin: var(--s-4) 0; }
+.logged article { display: grid; gap: 4px; padding: 10px 0; border-top: 1px solid var(--border); }
+.logged article:first-of-type { border-top: 0; }
+.logged .meta { font-size: var(--fs-s); color: var(--text-muted); }
+.more-index { display: grid; gap: 10px; margin: var(--s-4) 0; }
+.more-index a { display: block; padding: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-m); color: var(--text); text-decoration: none; }
+.more-index a b { display: block; font-family: var(--font-head); font-size: var(--fs-l); }
+.more-index a span { color: var(--text-muted); font-size: var(--fs-s); }
+.results-anchor { scroll-margin-top: 80px; }
