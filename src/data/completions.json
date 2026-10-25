@@ -233,5 +233,69 @@
     "reps": "0.8@5:44 0.8@5:10 0.8@5:14 0.8@4:13 0.8@5:03 0.8@5:18 0.8@5:04 0.8@6:11",
     "stations": "4:03 · 1:57 · 3:11 · 3:02 · 4:08 · 2:30 · 4:22 · 3:26 (assumed standard station order)",
     "note": "Full 8-station sim with a doubles partner, on a treadmill. Eight runs of 800 m each, so 6.4 km of running (a race run is 1 km). Garmin under-read the treadmill distance (7.48 km total with stations), so run paces are calculated as lap time over 800 m; lap times 4:35, 4:08, 4:11, 3:23, 4:02, 4:14, 4:03, 4:57. Reported by Amar: most runs at 12 km/h with the last 200 m at 13 km/h; run 8 started at 10 km/h after the sandbag lunges. Run 4 (3:23 for 800 m, 4:13/km) is faster than the reported speeds, so that lap was probably cut short. Run time 33:33, stations 26:39, transitions about 8:10. Peak heart rate 186."
+  },
+  {
+    "date": "2026-10-20",
+    "type": "run",
+    "source": "strava",
+    "planned": "Easy run · 8 km",
+    "title": "Morning Treadmill Run",
+    "distanceKm": 8.44,
+    "time": "55:01",
+    "pace": "6:31/km",
+    "avgHr": 123,
+    "maxHr": 155,
+    "note": "Strava record of the 20 Oct treadmill session. Watch laps: four 1 km at 5:19–5:23, a slow 8:36 km, one more 5:22 km, then 7:44, 7:44 and 0.44 km of easy running. The fast km average 5:21/km on the watch, about 45 sec/km slower than the 13 km/h Amar reported (4:37/km), so the watch and the treadmill disagree. The self-reported benchmark above rests on his treadmill speeds."
+  },
+  {
+    "date": "2026-10-21",
+    "type": "run",
+    "source": "strava",
+    "planned": "JPM benchmark · 5 × 1 km",
+    "title": "Morning Treadmill Run",
+    "distanceKm": 10.2,
+    "time": "58:00",
+    "avgHr": 156,
+    "maxHr": 190,
+    "reps": "1.0@4:17 1.0@4:38 1.0@4:15 1.0@4:26 1.0@4:36",
+    "pace": "4:26/km avg of the 5 reps",
+    "note": "Watch laps, treadmill. 3 km warm-up at 5:19–5:29, then 5 × 1 km with 2 min recoveries; average 4:26, rep heart rate 165–173, max 190. Cool-down 1.84 km. RPE and treadmill speeds were not recorded for this session. Rep 1 at 4:17 is far faster than the 4:45 start the plan sets for rep 1."
+  },
+  {
+    "date": "2026-10-22",
+    "type": "run",
+    "source": "strava",
+    "planned": "Not planned · easy run before upper strength",
+    "title": "Morning Treadmill Run",
+    "distanceKm": 5.22,
+    "time": "30:00",
+    "pace": "5:45/km",
+    "avgHr": 123,
+    "maxHr": 135,
+    "note": "Easy by heart rate (114 to 128). Each km 5:42–5:48 on the watch, slightly faster than the 5:50 ceiling."
+  },
+  {
+    "date": "2026-10-23",
+    "type": "ride",
+    "source": "strava",
+    "planned": "HYROX · 4 rounds, race loads (swapped for an easy ride; the sim moved to Sat 24 Oct)",
+    "title": "Morning Ride (indoor)",
+    "time": "1:00:21",
+    "avgHr": 92,
+    "maxHr": 115,
+    "note": "Easy: heart rate never above 115. 60 minutes, longer than the 30–45 min suggested."
+  },
+  {
+    "date": "2026-10-25",
+    "type": "run",
+    "source": "strava",
+    "planned": "Long run · 14 km",
+    "title": "Morning Treadmill Run",
+    "distanceKm": 12.45,
+    "time": "1:15:00",
+    "pace": "6:02/km",
+    "avgHr": 127,
+    "maxHr": 147,
+    "note": "12.45 km, 1.55 km short of the plan. Easy by heart rate (avg 127). Run laps 5:27–5:43/km on the watch, faster than the 5:50 ceiling and the 6:00–6:40 long-run range, with two slow laps of about 7:33 and 7:55 (heart rate 91–105) in the middle. Watch pace on the treadmill is unreliable, so this is not read as too fast."
   }
 ]
