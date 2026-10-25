@@ -18,7 +18,7 @@ a race campaign and a season roadmap. Legacy results/master-plan URLs redirect h
 - `src/performanceData.ts`, `src/hyroxHistory.ts`, `src/resultDetails.ts`: historical results.
 - `src/raceData.ts`: personal status separate from race opportunity status.
 - `src/data/garmin-weekly.json`: explicitly historical aggregate, not current readiness.
-- `src/data/completions.json`: activities recorded by the Sunday sync from Strava (Runna calendar as fallback).
+- `src/data/completions.json`: activities recorded by the Sunday sync from Strava.
   Append only, through a pull request.
 - `src/data/strength.json`: strength sessions from Strong screenshots. Append only.
 - `src/data/track.json`: monthly local track jogging hours (open and limited-lane slots only). Key runs on
@@ -37,23 +37,39 @@ and compact snapshots remain private. Purchased products are not assumed to be t
 
 ## Garmin
 
-The page does not connect directly to Garmin. Import a private compact snapshot
-with `lastSuccessfulSnapshotAt`, `healthByDate`, and optional `activities` into Records.
-The importer merges by local date and activity ID. Missing measurements remain blank.
-Daily retrieval must first inspect the last successful timestamp, skip if under 24 h,
-and retrieve at most the latest three Hong Kong calendar days. Archive silently unless
-new evidence materially changes coaching. Historical full-review scripts are manual
-legacy utilities; they are not the hourly/free-tier snapshot path and must not be
-used by the recurring watch.
+The page never connects to Garmin. Sleep, HRV, stress and Body Battery exist only on the device
+through the private snapshot import in More › Records (`lastSuccessfulSnapshotAt`, `healthByDate`,
+optional `activities`; merged by local date and activity ID). The Garmin publisher and connector
+scripts were retired on 5 Oct 2026 and are kept only as history. Runs come from the Sunday Strava sync.
 
-`scripts/publish-weekly-garmin-review.ps1` is retired (5 Oct 2026). It pushed straight to
-`main`; it now exits without doing anything. Weekly run data comes from the Sunday sync,
-which opens a pull request.
+## Phone app, routes and the Profile model
+
+The site is a phone-first app with a bottom tab bar: Today · Calendar · Profile · Races · More.
+It is installable from the browser (manifest and icons in `public/`); in production a small service
+worker (`public/sw.js`) keeps the last-seen plan available offline (navigations are network-first
+with a 3 s timeout, hashed assets cache-first).
+
+Routes are hashes: `#today`, `#calendar`, `#calendar/<YYYY-MM-DD>`, `#profile`, `#profile/results`,
+`#races`, `#more`, `#more/records`, `#more/coach`, `#more/season`. Old links still work
+(`#results`, `#season`, `#plan`, `#records`, `#coach`).
+
+Code layout: `src/App.tsx` is the shell and holds the storage keys (the verify script reads them
+there); `src/lib` is pure, Node-testable TypeScript (`npm test` runs `src/lib/*.test.ts`);
+`src/components` and `src/screens` are the UI; `src/styles` holds the tokens (dark by default,
+light via `prefers-color-scheme`). No plan logic lives in the UI.
+
+The Profile page estimates fitness, fatigue and form from the public log: each session's load is
+minutes × f × 0.64 × e^(1.92 f) (Banister TRIMP), where f is the fraction of heart-rate reserve from
+the synced average heart rate (rest 55, max 190, assumptions), else from RPE for manual entries,
+else a per-type default. Fitness is a 42-day exponential average, fatigue 7-day, form the difference.
+The key-session scorecard applies the plan's own rule (every rep on target at RPE 7 or less is a hit;
+a last rep more than 10 sec/km slower than the first means repeat). Everything is labelled as an
+estimate and nothing on the page issues a train-or-rest instruction.
 
 ## Validation and publication
 
-`npm ci` then `npm run build`; `npm test` covers existing Garmin analysis safeguards.
-GitHub Pages publishes `dist` via the existing workflow when `main` changes.
+`npm ci` then `npm run check` (unit tests, season verify, build). The deploy workflow runs the same
+check before publishing `dist` to GitHub Pages when `main` changes.
 Preserve IDs, source labels, corrected repetition counts, and paid-versus-ballot states.
 
 ## 21 September build revision
