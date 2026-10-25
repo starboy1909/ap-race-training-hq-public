@@ -1,6 +1,6 @@
 import { Table } from '../components/Table.tsx';
 import { paceGuide, scheduleChangePolicy, stations, planReviewed } from '../trainingPlan';
-import { performanceMarkers, runnaLessons } from '../seasonPlan';
+import { performanceMarkers, runnaLessons, hkRaceModel } from '../seasonPlan';
 import { fmtDay } from '../lib/dates.ts';
 import type { Week } from '../lib/types.ts';
 
@@ -11,6 +11,8 @@ export function Coaching({ week }: { week?: Week }) {
     <h3>How the plan changes</h3><Table heads={['Check', 'Rule']} rows={scheduleChangePolicy} />
     <h3>Running pace guide · reviewed {fmtDay(planReviewed)}</h3><p>Set from your September 2026 threshold reps (4:54–5:07/km) and the Runna plan you used for the Kerry Marathon. Treadmill speeds are in kph; treadmill sessions use a 1% incline.</p><Table heads={['Purpose', 'Starting pace', 'Execution']} rows={paceGuide} />
     <p>Progression: when every rep of a key session lands on target at RPE 7 or less with even splits, the next one of that type is 5 sec/km faster. Check every two weeks. JPM, the Hong Kong splits and a post-Osaka 5K time trial recalibrate the whole guide.</p>
+    <h3>JPM 5.6K · 5 Nov · race pace 4:30/km</h3><p>The 21 Oct benchmark (5 × 1 km, average 4:26 at RPE 8) sets race pace at 4:30/km, which is 25:12 against last year’s 25:27. Km 1 at 4:30, no faster: last year km 1 was 4:19 and km 5 was 4:52. Tuesday 27 Oct is the confirmation: 4 × 1.2 km at 4:30 on the road or track, not the treadmill.</p>
+    <h3>Hong Kong Pro Doubles · race model for sub-1:20</h3><p>Where the minutes come from, beside your 24 Oct full simulation. The sim ran 800 m reps, so its run time is not race-equivalent; the pace and the fade are.</p><Table heads={['Part', 'Sub-1:20 model', '24 Oct simulation', 'Focus']} rows={hkRaceModel} />
     <h3>HYROX Pro Doubles Men · race standard</h3><Table heads={['Station', 'Team distance / repetitions', 'Race load']} rows={stations} /><p>Each athlete runs all 8 × 1 km; station work is shared. <a href="https://maintain.hyrox.com/rulebooks/HYROX_RulebookDoubles_EN.pdf" target="_blank" rel="noreferrer">Official 2026/27 doubles rulebook</a> · confirm final event briefing before racing.</p>
     <h3>Sleds · train at race load</h3><div className="callout"><b>Your September best sets (253 kg push, 215 kg pull) are above race load.</b><p>So the plan uses race loads: 202 kg total push and 153 kg total pull, in 12.5 m lengths. Record total = sled + plates, and keep the lane and shoes the same.</p></div>
     <ol><li>Every sled length should be unbroken. If one stalls, finish the round at 10% less and return to race load next week.</li><li>Progress by shortening the rest between rounds or adding a round, never both in the same week.</li><li>Practise low hips, short fast steps, and on the pull a walk-back-and-pull rhythm. Time each length.</li></ol>

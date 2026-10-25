@@ -11,6 +11,16 @@ export type RoadResult = {
 
 export const roadResults: RoadResult[] = [
   {
+    date: "Nov 2025",
+    event: "JPMorganChase Corporate Challenge",
+    distance: "5.6K",
+    net: "25:27",
+    official: "25:27",
+    pace: "4:33/km",
+    result: "Baseline for the 2026 race: km 1 at 4:19, km 5 at 4:52",
+    verification: "RACE RECORD",
+  },
+  {
     date: "23 Nov 2025",
     event: "Kerry Hong Kong Streetathon",
     distance: "Marathon",

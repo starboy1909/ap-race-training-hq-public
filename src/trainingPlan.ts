@@ -2,7 +2,7 @@ import { reviseFuture } from './buildRevision';
 import { legacyWeeks, type Day, type Week } from './trainingHistory';
 import { CUTOVER, isTravel, seasonDay, seasonSecondary, seasonWeek, travelWindows } from './seasonPlan';
 export { paceGuide, scheduleChangePolicy } from './seasonPlan';
-export const planReviewed = '2026-10-05';
+export const planReviewed = '2026-10-25';
 export const stations = [
  ['SkiErg','1,000 m','Machine resistance chosen individually; no kg prescription'],
  ['Sled push','50 m = 4 × 12.5 m','202 kg TOTAL including sled'],
@@ -33,9 +33,9 @@ function hyrox(n: number, deload: boolean): Partial<Day> {
  ]),block('FINISH',['5–10 min easy cooldown. Record round splits, total loads including sled mass, station breaks and legal repetitions. Progress one variable only: rounds, load or rest density.'])]};
 }
 export const season = [
- ['Oct 2026','Build for JPM','Shanghai postponed (date TBC). Weekly 5K-pace work for JPM, HYROX kept at race loads for Hong Kong, long runs building for Osaka.'],
+ ['Oct 2026','Build for JPM','Shanghai withdrawn (entry refunded). Weekly 5K-pace work for JPM, HYROX kept at race loads for Hong Kong, long runs building for Osaka.'],
  ['1–8 Nov','Race block','JPM all out: beat 25:27 → RMAC 15K as an easy long run.'],
- ['9 Nov–8 Jan','Hong Kong build','Three gym weeks, two hotel weeks at a required minimum, two Doubles simulations, then a 10-day taper.'],
+ ['9 Nov–8 Jan','Hong Kong build','Six gym weeks around two hotel weeks at a required minimum, two Doubles simulations, then a 10-day taper.'],
  ['9 Jan','AIA HYROX Hong Kong','Pro Doubles · Worlds qualification attempt.'],
  ['11 Jan–13 Feb','Osaka + Bangkok build','Long runs to 24 km four weeks before Osaka; HYROX held at race loads; Bangkok taper.'],
  ['13 Feb · 28 Feb','Bangkok → Osaka','Second qualification attempt, then finish Osaka strong.'],
