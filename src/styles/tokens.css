@@ -1,0 +1,15 @@
+:root {
+  color-scheme: dark;
+  --bg: #111719; --surface: #1c272a; --surface-2: #202d2e; --surface-3: #24302d;
+  --border: #334145; --border-strong: #405054;
+  --text: #e7ebef; --text-2: #b3c1c5; --text-muted: #99adb4;
+  --accent: #c3ef74; --accent-ink: #172014; --accent-soft: rgba(195, 239, 116, .14);
+  --ok: #7fbdac; --warn: #f0c674; --danger: #ef7474;
+  --type-quality: #c3ef74; --type-hyrox: #f0a35e; --type-strength: #7fa7f0; --type-easy: #7fbdac; --type-run: #7fbdac;
+  --type-long: #4f9a8a; --type-race: #ef7474; --type-recovery: #a7b7bd; --type-rest: #5b6b70; --type-optional: #8a9aa0;
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px; --s-6: 32px; --s-8: 48px;
+  --r-s: 6px; --r-m: 10px; --r-l: 16px; --r-pill: 999px;
+  --fs-xs: 11px; --fs-s: 13px; --fs-m: 15px; --fs-l: 18px; --fs-xl: 24px; --fs-2xl: clamp(28px, 7vw, 40px);
+  --font-body: 'DM Sans', system-ui, sans-serif; --font-head: 'Space Grotesk', system-ui, sans-serif;
+  --nav-h: 56px; --safe-b: env(safe-area-inset-bottom, 0px); --content-max: 1280px; --tap: 44px;
+}

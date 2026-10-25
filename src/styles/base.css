@@ -1,0 +1,31 @@
+:root { font-family: var(--font-body); color: var(--text); background: var(--bg); font-synthesis: none; font-size: var(--fs-m); line-height: 1.6; -webkit-text-size-adjust: 100%; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); }
+button, input, select, textarea { font: inherit; }
+button, select, .file-button, summary { cursor: pointer; }
+button { background: var(--surface-2); color: var(--text); border: 1px solid var(--border-strong); border-radius: var(--r-s); padding: 10px 16px; min-height: var(--tap); }
+button:hover { border-color: var(--accent); }
+button.active, button.primary { background: var(--accent); color: var(--accent-ink); font-weight: 700; border-color: var(--accent); }
+button.ghost { background: transparent; }
+:is(button, a, summary, select, input, [tabindex]):focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+a { color: var(--accent); text-underline-offset: 4px; }
+h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; margin: 0; }
+h1 { font-size: clamp(40px, 7vw, 86px); letter-spacing: -3px; margin: var(--s-4) 0; }
+h1 span { color: var(--accent); }
+h2 { font-size: clamp(26px, 5vw, 34px); letter-spacing: -1px; margin: 10px 0 20px; }
+h3 { font-size: clamp(20px, 4vw, 24px); margin: var(--s-6) 0 var(--s-3); }
+h4 { font-size: var(--fs-l); margin: 14px 0; }
+p { color: var(--text-2); max-width: 100ch; margin: 10px 0; }
+small { color: var(--text-muted); }
+ul, ol { padding-left: 22px; }
+li { margin: 8px 0; color: #c2cdd1; }
+label { font-size: 12px; color: #acbec5; display: block; }
+input, select, textarea { display: block; width: 100%; background: var(--bg); color: var(--text); border: 1px solid #4c6068; padding: 10px; border-radius: var(--r-s); margin-top: 6px; min-height: var(--tap); }
+textarea { resize: vertical; }
+.app-shell { max-width: var(--content-max); margin: auto; padding: 20px 16px calc(var(--nav-h) + var(--safe-b) + 24px); }
+.eyebrow { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 2px; color: var(--accent); margin: 0 0 6px; }
+.muted { font-size: var(--fs-s); color: var(--text-muted); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+section { padding: var(--s-5) 0; }
+@media (min-width: 760px) { .app-shell { padding: 36px 40px 60px; } section { padding: 38px 0; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

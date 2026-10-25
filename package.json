@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "test": "node --test scripts/garmin-analysis-core.test.mjs",
+    "test": "node --test scripts/garmin-analysis-core.test.mjs src/lib/*.test.ts",
     "verify": "node scripts/verify-training-plan.mjs",
     "check": "npm run test && npm run verify && npm run build",
     "garmin:weekly": "node scripts/garmin-weekly-analysis.mjs",
