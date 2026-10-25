@@ -52,7 +52,7 @@ try {
  // Storage keys and archive
  const app=await readFile('src/App.tsx','utf8');for(const key of ['rmr_completed_v4','ap_training_checkins_v1'])assert.ok(app.includes(key));
  assert.ok(!app.includes('Daily check-in'));assert.ok(!app.includes('Check-in needed'));
- const {readdir}=await import('node:fs/promises');for(const dir of ['src/components','src/screens','src/lib']){for(const f of await readdir(dir)){const src=await readFile(`${dir}/${f}`,'utf8');assert.ok(!src.includes('Daily check-in')&&!src.includes('Check-in needed'),`${dir}/${f} reintroduces check-in UI`);}}
+ const {readdir}=await import('node:fs/promises');for(const dir of ['src/components','src/screens','src/lib']){for(const f of await readdir(dir,{recursive:true,withFileTypes:true})){if(!f.isFile())continue;const path=`${f.parentPath??f.path}/${f.name}`;const src=await readFile(path,'utf8');assert.ok(!src.includes('Daily check-in')&&!src.includes('Check-in needed'),`${path} reintroduces check-in UI`);}}
  const hist=await readFile('src/trainingHistory.ts','utf8');assert.ok(hist.includes('3×1 km')||hist.includes('3 × 1 km'));
  console.log('PASS: 273 continuous days, history unchanged, every paid race present with taper, long-run spacing, travel minimums and weekly km targets.');
 }finally{await unlink(target);await unlink(sm);}
