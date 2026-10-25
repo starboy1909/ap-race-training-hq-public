@@ -7,7 +7,7 @@ Every push to `main` goes live. These rules apply to every agent (Codex, ChatGPT
 - Never push to `main`. Work on a branch and open a pull request.
 - **Do not merge your own pull request.** Leave it open. Claude reviews every pull request from Codex or any other agent against these rules, runs `npm run check` on it, and merges it only if it holds up. Otherwise Claude comments with the reason. Amar merges Claude's own pull requests.
 - Run `npm ci` and `npm run check` before every push. Do not push if it fails.
-  `npm run check` runs the Garmin tests, `scripts/verify-training-plan.mjs` (season rules) and the build.
+  `npm run check` runs the unit tests (`scripts/garmin-analysis-core.test.mjs`, `src/lib/*.test.ts`), `scripts/verify-training-plan.mjs` (season rules) and the build.
 - One pull request per change. Explain what changed and why in the PR description, with the evidence.
 - No scheduled jobs, automations or scripts that commit or push on their own. The one exception is Claude's Sunday sync, which only opens a pull request.
 
@@ -18,10 +18,11 @@ Every push to `main` goes live. These rules apply to every agent (Codex, ChatGPT
 | Plan assembly and history | `src/trainingPlan.ts`, `src/trainingHistory.ts`, `src/buildRevision.ts` | Do not add date patches such as `if(iso==='2027-01-05')`. Past days stay exactly as published. |
 | Ranked goals, pace guide, markers | `src/seasonPlan.ts` (`seasonGoals`, `paceGuide`, `performanceMarkers`) | Change only with new race or test evidence. |
 | Race calendar and entry status | `src/raceData.ts` | Paid, registered, waitlisted and watch stay separate. Add a source and a checked date. |
-| Completed activities | `src/data/completions.json` | Append only. Written by the Sunday sync from Strava (Runna calendar as fallback). |
+| Completed activities | `src/data/completions.json` | Append only. Written by the Sunday sync from Strava. |
 | Strength sessions | `src/data/strength.json` | Append only. Added from Amar's Strong screenshots. |
 | Local track timetable | `src/data/track.json` | One entry per month from the venue timetable Amar sends: open (A) and limited-lane (L) slots only, with source, issued and checked dates. Call it "local track" on the site; no venue name. Key runs show an optional evening track line; the morning session stays the default. |
 | Results | `src/performanceData.ts`, `src/hyroxHistory.ts`, `src/resultDetails.ts` | Official or device-verified results only. |
+| Site code | `src/App.tsx`, `src/components`, `src/screens`, `src/lib`, `src/styles` | Presentation only: no plan logic, no date patches. Keep the storage keys in `src/App.tsx` (the verify script reads them there). Pure helpers go in `src/lib` with a `node:test` file. Never add a "Daily check-in" UI. |
 
 ## 3. Training rules
 - **Goal ranking:** JPM (5 Nov, the focus until race day; Shanghai is withdrawn, entry refunded) → Hong Kong (9 Jan) → Bangkok (13 Feb) → Osaka (28 Feb). When two goals compete, the higher one wins.
