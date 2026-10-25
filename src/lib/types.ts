@@ -12,3 +12,4 @@ export type LoggedEntry = {
   reps?: string; stations?: string; note?: string; sets?: number; rpe?: number; detail?: string;
 };
 export type Snapshot = { lastSuccessfulSnapshotAt?: string; healthByDate?: Record<string, Record<string, number>>; activities?: Record<string, unknown>[]; supplementPurchases?: { product: string; purchased: string; use: string }[] };
+export type { Route } from './route.ts';

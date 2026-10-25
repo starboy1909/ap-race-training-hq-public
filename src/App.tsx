@@ -18,7 +18,7 @@ import { useHashRoute } from './lib/useHashRoute.ts';
 import { todayIso, dateOf } from './lib/dates.ts';
 import { readJson, writeJson, download } from './lib/storage.ts';
 import { isSnapshotFile, mergeSnapshot, mergeBackup } from './lib/backup.ts';
-import { findWeekForDate } from './lib/calendar.ts';
+import { findWeekForDate, indexLogsByDate } from './lib/calendar.ts';
 import type { Completion, StrengthEntry, ManualLog, Snapshot } from './lib/types.ts';
 import './styles.css';
 
@@ -27,7 +27,7 @@ const keys = ['rmr_completed_v4', 'ap_training_checkins_v1', 'ap_training_sessio
 
 export default function App() {
   const today = todayIso();
-  const [route] = useHashRoute();
+  const [route, navigate] = useHashRoute();
   const weeks = useMemo(() => buildPlan(), []);
   const days = useMemo(() => weeks.flatMap(w => w.days), [weeks]);
   const nextRace = days.find(d => d.race && d.iso! >= today && A_RACES.includes(d.iso!));
@@ -40,6 +40,7 @@ export default function App() {
   const [snapshot, setSnapshot] = useState<Snapshot>(() => readJson(keys[3], {}));
   const [message, setMessage] = useState('');
   const [recordView, setRecordView] = useState('sessions');
+  const index = useMemo(() => indexLogsByDate(completions as Completion[], strengthLog as StrengthEntry[], logs), [logs]);
 
   function save(key: string, value: unknown) {
     const ok = writeJson(key, value);
@@ -71,8 +72,8 @@ export default function App() {
     <Header today={today} nextRace={nextRace} reviewed={planReviewed} />
     <Nav current={route.tab} />
     <Toast message={message} onClose={() => setMessage('')} />
-    {route.tab === 'today' && <Today today={today} day={todayDay} week={todayDay && findWeekForDate(weeks, today)} completed={completed} onToggle={toggle} />}
-    {route.tab === 'calendar' && <Calendar weeks={weeks} today={today} current={current} completed={completed} onToggle={toggle} />}
+    {route.tab === 'today' && <Today today={today} day={todayDay} week={todayDay && findWeekForDate(weeks, today)} days={days} nextRace={nextRace} completed={completed} index={index} onToggle={toggle} />}
+    {route.tab === 'calendar' && <Calendar weeks={weeks} today={today} routeDate={route.date} completed={completed} index={index} onToggle={toggle} navigate={navigate} />}
     {route.tab === 'profile' && <Profile sub={route.sub} />}
     {route.tab === 'races' && <Races today={today} />}
     {route.tab === 'more' && !route.sub && <More />}

@@ -122,3 +122,30 @@ pre { font-size: 11px; overflow: auto; max-height: 400px; white-space: pre-wrap;
 .history-list { display: grid; gap: 8px; }
 .history-list article { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-s); padding: 10px 14px; }
 .history-list article b { display: block; }
+
+/* Week strip */
+.week-strip { display: flex; align-items: stretch; gap: 4px; margin: var(--s-3) 0; touch-action: pan-y; }
+.strip-arrow { padding: 0 8px; min-width: 36px; font-size: 22px; }
+.strip-days { flex: 1; display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.strip-day { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 2px 6px; min-height: 64px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-s); color: var(--text-2); }
+.strip-day .dow { font-size: 10px; letter-spacing: .5px; color: var(--text-muted); }
+.strip-day .num { font-family: var(--font-head); font-size: var(--fs-m); font-weight: 600; color: var(--text); }
+.strip-day .bar { display: block; width: 70%; height: 3px; border-radius: 2px; margin-top: 2px; }
+.strip-day .marks { display: flex; gap: 3px; align-items: center; height: 12px; font-size: 10px; color: var(--accent); }
+.strip-day .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ok); display: inline-block; }
+.strip-day .flag { color: var(--type-race); }
+.strip-day.today { border-color: var(--accent); }
+.strip-day.selected { background: var(--accent-soft); border-color: var(--accent); }
+.strip-day.travel { border-style: dashed; }
+.km-bar { position: relative; height: 22px; background: var(--surface-2); border-radius: var(--r-pill); overflow: hidden; margin-top: 10px; }
+.km-fill { position: absolute; inset: 0 auto 0 0; background: var(--accent-soft); border-right: 2px solid var(--accent); }
+.km-bar span { position: relative; display: block; font-size: var(--fs-xs); line-height: 22px; padding: 0 10px; color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.selected-day { padding: 0; margin: var(--s-3) 0; }
+.selected-head { padding: 14px 16px 4px; }
+.selected-head h3 { margin: 4px 0 0; }
+.selected-head .dateline { display: flex; gap: 8px; align-items: center; color: var(--text-muted); font-size: var(--fs-s); }
+.selected-day .logged { margin: 0 16px 16px; }
+.day-row { display: flex; gap: 12px; align-items: center; width: 100%; text-align: left; padding: 10px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-m); }
+.day-row.selected { border-color: var(--accent); }
+.day-row .day-name b { font-size: 15px; }
+.logged article b { font-size: var(--fs-s); }
