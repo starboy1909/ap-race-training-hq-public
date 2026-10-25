@@ -219,5 +219,19 @@
     "title": "Upper Strength",
     "time": "1:05:00",
     "note": "Details in the Strength log. Third strength session this week."
+  },
+  {
+    "date": "2026-10-24",
+    "type": "hyrox",
+    "source": "strava",
+    "planned": "HYROX · 4 rounds, race loads (planned Fri 23 Oct, moved to Sat after an easy Friday)",
+    "title": "Hyrox - Full Sim (Pro Weights)",
+    "distanceKm": 7.48,
+    "time": "1:08:24",
+    "avgHr": 145,
+    "maxHr": 186,
+    "reps": "0.85@5:23 0.74@5:33 0.77@5:27 0.62@5:26 0.76@5:21 0.76@5:35 0.74@5:31 0.71@6:57",
+    "stations": "4:03 · 1:57 · 3:11 · 3:02 · 4:08 · 2:30 · 4:22 · 3:26 (assumed standard station order)",
+    "note": "Full 8-station sim with a doubles partner, on a treadmill. Run time 33:33, stations 26:39, transitions about 8:10. None of the 8 run laps reached 1 km on the watch (0.62–0.85 km), so those paces are not race paces and are not compared with the pace guide. Fastest run pace was run 5 (5:21/km), slowest run 8 (6:57/km). Peak heart rate 186."
   }
 ]
