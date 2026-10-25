@@ -24,29 +24,37 @@ export const travelWindows: [string, string][] = [
 export const isTravel = (iso: string) => travelWindows.some(([a, b]) => iso >= a && iso <= b);
 
 export const seasonGoals = [
-  ['1', '5 Nov · JPMorganChase 5.6K', 'The focus until race day (Shanghai is postponed, new date TBC). Beat last year’s 25:27 (4:33/km); stretch sub-25:00 (4:28/km). The 21 Oct 5 × 1 km benchmark sets the race pace.'],
-  ['2', '9 Jan · AIA HYROX Hong Kong Pro Doubles', 'Worlds qualification attempt and now the first HYROX race of the season. You race at 36, so check the 2026/27 Doubles age-group rule and the slot count in November. Provisional bar: sub-1:20.'],
+  ['1', '5 Nov · JPMorganChase 5.6K', 'The focus until race day (Shanghai is withdrawn; entry refunded). Beat last year’s 25:27 (4:33/km). Race pace 4:30/km = 25:12, set by the 21 Oct 5 × 1 km benchmark (4:26 average at RPE 8). Stretch sub-25:00 needs 4:27/km. If JPM is run at 4:30 or faster, intervals move to 4:30–4:40/km for the Hong Kong block.'],
+  ['2', '9 Jan · AIA HYROX Hong Kong Pro Doubles', 'Worlds qualification attempt and now the first HYROX race of the season. You race at 36, so check the 2026/27 Doubles age-group rule and the slot count by 7 Nov. Provisional bar: sub-1:20.'],
   ['3', '13 Feb · BYD HYROX Bangkok Pro Doubles', 'Second qualification attempt with its own taper. If Hong Kong qualifies, race it for a Pro Doubles PB.'],
-  ['4', '28 Feb · Osaka Marathon', 'Finish strong. Target 4:15–4:25 from 6:00–6:15/km; stretch is beating the 4:23:56 PB. Long runs build from October so January is not a rush.'],
+  ['4', '28 Feb · Osaka Marathon', 'Finish strong. Target 4:15–4:25 from 6:00–6:10/km; stretch is beating the 4:23:56 PB. Long runs build from October so January is not a rush.'],
 ];
 
 export const performanceMarkers = [
-  ['Back squat', '70 kg × 3 top set (5 Oct)', '80 kg × 5 by Hong Kong', 'Working sets 4 × 5 from 60 kg; +2.5 kg a week when every set is clean with 2 reps in reserve'],
-  ['Romanian deadlift', '40 kg × 5 (5 Oct)', '60 kg × 8 by Hong Kong', 'Build 40 kg to 3 × 8, then +2.5 kg a week'],
-  ['Sandbag lunge, 30 kg', 'Slowest station (10:55 at HK Singles)', '50 m unbroken by December', 'Monday lower day + Friday HYROX'],
-  ['Wall balls, 9 kg', 'Slowest station (10:45 at HK Singles)', '50 reps in 2 sets by December', '4×20 → 3×25 → 2×25 → 35 + 15'],
-  ['Roxzone', '10:10–12:09 in singles', 'Under 7 min total in Doubles', 'Timed transitions in every HYROX session'],
+  ['Back squat', '60 kg × 5 straight set on 19 Oct (70 kg × 3 top set, 5 Oct)', '80 kg × 5 by Hong Kong', 'Working sets 4 × 5 from 60 kg; +2.5 kg a week when every set is clean with 2 reps in reserve'],
+  ['Romanian deadlift', '40 kg × 8 × 3 on 14 Oct (3 × 8 met); 12/10/7/7 on 19 Oct', '60 kg × 8 by Hong Kong', 'Build 40 kg to 3 × 8, then +2.5 kg a week'],
+  ['Sandbag lunge, 30 kg', 'Slowest station (10:55 at HK Singles). 3 × 30 m on 14 Oct, 2 × 25 m on 19 Oct; run 8 of the 24 Oct sim faded to 6:11/km after the lunges', '50 m unbroken by December', 'Monday lower day + Friday HYROX'],
+  ['Wall balls, 9 kg', 'Second slowest station (10:45 at HK Singles). 4 × 20 done on 22 Oct: October target met', '50 reps in 2 sets by December', '4×20 → 3×25 → 2×25 → 35 + 15'],
+  ['Roxzone', '10:10–12:09 in singles; about 8:10 for 8 transitions in the 24 Oct Doubles sim', 'Under 7 min total in Doubles', 'Timed transitions in every HYROX session'],
   ['Threshold pace', '4:54–5:07/km reps (Sep 2026)', '4:45–4:50/km by March', '5 sec/km faster every two weeks when all reps land at RPE 7 or less'],
-  ['5K', '25:27 for 5.6K (2025 JPM)', 'Sub-21 by spring 2027, back toward the 20:55 PB', 'October 5K block, then a time trial after Osaka'],
+  ['5K', '25:27 for 5.6K (2025 JPM); 21 Oct 5 × 1 km averaged 4:26 at RPE 8', 'Sub-21 by spring 2027, back toward the 20:55 PB', 'October 5K block, then a time trial after Osaka'],
 ];
 
 export const paceGuide = [
   ['Recovery', '6:30–7:10/km', 'RPE 2–3 · full sentences'],
-  ['Easy / long', 'No faster than 5:50/km (9.0–10.0 kph)', 'RPE 3–4 · a limit, not a target. Slower in heat or on hills is fine'],
+  ['Easy / long', 'No faster than 5:50/km to 8 Nov; from 9 Nov no faster than 5:40/km with heart rate under 150', 'RPE 3–4 · a limit, not a target. October easy runs at 5:30–5:45 held heart rate 123–145, so the ceiling moves 10 sec. Slower in heat or on hills is fine'],
   ['Marathon (Osaka)', '6:00–6:10/km (9.8–10.0 kph)', 'RPE 5 · set from your real marathons (6:15–6:28/km), not Runna’s 5:30'],
   ['Threshold / tempo', '4:55–5:05/km (11.8–12.2 kph)', 'RPE 7 · from your Sep 2026 reps (4:54–5:07). 5 sec/km faster every two weeks when all reps land at RPE 7 or less'],
-  ['Intervals / 5K pace', '4:35–4:45/km (12.6–13.1 kph)', 'RPE 8 · 400 m–1.6 km reps, walking recoveries as in Runna'],
+  ['Intervals / 5K pace', '4:35–4:45/km (12.6–13.1 kph) · JPM race pace 4:30/km', 'RPE 8 · 400 m–1.6 km reps, walking recoveries as in Runna. 21 Oct benchmark 4:26 avg at RPE 8: the band moves to 4:30–4:40 after JPM if the race is run at 4:30 or faster'],
   ['Compromised HYROX km', '5:05–5:25/km', 'RPE 7 · first 200 m controlled after sleds, then settle'],
+];
+
+// Hong Kong Pro Doubles race model for the provisional sub-1:20 bar, beside the 24 Oct simulation.
+export const hkRaceModel = [
+  ['Runs · 8 × 1 km', '42:00 (5:15/km)', '33:33 for 8 × 800 m (5:15/km average; 5:03–5:44, run 8 at 6:11)', 'Hold 5:15 after every station; run 8 is the one to protect'],
+  ['Stations · your share', '30:00', '26:39 (treadmill sim, partner present)', 'Lunges and wall balls set the pace; keep sled lengths unbroken'],
+  ['Roxzone · 8 transitions', 'Under 7:00', 'About 8:10', 'Under 20 sec from run end to first rep, every round'],
+  ['Total', '1:19:00', '1:08:24 for 6.4 km of running', 'Delhi was 1:27:54; the minutes come from Roxzone and the late runs'],
 ];
 
 export const runnaLessons = [
@@ -63,7 +71,7 @@ export const runnaLessons = [
 export const scheduleChangePolicy = [
   ['Train as written', 'Do the published session and aim for its target numbers. Log loads, splits and RPE. Optional extras stay optional; the primary session does not.'],
   ['One gate', 'Pain that changes how you move, illness or fever: stop, swap to easy bike if comfortable, and reassess the next day. Anything else: train.'],
-  ['Garmin', 'Sleep, HRV and Body Battery feed the weekly review. They do not change today’s session on their own.'],
+  ['Sleep, HRV, Body Battery', 'From the private Garmin import. They feed the weekly review. They do not change today’s session on their own.'],
   ['Weekly review', 'Every Sunday: compare targets with actuals and make one decision for next week (progress, hold or repeat). No mid-week patching.'],
 ];
 
@@ -114,7 +122,7 @@ function long(km: number, note?: string): Spec {
 const keyRuns = {
   jpm800: { title: '5K pace · 6 × 800 m', duration: '50 min', main: ['6 × 800 m at 4:40–4:50/km, 2 min easy jog between.', 'Aim for even reps. If the last two are faster than the first two, next week starts 5 sec/km faster.'] },
   jpm1k: { title: '5K pace · 5 × 1 km · JPM benchmark', duration: '55 min', main: ['5 × 1 km at 4:35–4:45/km, 2 min easy jog between. Rep 1 at 4:45; bring the others down only if it felt controlled.', 'Benchmark for JPM. Record every rep and the average. Average 4:35 or faster at RPE 8 or less: race at 4:30/km. Average 4:36–4:42: race at 4:32/km. Slower: race at 4:35 and close hard.'] },
-  jpmRace: { title: 'JPM race pace · 4 × 1.2 km', duration: '55 min', main: ['4 × 1.2 km at your JPM race pace from the 21 Oct benchmark (4:30 or 4:32/km; 4:35 if the benchmark was slower), 2 min easy jog between.', 'Rehearse the start: the first 400 m of rep 1 no faster than race pace. 4.8 km at race pace in total. If rep 4 is more than 5 sec/km slower than rep 1, race at the slower pace.'] },
+  jpmRace: { title: 'JPM race pace · 4 × 1.2 km', duration: '55 min', main: ['4 × 1.2 km at 4:30/km, your JPM race pace from the 21 Oct benchmark (4:26 average at RPE 8), 2 min easy jog between.', 'Run it on the road or the track, not the treadmill: JPM is on the road. Rehearse the start: the first 400 m of rep 1 no faster than 4:30. 4.8 km at race pace in total. If rep 4 is more than 5 sec/km slower than rep 1, race at 4:32.'] },
   thr3x10: { title: 'Threshold · 3 × 10 min', duration: '60 min', main: ['3 × 10 min at 4:55–5:05/km (11.8–12.2 kph), 2 min walking rest between.', 'Even splits. Progress 5 sec/km every two weeks when all reps land at RPE 7 or less.'] },
   thr2x15: { title: 'Threshold · 2 × 15 min', duration: '60 min', main: ['2 × 15 min at threshold, 3 min easy jog between.', 'Same pace rule as 3 × 10. Second rep no slower than the first.'] },
   thr4x8: { title: 'Threshold · 4 × 8 min', duration: '60 min', main: ['4 × 8 min at threshold, 90 sec easy jog between.', 'Short recoveries are the progression; keep the pace from the last 3 × 10.'] },
@@ -212,7 +220,7 @@ const W: Record<string, WeekPlan> = {
 
 const races: Record<string, Spec> = {
   '2026-11-04': { title: 'Pre-race shakeout · 20 min', type: 'EASY', duration: '20 min', rpe: '2–3', blocks: [block('OPENERS', ['20 min easy jog + 4 × 20 sec strides at race pace, full walk back.', 'Carbohydrate-rich dinner, no new foods. Lay out kit and race bib.'])] },
-  [RACE_DATES.jpm]: { title: 'JPMorganChase Corporate Challenge · 5.6K · RACE', type: 'RACE', race: true, duration: '~25 min', rpe: '9', blocks: [block('RACE PLAN · BEAT 25:27', ['Race pace from the 21 Oct benchmark, confirmed on 27 Oct: 4:30/km = 25:12 · 4:32/km = 25:24 · 4:35/km and close hard. Stretch: sub-25:00 needs 4:28/km.', 'Km 1: race pace, no faster. Last year km 1 was 4:19 and km 5 was 4:52; that fade cost the time. Km 2–4: hold race pace, even effort. Last 1.6 km: everything you have.', 'Start near the front of your wave so you do not weave. Watch on km splits.']), block('EVENING RACE · 6:30 P.M.', ['Normal breakfast and lunch. Carbohydrate snack 2–3 h before; water to thirst.', 'Warm-up: 15 min easy jog, 4 strides, then 2 × 1 min at race pace with 1 min walk. Finish 10 min before the start.'])] },
+  [RACE_DATES.jpm]: { title: 'JPMorganChase Corporate Challenge · 5.6K · RACE', type: 'RACE', race: true, duration: '~25 min', rpe: '9', blocks: [block('RACE PLAN · BEAT 25:27', ['Race pace 4:30/km = 25:12, set by the 21 Oct benchmark (4:26 average at RPE 8) and confirmed on 27 Oct. If the 27 Oct rehearsal faded, 4:32/km = 25:23. Stretch: sub-25:00 needs 4:27/km.', 'Km 1: race pace, no faster. Last year km 1 was 4:19 and km 5 was 4:52; that fade cost the time. Km 2–4: hold race pace, even effort. Last 1.6 km: everything you have.', 'Start near the front of your wave so you do not weave. Watch on km splits.']), block('EVENING RACE · 6:30 P.M.', ['Normal breakfast and lunch. Carbohydrate snack 2–3 h before; water to thirst.', 'Warm-up: 15 min easy jog, 4 strides, then 2 × 1 min at race pace with 1 min walk. Finish 10 min before the start.'])] },
   '2026-11-06': rest(),
   '2026-11-07': { title: 'Easy bike or rest', type: 'RECOVERY', duration: '0–30 min', rpe: '2', blocks: [block('OPTIONAL', ['20–30 min easy bike, or full rest.'])] },
   [RACE_DATES.rmac]: { title: 'RMAC Gold Coast 15K · easy long run', type: 'RACE', race: true, duration: '90–100 min', rpe: '4', blocks: [block('RUN IT AS TRAINING', ['6:00–6:30/km, conversational. This is your Osaka long run this week, not a race.', 'Practise race fuelling: one gel at 45 min.'])] },
@@ -271,8 +279,22 @@ function withTrack(iso: string, spec: Spec): Spec {
   ])] };
 }
 
+// Easy ceiling: 5:50/km until 8 Nov 2026. From the Hong Kong block (9 Nov) easy runs are no faster than
+// 5:40/km and long runs 5:40–6:20/km, both with heart rate under 150, from October's easy and long runs
+// at 5:30–5:45 with average heart rate 123–145 (approved 25 Oct).
+// Applied by date so published days keep their text.
+export const EASY_CEILING_FROM = '2026-11-09';
+const EASY_RULES: [string, string][] = [
+  ['no faster than 5:50/km', 'no faster than 5:40/km (heart rate under 150)'],
+  ['km at 6:00–6:40/km. Keep the first 3 km at the slow end.', 'km at 5:40–6:20/km, heart rate under 150. Keep the first 3 km at the slow end.'],
+];
+function withEasyCeiling(iso: string, spec: Spec): Spec {
+  if (iso < EASY_CEILING_FROM || !spec.blocks?.some(b => b.items.some(i => EASY_RULES.some(([from]) => i.includes(from))))) return spec;
+  return { ...spec, blocks: spec.blocks.map(b => ({ ...b, items: b.items.map(i => EASY_RULES.reduce((t, [from, to]) => t.replace(from, to), i)) })) };
+}
+
 export function seasonDay(iso: string, dow: number, monday: string, n: number): Spec {
-  return withTrack(iso, baseDay(iso, dow, monday, n));
+  return withEasyCeiling(iso, withTrack(iso, baseDay(iso, dow, monday, n)));
 }
 
 function baseDay(iso: string, dow: number, monday: string, n: number): Spec {

@@ -66,7 +66,7 @@ ISO-date ordering. Tokyo and Pici are excluded from the active campaign.
 
 ## 6 October performance season
 
-Goals are ranked (JPM → Hong Kong → Bangkok → Osaka; Shanghai is postponed, date TBC) and every paid race is in the
+Goals are ranked (JPM → Hong Kong → Bangkok → Osaka; Shanghai is withdrawn, entry refunded) and every paid race is in the
 daily plan with its own taper. `npm run verify` checks season logic: every paid race present,
 no run over 14 km in the 6 days before an A race, no hard HYROX session in the 5 days before,
 an easy day before and rest after each A race, no optional-only travel days, and a weekly km target.

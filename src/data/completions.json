@@ -146,7 +146,7 @@
     "planned": "Upper strength + wall balls",
     "title": "Afternoon Weight Training",
     "time": "47:01",
-    "note": "Moved to the afternoon after the morning slot was missed. Exercise details not uploaded yet."
+    "note": "Moved to the afternoon after the morning slot was missed. Exercise details in the Strength log."
   },
   {
     "date": "2026-10-16",
@@ -187,7 +187,7 @@
     "date": "2026-10-19",
     "type": "strength",
     "source": "strava",
-    "planned": "Lower strength",
+    "planned": "Lower strength · squat, lunge, hinge",
     "title": "Early Morning Workout",
     "time": "1:10:00",
     "note": "Details in the Strength log. Bike: 30 min easy ride, 10.0 km, after the session."
@@ -196,7 +196,7 @@
     "date": "2026-10-20",
     "type": "strength",
     "source": "strava",
-    "planned": "Upper strength (planned Thu)",
+    "planned": "Upper strength + wall balls (planned Thu)",
     "title": "Early Morning Workout",
     "time": "50:00",
     "note": "Details in the Strength log. Done on Tuesday."
@@ -205,34 +205,11 @@
     "date": "2026-10-20",
     "type": "run",
     "source": "self-reported",
-    "planned": "JPM benchmark · 5 × 1 km (planned Wed 21 Oct)",
+    "planned": "5 × 1 km run-up (the benchmark was Wed 21 Oct)",
     "title": "Treadmill 5 × 1 km",
     "reps": "4:37 / 4:37 / 4:33 / 4:31 / 4:33",
     "pace": "4:34/km avg",
-    "note": "Treadmill speeds reported by Amar: 13.0, 13.0, 13.2, 13.3, 13.2 km/h; incline 1% throughout; paces calculated from them. The watch and Strava did not record the reps. RPE 8. Rest not recorded. Rule: average 4:35 or faster at RPE 8 or less sets JPM race pace at 4:30/km."
-  },
-  {
-    "date": "2026-10-22",
-    "type": "strength",
-    "source": "strava",
-    "planned": "Upper strength",
-    "title": "Upper Strength",
-    "time": "1:05:00",
-    "note": "Details in the Strength log. Third strength session this week."
-  },
-  {
-    "date": "2026-10-24",
-    "type": "hyrox",
-    "source": "strava",
-    "planned": "HYROX · 4 rounds, race loads (planned Fri 23 Oct, moved to Sat after an easy Friday)",
-    "title": "Hyrox - Full Sim (Pro Weights)",
-    "distanceKm": 6.4,
-    "time": "1:08:24",
-    "avgHr": 145,
-    "maxHr": 186,
-    "reps": "0.8@5:44 0.8@5:10 0.8@5:14 0.8@4:13 0.8@5:03 0.8@5:18 0.8@5:04 0.8@6:11",
-    "stations": "4:03 · 1:57 · 3:11 · 3:02 · 4:08 · 2:30 · 4:22 · 3:26 (assumed standard station order)",
-    "note": "Full 8-station sim with a doubles partner, on a treadmill. Eight runs of 800 m each, so 6.4 km of running (a race run is 1 km). Garmin under-read the treadmill distance (7.48 km total with stations), so run paces are calculated as lap time over 800 m; lap times 4:35, 4:08, 4:11, 3:23, 4:02, 4:14, 4:03, 4:57. Reported by Amar: most runs at 12 km/h with the last 200 m at 13 km/h; run 8 started at 10 km/h after the sandbag lunges. Run 4 (3:23 for 800 m, 4:13/km) is faster than the reported speeds, so that lap was probably cut short. Run time 33:33, stations 26:39, transitions about 8:10. Peak heart rate 186."
+    "note": "Treadmill speeds reported by Amar: 13.0, 13.0, 13.2, 13.3, 13.2 km/h; incline 1% throughout; paces calculated from them. The watch and Strava did not record the reps. RPE 8. Rest not recorded. Run the day before the planned benchmark; the 21 Oct session is the benchmark of record."
   },
   {
     "date": "2026-10-20",
@@ -245,13 +222,13 @@
     "pace": "6:31/km",
     "avgHr": 123,
     "maxHr": 155,
-    "note": "Strava record of the 20 Oct treadmill session. Watch laps: four 1 km at 5:19–5:23, a slow 8:36 km, one more 5:22 km, then 7:44, 7:44 and 0.44 km of easy running. The fast km average 5:21/km on the watch, about 45 sec/km slower than the 13 km/h Amar reported (4:37/km), so the watch and the treadmill disagree. The self-reported benchmark above rests on his treadmill speeds."
+    "note": "Strava record of the 20 Oct treadmill session. Watch laps: four 1 km at 5:19–5:23, a slow 8:36 km, one more 5:22 km, then 7:44, 7:44 and 0.44 km of easy running. The fast km average 5:21/km on the watch, about 45 sec/km slower than the 13 km/h Amar reported (4:37/km), so the watch and the treadmill disagree. The self-reported benchmark above rests on his treadmill speeds. Same session as the self-reported 5 × 1 km above; not counted twice."
   },
   {
     "date": "2026-10-21",
     "type": "run",
     "source": "strava",
-    "planned": "JPM benchmark · 5 × 1 km",
+    "planned": "5K pace · 5 × 1 km · JPM benchmark",
     "title": "Morning Treadmill Run",
     "distanceKm": 10.2,
     "time": "58:00",
@@ -259,7 +236,16 @@
     "maxHr": 190,
     "reps": "1.0@4:17 1.0@4:38 1.0@4:15 1.0@4:26 1.0@4:36",
     "pace": "4:26/km avg of the 5 reps",
-    "note": "Watch laps, treadmill. 3 km warm-up at 5:19–5:29, then 5 × 1 km with 2 min recoveries; average 4:26, rep heart rate 165–173, max 190. Cool-down 1.84 km. RPE and treadmill speeds were not recorded for this session. Rep 1 at 4:17 is far faster than the 4:45 start the plan sets for rep 1."
+    "note": "Watch laps, treadmill. 3 km warm-up at 5:19–5:29, then 5 × 1 km with 2 min recoveries; average 4:26, rep heart rate 165–173, max 190. Cool-down 1.84 km. RPE 8 (confirmed by Amar on 25 Oct); treadmill speeds not recorded. Benchmark of record: average 4:26 at RPE 8 sets JPM race pace at 4:30/km. Rep 1 at 4:17 is far faster than the 4:45 start the plan sets for rep 1."
+  },
+  {
+    "date": "2026-10-22",
+    "type": "strength",
+    "source": "strava",
+    "planned": "Upper strength + wall balls",
+    "title": "Upper Strength",
+    "time": "1:05:00",
+    "note": "Details in the Strength log. Third strength session this week."
   },
   {
     "date": "2026-10-22",
@@ -284,6 +270,20 @@
     "avgHr": 92,
     "maxHr": 115,
     "note": "Easy: heart rate never above 115. 60 minutes, longer than the 30–45 min suggested."
+  },
+  {
+    "date": "2026-10-24",
+    "type": "hyrox",
+    "source": "strava",
+    "planned": "Rest (HYROX moved from Fri 23 Oct; full sim instead of 4 rounds)",
+    "title": "Hyrox - Full Sim (Pro Weights)",
+    "distanceKm": 6.4,
+    "time": "1:08:24",
+    "avgHr": 145,
+    "maxHr": 186,
+    "reps": "0.8@5:44 0.8@5:10 0.8@5:14 0.8@4:13 0.8@5:03 0.8@5:18 0.8@5:04 0.8@6:11",
+    "stations": "4:03 · 1:57 · 3:11 · 3:02 · 4:08 · 2:30 · 4:22 · 3:26 (assumed standard station order)",
+    "note": "Full 8-station sim with a doubles partner, on a treadmill. Eight runs of 800 m each, so 6.4 km of running (a race run is 1 km). Garmin under-read the treadmill distance (7.48 km total with stations), so run paces are calculated as lap time over 800 m; lap times 4:35, 4:08, 4:11, 3:23, 4:02, 4:14, 4:03, 4:57. Reported by Amar: most runs at 12 km/h with the last 200 m at 13 km/h; run 8 started at 10 km/h after the sandbag lunges. Run 4 (3:23 for 800 m, 4:13/km) is faster than the reported speeds, so that lap was probably cut short. Run time 33:33, stations 26:39, transitions about 8:10. Peak heart rate 186."
   },
   {
     "date": "2026-10-25",

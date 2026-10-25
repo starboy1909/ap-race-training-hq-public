@@ -24,7 +24,7 @@ Every push to `main` goes live. These rules apply to every agent (Codex, ChatGPT
 | Results | `src/performanceData.ts`, `src/hyroxHistory.ts`, `src/resultDetails.ts` | Official or device-verified results only. |
 
 ## 3. Training rules
-- **Goal ranking:** JPM (5 Nov, the focus until race day; Shanghai is postponed, date TBC) → Hong Kong (9 Jan) → Bangkok (13 Feb) → Osaka (28 Feb). When two goals compete, the higher one wins.
+- **Goal ranking:** JPM (5 Nov, the focus until race day; Shanghai is withdrawn, entry refunded) → Hong Kong (9 Jan) → Bangkok (13 Feb) → Osaka (28 Feb). When two goals compete, the higher one wins.
 - **Changing a future workout** needs Amar's explicit approval in the conversation. One run, one Garmin metric, sleep, HRV or Body Battery is never enough on its own to change the plan.
 - **Season rules enforced by `verify-training-plan.mjs`:**
   - every paid race is in the plan;
@@ -37,8 +37,8 @@ Every push to `main` goes live. These rules apply to every agent (Codex, ChatGPT
   Do not weaken these checks to make a change pass.
 - **Paces come from evidence:**
   - threshold 4:55–5:05/km;
-  - intervals 4:35–4:45/km;
-  - easy runs no faster than 5:50/km;
+  - intervals 4:35–4:45/km; JPM race pace 4:30/km (21 Oct benchmark, 4:26 average at RPE 8);
+  - easy runs no faster than 5:50/km to 8 Nov 2026, then no faster than 5:40/km with heart rate under 150 (`EASY_CEILING_FROM` in `src/seasonPlan.ts`);
   - marathon pace 6:00–6:10/km.
 
   Adjust by at most 5 sec/km every two weeks, and only when all reps of a key session land on target at RPE 7 or less.
