@@ -38,8 +38,8 @@ export const season = [
  ['9 Nov–8 Jan','Hong Kong build','Six gym weeks around two hotel weeks at a required minimum, two Doubles simulations, then a 10-day taper.'],
  ['9 Jan','AIA HYROX Hong Kong','Pro Doubles · Worlds qualification attempt.'],
  ['11 Jan–13 Feb','Osaka + Bangkok build','Long runs to 24 km four weeks before Osaka; HYROX held at race loads; Bangkok taper.'],
- ['13 Feb · 28 Feb','Bangkok → Osaka','Second qualification attempt, then finish Osaka strong.'],
- ['Mar–Jun','Recover, then hybrid build','Three weeks of marathon recovery, then HYROX and speed. Worlds training only with a confirmed slot.'],
+ ['13 Feb · 28 Feb · 13 Mar','Bangkok → Osaka → Taipei','Second qualification attempt, then finish Osaka strong, then HYROX Taipei 13 days later as a finish-strong race.'],
+ ['Mar–Jun','Recover, then hybrid build','A recovery week, a bridge week to Taipei, a week easy, then HYROX and speed. Worlds training only with a confirmed slot.'],
 ];
 function second(day: Day): Day['secondary'] {
  if(['REST','RACE','RECOVERY'].includes(day.type)||day.travel) return {title:'No second workout today',items:['Rest, gentle mobility or an easy walk only. Travel, race and recovery days are not double-session days.']};

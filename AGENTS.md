@@ -25,7 +25,7 @@ Every push to `main` goes live. These rules apply to every agent (Codex, ChatGPT
 | Site code | `src/App.tsx`, `src/components`, `src/screens`, `src/lib`, `src/styles` | Presentation only: no plan logic, no date patches. Keep the storage keys in `src/App.tsx` (the verify script reads them there). Pure helpers go in `src/lib` with a `node:test` file. Never add a "Daily check-in" UI. |
 
 ## 3. Training rules
-- **Goal ranking:** JPM (5 Nov, the focus until race day; Shanghai is withdrawn, entry refunded) → Hong Kong (9 Jan) → Bangkok (13 Feb) → Osaka (28 Feb). When two goals compete, the higher one wins.
+- **Goal ranking:** JPM (5 Nov, the focus until race day; Shanghai is withdrawn, entry refunded) → Hong Kong (9 Jan) → Bangkok (13 Feb) → Osaka (28 Feb) → Taipei (13 Mar, finish strong). When two goals compete, the higher one wins.
 - **Changing a future workout** needs Amar's explicit approval in the conversation. One run, one Garmin metric, sleep, HRV or Body Battery is never enough on its own to change the plan.
 - **Season rules enforced by `verify-training-plan.mjs`:**
   - every paid race is in the plan;
