@@ -1,6 +1,3 @@
-main=e2b8ad676f446772a6d4128caa50a890593f3c5e
-head=origin/codex/refresh-apac-hyrox-sale-status
-tree=ad9d0d460b3319a543184632f4d62ae1adda7f3d
 export type Race = {
   startIso: string;
   date: string;
