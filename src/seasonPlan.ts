@@ -12,14 +12,16 @@ export const RACE_DATES = {
   hongKong: '2027-01-09',
   bangkok: '2027-02-13',
   osaka: '2027-02-28',
+  taipei: '2027-03-13',
 } as const;
 
 // A races get a taper and long-run spacing check in scripts/verify-training-plan.mjs.
+// Taipei (13 days after Osaka) is a finish-strong race, not an A race: Osaka comes first.
 export const A_RACES: string[] = [RACE_DATES.jpm, RACE_DATES.hongKong, RACE_DATES.bangkok, RACE_DATES.osaka];
 
 export const travelWindows: [string, string][] = [
   ['2026-09-25', '2026-09-27'], ['2026-10-09', '2026-10-12'],
-  ['2026-11-28', '2026-12-14'], ['2026-12-24', '2026-12-28'],
+  ['2026-11-28', '2026-12-14'], ['2026-12-24', '2026-12-28'], ['2027-03-12', '2027-03-15'],
 ];
 export const isTravel = (iso: string) => travelWindows.some(([a, b]) => iso >= a && iso <= b);
 
@@ -28,6 +30,7 @@ export const seasonGoals = [
   ['2', '9 Jan · AIA HYROX Hong Kong Pro Doubles', 'Worlds qualification attempt and now the first HYROX race of the season. You race at 36, so check the 2026/27 Doubles age-group rule and the slot count by 7 Nov. Provisional bar: sub-1:20.'],
   ['3', '13 Feb · BYD HYROX Bangkok Pro Doubles', 'Second qualification attempt with its own taper. If Hong Kong qualifies, race it for a Pro Doubles PB.'],
   ['4', '28 Feb · Osaka Marathon', 'Finish strong. Target 4:15–4:25 from 6:00–6:10/km; stretch is beating the 4:23:56 PB. Long runs build from October so January is not a rush.'],
+  ['5', '13 Mar · HYROX Taipei Pro Doubles', 'Finish strong 13 days after Osaka. No PB target; Osaka comes first. A Worlds slot attempt only if Hong Kong and Bangkok have not already qualified.'],
 ];
 
 export const performanceMarkers = [
@@ -230,6 +233,9 @@ const races: Record<string, Spec> = {
   '2027-02-11': { ...easy(4), note: 'Travel to Bangkok if needed; run on arrival or skip.' },
   '2027-02-12': { title: 'Shakeout · 15 min', type: 'EASY', duration: '15 min', rpe: '2–3', blocks: [block('PRE-RACE', ['15 min easy jog + 3 strides. Station split and changeover cues confirmed.'])] },
   [RACE_DATES.bangkok]: { title: 'BYD HYROX Bangkok · Pro Doubles · RACE', type: 'RACE', race: true, duration: 'Afternoon wave', rpe: '9–10', blocks: [block('RACE PLAN', ['Second qualification attempt, or a Pro Doubles PB if Hong Kong already qualified.', 'Same execution as Hong Kong. Adjust run pace for heat: start 5–10 sec/km slower and keep drinking.', 'Osaka is 15 days later. No extra training on race weekend.'])] },
+  '2027-03-12': { title: 'Travel · shakeout 15 min', type: 'EASY', duration: '15 min', rpe: '2–3', blocks: [block('PRE-RACE', ['Travel to Taipei. On arrival: 15 min easy jog + 3 strides.', 'Carbohydrate-rich dinner, no new foods. Station split and changeover cues confirmed with your partner.'])] },
+  [RACE_DATES.taipei]: { title: 'HYROX Taipei · Pro Doubles · RACE', type: 'RACE', race: true, duration: 'Saturday wave', rpe: '8–9', blocks: [block('RACE PLAN · FINISH STRONG', ['13 days after Osaka. The goal is a strong, even race, not a PB.', 'Runs: start 10 sec/km slower than your Bangkok compromised pace, then settle. Run together.', 'Stations: agreed split, short wall-ball and lunge sets, sled lengths unbroken. Roxzone under 20 sec per transition.', 'Carbohydrate meal 2–3 h before; 20–30 g carbohydrate 15 min before the start.']), block('AFTER', ['Record official splits. Walk, eat, sleep; no training the next day.'])] },
+  '2027-03-14': rest('Day after Taipei. Walk only.'),
   [RACE_DATES.osaka]: { title: 'Osaka Marathon · RACE', type: 'RACE', race: true, duration: '4:15–4:25 target', rpe: '7–9', blocks: [block('RACE PLAN · FINISH STRONG', ['Km 0–10: 6:15–6:20/km. Km 10–30: 6:05–6:15/km. Km 30 onwards: hold, or push if you feel good.', '45–60 g carbohydrate an hour, starting at 30 min. Drink to thirst plus heat.', 'Stretch goal: beat 4:23:56. Main goal: a strong, even finish.'])] },
 };
 
@@ -237,8 +243,10 @@ function postOsaka(iso: string, dow: number): Spec | null {
   const days = Math.round((Date.parse(iso) - Date.parse(RACE_DATES.osaka)) / 86400000);
   if (days < 1 || days > 21) return null;
   if (days <= 7) return rest(days === 1 ? 'Day after Osaka. Walk only.' : 'Marathon recovery week 1: walking and sleep. Optional 20 min easy bike from day 4.');
-  if (days <= 14) return [{ title: 'Easy bike · 30 min', type: 'RECOVERY', duration: '30 min', rpe: '2–3', blocks: [block('RECOVER', ['30 min easy bike + mobility.'])] }, easy(5, 'Run/walk if needed. No strides.'), rest(), upper('reduced'), easy(5, 'Easy. No strides.'), rest(), easy(8, 'Easy. No strides.')][dow];
-  return [lower('reduced'), easy(6), easy(8), upper('full'), hyrox('build', 3, '2 min'), rest(), long(12, 'Easy. Back to normal training next week.')][dow];
+  // Week 2 bridges to HYROX Taipei on day 13 (12–14 Mar come from the races map).
+  if (days <= 14) return [{ title: 'Easy bike · 30 min', type: 'RECOVERY', duration: '30 min', rpe: '2–3', blocks: [block('RECOVER', ['30 min easy bike + mobility.'])] }, easy(5, 'Run/walk if needed. No strides.'), hyrox('touch'), rest('Two days before Taipei.'), rest(), rest(), rest()][dow];
+  // Week 3: back from Taipei. Monday is the travel day home.
+  return [{ ...rest('Travel home, or rest if you flew back Sunday.'), title: 'Travel day · rest' }, easy(5, 'Easy. No strides.'), lower('reduced', 'First lifting after Osaka and Taipei: 10% under your last working loads.'), upper('reduced'), easy(6), rest(), long(10, 'Easy. Back to normal training next week.')][dow];
 }
 
 // Generic hybrid template after Osaka recovery (from 22 March 2027). Deload every 4th week.
@@ -313,6 +321,8 @@ function baseDay(iso: string, dow: number, monday: string, n: number): Spec {
 export function seasonWeek(monday: string, n: number): { phase: string; volume: string; focus: string; gate: string } | null {
   const w = W[monday];
   if (w) return { phase: w.phase, volume: `Target ${w.km}`, focus: w.focus, gate };
+  if (monday === '2027-03-08') return { phase: 'BRIDGE · TAIPEI', volume: 'Target 10–15 km + race', focus: 'Second week after Osaka: easy legs, one short HYROX touch, then HYROX Taipei on Saturday. Finish strong; Osaka came first.', gate };
+  if (monday === '2027-03-15') return { phase: 'RECOVER · AFTER TAIPEI', volume: 'Target 20–25 km', focus: 'Travel home Monday, then a gentle return to lifting and running.', gate };
   if (monday >= '2027-03-01' && monday < '2027-03-22') return { phase: 'RECOVERY · OSAKA', volume: 'Target 0–30 km', focus: 'Marathon recovery first, then a gradual return.', gate };
   if (monday < CUTOVER) return null;
   const deload = n % 4 === 3;
