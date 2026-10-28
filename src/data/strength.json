@@ -1015,5 +1015,152 @@
       }
     ],
     "note": "Every set from the Strong log (1h 5m, 19,488 kg, 13 PRs), early morning. Band pull-apart and scapular pulldown rows are bodyweight reps. Farmers reps column is metres. The screenshots end at the first reverse fly set, so any later sets of that exercise are not logged."
+  },
+  {
+    "date": "2026-10-28",
+    "session": "Upper strength + wall balls",
+    "exercises": [
+      {
+        "name": "Nautilus chest press",
+        "sets": [
+          {
+            "kg": 40,
+            "reps": 10
+          },
+          {
+            "kg": 40,
+            "reps": 15
+          },
+          {
+            "kg": 60,
+            "reps": 8
+          },
+          {
+            "kg": 60,
+            "reps": 8
+          }
+        ]
+      },
+      {
+        "name": "New tech chest supported row",
+        "sets": [
+          {
+            "kg": 35,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 12
+          },
+          {
+            "kg": 40,
+            "reps": 10
+          },
+          {
+            "kg": 40,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name": "Lat pulldown (cable)",
+        "sets": [
+          {
+            "kg": 60,
+            "reps": 7
+          },
+          {
+            "kg": 60,
+            "reps": 9
+          },
+          {
+            "kg": 60,
+            "reps": 8
+          }
+        ]
+      },
+      {
+        "name": "Panatta multi press shoulders seated",
+        "sets": [
+          {
+            "kg": 35,
+            "reps": 10
+          },
+          {
+            "kg": 35,
+            "reps": 10
+          },
+          {
+            "kg": 35,
+            "reps": 8
+          }
+        ]
+      },
+      {
+        "name": "Wall balls (10 kg)",
+        "sets": [
+          {
+            "kg": 10,
+            "reps": 15
+          },
+          {
+            "kg": 10,
+            "reps": 15
+          }
+        ]
+      },
+      {
+        "name": "Farmers carry (32.5 kg per hand)",
+        "sets": [
+          {
+            "kg": 32.5,
+            "reps": 50
+          },
+          {
+            "kg": 32.5,
+            "reps": 50
+          }
+        ]
+      },
+      {
+        "name": "Barbell biceps curl",
+        "sets": [
+          {
+            "kg": 20,
+            "reps": 8
+          },
+          {
+            "kg": 20,
+            "reps": 10
+          },
+          {
+            "kg": 20,
+            "reps": 8
+          }
+        ]
+      },
+      {
+        "name": "Triceps extension",
+        "sets": [
+          {
+            "kg": 20,
+            "reps": 12
+          },
+          {
+            "kg": 20,
+            "reps": 12
+          },
+          {
+            "kg": 20,
+            "reps": 12
+          },
+          {
+            "kg": 20,
+            "reps": 12
+          }
+        ]
+      }
+    ],
+    "note": "Every set from the Strong log (50 min, 14,660 kg, 3 PRs), early morning. Chest press reached 60 × 8 twice (new top weight). Wall balls were 10 kg, not the planned 9 kg. Farmers reps column is metres. Monday's missed lower session was not made up, as advised."
   }
 ]
