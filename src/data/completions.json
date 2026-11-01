@@ -297,5 +297,82 @@
     "avgHr": 127,
     "maxHr": 147,
     "note": "12.45 km, 1.55 km short of the plan. Easy by heart rate (avg 127). Run laps 5:27–5:43/km on the watch, faster than the 5:50 ceiling and the 6:00–6:40 long-run range, with two slow laps of about 7:33 and 7:55 (heart rate 91–105) in the middle. Watch pace on the treadmill is unreliable, so this is not read as too fast."
+  },
+  {
+    "date": "2026-10-27",
+    "type": "run",
+    "source": "strava",
+    "planned": "JPM race pace · 4 × 1.2 km",
+    "title": "Morning Run",
+    "distanceKm": 8.27,
+    "time": "50:29",
+    "avgHr": 157,
+    "maxHr": 182,
+    "reps": "1.2@4:33 1.2@4:37 1.2@4:42 1.2@4:54",
+    "pace": "4:41/km avg of the 4 reps",
+    "note": "Outdoor, watch laps (each rep logged as 1 km + 200 m). Warm-up 2 km at 5:19 and 5:14, faster than the 5:50 ceiling, then 4 × 20 sec strides. Reps 4:33, 4:37, 4:42, 4:54 against the 4:30 target: rep 1 close, then a 21 sec/km fade, rep heart rate 161–178, max 182. RPE not recorded. The fade triggers the race plan's fallback: JPM at 4:32/km."
+  },
+  {
+    "date": "2026-10-28",
+    "type": "run",
+    "source": "strava",
+    "planned": "Not planned · easy run before upper strength",
+    "title": "Morning Run (treadmill)",
+    "distanceKm": 7.39,
+    "time": "43:01",
+    "pace": "5:49/km",
+    "avgHr": 142,
+    "maxHr": 160,
+    "note": "Treadmill. Laps 5:32–5:49 on the watch; heart rate drifted from 122 to 155–160 by km 5. Not in the plan for the day, which was upper strength only."
+  },
+  {
+    "date": "2026-10-28",
+    "type": "strength",
+    "source": "strava",
+    "planned": "Upper strength + wall balls",
+    "title": "Morning Weight Training",
+    "time": "50:25",
+    "note": "Details in the Strength log (Strong: 50 min, 14,660 kg, 3 PRs)."
+  },
+  {
+    "date": "2026-10-29",
+    "type": "hyrox",
+    "source": "strava",
+    "planned": "HYROX · 3 rounds, race loads",
+    "title": "Morning HIIT",
+    "time": "24:26",
+    "note": "Cut short: the left outer ankle hurt on the sled push, so the session became SkiErg 5 × 500 m (Amar). No sled, lunge or wall-ball work. A 9 min ride to the gym is folded in."
+  },
+  {
+    "date": "2026-10-30",
+    "type": "ride",
+    "source": "strava",
+    "planned": "Easy run · 6 km (swapped for the bike: left ankle niggle)",
+    "title": "Morning Ride (indoor)",
+    "distanceKm": 17.7,
+    "time": "52:01",
+    "note": "Indoor bike, 17.7 km from the bike console (Amar). Short evening rides of 5 and 22 min are transport and not counted."
+  },
+  {
+    "date": "2026-10-31",
+    "type": "ride",
+    "source": "strava",
+    "planned": "Rest",
+    "title": "Morning Ride + Lunch Ride (indoor)",
+    "time": "1:40:20",
+    "note": "Not planned: two indoor rides of 50 min each (09:55 and 11:57) on the rest day, plus short rides to and from the gym. Easy by relative effort (6 each)."
+  },
+  {
+    "date": "2026-11-01",
+    "type": "run",
+    "source": "strava",
+    "planned": "Long run · 12 km",
+    "title": "Morning Run",
+    "distanceKm": 12.01,
+    "time": "1:10:30",
+    "pace": "5:52/km",
+    "avgHr": 153,
+    "maxHr": 171,
+    "note": "Completed 12 km outdoors (moving time; 1:31 elapsed with two stops of about 17 and 4 min). Km 1–5 at 5:13–5:45, faster than the 6:00–6:40 range and the slow-start cue, heart rate 154–162; after the long stop, km 6–12 at 6:01–6:17 as planned. Ankle niggle from 29 Oct: run completed."
   }
 ]
