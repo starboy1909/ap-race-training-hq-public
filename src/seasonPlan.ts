@@ -13,15 +13,18 @@ export const RACE_DATES = {
   bangkok: '2027-02-13',
   osaka: '2027-02-28',
   taipei: '2027-03-13',
+  nagoya: '2027-04-17',
 } as const;
 
 // A races get a taper and long-run spacing check in scripts/verify-training-plan.mjs.
 // Taipei (13 days after Osaka) is a finish-strong race, not an A race: Osaka comes first.
-export const A_RACES: string[] = [RACE_DATES.jpm, RACE_DATES.hongKong, RACE_DATES.bangkok, RACE_DATES.osaka];
+// Nagoya (17 Apr) is an A race with its own taper (approved 29 Oct).
+export const A_RACES: string[] = [RACE_DATES.jpm, RACE_DATES.hongKong, RACE_DATES.bangkok, RACE_DATES.osaka, RACE_DATES.nagoya];
 
 export const travelWindows: [string, string][] = [
   ['2026-09-25', '2026-09-27'], ['2026-10-09', '2026-10-12'],
   ['2026-11-28', '2026-12-14'], ['2026-12-24', '2026-12-28'], ['2027-03-12', '2027-03-15'],
+  ['2027-04-16', '2027-04-19'],
 ];
 export const isTravel = (iso: string) => travelWindows.some(([a, b]) => iso >= a && iso <= b);
 
@@ -31,6 +34,7 @@ export const seasonGoals = [
   ['3', '13 Feb · BYD HYROX Bangkok Pro Doubles', 'Second qualification attempt with its own taper. If Hong Kong qualifies, race it for a Pro Doubles PB.'],
   ['4', '28 Feb · Osaka Marathon', 'Finish strong. Target 4:15–4:25 from 6:00–6:10/km; stretch is beating the 4:23:56 PB. Long runs build from October so January is not a rush.'],
   ['5', '13 Mar · HYROX Taipei Pro Doubles', 'Finish strong 13 days after Osaka. No PB target; Osaka comes first. A Worlds slot attempt only if Hong Kong and Bangkok have not already qualified.'],
+  ['6', '17 Apr · HYROX Nagoya Pro Doubles', 'A race with its own taper, five weeks after Taipei. Worlds qualification attempt if Hong Kong and Bangkok have not already qualified; otherwise race it for a Pro Doubles PB.'],
 ];
 
 export const performanceMarkers = [
@@ -219,6 +223,11 @@ const W: Record<string, WeekPlan> = {
   '2027-02-08': { phase: 'TAPER · BANGKOK', km: '15–18 km', focus: 'Second qualification attempt. Short taper; Osaka training resumes after.', days: [lower('taper'), key('taper400s'), hyrox('touch'), easy(4), rest(), null, rest('Day after Bangkok. Walk only.')] },
   '2027-02-15': { phase: 'BRIDGE · OSAKA', km: '30–35 km', focus: 'Recover from Bangkok, rehearse marathon pace, one last moderate long run.', days: [rest(), easy(6, 'Easy. No strides.'), easy(10, 'Include 2 × 2 km at 6:00–6:10/km.'), upper('reduced'), easy(6), rest(), long(14, 'Final long run. Practise race-morning breakfast and fuelling.')] },
   '2027-02-22': { phase: 'TAPER · OSAKA', km: '18 km + race', focus: 'Arrive fresh. Finish strong.', days: [rest(), easy(6, 'Include 3 × 1 km at 6:00–6:10/km.'), easy(5), easy(4), rest(), rest('Travel or rest. 10 min shakeout jog if you feel flat.'), null] },
+  '2027-03-22': { phase: 'BUILD · NAGOYA 1', km: '36–40 km', focus: 'Back to full training after Osaka and Taipei. Nagoya is four weeks away.', days: [lower('full'), easy(8), key('tempo321'), upper('full'), hyrox('build', 4, '2 min'), rest(), long(14, 'Aerobic support for HYROX; no marathon fuelling needed.')] },
+  '2027-03-29': { phase: 'BUILD · NAGOYA 2', km: '40–44 km', focus: 'The big HYROX week: full Doubles simulation on Friday, 15 days before Nagoya.', days: [lower('full'), easy(10), key('brokenMiles'), upper('full'), hyrox('sim'), rest(), long(16, 'Aerobic support for HYROX; no marathon fuelling needed.')] },
+  '2027-04-05': { phase: 'PRE-TAPER · NAGOYA', km: '32–36 km', focus: 'Sharp, moderate volume. Friday is the last race-pace rehearsal, 8 days out.', days: [lower('reduced'), easy(8), key('thr3x8'), upper('reduced'), hyrox('rehearsal'), rest(), easy(12, 'Easy long-ish run, 6 days before Nagoya. No strides.')] },
+  '2027-04-12': { phase: 'TAPER · NAGOYA', km: '15–18 km + race', focus: 'Fresh legs for Nagoya. Travel Friday, race Saturday evening.', days: [lower('taper'), key('taper400s'), hyrox('touch'), easy(4), null, null, null] },
+  '2027-04-19': { phase: 'RECOVER · AFTER NAGOYA', km: '20–25 km', focus: 'Travel home Monday, then a gentle return to lifting and running.', days: [{ ...travelRest(), note: 'Travel home, or rest if you are already back.' }, easy(5, 'Easy. No strides.'), lower('reduced', 'First lifting after Nagoya: 10% under your last working loads.'), upper('reduced'), easy(6), rest(), long(10, 'Easy. Back to normal training next week.')] },
 };
 
 const races: Record<string, Spec> = {
@@ -236,6 +245,9 @@ const races: Record<string, Spec> = {
   '2027-03-12': { title: 'Travel · shakeout 15 min', type: 'EASY', duration: '15 min', rpe: '2–3', blocks: [block('PRE-RACE', ['Travel day. 15 min easy jog + 3 strides.', 'Carbohydrate-rich dinner, no new foods. Station split and changeover cues confirmed with your partner.'])] },
   [RACE_DATES.taipei]: { title: 'HYROX Taipei · Pro Doubles · RACE', type: 'RACE', race: true, duration: 'Saturday wave', rpe: '8–9', blocks: [block('RACE PLAN · FINISH STRONG', ['13 days after Osaka. The goal is a strong, even race, not a PB.', 'Runs: start 10 sec/km slower than your Bangkok compromised pace, then settle. Run together.', 'Stations: agreed split, short wall-ball and lunge sets, sled lengths unbroken. Roxzone under 20 sec per transition.', 'Carbohydrate meal 2–3 h before; 20–30 g carbohydrate 15 min before the start.']), block('AFTER', ['Record official splits. Walk, eat, sleep; no training the next day.'])] },
   '2027-03-14': rest('Day after Taipei. Walk only.'),
+  '2027-04-16': { title: 'Travel · shakeout 15 min', type: 'EASY', duration: '15 min', rpe: '2–3', blocks: [block('PRE-RACE', ['Travel day. 15 min easy jog + 3 strides.', 'Carbohydrate-rich dinner, no new foods. Station split and changeover cues confirmed with your partner.'])] },
+  [RACE_DATES.nagoya]: { title: 'HYROX Nagoya · Pro Doubles · RACE', type: 'RACE', race: true, duration: 'Saturday evening wave', rpe: '9–10', blocks: [block('RACE PLAN', ['Qualification attempt if Hong Kong and Bangkok have not already qualified; otherwise a Pro Doubles PB.', 'Same execution as Hong Kong: start at the compromised pace from the 2 Apr simulation, then settle. Run together.', 'Stations: agreed split, short wall-ball and lunge sets, sled lengths unbroken. Roxzone under 20 sec per transition.', 'Evening start: normal breakfast and lunch, carbohydrate meal 3 h before, 20–30 g carbohydrate 15 min before the start.']), block('AFTER', ['Record official splits and age-group place. Check the Worlds slot allocation the same evening; you have 48 hours to accept.'])] },
+  '2027-04-18': rest('Day after Nagoya. Walk only.'),
   [RACE_DATES.osaka]: { title: 'Osaka Marathon · RACE', type: 'RACE', race: true, duration: '4:15–4:25 target', rpe: '7–9', blocks: [block('RACE PLAN · FINISH STRONG', ['Km 0–10: 6:15–6:20/km. Km 10–30: 6:05–6:15/km. Km 30 onwards: hold, or push if you feel good.', '45–60 g carbohydrate an hour, starting at 30 min. Drink to thirst plus heat.', 'Stretch goal: beat 4:23:56. Main goal: a strong, even finish.'])] },
 };
 
@@ -326,7 +338,7 @@ export function seasonWeek(monday: string, n: number): { phase: string; volume: 
   if (monday >= '2027-03-01' && monday < '2027-03-22') return { phase: 'RECOVERY · OSAKA', volume: 'Target 0–30 km', focus: 'Marathon recovery first, then a gradual return.', gate };
   if (monday < CUTOVER) return null;
   const deload = n % 4 === 3;
-  return { phase: deload ? 'DELOAD' : 'BUILD · HYBRID', volume: deload ? 'Target 30 km' : 'Target 40–45 km', focus: 'Hybrid build after Osaka. Nagoya, the May qualifiers and Worlds stay conditional until entry or qualification is confirmed.', gate };
+  return { phase: deload ? 'DELOAD' : 'BUILD · HYBRID', volume: deload ? 'Target 30 km' : 'Target 40–45 km', focus: 'Hybrid build after Osaka. The May qualifiers and Worlds stay conditional until entry or qualification is confirmed.', gate };
 }
 
 export function seasonSecondary(day: Day): Day['secondary'] {
