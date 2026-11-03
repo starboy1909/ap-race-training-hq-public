@@ -9,6 +9,7 @@ export const CUTOVER = '2026-10-06';
 export const RACE_DATES = {
   jpm: '2026-11-05',
   rmac: '2026-11-08',
+  guangzhou: '2026-11-22',
   hongKong: '2027-01-09',
   bangkok: '2027-02-13',
   osaka: '2027-02-28',
@@ -208,8 +209,8 @@ const W: Record<string, WeekPlan> = {
   '2026-10-26': { phase: 'SHARPEN · JPM', km: '30–34 km', focus: 'One race-pace rehearsal on Tuesday, lighter lifting, last HYROX session a week out.', days: [lower('reduced'), key('jpmRace'), upper('reduced'), hyrox('build', 3, '2 min'), easy(6), rest(), long(12, 'Easy. JPM is Thursday; no fast finish.')] },
   '2026-11-02': { phase: 'RACE WEEK · JPM + RMAC', km: '22–25 km incl. races', focus: 'Short and sharp to Thursday, race JPM all out, then run RMAC easy as the long run.', days: [lower('taper'), key('taper400s'), null, null, rest(), null, null] },
   '2026-11-09': { phase: 'BUILD · HONG KONG 1', km: '40–44 km', focus: 'Back to full HYROX training after JPM and RMAC. Monday loads 10% under your last working loads, then normal.', days: [lower('reduced', 'First lifting after the race block: 10% under your last working loads.'), easyRolling(8), key('tempo321'), upper('full'), hyrox('build', 4, '2 min'), rest(), long(18)] },
-  '2026-11-16': { phase: 'BUILD · HONG KONG 2', km: '44–48 km', focus: 'Volume up. One more HYROX round and shorter rests.', days: [lower('full'), easyProgressive(10), key('brokenMiles'), upper('full'), hyrox('build', 5, '90 sec'), rest(), racePractice(20, '6 km easy · 8 km at marathon pace · 6 km easy.')] },
-  '2026-11-23': { phase: 'BUILD · HONG KONG 3', km: '40–45 km', focus: 'Full Doubles simulation before travel. Ideal partner session.', days: [lower('full'), easyRolling(10), key('dropSet'), upper('full'), hyrox('sim'), null, hotel.long(80)] },
+  '2026-11-16': { phase: 'BUILD · HONG KONG 2 + GUANGZHOU', km: '28–32 km incl. race', focus: 'HYROX Guangzhou (Men\'s Doubles Open) on Sunday, raced inside the Hong Kong build. Lighter lifting, one key run, no HYROX session in the five days before (approved 3 Nov).', days: [lower('reduced'), easy(8), key('brokenMiles'), upper('reduced'), easy(5), null, null] },
+  '2026-11-23': { phase: 'BUILD · HONG KONG 3', km: '35–40 km', focus: 'Rest the day after Guangzhou, then the full Doubles simulation before travel. Ideal partner session.', days: [rest('Day after Guangzhou. Walk only.'), easyRolling(10), key('dropSet'), upper('full'), hyrox('sim'), null, hotel.long(80)] },
   '2026-11-30': { phase: 'HOTEL BLOCK 1', km: '35–40 km (treadmill)', focus: 'Required minimum while away: 2 dumbbell sessions, 3 treadmill runs and a treadmill HYROX circuit.', days: [null, null, null, null, null, null, null] },
   '2026-12-07': { phase: 'HOTEL BLOCK 2', km: '35–40 km (treadmill)', focus: 'Same template, longer Sunday run. Monday 14 Dec is the travel home.', days: [null, null, null, null, null, null, hotel.long(100)] },
   '2026-12-14': { phase: 'RE-ENTRY · HONG KONG 4', km: '38–42 km', focus: 'Back on the sleds at race load. Monday is the travel day, so legs move to Tuesday.', days: [null, lower('reduced', 'Back from travel: 10% under your last gym loads.'), key('onOffKs'), upper('full'), hyrox('build', 5, '90 sec'), rest(), long(18)] },
@@ -231,6 +232,8 @@ const W: Record<string, WeekPlan> = {
 };
 
 const races: Record<string, Spec> = {
+  '2026-11-21': { title: 'Travel · shakeout 15 min', type: 'EASY', duration: '15 min', rpe: '2–3', blocks: [block('PRE-RACE', ['Travel day. 15 min easy jog + 3 strides.', 'Carbohydrate-rich dinner, no new foods. Station split and changeover cues confirmed with your partner.'])] },
+  [RACE_DATES.guangzhou]: { title: 'HYROX Guangzhou · Doubles Men (Open) · RACE', type: 'RACE', race: true, duration: 'Sunday wave', rpe: '8–9', blocks: [block('RACE PLAN', ['Raced inside the Hong Kong build, seven weeks out: a full-effort rehearsal of Hong Kong execution, not a peak.', 'Runs: start at 5:15/km, then settle to the pace you can hold together. Run together.', 'Stations: agreed split, short wall-ball and lunge sets, sled lengths unbroken. Roxzone under 20 sec per transition.', 'Carbohydrate meal 2–3 h before; 20–30 g carbohydrate 15 min before the start.']), block('AFTER', ['Record official splits and station times; they set the Hong Kong targets. Walk, eat, sleep; rest on Monday.'])] },
   '2026-11-04': { title: 'Pre-race shakeout · 20 min', type: 'EASY', duration: '20 min', rpe: '2–3', blocks: [block('OPENERS', ['20 min easy jog + 4 × 20 sec strides at race pace, full walk back.', 'Carbohydrate-rich dinner, no new foods. Lay out kit and race bib.'])] },
   [RACE_DATES.jpm]: { title: 'JPMorganChase Corporate Challenge · 5.6K · RACE', type: 'RACE', race: true, duration: '~25 min', rpe: '9', blocks: [block('RACE PLAN · BEAT 25:27', ['Race pace 4:30/km = 25:12, set by the 21 Oct benchmark (4:26 average at RPE 8) and confirmed on 27 Oct. If the 27 Oct rehearsal faded, 4:32/km = 25:23. Stretch: sub-25:00 needs 4:27/km.', 'Km 1: race pace, no faster. Last year km 1 was 4:19 and km 5 was 4:52; that fade cost the time. Km 2–4: hold race pace, even effort. Last 1.6 km: everything you have.', 'Start near the front of your wave so you do not weave. Watch on km splits.']), block('EVENING RACE · 6:30 P.M.', ['Normal breakfast and lunch. Carbohydrate snack 2–3 h before; water to thirst.', 'Warm-up: 15 min easy jog, 4 strides, then 2 × 1 min at race pace with 1 min walk. Finish 10 min before the start.'])] },
   '2026-11-06': rest(),
