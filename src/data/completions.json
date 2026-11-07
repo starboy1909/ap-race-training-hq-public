@@ -341,13 +341,13 @@
     "planned": "HYROX · 3 rounds, race loads",
     "title": "Morning HIIT",
     "time": "24:26",
-    "note": "Cut short: the left outer ankle hurt on the sled push, so the session became SkiErg 5 × 500 m (Amar). No sled, lunge or wall-ball work. A 9 min ride to the gym is folded in."
+    "note": "Session modified: SkiErg 5 × 500 m only (Amar). No sled, lunge or wall-ball work. A 9 min ride to the gym is folded in."
   },
   {
     "date": "2026-10-30",
     "type": "ride",
     "source": "strava",
-    "planned": "Easy run · 6 km (swapped for the bike: left ankle niggle)",
+    "planned": "Easy run · 6 km (swapped for the bike)",
     "title": "Morning Ride (indoor)",
     "distanceKm": 17.7,
     "time": "52:01",
@@ -373,7 +373,7 @@
     "pace": "5:52/km",
     "avgHr": 153,
     "maxHr": 171,
-    "note": "Completed 12 km outdoors (moving time; 1:31 elapsed with two stops of about 17 and 4 min). Km 1–5 at 5:13–5:45, faster than the 6:00–6:40 range and the slow-start cue, heart rate 154–162; after the long stop, km 6–12 at 6:01–6:17 as planned. Ankle niggle from 29 Oct: run completed."
+    "note": "Completed 12 km outdoors (moving time; 1:31 elapsed with two stops of about 17 and 4 min). Km 1–5 at 5:13–5:45, faster than the 6:00–6:40 range and the slow-start cue, heart rate 154–162; after the long stop, km 6–12 at 6:01–6:17 as planned."
   },
   {
     "date": "2026-11-02",
@@ -396,7 +396,7 @@
     "maxHr": 189,
     "reps": "0.4@1:49 0.4@1:51 0.4@1:52 0.4@1:52 0.4@1:53 0.4@1:50",
     "pace": "4:38/km avg of the 6 reps",
-    "note": "Ankle hop test pain-free before the run (Amar). 2.2 km warm-up at 5:32–5:35, then 6 × 400 m in 1:49–1:53 against the 1:48 target (4:33–4:43/km), even from first to last; 90 sec walking rest. Cool-down 1.8 km."
+    "note": "2.2 km warm-up at 5:32–5:35, then 6 × 400 m in 1:49–1:53 against the 1:48 target (4:33–4:43/km), even from first to last; 90 sec walking rest. Cool-down 1.8 km."
   },
   {
     "date": "2026-11-04",
@@ -421,7 +421,7 @@
     "maxHr": 190,
     "pace": "4:51/km",
     "reps": "1.0@4:34 1.0@4:36 1.0@4:54 1.0@5:08 1.0@5:09 0.59@4:37",
-    "note": "Watch time; official time not yet recorded. Evening, 26 °C and 81% humidity. Km 1–2 at 4:34–4:36, close to the 4:32 plan, then a fade to 5:08–5:09 in km 4–5 with heart rate 183–185, and a 4:37 finish. Average heart rate 181, max 190. Left ankle niggle from 29 Oct."
+    "note": "Watch time; official time not yet recorded. Evening, 26 °C and 81% humidity. Km 1–2 at 4:34–4:36, close to the 4:32 plan, then a fade to 5:08–5:09 in km 4–5 with heart rate 183–185, and a 4:37 finish. Average heart rate 181, max 190."
   },
   {
     "date": "2026-11-07",
@@ -432,6 +432,6 @@
     "distanceKm": 27.5,
     "time": "1:05:02",
     "avgHr": 97,
-    "note": "Indoor bike, 27.5 km at 70 rpm average from the console (Amar). Easy by heart rate, but longer than the 20–30 min planned the day before RMAC. Sled push in the gym the same day caused left-ankle pain of about 3/10 (Amar)."
+    "note": "Indoor bike, 27.5 km at 70 rpm average from the console (Amar). Easy by heart rate, but longer than the 20–30 min planned the day before RMAC."
   }
 ]
