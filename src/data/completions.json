@@ -390,7 +390,7 @@
     "source": "strava",
     "planned": "Taper 400s",
     "title": "Morning Run",
-    "distanceKm": 7,
+    "distanceKm": 7.0,
     "time": "41:56",
     "avgHr": 157,
     "maxHr": 189,
