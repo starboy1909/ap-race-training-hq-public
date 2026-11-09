@@ -390,7 +390,7 @@
     "source": "strava",
     "planned": "Taper 400s",
     "title": "Morning Run",
-    "distanceKm": 7.0,
+    "distanceKm": 7,
     "time": "41:56",
     "avgHr": 157,
     "maxHr": 189,
@@ -433,5 +433,19 @@
     "time": "1:05:02",
     "avgHr": 97,
     "note": "Indoor bike, 27.5 km at 70 rpm average from the console (Amar). Easy by heart rate, but longer than the 20–30 min planned the day before RMAC."
+  },
+  {
+    "date": "2026-11-08",
+    "type": "run",
+    "source": "strava",
+    "planned": "RMAC Gold Coast 15K · easy long run",
+    "title": "RMAC Gold Coast 15k",
+    "distanceKm": 15.17,
+    "time": "1:30:07",
+    "avgHr": 173,
+    "maxHr": 188,
+    "pace": "5:56/km",
+    "reps": "1.0@7:40 1.0@5:34 1.0@5:37 1.0@5:42 1.0@5:45 1.0@5:43 1.0@5:43 1.0@5:36 1.0@5:56 1.0@5:51 1.0@6:01 1.0@6:16 1.0@6:15 1.0@5:49 1.0@5:50",
+    "note": "Watch time; official time not yet recorded. Target was 6:00–6:30/km at conversational effort, three days after JPM. Km 1 was the opening climb (7:40). Km 2–8 ran 5:34–5:45, faster than the target, and heart rate averaged 173. The pace drifted to 6:15–6:16 in km 12–13 and recovered to 5:49–5:50 to the finish. 25.6 °C, 73% humidity."
   }
 ]
