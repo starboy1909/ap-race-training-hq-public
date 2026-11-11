@@ -447,5 +447,45 @@
     "pace": "5:56/km",
     "reps": "1.0@7:40 1.0@5:34 1.0@5:37 1.0@5:42 1.0@5:45 1.0@5:43 1.0@5:43 1.0@5:36 1.0@5:56 1.0@5:51 1.0@6:01 1.0@6:16 1.0@6:15 1.0@5:49 1.0@5:50",
     "note": "Watch time; official time not yet recorded. Target was 6:00–6:30/km at conversational effort, three days after JPM. Km 1 was the opening climb (7:40). Km 2–8 ran 5:34–5:45, faster than the target, and heart rate averaged 173. The pace drifted to 6:15–6:16 in km 12–13 and recovered to 5:49–5:50 to the finish. 25.6 °C, 73% humidity."
+  },
+  {
+    "date": "2026-11-09",
+    "type": "ride",
+    "source": "strava",
+    "planned": "Lower strength · 10% under last loads",
+    "title": "Evening Ride (indoor)",
+    "distanceKm": 32,
+    "time": "1:12:08",
+    "avgHr": 90,
+    "note": "Indoor bike, 32 km from the console (Amar). Easy by heart rate (avg 90, max 111). Session modified: bike in place of the planned lower session."
+  },
+  {
+    "date": "2026-11-10",
+    "type": "strength",
+    "source": "strava",
+    "planned": "Easy rolling run · 8 km",
+    "title": "Lunch Weight Training",
+    "time": "51:19",
+    "note": "Upper session moved forward from Thursday; the run was skipped (session modified). Strava duration only; no Strong screenshots."
+  },
+  {
+    "date": "2026-11-11",
+    "type": "ride",
+    "source": "strava",
+    "planned": "Easy run · 8 km (replaces the tempo this week)",
+    "title": "Morning Ride (indoor)",
+    "distanceKm": 32,
+    "time": "1:10:01",
+    "avgHr": 90,
+    "note": "Indoor bike, 32 km from the console (Amar). Easy by heart rate (avg 90, max 109). Session modified: bike in place of the easy run."
+  },
+  {
+    "date": "2026-11-12",
+    "type": "strength",
+    "source": "strava",
+    "planned": "Upper strength",
+    "title": "Morning Weight Training",
+    "time": "54:16",
+    "note": "Strava duration only; no Strong screenshots yet."
   }
 ]
