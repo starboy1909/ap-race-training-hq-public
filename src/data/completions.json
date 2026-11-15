@@ -487,5 +487,24 @@
     "title": "Morning Weight Training",
     "time": "54:16",
     "note": "Strava duration only; no Strong screenshots yet."
+  },
+  {
+    "date": "2026-11-13",
+    "type": "hyrox",
+    "source": "amar",
+    "planned": "HYROX · 4 rounds, race loads",
+    "title": "Low-impact HYROX circuit",
+    "stations": "2 rounds: SkiErg 1,000 m · row 1,000 m · 20 wall balls · 200 m farmers carry",
+    "note": "Session modified: no sleds or burpee broad jumps. Stopped after 2 of 4 rounds; heart rate in the 170s after the wall balls. Strava was unavailable at sync, so details are from Amar."
+  },
+  {
+    "date": "2026-11-14",
+    "type": "ride",
+    "source": "amar",
+    "planned": "Rest",
+    "title": "Indoor bike",
+    "distanceKm": 33,
+    "time": "1:27:36",
+    "note": "Console: level 4, 22 km/h average, 449 kcal (Amar’s photo). No heart rate recorded."
   }
 ]
