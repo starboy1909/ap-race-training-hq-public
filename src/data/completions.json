@@ -491,11 +491,12 @@
   {
     "date": "2026-11-13",
     "type": "hyrox",
-    "source": "amar",
+    "source": "strava",
     "planned": "HYROX · 4 rounds, race loads",
-    "title": "Low-impact HYROX circuit",
-    "stations": "2 rounds: SkiErg 1,000 m · row 1,000 m · 20 wall balls · 200 m farmers carry",
-    "note": "Session modified: no sleds or burpee broad jumps. Stopped after 2 of 4 rounds; heart rate in the 170s after the wall balls. Strava was unavailable at sync, so details are from Amar."
+    "title": "Morning HIIT",
+    "time": "55:06",
+    "stations": "2 rounds: SkiErg 4:32 / 4:45 · row 4:26 / 4:45 · 20 wall balls (10 kg) · farmers carry 24 kg",
+    "note": "Session modified: no sleds or burpee broad jumps. Stopped after 2 of 4 rounds; heart rate in the 170s after the wall balls (Amar)."
   },
   {
     "date": "2026-11-14",
@@ -506,5 +507,30 @@
     "distanceKm": 33,
     "time": "1:27:36",
     "note": "Console: level 4, 22 km/h average, 449 kcal (Amar’s photo). No heart rate recorded."
+  },
+  {
+    "date": "2026-11-15",
+    "type": "hyrox",
+    "source": "strava",
+    "planned": "Easy run · 10 km",
+    "title": "Morning HIIT · PFT",
+    "time": "24:34",
+    "avgHr": 161,
+    "maxHr": 197,
+    "stations": "SkiErg 1,000 m 4:15 · burpee broad jumps 2:00 · 50 lunges · row 1,000 m 4:15 · 30 push-ups · 100 wall balls (6 kg)",
+    "note": "Extra hard circuit before the easy run (not in the plan)."
+  },
+  {
+    "date": "2026-11-15",
+    "type": "run",
+    "source": "strava",
+    "planned": "Easy run · 10 km",
+    "title": "Morning Run (treadmill)",
+    "distanceKm": 10.35,
+    "time": "1:00:00",
+    "avgHr": 129,
+    "maxHr": 137,
+    "pace": "5:48/km",
+    "note": "Easy and even: every km 5:40–5:53, heart rate 119–131. First run back since 8 Nov."
   }
 ]
