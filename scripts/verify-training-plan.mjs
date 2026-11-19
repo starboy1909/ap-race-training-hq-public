@@ -5,12 +5,18 @@ const target=new URL('../.plan-verification.mjs',import.meta.url).pathname;
 await build({entryPoints:['src/trainingPlan.ts'],bundle:true,platform:'node',format:'esm',outfile:target,logLevel:'error'});
 const sm=new URL('../.season-verification.mjs',import.meta.url).pathname;
 await build({entryPoints:['src/seasonPlan.ts'],bundle:true,platform:'node',format:'esm',outfile:sm,logLevel:'error'});
+const rd=new URL('../.race-verification.mjs',import.meta.url).pathname;
+await build({entryPoints:['src/raceData.ts'],bundle:true,platform:'node',format:'esm',outfile:rd,logLevel:'error'});
 try {
  const {buildPlan}=await import(target);
  const {A_RACES,RACE_DATES,CUTOVER,trackWindows}=await import(sm);
  const weeks=buildPlan();const future=weeks.flatMap(w=>w.days).filter(d=>d.iso);
  const byIso=Object.fromEntries(future.map(d=>[d.iso,d]));
  const shift=(iso,n)=>new Date(Date.parse(iso+'T12:00:00Z')+n*86400000).toISOString().slice(0,10);
+
+ // Races Amar has ruled out never come back, not even as opportunities
+ const {races,RULED_OUT}=await import(rd);
+ for(const r of races)for(const k of RULED_OUT)assert.ok(!r.name.toLowerCase().includes(k.toLowerCase()),`ruled out by Amar: ${r.name}`);
 
  // Structure
  assert.equal(future.length,273);assert.equal(future.at(-1).iso,'2027-06-13');
@@ -55,4 +61,4 @@ try {
  const {readdir}=await import('node:fs/promises');for(const dir of ['src/components','src/screens','src/lib']){for(const f of await readdir(dir,{recursive:true,withFileTypes:true})){if(!f.isFile())continue;const path=`${f.parentPath??f.path}/${f.name}`;const src=await readFile(path,'utf8');assert.ok(!src.includes('Daily check-in')&&!src.includes('Check-in needed'),`${path} reintroduces check-in UI`);}}
  const hist=await readFile('src/trainingHistory.ts','utf8');assert.ok(hist.includes('3×1 km')||hist.includes('3 × 1 km'));
  console.log('PASS: 273 continuous days, history unchanged, every paid race present with taper, long-run spacing, travel minimums and weekly km targets.');
-}finally{await unlink(target);await unlink(sm);}
+}finally{await unlink(target);await unlink(sm);await unlink(rd);}
