@@ -49,6 +49,7 @@ Every push to `main` goes live. These rules apply to every agent (Codex, ChatGPT
   - RDL from 40 kg;
   - add 2.5 kg a week when every set is clean with 2 reps in reserve.
 - **Do not add new races** to the plan until entry is paid and confirmed. Watch-list races stay out of the daily plan.
+- **Ruled out by Amar: never add, not even as an opportunity or watch item.** HYROX Sanya, 6 Dec 2026 (travelling). Listed in `RULED_OUT` in `src/raceData.ts` and enforced by `npm run check`. Only Amar can remove an entry.
 
 ## 4. Privacy
 Never commit email contents, booking or order details, ticket QR codes, exact routes, account identifiers, private health records, emergency contacts or personal travel descriptions. Only neutral availability changes (for example "travel, hotel gym") and public-safe training summaries go on the site. Raw Garmin data stays private.
