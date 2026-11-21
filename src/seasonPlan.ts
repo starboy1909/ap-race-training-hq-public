@@ -11,6 +11,7 @@ export const RACE_DATES = {
   rmac: '2026-11-08',
   guangzhou: '2026-11-22',
   hongKong: '2027-01-09',
+  schkm: '2027-01-17',
   bangkok: '2027-02-13',
   osaka: '2027-02-28',
   taipei: '2027-03-13',
@@ -20,7 +21,7 @@ export const RACE_DATES = {
 // A races get a taper and long-run spacing check in scripts/verify-training-plan.mjs.
 // Taipei (13 days after Osaka) is a finish-strong race, not an A race: Osaka comes first.
 // Nagoya (17 Apr) is an A race with its own taper (approved 29 Oct).
-export const A_RACES: string[] = [RACE_DATES.jpm, RACE_DATES.hongKong, RACE_DATES.bangkok, RACE_DATES.osaka, RACE_DATES.nagoya];
+export const A_RACES: string[] = [RACE_DATES.jpm, RACE_DATES.hongKong, RACE_DATES.schkm, RACE_DATES.bangkok, RACE_DATES.osaka, RACE_DATES.nagoya];
 
 export const travelWindows: [string, string][] = [
   ['2026-09-25', '2026-09-27'], ['2026-10-09', '2026-10-12'],
@@ -33,9 +34,10 @@ export const seasonGoals = [
   ['1', '5 Nov · JPMorganChase 5.6K', 'The focus until race day (Shanghai is withdrawn; entry refunded). Beat last year’s 25:27 (4:33/km). Race pace 4:30/km = 25:12, set by the 21 Oct 5 × 1 km benchmark (4:26 average at RPE 8). Stretch sub-25:00 needs 4:27/km. If JPM is run at 4:30 or faster, intervals move to 4:30–4:40/km for the Hong Kong block.'],
   ['2', '9 Jan · AIA HYROX Hong Kong Pro Doubles', 'Worlds qualification attempt and now the first HYROX race of the season. You race at 36, so check the 2026/27 Doubles age-group rule and the slot count by 7 Nov. Provisional bar: sub-1:20.'],
   ['3', '13 Feb · BYD HYROX Bangkok Pro Doubles', 'Second qualification attempt with its own taper. If Hong Kong qualifies, race it for a Pro Doubles PB.'],
-  ['4', '28 Feb · Osaka Marathon', 'Finish strong. Target 4:15–4:25 from 6:00–6:10/km; stretch is beating the 4:23:56 PB. Long runs build from October so January is not a rush.'],
-  ['5', '13 Mar · HYROX Taipei Pro Doubles', 'Finish strong 13 days after Osaka. No PB target; Osaka comes first. A Worlds slot attempt only if Hong Kong and Bangkok have not already qualified.'],
-  ['6', '17 Apr · HYROX Nagoya Pro Doubles', 'A race with its own taper, five weeks after Taipei. Worlds qualification attempt if Hong Kong and Bangkok have not already qualified; otherwise race it for a Pro Doubles PB.'],
+  ['4', '17 Jan · Standard Chartered Hong Kong Marathon', 'Raced 8 days after HYROX Hong Kong (Amar, 21 Nov). Target 4:20–4:30 on a hilly course; stretch is beating the 4:23:56 PB. Ranked after Bangkok: Bangkok training comes back first afterwards.'],
+  ['5', '28 Feb · Osaka Marathon', 'Finish strong, six weeks after SCHKM. Target 4:15–4:25 from 6:00–6:10/km; stretch is beating the 4:23:56 PB. Long runs build from October so January is not a rush.'],
+  ['6', '13 Mar · HYROX Taipei Pro Doubles', 'Finish strong 13 days after Osaka. No PB target; Osaka comes first. A Worlds slot attempt only if Hong Kong and Bangkok have not already qualified.'],
+  ['7', '17 Apr · HYROX Nagoya Pro Doubles', 'A race with its own taper, five weeks after Taipei. Worlds qualification attempt if Hong Kong and Bangkok have not already qualified; otherwise race it for a Pro Doubles PB.'],
 ];
 
 export const performanceMarkers = [
@@ -223,9 +225,9 @@ const W: Record<string, WeekPlan> = {
   '2026-12-21': { phase: 'BUILD · HONG KONG 5', km: '25–30 km', focus: 'The last big HYROX day before Hong Kong, 18 days out. Then the holiday trip.', days: [lower('full'), hyrox('sim'), easy(8), null, null, hotel.strengthA(), hotel.long(75)] },
   '2026-12-28': { phase: 'PRE-TAPER · HONG KONG', km: '30–34 km', focus: 'Sharp, moderate volume. Friday is the last race-pace rehearsal, 8 days out.', days: [null, lower('reduced'), key('thr3x8'), upper('reduced'), hyrox('rehearsal'), rest(), easy(12, 'Easy long-ish run. No strides.')] },
   '2027-01-04': { phase: 'TAPER · HONG KONG', km: '15–18 km', focus: 'Fresh legs for the qualification attempt.', days: [lower('taper'), key('taper400s'), hyrox('touch'), easy(4), rest(), null, null] },
-  '2027-01-11': { phase: 'RECOVER → OSAKA', km: '25–30 km', focus: 'Two easy days, then straight into the Osaka and Bangkok build.', days: [rest(), { title: 'Easy bike · 30 min', type: 'RECOVERY', duration: '30 min', rpe: '2–3', blocks: [block('FLUSH', ['30 min easy bike + 10 min mobility.'])] }, easy(6, 'Easy. No strides.'), upper('reduced'), easy(8), rest(), long(16, 'Easy. Eight days after Hong Kong; keep it conversational.')] },
-  '2027-01-18': { phase: 'BUILD · OSAKA + BANGKOK 1', km: '45–48 km', focus: 'Marathon volume up, HYROX held at race loads for Bangkok.', days: [lower('reduced'), easy(12, 'Medium-long run. No strides.'), key('thrMp'), upper('full'), hyrox('build', 4, '90 sec'), rest(), racePractice(22, '6 km easy · 5 km at marathon pace · 2 km easy · 5 km at marathon pace · 4 km easy.')] },
-  '2027-01-25': { phase: 'BUILD · OSAKA PEAK', km: '48–52 km', focus: 'Longest run of the season on Sunday, 4 weeks before Osaka and 13 days before Bangkok.', days: [lower('reduced'), easy(12, 'Medium-long run. No strides.'), key('mp'), upper('full'), hyrox('build', 5, '90 sec'), rest(), long(24)] },
+  '2027-01-11': { phase: 'RECOVER → HONG KONG MARATHON', km: '15–20 km + marathon', focus: 'Recover from HYROX Hong Kong, then arrive fresh for the marathon on Sunday (race it, approved 21 Nov).', days: [rest(), { title: 'Easy bike · 30 min', type: 'RECOVERY', duration: '30 min', rpe: '2–3', blocks: [block('FLUSH', ['30 min easy bike + 10 min mobility.'])] }, easy(6, 'Easy. No strides.'), upper('reduced'), easy(6, 'Include 2 × 1 km at 6:05–6:10/km, 2 min easy jog between.'), null, null] },
+  '2027-01-18': { phase: 'RECOVER · AFTER THE MARATHON', km: '20–25 km', focus: 'Two easy days, then HYROX comes back first for Bangkok.', days: [null, { title: 'Easy bike · 30 min', type: 'RECOVERY', duration: '30 min', rpe: '2–3', blocks: [block('FLUSH', ['30 min easy bike + 10 min mobility.'])] }, easy(6, 'Easy. No strides.'), upper('reduced'), hyrox('build', 3, '2 min'), rest(), easy(10, 'Easy. One week after the marathon. No strides.')] },
+  '2027-01-25': { phase: 'BUILD · BANGKOK + OSAKA', km: '38–42 km', focus: 'Back to full HYROX loads for Bangkok; long run trimmed two weeks after the marathon.', days: [lower('reduced'), easy(10, 'Medium run. No strides.'), key('mp'), upper('full'), hyrox('build', 5, '90 sec'), rest(), long(18, 'Easy. Two weeks after the marathon.')] },
   '2027-02-01': { phase: 'BUILD · BANGKOK', km: '38–42 km', focus: 'Race-pace HYROX rehearsal 8 days before Bangkok; long run trimmed to keep the legs fresh.', days: [lower('reduced'), easy(10), key('overUnders'), upper('reduced'), hyrox('rehearsal'), rest(), long(14, 'Easy. Bangkok is 6 days away.')] },
   '2027-02-08': { phase: 'TAPER · BANGKOK', km: '15–18 km', focus: 'Second qualification attempt. Short taper; Osaka training resumes after.', days: [lower('taper'), key('taper400s'), hyrox('touch'), easy(4), rest(), null, rest('Day after Bangkok. Walk only.')] },
   '2027-02-15': { phase: 'BRIDGE · OSAKA', km: '30–35 km', focus: 'Recover from Bangkok, rehearse marathon pace, one last moderate long run.', days: [rest(), easy(6, 'Easy. No strides.'), easy(10, 'Include 2 × 2 km at 6:00–6:10/km.'), upper('reduced'), easy(6), rest(), long(14, 'Final long run. Practise race-morning breakfast and fuelling.')] },
@@ -250,6 +252,9 @@ const races: Record<string, Spec> = {
   '2027-01-08': { title: 'Shakeout · 15 min', type: 'EASY', duration: '15 min', rpe: '2–3', blocks: [block('PRE-RACE', ['15 min easy jog + 3 strides. Final station split and changeover cues with your partner.'])] },
   [RACE_DATES.hongKong]: { title: 'AIA HYROX Hong Kong · Pro Doubles · RACE', type: 'RACE', race: true, duration: 'Afternoon wave', rpe: '9–10', blocks: [block('RACE PLAN · QUALIFICATION ATTEMPT', ['Target: set from the November and December Doubles simulations; provisional sub-1:20.', 'Runs: start at the compromised pace you held in the December simulations, then settle. Run together.', 'Stations: agreed split, short wall-ball and lunge sets, Roxzone under 20 sec per transition.', 'Carbohydrate meal 2–3 h before; 20–30 g carbohydrate 15 min before start.']), block('AFTER', ['Record official splits and age-group place. Check the Worlds slot allocation the same evening; you have 48 hours to accept.'])] },
   '2027-01-10': rest('Day after Hong Kong. Walk only.'),
+  '2027-01-16': { title: 'Shakeout · 15 min', type: 'EASY', duration: '15 min', rpe: '2–3', blocks: [block('PRE-RACE', ['15 min easy jog + 3 strides.', 'Carbohydrate-rich dinner, no new foods. Kit, bib and gels out; early night for a 6:25 a.m. start.'])] },
+  [RACE_DATES.schkm]: { title: 'Standard Chartered Hong Kong Marathon · 42.2 km · RACE', type: 'RACE', race: true, duration: '4:20–4:30 target', rpe: '8–9', blocks: [block('RACE PLAN · 8 DAYS AFTER HYROX HK', ['Target 4:20–4:30; stretch is beating the 4:23:56 PB.', 'Km 1: no faster than 6:20. Km 1–10: 6:15–6:20/km. Km 10–30: 6:05–6:15/km. Km 30 onwards: hold, or push if you feel good.', 'Bridges and tunnels: run them by effort, not pace, and let the watch drift on the climbs.', 'Stop if you have pain that changes how you move.']), block('RACE MORNING · 6:25 A.M. START', ['Breakfast 3:45–4:15 a.m.: 80–100 g carbohydrate, the same foods as your long runs.', 'In the start pen early. Warm-up: 5 min walk + leg swings and drills.', '45–60 g carbohydrate an hour, starting at 30 min. Drink to thirst.']), block('AFTER', ['Record splits. Walk, eat, sleep; rest on Monday. HYROX comes back first for Bangkok.'])] },
+  '2027-01-18': rest('Day after the marathon. Walk only.'),
   '2027-02-11': { ...easy(4), note: 'Travel to Bangkok if needed; run on arrival or skip.' },
   '2027-02-12': { title: 'Shakeout · 15 min', type: 'EASY', duration: '15 min', rpe: '2–3', blocks: [block('PRE-RACE', ['15 min easy jog + 3 strides. Station split and changeover cues confirmed.'])] },
   [RACE_DATES.bangkok]: { title: 'BYD HYROX Bangkok · Pro Doubles · RACE', type: 'RACE', race: true, duration: 'Afternoon wave', rpe: '9–10', blocks: [block('RACE PLAN', ['Second qualification attempt, or a Pro Doubles PB if Hong Kong already qualified.', 'Same execution as Hong Kong. Adjust run pace for heat: start 5–10 sec/km slower and keep drinking.', 'Osaka is 15 days later. No extra training on race weekend.'])] },
