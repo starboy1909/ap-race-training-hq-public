@@ -9,7 +9,7 @@ const rd=new URL('../.race-verification.mjs',import.meta.url).pathname;
 await build({entryPoints:['src/raceData.ts'],bundle:true,platform:'node',format:'esm',outfile:rd,logLevel:'error'});
 try {
  const {buildPlan}=await import(target);
- const {A_RACES,RACE_DATES,CUTOVER,trackWindows}=await import(sm);
+ const {A_RACES,RACE_DATES,CUTOVER,trackWindows,runnaPlan,PM}=await import(sm);
  const weeks=buildPlan();const future=weeks.flatMap(w=>w.days).filter(d=>d.iso);
  const byIso=Object.fromEntries(future.map(d=>[d.iso,d]));
  const shift=(iso,n)=>new Date(Date.parse(iso+'T12:00:00Z')+n*86400000).toISOString().slice(0,10);
@@ -45,6 +45,24 @@ try {
  for(const d of future.filter(d=>d.iso>=CUTOVER&&d.travel&&!d.race))assert.notEqual(d.type,'OPTIONAL',`travel day still optional: ${d.iso}`);
  for(const w of weeks.filter(w=>w.days[6].iso>=CUTOVER))assert.match(w.volume,/km/,`week ${w.label} has no km target`);
  const longest=Math.max(...future.filter(d=>d.iso>='2027-01-01'&&d.iso<RACE_DATES.osaka).map(km));assert.ok(longest>=24,'Osaka build reaches 24 km');
+
+ // Runna mirror: runs from Runna, changed only with a stated reason; afternoon sessions never on race, travel or rest days
+ const raceDays=new Set(Object.values(RACE_DATES));
+ for(const [iso,r] of Object.entries(runnaPlan.runs)){
+  assert.match(iso,/^\d{4}-\d\d-\d\d$/,`runna date ${iso}`);assert.ok(iso>=runnaPlan.from&&iso<=runnaPlan.to,`runna date out of range: ${iso}`);
+  assert.ok(['EASY','QUALITY','LONG'].includes(r.kind)&&r.km>0&&r.steps.length,`runna entry incomplete: ${iso}`);
+  if(r.changed)assert.ok(r.changed.was&&r.changed.why,`changed runna run without was/why: ${iso}`);
+  if(raceDays.has(iso)||raceDays.has(shift(iso,-1)))assert.ok(r.changed?.drop,`runna run on a race day or the day after: ${iso}`);
+  const d=byIso[iso];
+  if(r.changed)assert.ok(d.note?.includes('Runna had:'),`changed runna run not marked on the site: ${iso}`);
+  if(!r.changed)assert.ok(d.title.endsWith(`${r.km} km`)&&d.blocks[0].label.startsWith('RUNNA'),`site does not show the Runna run: ${iso}`);
+ }
+ assert.ok(!JSON.stringify(runnaPlan).includes('runna.com'),'no Runna links in the mirror');
+ for(const iso of Object.keys(PM)){const d=byIso[iso];
+  assert.ok(!d.race&&!d.travel&&!['REST','RECOVERY'].includes(d.type),`afternoon session on a race, travel or rest day: ${iso}`);
+  assert.match(d.secondary.title,/^Afternoon/,`afternoon session missing: ${iso}`);
+  for(const race of [RACE_DATES.hongKong,RACE_DATES.bangkok,RACE_DATES.taipei,RACE_DATES.nagoya])for(let i=1;i<=5;i++)if(shift(race,-i)===iso)assert.ok(!/simulation|rounds/.test(PM[iso].title),`hard HYROX afternoon ${i} days before ${race}`);}
+ for(const w of weeks){const doubles=w.days.filter(d=>d.secondary?.title.startsWith('Afternoon')).length;assert.ok(doubles<=(w.days[0].iso<'2027-01-04'?2:3),`too many double days in week of ${w.days[0].iso}`);}
 
  // Track option: only on key runs, never on travel days, always inside a listed open window from 19:00
  const toMin=t=>Number(t.slice(0,2))*60+Number(t.slice(3,5));

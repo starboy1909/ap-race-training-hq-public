@@ -1,5 +1,6 @@
 import type { Day } from './trainingHistory';
 import track from './data/track.json';
+import runna from './data/runna.json';
 
 // Performance season from 6 October 2026. Every future day is generated here from one
 // ranked race calendar and one week table, so season-level rules (tapers, long-run spacing,
@@ -53,7 +54,7 @@ export const performanceMarkers = [
 export const paceGuide = [
   ['Recovery', '6:30–7:10/km', 'RPE 2–3 · full sentences'],
   ['Easy / long', 'No faster than 5:50/km to 8 Nov; from 9 Nov no faster than 5:40/km with heart rate under 150', 'RPE 3–4 · a limit, not a target. October easy runs at 5:30–5:45 held heart rate 123–145, so the ceiling moves 10 sec. Slower in heat or on hills is fine'],
-  ['Marathon (Osaka)', '6:00–6:10/km (9.8–10.0 kph)', 'RPE 5 · set from your real marathons (6:15–6:28/km), not Runna’s 5:30'],
+  ['Marathon', 'Runs follow Runna from 23 Nov: 5:35/km blocks before the Hong Kong Marathon, 5:20/km before Osaka', 'Back off to 5:45–6:00/km if effort goes above RPE 7. Your real marathons were 6:15–6:28/km, so the 17 Jan race plan stays 4:20–4:30'],
   ['Threshold / tempo', '4:55–5:05/km (11.8–12.2 kph)', 'RPE 7 · from your Sep 2026 reps (4:54–5:07). 5 sec/km faster every two weeks when all reps land at RPE 7 or less'],
   ['Intervals / 5K pace', '4:35–4:45/km (12.6–13.1 kph) · JPM race pace 4:30/km', 'RPE 8 · 400 m–1.6 km reps, walking recoveries as in Runna. 21 Oct benchmark 4:26 avg at RPE 8: the band moves to 4:30–4:40 after JPM if the race is run at 4:30 or faster'],
   ['Compromised HYROX km', '5:05–5:25/km', 'RPE 7 · first 200 m controlled after sleds, then settle'],
@@ -333,7 +334,83 @@ export function seasonDay(iso: string, dow: number, monday: string, n: number): 
   return withEasyCeiling(iso, withTrack(iso, baseDay(iso, dow, monday, n)));
 }
 
+// Runs from 23 Nov 2026 to Osaka come from Amar's Runna plan (approved 21 Nov), mirrored in
+// src/data/runna.json. The site adds the afternoon strength and HYROX sessions and changes a
+// Runna run only by the rules in AGENTS.md; every change carries what Runna had and why.
+type RunnaRun = { kind: string; label: string; title: string; km: number; duration: string; steps: string[]; changed?: { was: string; why: string; drop?: boolean } };
+export const runnaPlan = runna as { from: string; to: string; checked: string; runs: Record<string, RunnaRun> };
+const inRunna = (iso: string) => iso >= runnaPlan.from && iso <= runnaPlan.to;
+const easyBike = (): Spec => ({ title: 'Easy bike · 30 min', type: 'RECOVERY', duration: '30 min', rpe: '2–3', blocks: [block('FLUSH', ['30 min easy bike + 10 min mobility.'])] });
+
+// Afternoon sessions on run days. Two double days a week until 3 Jan, then three. None on race, travel or rest days.
+export const PM: Record<string, Spec> = {
+  '2026-11-24': lower('reduced'), '2026-11-26': hyrox('sim'),
+  '2026-12-15': lower('reduced', 'Back from travel: 10% under your last gym loads.'), '2026-12-17': hyrox('build', 4, '2 min'),
+  '2026-12-21': lower('reduced'), '2026-12-22': hyrox('sim'),
+  '2026-12-29': lower('reduced'), '2026-12-31': hyrox('rehearsal'),
+  '2027-01-04': lower('taper'), '2027-01-06': hyrox('touch'),
+  '2027-01-21': hyrox('build', 3, '2 min'),
+  '2027-01-25': upper('reduced'), '2027-01-26': lower('reduced'), '2027-01-28': hyrox('build', 5, '90 sec'),
+  '2027-02-01': lower('reduced'), '2027-02-02': upper('reduced'), '2027-02-04': hyrox('rehearsal'),
+  '2027-02-08': lower('taper'), '2027-02-10': hyrox('touch'),
+  '2027-02-16': upper('reduced'),
+};
+// Days with no Runna run: one session of mine, or rest (the default).
+const NO_RUN: Record<string, Spec> = {
+  '2026-11-23': rest('Day after Guangzhou. Walk only.'),
+  '2026-12-10': hotel.hyrox(),
+  '2027-01-14': upper('reduced'), '2027-01-19': easyBike(), '2027-01-22': upper('reduced'),
+  '2027-02-18': lower('reduced'),
+  '2027-02-27': rest('Travel or rest. 10 min shakeout jog if you feel flat.'),
+};
+// Travel: one session a day. Two hotel strength sessions a week go straight after an easy run.
+const HOTEL_ADD: Record<string, Spec> = {
+  '2026-12-01': hotel.strengthA(), '2026-12-04': hotel.strengthB(),
+  '2026-12-09': hotel.strengthA(), '2026-12-11': hotel.strengthB(),
+  '2026-12-25': hotel.strengthA(),
+};
+const withMark = (spec: Spec, r?: RunnaRun): Spec => r?.changed ? { ...spec, note: [spec.note, `Runna had: ${r.changed.was}. Changed: ${r.changed.why}`].filter(Boolean).join(' ') } : spec;
+function runnaDay(iso: string): Spec {
+  const r = runnaPlan.runs[iso];
+  if (races[iso]) return withMark(races[iso], r);
+  if (!r || r.changed?.drop) return withMark(NO_RUN[iso] ?? rest(), r);
+  const name = r.title.startsWith(`${r.km}km `) ? r.title.slice(`${r.km}km `.length) : r.title;
+  const steps = r.steps.some(x => /marathon pace/i.test(x)) ? [...r.steps, 'Back off to 5:45–6:00/km if effort goes above RPE 7.'] : r.steps;
+  const add = HOTEL_ADD[iso];
+  return withMark({
+    title: `${name} · ${r.km} km`, type: r.kind, duration: r.duration, rpe: r.kind === 'QUALITY' ? '7–8' : r.kind === 'LONG' ? '3–5' : '3–4',
+    blocks: [block(`RUNNA · ${r.label.toUpperCase()}`, steps), ...(add ? (add.blocks ?? []).map(b => block(`AFTER THE RUN · ${add.title!.toUpperCase()}`, b.items)) : [])],
+  }, r);
+}
+const RUNNA_FOCUS: Record<string, string> = {
+  '2026-11-23': 'Rest the day after Guangzhou. Runs follow Runna from this week; lower strength on Tuesday afternoon and the Doubles simulation on Thursday afternoon, before travel.',
+  '2026-11-30': 'Travel: one session a day. Runna runs first; hotel strength straight after the easy run on Tuesday and Friday.',
+  '2026-12-07': 'Travel: one session a day. Hotel strength after the easy run on Wednesday and Friday, treadmill HYROX circuit on Thursday. Monday 14 Dec is the travel home.',
+  '2026-12-14': 'Back on the sleds at race load. Double days on Tuesday (lower strength) and Thursday (HYROX).',
+  '2026-12-21': 'The last big HYROX day before Hong Kong on Tuesday afternoon, 18 days out. Then the holiday trip: runs only, one hotel strength session.',
+  '2026-12-28': 'Sharp. Thursday afternoon is the last race-pace rehearsal, 9 days out. Saturday long run capped at 20 km because Hong Kong comes first.',
+  '2027-01-04': 'Fresh legs for the qualification attempt. Strength touch Monday, HYROX touch Wednesday, shakeout Friday.',
+  '2027-01-11': 'Recover from HYROX Hong Kong, then arrive fresh for the marathon on Sunday (race it, approved 21 Nov).',
+  '2027-01-18': 'Two easy days, then HYROX comes back first for Bangkok on Thursday afternoon.',
+  '2027-01-25': 'Three double days from this week: upper Monday, lower Tuesday, HYROX at race loads Thursday.',
+  '2027-02-01': 'Race-pace HYROX rehearsal on Thursday afternoon, 9 days before Bangkok. Saturday long run capped at 20 km because Bangkok comes first.',
+  '2027-02-08': 'Second qualification attempt on Saturday. Strength touch Monday, HYROX touch Wednesday, 4 km Thursday, shakeout Friday.',
+  '2027-02-15': 'Recover from Bangkok. Runna leads into the Osaka taper; two short strength sessions, no HYROX.',
+  '2027-02-22': 'Arrive fresh for Osaka. Runs only. Finish strong.',
+};
+function runnaWeekKm(monday: string): number {
+  let km = 0;
+  for (let i = 0; i < 7; i++) {
+    const iso = new Date(Date.parse(`${monday}T12:00:00Z`) + i * 86400000).toISOString().slice(0, 10);
+    const r = runnaPlan.runs[iso];
+    if (r && !r.changed?.drop && !races[iso]) km += r.km;
+  }
+  return Math.round(km);
+}
+const RACE_SUFFIX: Record<string, string> = { '2027-01-04': ' + race', '2027-01-11': ' + marathon', '2027-02-08': ' + race', '2027-02-22': ' + marathon' };
+
 function baseDay(iso: string, dow: number, monday: string, n: number): Spec {
+  if (inRunna(iso)) return runnaDay(iso);
   if (races[iso]) return races[iso];
   const p = postOsaka(iso, dow); if (p) return p;
   const week = W[monday];
@@ -348,6 +425,7 @@ function baseDay(iso: string, dow: number, monday: string, n: number): Spec {
 
 export function seasonWeek(monday: string, n: number): { phase: string; volume: string; focus: string; gate: string } | null {
   const w = W[monday];
+  if (w && RUNNA_FOCUS[monday]) return { phase: w.phase, volume: `Target ${runnaWeekKm(monday)} km${RACE_SUFFIX[monday] ?? ''}`, focus: RUNNA_FOCUS[monday], gate };
   if (w) return { phase: w.phase, volume: `Target ${w.km}`, focus: w.focus, gate };
   if (monday === '2027-03-08') return { phase: 'BRIDGE · TAIPEI', volume: 'Target 10–15 km + race', focus: 'Second week after Osaka: easy legs, one short HYROX touch, then HYROX Taipei on Saturday. Finish strong; Osaka came first.', gate };
   if (monday === '2027-03-15') return { phase: 'RECOVER · AFTER TAIPEI', volume: 'Target 20–25 km', focus: 'Travel home Monday, then a gentle return to lifting and running.', gate };
@@ -358,6 +436,12 @@ export function seasonWeek(monday: string, n: number): { phase: string; volume: 
 }
 
 export function seasonSecondary(day: Day): Day['secondary'] {
+  const single = { title: 'No second workout today', items: ['One session today. Rest, food and sleep are the work.'] };
+  if (day.iso && inRunna(day.iso)) {
+    const pm = PM[day.iso];
+    if (!pm || day.race || day.travel || ['REST', 'RECOVERY'].includes(day.type)) return single;
+    return { title: `Afternoon · ${pm.title} · ${pm.duration}`, items: ['At least 6 hours after the run, with a full meal in between.', ...(pm.note ? [pm.note] : []), ...(pm.blocks ?? []).map(b => `${b.label}: ${b.items.join(' ')}`)] };
+  }
   if (day.race || day.travel || ['REST', 'RECOVERY'].includes(day.type) || /TAPER|RECOVER/.test(day.title)) return { title: 'No second workout today', items: ['One session today. Rest, food and sleep are the work.'] };
   if (day.type === 'EASY' && day.dow === 'TUE') return { title: 'Optional · upper muscle · 30 min', items: ['At least 6 hours after the run. Incline dumbbell press 3 × 10 · cable row 3 × 12 · lateral raise 2 × 15 · curl 2 × 12.', 'Leave 2 reps in reserve. Skip it when sleep was short.'] };
   return { title: 'Optional · mobility · 15 min', items: ['Hips, ankles and thoracic spine. Dead bug and side plank 2 sets each.'] };

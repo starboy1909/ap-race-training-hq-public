@@ -9,7 +9,7 @@ Every push to `main` goes live. These rules apply to every agent (Codex, ChatGPT
 - Run `npm ci` and `npm run check` before every push. Do not push if it fails.
   `npm run check` runs the unit tests (`scripts/garmin-analysis-core.test.mjs`, `src/lib/*.test.ts`), `scripts/verify-training-plan.mjs` (season rules) and the build.
 - One pull request per change. Explain what changed and why in the PR description, with the evidence.
-- No scheduled jobs, automations or scripts that commit or push on their own. The one exception is Claude's Sunday sync, which only opens a pull request.
+- No scheduled jobs, automations or scripts that commit or push on their own. The one exception is Claude's Sunday sync, which only opens a pull request. It also refreshes the Runna mirror (`src/data/runna.json`) from Amar's Runna calendar.
 
 ## 2. Where things live
 | What | File | Rule |
@@ -18,6 +18,8 @@ Every push to `main` goes live. These rules apply to every agent (Codex, ChatGPT
 | Plan assembly and history | `src/trainingPlan.ts`, `src/trainingHistory.ts`, `src/buildRevision.ts` | Do not add date patches such as `if(iso==='2027-01-05')`. Past days stay exactly as published. |
 | Ranked goals, pace guide, markers | `src/seasonPlan.ts` (`seasonGoals`, `paceGuide`, `performanceMarkers`) | Change only with new race or test evidence. |
 | Race calendar and entry status | `src/raceData.ts` | Paid, registered, waitlisted and watch stay separate. Add a source and a checked date. |
+| Runs, 23 Nov 2026 to Osaka | `src/data/runna.json` | Mirror of Amar's Runna plan. Refreshed only by Claude's Sunday sync; other agents do not edit it. No Runna links or IDs. A changed run carries `changed.was` and `changed.why`. |
+| Afternoon sessions on run days | `src/seasonPlan.ts` (`PM`) | Strength and HYROX next to the Runna run. Two double days a week until 3 Jan 2027, then three at most. None on race, travel or rest days. |
 | Completed activities | `src/data/completions.json` | Append only. Written by the Sunday sync from Strava. |
 | Strength sessions | `src/data/strength.json` | Append only. Added from Amar's Strong screenshots. |
 | Local track timetable | `src/data/track.json` | One entry per month from the venue timetable Amar sends: open (A) and limited-lane (L) slots only, with source, issued and checked dates. Call it "local track" on the site; no venue name. Key runs show an optional evening track line; the morning session stays the default. |
@@ -26,6 +28,14 @@ Every push to `main` goes live. These rules apply to every agent (Codex, ChatGPT
 
 ## 3. Training rules
 - **Goal ranking:** JPM (5 Nov, the focus until race day; Shanghai is withdrawn, entry refunded) → Hong Kong (9 Jan) → Bangkok (13 Feb) → Hong Kong Marathon (17 Jan, raced; Amar 21 Nov) → Osaka (28 Feb, finish strong) → Taipei (13 Mar, finish strong) → Nagoya (17 Apr). When two goals compete, the higher one wins.
+- **Runs come from Runna (Amar, 21 Nov).** From 23 Nov 2026 to Osaka the site shows Runna's runs as Runna wrote them, at Runna's paces. The only changes allowed:
+  - rest the day after a race, and no Runna run on a race day;
+  - no run over 14 km in the 6 days before an A race;
+  - long run capped at 20 km 7–8 days before HYROX Hong Kong and Bangkok;
+  - marathon-pace blocks carry "back off to 5:45–6:00/km if effort goes above RPE 7";
+  - race plans in `src/seasonPlan.ts` stay as approved.
+
+  The site plans the afternoon strength and HYROX sessions. Travel days have one session.
 - **Changing a future workout** needs Amar's explicit approval in the conversation. One run, one Garmin metric, sleep, HRV or Body Battery is never enough on its own to change the plan.
 - **Season rules enforced by `verify-training-plan.mjs`:**
   - every paid race is in the plan;
@@ -36,7 +46,7 @@ Every push to `main` goes live. These rules apply to every agent (Codex, ChatGPT
   - every week has a km target.
 
   Do not weaken these checks to make a change pass.
-- **Paces come from evidence:**
+- **Paces come from evidence** (for sessions the site plans; Runna runs use Runna's paces):
   - threshold 4:55–5:05/km;
   - intervals 4:35–4:45/km; JPM race pace 4:30/km (21 Oct benchmark, 4:26 average at RPE 8);
   - easy runs no faster than 5:50/km to 8 Nov 2026, then no faster than 5:40/km with heart rate under 150 (`EASY_CEILING_FROM` in `src/seasonPlan.ts`);
