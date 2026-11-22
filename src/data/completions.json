@@ -532,5 +532,107 @@
     "maxHr": 137,
     "pace": "5:48/km",
     "note": "Easy and even: every km 5:40–5:53, heart rate 119–131. First run back since 8 Nov."
+  },
+  {
+    "date": "2026-11-16",
+    "type": "hyrox",
+    "source": "strava",
+    "planned": "HYROX touch · Open loads",
+    "title": "Morning HIIT",
+    "time": "1:01:04",
+    "avgHr": 108,
+    "maxHr": 154,
+    "stations": "Sled push 3 × 25 m at 218 kg · sled pull at 170/218/170 kg · 3 × 250 m treadmill · wall balls 9 kg · goblet squats · calf raises",
+    "note": "10 min easy bike warm-up folded in. Longer than the planned 35 min touch."
+  },
+  {
+    "date": "2026-11-17",
+    "type": "run",
+    "source": "strava",
+    "planned": "Easy run · 8 km",
+    "title": "Morning Run",
+    "distanceKm": 7.72,
+    "time": "46:56",
+    "avgHr": 155,
+    "note": "About 7 × 300 m at 4:30–5:10/km with 300 m jogs, in place of the planned 3 × 1 min at race pace. Session modified."
+  },
+  {
+    "date": "2026-11-18",
+    "type": "run",
+    "source": "strava",
+    "planned": "Broken Miles",
+    "title": "Morning Run (treadmill)",
+    "distanceKm": 6.25,
+    "time": "35:01",
+    "pace": "5:36/km",
+    "note": "Treadmill 5:25–5:32/km, heart rate 138→162. Broken miles moved to Thursday. 8 min easy bike warm-up folded in."
+  },
+  {
+    "date": "2026-11-18",
+    "type": "strength",
+    "source": "strava",
+    "planned": "Broken Miles",
+    "title": "Lunch Weight Training",
+    "time": "1:07:47",
+    "note": "Strava duration only; no Strong screenshots."
+  },
+  {
+    "date": "2026-11-19",
+    "type": "run",
+    "source": "strava",
+    "planned": "Upper strength + wall balls",
+    "title": "Morning Run · broken miles",
+    "distanceKm": 8.16,
+    "time": "45:51",
+    "avgHr": 162,
+    "maxHr": 185,
+    "note": "6 × 1 km at 5:14 / 5:04 / 5:04 / 5:01 / 5:02 / 5:04, 90 s walk rests. No tape; ankle fine (Amar). Moved from Wednesday."
+  },
+  {
+    "date": "2026-11-19",
+    "type": "strength",
+    "source": "strava",
+    "planned": "Upper strength + wall balls",
+    "title": "Lunch Weight Training",
+    "time": "39:59",
+    "note": "Strava duration only; no Strong screenshots."
+  },
+  {
+    "date": "2026-11-20",
+    "type": "run",
+    "source": "strava",
+    "planned": "Easy run · 5 km",
+    "title": "Morning Run (treadmill)",
+    "distanceKm": 6.01,
+    "time": "34:17",
+    "avgHr": 149,
+    "maxHr": 164,
+    "pace": "5:29/km",
+    "note": "Every km 5:27–5:31; heart rate drifted 142→161. Faster than the 5:40/km easy ceiling."
+  },
+  {
+    "date": "2026-11-21",
+    "type": "run",
+    "source": "strava",
+    "planned": "Shakeout 15–20 min",
+    "title": "Morning Run (treadmill)",
+    "distanceKm": 4.32,
+    "time": "25:01",
+    "avgHr": 140,
+    "maxHr": 155,
+    "pace": "5:47/km",
+    "note": "Km 2–4 at 5:26–5:31. Longer than the planned 15–20 min shakeout."
+  },
+  {
+    "date": "2026-11-22",
+    "type": "hyrox",
+    "source": "strava",
+    "planned": "HYROX Guangzhou · Doubles Men (Open) · RACE",
+    "title": "HYROX Guangzhou · Doubles Men",
+    "time": "1:08:42",
+    "avgHr": 163,
+    "maxHr": 187,
+    "stations": "SkiErg 4:12 · sled push 2:02 · sled pull 3:39 · burpee broad jumps 2:43 · row 4:24 · farmers carry 1:32 · lunges 2:40 · wall balls 3:55 · roxzone 4:19",
+    "note": "Sub-1:10 target met. Runs 5:44 / 4:32 / 4:50 / 4:36 / 4:40 / 4:33 / 4:36 / 5:52 (39:23 total, 4:55 average); stations 25:07. Age-group rank 46. Splits from ROXFIT; official results to confirm. 2 min warm-up jog not logged separately."
   }
 ]
